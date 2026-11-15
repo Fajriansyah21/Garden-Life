@@ -3,6 +3,20 @@
 Aturan: **hanya ditambah, tidak dihapus.** Untuk mengubah keputusan, tulis entri baru yang menyebut "Menggantikan D-0xx".
 Entri terbaru di paling atas.
 
+### D-011 · Area dan penumpukan efek penyiraman
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Menentukan bentuk area penyiraman dan batas penumpukan efek agar Watering Can serta Sprinkler memiliki aturan dasar yang konsisten.
+- Keputusan:
+  - Area efek penyiraman berbentuk lingkaran.
+  - Efek penyiraman dapat bertambah melalui penggunaan berulang atau sumber penyiraman lain, tetapi hanya sampai batas maksimum.
+  - Efek gabungan tidak boleh melewati batas maksimum yang ditetapkan dalam balancing.
+  - Radius area dan nilai batas maksimum belum ditentukan dan harus ditetapkan dalam spec sebelum implementasi.
+- Alternatif yang ditolak: Efek penyiraman tanpa batas, karena dapat mempercepat pertumbuhan secara tidak terkendali dan merusak ekonomi tanaman.
+- Dampak: Watering Can dan Sprinkler menggunakan area lingkaran. Sistem pertumbuhan perlu menghitung efek gabungan secara server dan membatasi hasilnya pada cap. Angka radius serta cap tetap menjadi parameter tuning.
+
+
 ## Format
 
 ```
