@@ -3,6 +3,21 @@
 Aturan: **hanya ditambah, tidak dihapus.** Untuk mengubah keputusan, tulis entri baru yang menyebut "Menggantikan D-0xx".
 Entri terbaru di paling atas.
 
+### D-021 · Setiap buah hanya dapat memperoleh mutasi banjir satu kali
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Peluang mutasi banjir 5% per menit tetap dapat menghasilkan mutasi berulang pada buah yang sama jika tanaman dibiarkan kebanjiran cukup lama. Mutasi bertumpuk dapat menjadikan membiarkan tanaman dalam kondisi berbahaya sebagai strategi farming yang terlalu menguntungkan.
+- Keputusan:
+  - Setiap buah hanya dapat berhasil memperoleh mutasi banjir satu kali sepanjang siklus hidup buah tersebut.
+  - Setelah mutasi banjir berhasil diterapkan pada sebuah buah, buah itu tidak lagi mengikuti roll mutasi banjir berikutnya.
+  - Jika roll gagal, buah tetap eligible untuk roll berikutnya sesuai interval paparan dan peluang yang berlaku pada WaterLevel.
+  - Aturan ini tidak mengubah peluang atau interval: WaterLevel 4,00-4,99 tetap 5% per 2 menit paparan; WaterLevel 5,00 tetap 5% per 1 menit paparan, mengikuti D-019 dan D-020.
+  - Status keberhasilan mutasi banjir harus disimpan per buah dan divalidasi server-authoritative.
+- Alternatif yang ditolak: Mengizinkan mutasi banjir berulang/bertumpuk pada buah yang sama, karena durasi banjir yang lebih lama akan memberi keuntungan mutasi berulang dan mendorong pemain sengaja membiarkan tanaman dalam kondisi berbahaya.
+- Dampak: FEAT-002 diperbarui ke v11. Data buah perlu menyimpan penanda apakah mutasi banjir sudah berhasil diterapkan. Buah yang sudah bermutasi tetap dapat dipanen seperti biasa; aturan ini hanya membatasi roll mutasi banjir lanjutan.
+ 
+
 ### D-011 · Area dan penumpukan efek penyiraman
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
