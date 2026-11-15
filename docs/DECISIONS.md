@@ -82,6 +82,26 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Durasi 5 atau 10 menit; pemilik memilih 3 menit.
 - Dampak: FEAT-002 harus menghentikan efek zona tepat setelah 180 detik berdasarkan waktu server.
 
+### D-018 · Skala WaterLevel pecahan dan tuning penyiraman/pengeringan
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Menggantikan: D-017 untuk representasi skala dan nilai perubahan WaterLevel. Ketentuan level 4/5 sebagai kondisi berbahaya dan pemulihan saat keluar dari rentang berbahaya tetap dipertahankan dengan penyesuaian numerik.
+- Konteks: Nilai penyiraman dan pengeringan membutuhkan perubahan pecahan, sehingga WaterLevel integer 0-5 tidak lagi memadai.
+- Keputusan:
+  - WaterLevel memiliki rentang 0,00 sampai 5,00 dan presisi 0,01. Rekomendasi implementasi: simpan sebagai integer 0-500 dalam satuan seperseratus untuk menghindari galat floating point.
+  - Label: 0 = Kering; 1 = Tanah sedikit basah; 2 = Tanah lumayan basah; 3 = Tanah Basah (rekomendasi umum); 4 = Tanah terlalu basah/Overwatered; 5 = Tanah kebanjiran/Flooded. Nilai pecahan di antara label tetap valid.
+  - WaterLevel >=4,00 memicu kondisi berbahaya dan timer kematian. Tanaman mati setelah 15 menit terus-menerus berada pada WaterLevel >=4,00. Jika WaterLevel turun di bawah 4,00 sebelum timer habis, tanaman pulih dan timer dibatalkan.
+  - Satu tick sistem berdurasi 30 detik.
+  - Watering Can menambah WaterLevel 0,50 per penggunaan pada setiap tanaman yang terkena.
+  - Sprinkler menambah WaterLevel 0,15 per tick selama 10 menit (600 detik / 20 tick).
+  - Soil Aerator mengurangi WaterLevel 0,50 per tick dan zona aktif selama 2,5 menit (150 detik / 5 tick).
+  - Pengeringan alami dipicu cuaca panas atau musim Summer. Laju dan interval pengurangan belum ditentukan.
+  - Saat WaterLevel mencapai 4,00 atau lebih, Billboard Alert muncul di atas tanaman.
+  - Pemicu mutasi buah: pada WaterLevel 4, peluang mutasi 5% per 2 menit paparan; pada WaterLevel 5, peluang mutasi banjir 25% per 1 menit paparan. Cara menghitung percobaan peluang per buah dan akumulasi paparan lintas perubahan level masih perlu dirinci sebelum implementasi.
+- Alternatif yang ditolak: Mempertahankan WaterLevel integer saja, karena tidak dapat mewakili penambahan 0,15 dari Sprinkler.
+- Dampak: FEAT-002 dan GDD harus menggunakan skala pecahan yang sama. Seluruh perubahan WaterLevel, timer kematian, dan peluang mutasi dihitung server-authoritative.
+
 ### D-017 · Skala kadar air tanaman 0-5
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
