@@ -1,5 +1,35 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui kerangka Player Journey empat tahap: First Visit, Early Garden, Growing Garden, dan Established Garden.
+  - D-024 ditambahkan untuk mencatat struktur empat tahap sebagai kerangka pengalaman, bukan level atau gerbang waktu.
+  - Dibuat docs/design/PLAYER_JOURNEY.md v0.1 berstatus DRAFT, berisi tujuan tiap tahap, aktivitas, feedback, sinyal transisi, risiko, loop lintas tahap, analisis, dependensi, dan pertanyaan terbuka.
+  - GDD diperbarui ke v1.7.
+  - Roadmap diperbarui ke v0.3 dan mencatat Player Journey sebagai artefak DRAFT Fase 1.
+  - README ditambahkan tautan Player Journey.
+- File diubah / dibuat:
+  - docs/design/PLAYER_JOURNEY.md
+  - docs/DECISIONS.md (D-024)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v1.7)
+  - docs/ROADMAP.md (v0.3)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Target pemain yang lebih spesifik dan tiga game referensi.
+  - Bentuk onboarding: tutorial terpandu, kontekstual, atau kombinasi.
+  - Definisi tindakan kreatif pertama.
+  - Jalur memperoleh dekorasi selain farming.
+  - Bentuk progres jangka menengah dan fitur sosial First Release.
+  - Metrik pengalaman 5 menit pertama dan baseline playtest.
+- Asumsi / risiko:
+  - Detail aktivitas pada tiap tahap di PLAYER_JOURNEY.md adalah rancangan DRAFT; tidak otomatis menjadi scope First Release.
+  - Tidak ada angka level, durasi, harga, peluang, atau target metrik baru yang disetujui.
+  - Tidak ada perubahan kode.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui identitas visi jangka panjang Garden Life sebagai **Cozy Garden Life Simulator**.
   - D-023 ditambahkan: kebun pribadi yang terus berkembang menjadi ruang personal; pengalaman berpusat pada dekorasi, ekspresi, koleksi tanaman unik, perawatan santai, dan kunjungan sosial. Farming menjadi aktivitas pendukung.
   - GDD diperbarui ke v1.6.
