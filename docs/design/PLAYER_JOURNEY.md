@@ -1,9 +1,9 @@
 # PLAYER JOURNEY · Garden Life
 
 **Status:** DRAFT  
-**Versi:** 0.3  
+**Versi:** 0.4  
 **Tanggal:** 2026-11-15  
-**Terkait:** D-008, D-009, D-010, D-023, D-024, D-025, D-026; GDD v1.9  
+**Terkait:** D-008, D-009, D-010, D-023, D-024, D-025, D-026, D-027; GDD v2.0  
 **Tujuan dokumen:** Menggambarkan perjalanan pengalaman pemain dari pertama kali masuk hingga memiliki kebun yang berkembang dan identitas personal.
 
 > Dokumen ini adalah rancangan pengalaman pemain, bukan spesifikasi implementasi atau persetujuan scope rilis. Aturan, fitur, angka, dan sistem yang belum diputuskan tetap ditandai sebagai usulan atau BELUM DIPUTUSKAN. Status dokumen hanya dapat diubah menjadi READY oleh pemilik proyek.
@@ -64,12 +64,12 @@ Pemain mengenali plot sebagai ruang personal, mengetahui bahwa Starter Kit terse
 - Setelah pesan menghilang, lanjutkan ke penanda visual dan prompt Inventory sesuai D-025.
 - Pesan sambutan hanya ditampilkan pada kunjungan pertama pemain ke plot pribadinya.
 
-### Alur onboarding First Visit (D-025, dilengkapi D-026)
+### Alur onboarding First Visit (D-025, D-026, dan D-027)
 
 | Urutan | Pemicu / tindakan pemain | Respons game | Catatan desain |
 |---:|---|---|---|
 | 1 | Pemain masuk ke plot pribadinya untuk pertama kali | Tampilkan plot kosong dan pesan sambutan selama 3 detik | Pemain langsung dapat bergerak; kamera normal; tanpa cinematic, camera lock, atau NPC (D-026) |
-| 2 | Pesan sambutan selesai dan pemain mendapat kesempatan mengenali plot | Beri penanda visual pada tombol Inventory dan prompt singkat | Contoh teks: "Perlengkapan kebunmu sudah tersedia. Buka Inventory untuk melihatnya!" (D-025) |
+| 2 | Pesan sambutan selesai dan pemain mendapat kesempatan mengenali plot | Beri penanda visual pada tombol Inventory dan prompt singkat yang tetap tersedia sampai Inventory dibuka | Prompt tidak mengejar karakter; berikan satu penekanan visual awal yang halus, tanpa pulse berulang (D-027) |
 | 3 | Pemain menekan tombol Inventory | Buka panel Inventory | Panel tidak dibuka otomatis |
 | 4 | Inventory tampil | Tampilkan ketiga kelompok: Tools, Farming, Decorations | Ketiganya terlihat sekaligus sejak awal |
 | 5 | Pengenalan kelompok dimulai | Highlight dan tooltip memperkenalkan Tools, lalu Farming, lalu Decorations | Navigasi tidak dikunci; pemain bebas memilih kelompok lain |
@@ -386,6 +386,7 @@ Jangan menetapkan target angka sebelum ada baseline playtest.
 
 | Versi | Tanggal | Perubahan | Status |
 |---|---|---|---|
+| v0.4 | 2026-11-15 | Memperjelas perilaku prompt Inventory berdasarkan D-027: tetap tersedia secara halus sampai Inventory dibuka, tanpa mengejar pemain atau pulse berulang | DRAFT |
 | v0.3 | 2026-11-15 | Menambahkan Arrival & First Impression berdasarkan D-026: kontrol langsung aktif, tanpa cinematic/NPC, dan pesan sambutan non-blocking selama 3 detik sebelum prompt Inventory | DRAFT |
 | v0.2 | 2026-11-15 | Memperinci alur First Visit berdasarkan D-025: Inventory dibuka pemain, pengenalan tiga kelompok Starter Kit, pilihan bertani/dekorasi, dan tindakan kreatif pertama | DRAFT |
 | v0.1 | 2026-11-15 | Draft awal empat tahap perjalanan pemain, loop lintas tahap, analisis, dependensi, dan pertanyaan terbuka | DRAFT |
