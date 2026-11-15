@@ -1,5 +1,30 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan Soil Aerator sebagai consumable dengan area lingkaran dan efek mempercepat pengeringan secara bertahap (D-015).
+  - FEAT-002 diperbarui ke v5: satu aktivasi mengonsumsi satu item dan membentuk zona pengeringan yang mengurangi WaterLevel tanaman dalam radius melalui tick server.
+  - Pemulihan tanaman tetap mengikuti D-013; jika WaterLevel kembali ke/bawah toleransi sebelum timer habis, tanaman pulih.
+  - GDD diperbarui ke v1.2.
+- File diubah:
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Radius Soil Aerator.
+  - Interval tick, laju pengurangan WaterLevel per tick, dan durasi zona.
+  - Aturan zona yang tumpang tindih dan batas zona aktif per plot.
+  - Kebijakan aktivasi tanpa tanaman dalam radius.
+  - Apakah zona berupa perangkat fisik yang terlihat atau efek area sementara.
+  - Parameter Watering Can, Sprinkler, toleransi tanaman, dan durasi Overwatered.
+- Asumsi / risiko:
+  - Satu aktivasi mengonsumsi satu item dan menciptakan satu zona pengeringan yang tetap aktif tanpa pemain berada di dekatnya; rancangan ini perlu dikunci pada balancing.
+  - Pengeringan hanya mengubah WaterLevel, bukan bonus pertumbuhan.
+  - Semua angka tuning masih BELUM DIPUTUSKAN.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik memilih opsi A untuk kematian tanaman: Overwatered bertahap dengan kesempatan pulih (D-013).
   - Pemilik menyatakan Garden Life membutuhkan tool tambahan untuk mengurangi kadar air tanah (D-014).
   - FEAT-002 diperbarui ke v4 dengan rancangan sementara Soil Aerator.
