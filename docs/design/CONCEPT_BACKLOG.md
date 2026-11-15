@@ -22,6 +22,7 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 | Kapasitas maksimum | 3 pemain setelah upgrade | Dikonfirmasi |
 | Undangan | Pemain yang menerima undangan berpindah dari plot asal ke plot pengundang; plot asal tersedia kembali | Dikonfirmasi |
 | Disconnect | Active Owner berpindah ke anggota lain; kembali ke Original Owner saat ia bergabung lagi | Dikonfirmasi; urutan pemilihan pengganti belum ditentukan |
+| Hak Build | Original Owner dan Active Owner memiliki hak pengelolaan penuh; anggota hanya dapat memasang item sendiri dan mengubah objek miliknya sendiri | Dikonfirmasi (D-006) |
 
 ## 3. Tile, dekorasi, dan ekspansi
 
@@ -39,6 +40,8 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 | Harga dan syarat upgrade | Belum ditentukan | Terbuka |
 
 **Aturan penempatan yang telah dikonfirmasi (D-004):** Farm Tile dan Build Tile memakai grid placement 5×5. Dekorasi, bangunan, dan tanaman memakai free placement. Snap to Grid tersedia sebagai opsi yang dapat diaktifkan/dinonaktifkan. Rotasi objek menggunakan interval 90° sebagai aturan awal.
+
+**Hak Build multiplayer yang dikonfirmasi (D-006):** Original Owner dan Active Owner dapat Place, Move, dan Store seluruh objek di plot. Anggota hanya dapat Place dari inventori sendiri serta Move/Store objek dengan OwnerUserId miliknya sendiri. Anggota tidak dapat mengelola hak anggota plot.
 
 **Aturan tabrakan yang dikonfirmasi (D-005):** GroundTile tidak boleh bertumpuk dengan GroundTile lain dan tidak memblokir objek di atasnya. Solid (bangunan/objek besar) tidak boleh overlap dengan Solid atau Detail. Detail (tanaman/dekorasi kecil) boleh overlap dengan Detail lain, tetapi tidak boleh menembus Solid. Setiap asset wajib memiliki PlacementProfile dan bounding volume.
 
@@ -88,5 +91,5 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 - Apakah perlu aturan tabrakan berbeda untuk tile, dekorasi, bangunan, dan tanaman?
 - Apa loop farming minimum yang cukup untuk mendukung pembelian dekorasi?
 - Bagaimana pemain memperoleh, menyimpan, dan membelanjakan Life Coin?
-- Bagaimana hak anggota plot dibedakan (build, farm, bank, invite, remove)?
+- Bagaimana hak anggota plot di luar Build Mode dibedakan (farm, bank, invite, remove)?
 - Apa aturan penyelesaian sesi dan penyimpanan layout saat beberapa pemain mengedit bersamaan?
