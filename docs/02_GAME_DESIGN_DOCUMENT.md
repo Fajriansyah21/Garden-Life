@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.7 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.8 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -34,7 +34,7 @@ Loop konseptual utama:
 7. Menggunakan Life Coin untuk membuka ruang, membeli tile, tanaman, atau dekorasi.
 8. Kembali menata kebun sesuai kreativitas pemain.
 
-**Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan. Isi starter inventory dan hadiah tutorial belum diputuskan.
+**Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan.\n\n**Starter Kit (D-009):** Pemain baru menerima Starter Kit gratis sebagai item inventori. Item tidak otomatis ditempatkan di plot. Jenis item, jumlah, waktu pemberian, dan aturan perolehan ulang masih BELUM DIPUTUSKAN.
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
@@ -82,7 +82,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 ### Plot server
 - Satu server menyediakan 4 plot persisten.
 - Sesuai D-008, plot pemain dimulai kosong: tidak ada dekorasi, bangunan, atau tanaman yang sudah ditempatkan ketika pemain pertama kali masuk.
-- Isi starter inventory dan hadiah tutorial masih BELUM DIPUTUSKAN; kondisi plot kosong tidak berarti inventori harus kosong.
+- Sesuai D-009, pemain baru menerima Starter Kit gratis sebagai item inventori. Isi dan jumlah item masih BELUM DIPUTUSKAN; kondisi plot kosong tidak berarti inventori kosong.
 - Plot tetap terikat pada Original Owner, termasuk ketika pemilik sedang offline.
 - Pemain yang diundang dapat berpindah dari plot miliknya sendiri ke plot pengundang; plot asalnya menjadi tersedia bagi pemain lain.
 - Original Owner adalah pemilik permanen plot.
