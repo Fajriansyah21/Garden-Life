@@ -38,7 +38,9 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 | Posisi objek | Objek yang sudah ditempatkan tetap pada posisi tetap saat plot berkembang | Dikonfirmasi |
 | Harga dan syarat upgrade | Belum ditentukan | Terbuka |
 
-Grid penempatan, rotasi, batas jumlah objek, tabrakan, pemindahan, penyimpanan layout, dan perilaku objek saat ekspansi masih harus dirinci.
+**Aturan penempatan yang telah dikonfirmasi (D-004):** Farm Tile dan Build Tile memakai grid placement 5×5. Dekorasi, bangunan, dan tanaman memakai free placement. Snap to Grid tersedia sebagai opsi yang dapat diaktifkan/dinonaktifkan. Rotasi objek menggunakan interval 90° sebagai aturan awal.
+
+Batas area penempatan, batas jumlah objek, validasi tabrakan, pemindahan, penyimpanan layout, dan perilaku objek saat ekspansi masih harus dirinci.
 
 ## 4. Shared Savings / Bank
 
@@ -80,8 +82,8 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 
 ## 7. Pertanyaan desain berikutnya
 
-- Bagaimana sistem build mode bekerja (grid/snap, rotasi, preview, konfirmasi, undo/move)?
-- Apakah dekorasi dapat ditempatkan bebas di seluruh plot atau hanya area Build Tile?
+- Bagaimana detail Build Mode (preview, konfirmasi, undo/move) dan batas area penempatan?
+- Apakah perlu aturan tabrakan berbeda untuk tile, dekorasi, bangunan, dan tanaman?
 - Apa loop farming minimum yang cukup untuk mendukung pembelian dekorasi?
 - Bagaimana pemain memperoleh, menyimpan, dan membelanjakan Life Coin?
 - Bagaimana hak anggota plot dibedakan (build, farm, bank, invite, remove)?
