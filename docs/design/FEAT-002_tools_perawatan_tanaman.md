@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v1 |
+| Versi | v2 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -46,6 +46,13 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 5. Penggunaan berulang tidak boleh menghasilkan bonus tanpa batas.
 6. Area penyiraman ditentukan berdasarkan posisi titik penggunaan dan radius; tanaman tepat pada batas radius dianggap berada di dalam area.
 7. Watering Can bersifat manual dan memberikan efek langsung pada saat digunakan.
+8. Sistem wajib membedakan `WaterLevel` (akumulasi kadar air tanaman) dari `WateringEffectValue` (bonus pertumbuhan). Keduanya tidak boleh disimpan atau dihitung sebagai satu nilai yang sama.
+9. Setiap jenis tanaman memiliki `MaxWaterTolerance`. Nilai ini menentukan kadar air maksimum yang dapat ditoleransi tanpa risiko overwatering.
+10. Sumber penyiraman menambah `WaterLevel` sesuai nilai aplikasi masing-masing. Bonus pertumbuhan dari penyiraman dihitung terpisah dan tetap mengikuti cap D-011.
+11. Jika `WaterLevel` melebihi `MaxWaterTolerance`, tanaman masuk status `Overwatered`. Status ini dapat berujung pada kematian jika kondisi berlangsung melewati durasi toleransi.
+12. Rekomendasi desain DRAFT: gunakan fase peringatan/Overwatered sebelum kematian, bukan kematian instan pada satu aplikasi berlebih. Ini memberi kesempatan pemain mengurangi atau menghentikan penyiraman. Durasi fase dan mekanisme pemulihan BELUM DIPUTUSKAN.
+13. Tanaman yang berada di status Overwatered tidak menerima bonus pertumbuhan tambahan dari kelebihan air. Cap bonus pertumbuhan D-011 tetap berlaku.
+14. Pemulihan kadar air dilakukan melalui pengurangan alami dari waktu ke waktu. Laju pengurangan dan apakah tiap jenis tanaman memiliki laju berbeda BELUM DIPUTUSKAN.
 
 ### 2.5 Sprinkler
 1. Sprinkler adalah perangkat consumable yang ditempatkan pada plot.
@@ -95,7 +102,13 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Watering Can area | Lingkaran | bentuk | D-011 |
 | Watering Can radius | BELUM DIPUTUSKAN | studs | Perlu keputusan |
 | Watering Can konsumsi | 1 | unit/penggunaan | Satu penggunaan menghabiskan satu unit |
-| Batas maksimum efek penyiraman | BELUM DIPUTUSKAN | nilai efek | Efek bertambah hingga batas ini, D-011 |
+| Batas maksimum bonus pertumbuhan penyiraman | BELUM DIPUTUSKAN | nilai efek | Cap bonus pertumbuhan, D-011; terpisah dari kadar air |
+| Penambahan kadar air Watering Can | BELUM DIPUTUSKAN | water units/aplikasi | Menambah WaterLevel tiap tanaman yang terkena |
+| Penambahan kadar air Sprinkler | BELUM DIPUTUSKAN | water units/tick | Menambah WaterLevel pada setiap tick penyiraman |
+| Pengurangan alami kadar air | BELUM DIPUTUSKAN | water units/menit | Mengurangi WaterLevel dari waktu ke waktu |
+| Toleransi air tanaman | Per jenis tanaman | water units | Field MaxWaterTolerance pada data tanaman, D-012 |
+| Durasi Overwatered sebelum mati | BELUM DIPUTUSKAN | menit | Hanya jika WaterLevel tetap di atas toleransi |
+| Pemulihan dari Overwatered | BELUM DIPUTUSKAN | aturan | Apakah tanaman pulih jika WaterLevel kembali ke toleransi |
 | Sprinkler area | Lingkaran | bentuk | Mengikuti keputusan area |
 | Sprinkler radius | BELUM DIPUTUSKAN | studs | Perlu keputusan |
 | Sprinkler durasi | BELUM DIPUTUSKAN | menit | Perlu keputusan |
@@ -112,7 +125,10 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 - Inventori tidak memiliki consumable yang dibutuhkan: tampilkan pesan item tidak tersedia; jangan jalankan efek.
 - Watering Can digunakan tanpa tanaman di dalam radius: tentukan apakah penggunaan tetap mengonsumsi satu unit; BELUM DIPUTUSKAN.
 - Tanaman berada tepat di batas radius: dianggap masuk area.
-- Tanaman menerima beberapa sumber penyiraman pada waktu yang sama: hitung efek gabungan secara server dan clamp pada batas maksimum.
+- Tanaman menerima beberapa sumber penyiraman pada waktu yang sama: hitung bonus pertumbuhan gabungan secara server dan clamp pada batas maksimum; akumulasi WaterLevel tetap dihitung terpisah dan dapat melewati toleransi tanaman.
+- WaterLevel melebihi MaxWaterTolerance: tandai tanaman Overwatered dan mulai hitung durasi kondisi tersebut.
+- WaterLevel kembali ke atau di bawah MaxWaterTolerance sebelum batas kematian: perilaku pemulihan masih BELUM DIPUTUSKAN.
+- WaterLevel tetap di atas MaxWaterTolerance melewati durasi kematian: tanaman mati sesuai D-012; durasi pastinya BELUM DIPUTUSKAN.
 - Sprinkler dihancurkan, disimpan, atau plot mengalami unload sebelum durasi habis: perilaku penghentian dan pengembalian item BELUM DIPUTUSKAN.
 - Pemain disconnect saat Sprinkler aktif: efek harus tetap mengikuti waktu server dan status plot tersimpan; detail persistence perlu dikonfirmasi.
 - Dua pemain menggunakan alat pada tanaman yang sama: server memproses aksi secara berurutan dan mencegah panen/ekstraksi ganda atas hasil yang sama.
@@ -129,7 +145,11 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | OwnerUserId | integer/string | Pemilik objek tanaman atau perangkat sesuai model data |
 | PlantId | string | Identitas tanaman |
 | GrowthState | struktur | Progres pertumbuhan yang sudah ada pada sistem tanaman |
-| WateringEffectValue | number | Nilai efek penyiraman aktif |
+| WaterLevel | number | Kadar air aktual tanaman; terpisah dari bonus pertumbuhan |
+| MaxWaterTolerance | number | Batas toleransi air dari data jenis tanaman |
+| OverwateredSince | timestamp/null | Waktu server saat tanaman mulai melewati toleransi |
+| PlantHealthState | enum | Kondisi normal/Overwatered/Dead jika sistem kesehatan digunakan |
+| WateringEffectValue | number | Bonus pertumbuhan aktif; bukan kadar air |
 | WateringEffectExpiresAt | timestamp | Waktu berakhir efek jika efek berbatas durasi |
 | SprinklerPlacedAt | timestamp | Waktu perangkat mulai aktif |
 | SprinklerExpiresAt | timestamp | Waktu perangkat berakhir |
@@ -142,6 +162,8 @@ Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer.
 - Hotbar/inventori menampilkan ikon, nama, jumlah consumable, dan penanda alat permanen.
 - Saat Watering Can dipilih, tampilkan preview lingkaran jangkauan di tanah sebelum pemain mengonfirmasi penggunaan.
 - Preview lingkaran membedakan area valid dan tidak valid serta menampilkan tanaman yang akan terkena efek.
+- UI status tanaman menampilkan indikator kadar air yang mudah dipahami (misalnya Normal, Basah, Overwatered), tanpa mewajibkan pemain membaca angka internal.
+- Saat tanaman Overwatered, tampilkan peringatan visual yang jelas dan konsisten; hindari hanya mengandalkan warna agar tetap terbaca oleh pemain dengan gangguan persepsi warna.
 - Saat Sprinkler ditempatkan, tampilkan preview lingkaran jangkauan dan konfirmasi posisi.
 - Sprinkler aktif menampilkan indikator durasi tersisa yang mudah dibaca.
 - Seed Extractor menampilkan konfirmasi bahwa tanaman akan dikorbankan untuk menghasilkan benih.
@@ -169,7 +191,8 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 
 - **Dampak core loop:** Tools memperkaya loop tanam–rawat–panen dan memberi pilihan antara interaksi manual, otomatis, dan kenyamanan. Watering Can mendukung sesi singkat; Sprinkler mendukung pemain yang ingin menata kebun sambil membiarkan tanaman dirawat.
 - **Source/sink ekonomi:** Consumable Watering Can, Sprinkler, cairan Plant Sprayer, Seed Extractor, Harvest Basket, dan Pupuk berpotensi menjadi sink Life Coin jika dijual di toko. Harga dan sumber pendapatan belum ditentukan; tidak boleh menganggap semuanya berbayar.
-- **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, serta exploit remote.
+- **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, exploit remote, serta kematian tanaman yang terasa tidak adil jika toleransi/indikator tidak jelas.
+- **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. Overwatering sebaiknya memiliki fase peringatan sebelum kematian.
 - **Metrik sukses:** persentase pemain yang memakai alat; jumlah penggunaan rata-rata per sesi; waktu dari menanam ke panen; jumlah tanaman yang terkena efek; frekuensi penggunaan Sprinkler; dan perubahan pendapatan panen dibanding pemain yang tidak memakai booster. Target angka ditetapkan setelah baseline playtest.
 
 ## 9. Kriteria selesai (acceptance criteria)
@@ -177,7 +200,12 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Shovel dan Trowel tetap tersedia setelah digunakan.
 - [ ] Trowel memindahkan tanaman tanpa mereset progres pertumbuhannya.
 - [ ] Watering Can menghasilkan area lingkaran dan memengaruhi semua tanaman di dalam radius.
-- [ ] Efek penyiraman dari beberapa penggunaan bertambah tetapi tidak melewati batas maksimum.
+- [ ] Bonus pertumbuhan dari beberapa sumber penyiraman bertambah tetapi tidak melewati batas maksimum D-011.
+- [ ] Kadar air tanaman dihitung terpisah dari bonus pertumbuhan.
+- [ ] Setiap jenis tanaman memiliki toleransi air yang divalidasi server.
+- [ ] Tanaman yang melewati toleransi masuk status Overwatered.
+- [ ] Tanaman dapat mati jika status Overwatered berlangsung melewati durasi yang ditetapkan dalam tabel tuning.
+- [ ] UI memberi peringatan yang jelas saat tanaman Overwatered.
 - [ ] Sprinkler bekerja otomatis di area lingkaran selama durasi yang ditetapkan dan hilang setelah durasi berakhir.
 - [ ] Efek Sprinkler tidak membuat efek penyiraman melewati batas maksimum.
 - [ ] Seed Extractor menghapus tanaman target dan memberi benih sesuai tabel hasil.
@@ -193,3 +221,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | Versi | Tanggal | Perubahan | Alasan |
 |---|---|---|---|
 | v1 | 2026-11-15 | Dibuat sebagai spec DRAFT; mencatat Tools yang telah dikonfirmasi dan keputusan area lingkaran serta stacking berbatas maksimum | Melanjutkan desain Tools Garden Life |
+| v2 | 2026-11-15 | Memisahkan kadar air dari bonus pertumbuhan; menambahkan toleransi air per tanaman, status Overwatered, dan risiko kematian | Menindaklanjuti D-012 dan mencegah penyiraman berlebihan menjadi strategi tanpa konsekuensi |
