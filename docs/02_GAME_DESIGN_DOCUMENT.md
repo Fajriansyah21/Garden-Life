@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.8 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.9 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -50,13 +50,13 @@ Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempa
 | Dekorasi & pembangunan | Farm/Build Tiles memakai grid 5×5; dekorasi, bangunan, dan tanaman memakai free placement dengan opsi Snap to Grid | M | Belum dibuat |
 | Ekspansi plot | Plot berkembang melalui 4 stage ukuran yang telah ditetapkan | M | Belum dibuat |
 | Tanaman & farming | Aktivitas menanam, merawat, dan memanen secara santai | S | Belum dibuat |
-| Penyiraman | Watering Can pernah dibahas dengan kapasitas awal 100 ml; aturan penggunaan/refill belum ditetapkan | S | Belum dibuat |
+| Penyiraman | Starter Kit memberi 10 Watering Can; kapasitas, konsumsi, refill, dan model item belum ditetapkan | S | Belum dibuat |
 | Panen & penjualan | Hasil kebun berpotensi menjadi sumber Life Coin | S | Belum dibuat |
 | Inventori & gudang | Inventori pribadi dan konsep gudang bersama pernah dibahas; aturan final belum ditetapkan | S | Belum dibuat |
 | Shared Savings / Bank | Tabungan milik plot untuk pembelian bersama, dengan kontrol pengeluaran | S | Belum dibuat |
 | Toko | Pembelian tile, tanaman, dan dekorasi | S | Belum dibuat |
 | Greenhouse | Konsep greenhouse dengan kapasitas 18 tanaman pernah dibahas | C | Belum dibuat |
-| Pupuk | 5 tier pupuk pernah dibahas; efek dan harga belum ditetapkan | C | Belum dibuat |
+| Pupuk | Starter Kit memberi 1 Pupuk; efek numerik dan aturan penggunaan belum ditetapkan. Konsep 5 tier belum disetujui | S | Belum dibuat |
 | Musim & cuaca | 4 musim dan efek cuaca pernah dibahas; dampak gameplay belum ditetapkan | C | Belum dibuat |
 | Progres & upgrade | Upgrade kapasitas, stage plot, dan akses fitur | S | Belum dibuat |
 | Sosial | Kunjungan dan kerja sama di kebun | S | Belum dibuat |
@@ -82,7 +82,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 ### Plot server
 - Satu server menyediakan 4 plot persisten.
 - Sesuai D-008, plot pemain dimulai kosong: tidak ada dekorasi, bangunan, atau tanaman yang sudah ditempatkan ketika pemain pertama kali masuk.
-- Sesuai D-009, pemain baru menerima Starter Kit gratis sebagai item inventori. Isi dan jumlah item masih BELUM DIPUTUSKAN; kondisi plot kosong tidak berarti inventori kosong.
+- Sesuai D-009 dan D-010, pemain baru menerima Starter Kit gratis sebagai item inventori: 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman. Item tidak otomatis ditempatkan; kondisi plot kosong tidak berarti inventori kosong.
 - Plot tetap terikat pada Original Owner, termasuk ketika pemilik sedang offline.
 - Pemain yang diundang dapat berpindah dari plot miliknya sendiri ke plot pengundang; plot asalnya menjadi tersedia bagi pemain lain.
 - Original Owner adalah pemilik permanen plot.
@@ -168,3 +168,6 @@ UI yang dibutuhkan secara konseptual:
 8. Apa jenis tanaman, waktu tumbuh, hasil panen, harga bibit, dan harga jual?
 9. Apakah greenhouse, pupuk, musim, dan cuaca diperlukan untuk rilis awal atau ditunda?
 10. Apa referensi game, target perangkat, strategi monetisasi, dan target panjang sesi?
+11. Berapa kapasitas/konsumsi/refill Watering Can dan bagaimana 10 unit kit dihitung?
+12. Berapa besar percepatan Pupuk, berapa kali dapat digunakan, dan apakah efeknya menumpuk?
+13. Kapan Starter Kit diberikan dan apakah ada kebijakan pemberian ulang setelah reset akun?
