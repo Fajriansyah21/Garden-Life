@@ -78,6 +78,28 @@ Ini adalah gagasan terdahulu yang belum memiliki spesifikasi final. Jangan angga
 | Tanaman | Sistem tanam dan panen | Daftar crop, bibit, waktu tumbuh, yield, harga jual |
 | Gudang | Konsep gudang bersama | Kapasitas, hak akses, pemisahan item pribadi/plot |
 
+### Eksplorasi Spring: identitas dan cuaca (D-028)
+
+Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Weather masih berstatus eksplorasi dan belum otomatis menjadi scope rilis.
+
+| Elemen | Rancangan yang dikonfirmasi | Status |
+|---|---|---|
+| Identitas visual | Fresh Nature: hijau segar, kuning, dan warna bunga alami; cerah, hidup, dan penuh energi | Dikonfirmasi |
+| Pola cuaca | Balanced: cuaca cerah dan hujan relatif seimbang | Dikonfirmasi; distribusi angka terbuka |
+| Roster Spring | Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, Thunderstorm | Dikonfirmasi sebagai roster konsep |
+| Sunny | Cuaca awal Spring, cuaca dasar dan sering muncul; netral tanpa efek tanaman atau Mutation | Dikonfirmasi |
+| Cloudy | Transisi yang dapat mendahului Drizzle, Rainy, atau Thunderstorm | Dikonfirmasi |
+| Cloudy: WaterLevel | +0,25 satu kali saat episode Cloudy dimulai; tidak berkala | Dikonfirmasi |
+| Cloudy: waktu tumbuh | +15% waktu tumbuh untuk tanaman dengan kebutuhan sinar matahari tinggi | Dikonfirmasi |
+| Cloudy saat tanaman sedang tumbuh | Sisa waktu tumbuh bertambah 15%; progres yang sudah diperoleh tidak dihapus | Dikonfirmasi |
+| Cloudy: Mutation | Tidak menghasilkan Mutation | Dikonfirmasi |
+| Menu informasi tanaman | Menu khusus agar pemain dapat memeriksa kondisi tanaman; rincian isi dan interaksi belum ditetapkan (D-029) | Kebutuhan konseptual dikonfirmasi |
+
+- Klasifikasi kebutuhan sinar matahari tanaman diperlukan untuk menerapkan efek Cloudy secara selektif; nama field dan skema data belum ditetapkan.
+- Durasi musim/cuaca, peluang dan distribusi kemunculan, serta aturan lengkap Drizzle, Rainy, Windy, Misty, dan Thunderstorm masih terbuka.
+- Efek Cloudy pada sisa waktu pertumbuhan harus diproses satu kali ketika episode Cloudy dimulai untuk tanaman yang sedang tumbuh dan memenuhi syarat. Detail penanganan beberapa episode sebelum tanaman selesai tumbuh perlu dirinci sebelum implementasi.
+- Tidak ada angka ekonomi atau perubahan source/sink yang ditetapkan oleh konsep ini.
+
 ## 6. Prinsip penyaringan fitur
 
 Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
