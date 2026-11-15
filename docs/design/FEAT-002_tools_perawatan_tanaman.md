@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v3 |
+| Versi | v4 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -97,6 +97,18 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 3. Target penggunaan, konsumsi, besar bonus, durasi, stacking, dan apakah Pupuk memiliki tier BELUM DIPUTUSKAN.
 4. Konsep lima tier pupuk dari diskusi lama tidak dianggap sebagai keputusan atau scope aktif.
 
+### 2.10 Soil Aerator (nama usulan)
+1. Garden Life membutuhkan tool untuk membantu mengurangi kadar air berlebih pada tanah/tanaman, sebagai tindakan pemulihan aktif selain pengeringan alami (D-014).
+2. Nama `Soil Aerator` adalah rekomendasi sementara, belum dikunci oleh pemilik.
+3. Rekomendasi desain: Soil Aerator merupakan alat permanen dan dapat digunakan berulang, agar pemain tidak perlu mengonsumsi item hanya untuk menyelamatkan tanaman.
+4. Rekomendasi desain: satu penggunaan menargetkan satu tanaman dan mengurangi `WaterLevel` tanaman tersebut sebesar nilai tetap yang ditentukan pada tabel tuning.
+5. `WaterLevel` tidak boleh turun di bawah 0.
+6. Jika setelah penggunaan `WaterLevel` berada pada atau di bawah `MaxWaterTolerance` sebelum durasi kematian tercapai, tanaman pulih sesuai D-013 dan `OverwateredSince` dihapus.
+7. Jika `WaterLevel` masih di atas `MaxWaterTolerance`, tanaman tetap Overwatered dan timer kematian tetap berjalan.
+8. Penggunaan pada tanaman yang tidak Overwatered tetap dapat mengurangi kadar air, tetapi tidak boleh memberikan bonus pertumbuhan atau efek lain; apakah penggunaan seperti ini diizinkan masih perlu diputuskan.
+9. Cooldown per tanaman, jarak interaksi, besaran pengurangan kadar air, serta animasi penggunaan BELUM DIPUTUSKAN.
+10. Seluruh perhitungan pengurangan kadar air dan pemulihan dilakukan server-authoritative. Client hanya menampilkan preview, animasi, dan hasil.
+
 ## 3. Data & angka tuning
 
 | Parameter | Nilai | Satuan | Catatan |
@@ -126,6 +138,11 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Harvest Basket konsumsi | 1 | unit/penggunaan | Untuk satu tanaman |
 | Plant Sprayer cairan | 1 | aplikasi/tanaman | Jenis dan efek belum diputuskan |
 | Pupuk bonus pertumbuhan | BELUM DIPUTUSKAN | % atau waktu | Perlu keputusan |
+| Soil Aerator status | Nama usulan; permanen (rekomendasi) | tipe alat | D-014 menetapkan kebutuhan fungsi; detail belum dikunci |
+| Soil Aerator target | 1 tanaman (rekomendasi) | tanaman/penggunaan | Target area/soil scope perlu konfirmasi |
+| Soil Aerator pengurangan air | BELUM DIPUTUSKAN | water units/penggunaan | Tidak boleh membuat WaterLevel < 0 |
+| Soil Aerator cooldown | BELUM DIPUTUSKAN | detik/penggunaan/target | Mencegah spam penggunaan |
+| Soil Aerator konsumsi | Tidak dikonsumsi (rekomendasi) | alat | Jika dipilih permanen; belum dikunci |
 
 ## 4. Kondisi tepi & kegagalan
 
@@ -138,6 +155,10 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 - WaterLevel kembali ke atau di bawah MaxWaterTolerance sebelum timer kematian habis: hapus OverwateredSince dan kembalikan status ke normal sesuai D-013.
 - Tanaman kembali melewati toleransi setelah pulih: mulai episode Overwatered baru; jangan menjumlahkan durasi episode lama.
 - WaterLevel tetap di atas MaxWaterTolerance sampai durasi kematian tercapai: ubah status tanaman menjadi Dead.
+- Soil Aerator digunakan pada tanaman yang tidak valid atau di luar jarak: tolak aksi tanpa mengubah kadar air.
+- Soil Aerator mengurangi kadar air hingga melewati nol: clamp hasil pada 0.
+- Soil Aerator digunakan saat tanaman Overwatered: jika kadar air turun ke/bawah toleransi, pulihkan tanaman dan hapus timer; jika belum, timer tetap berjalan.
+- Soil Aerator digunakan pada tanaman yang bukan milik pemain: tolak aksi kecuali izin farming plot yang berlaku secara terpisah mengizinkan tindakan tersebut; hak farming multiplayer masih perlu dipastikan.
 - Plot unload atau server restart ketika tanaman Overwatered: hitung durasi berdasarkan timestamp server tersimpan; jangan mengandalkan timer client atau menghentikan timer hanya karena pemain offline.
 - Sprinkler dihancurkan, disimpan, atau plot mengalami unload sebelum durasi habis: perilaku penghentian dan pengembalian item BELUM DIPUTUSKAN.
 - Pemain disconnect saat Sprinkler aktif: efek harus tetap mengikuti waktu server dan status plot tersimpan; detail persistence perlu dikonfirmasi.
@@ -159,8 +180,9 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | MaxWaterTolerance | number | Batas toleransi air dari data jenis tanaman |
 | OverwateredSince | timestamp/null | Waktu server saat tanaman mulai melewati toleransi |
 | PlantHealthState | enum | Kondisi Normal/Overwatered/Dead |
-| OverwateredSince | timestamp/null | Timestamp awal episode Overwatered; null jika normal/pulih |
 | WateringEffectValue | number | Bonus pertumbuhan aktif; bukan kadar air |
+| SoilAeratorLastUsedAt | timestamp/null | Waktu terakhir tool digunakan pada tanaman, jika cooldown per tanaman dipilih |
+| SoilAeratorReduction | number | Nilai pengurangan WaterLevel per penggunaan dari config; bukan data per pemain jika statis |
 | WateringEffectExpiresAt | timestamp | Waktu berakhir efek jika efek berbatas durasi |
 | SprinklerPlacedAt | timestamp | Waktu perangkat mulai aktif |
 | SprinklerExpiresAt | timestamp | Waktu perangkat berakhir |
@@ -175,6 +197,8 @@ Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer.
 - Preview lingkaran membedakan area valid dan tidak valid serta menampilkan tanaman yang akan terkena efek.
 - UI status tanaman menampilkan indikator kadar air yang mudah dipahami (misalnya Normal, Basah, Overwatered), tanpa mewajibkan pemain membaca angka internal.
 - Saat tanaman Overwatered, tampilkan peringatan visual yang jelas dan konsisten; hindari hanya mengandalkan warna agar tetap terbaca oleh pemain dengan gangguan persepsi warna.
+- Saat Soil Aerator dipilih, tampilkan target tanaman dan pratinjau hasil kadar air/status setelah penggunaan jika data dapat dihitung dengan aman.
+- Jika penggunaan Soil Aerator belum cukup memulihkan tanaman, UI menjelaskan bahwa tanaman masih membutuhkan pengurangan air lebih lanjut.
 - UI menampilkan bahwa tanaman masih dapat diselamatkan selama belum mati; jika timer kematian ditampilkan, gunakan bahasa yang mudah dipahami dan tidak menuntut pemain membaca angka teknis.
 - Saat Sprinkler ditempatkan, tampilkan preview lingkaran jangkauan dan konfirmasi posisi.
 - Sprinkler aktif menampilkan indikator durasi tersisa yang mudah dibaca.
@@ -196,6 +220,7 @@ Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer.
 | Harvest Basket | Model alat + animasi panen massal |
 | Plant Sprayer | Model alat, cairan, dan efek aplikasi |
 | Pupuk | Model item dan efek aplikasi setelah aturan disetujui |
+| Soil Aerator (nama usulan) | Model alat aerasi tanah, animasi penggunaan pada tanah di sekitar tanaman, dan efek visual drainase |
 
 Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 
@@ -206,6 +231,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, exploit remote, serta kematian tanaman yang terasa tidak adil jika toleransi/indikator tidak jelas.
 - **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. D-013 menetapkan kesempatan pulih sebelum kematian.
 - **Risiko tambahan:** timer kematian yang berjalan saat pemain offline dapat terasa kejam. Tuning durasi harus memberi ruang sesi singkat dan tidak mendorong pemain login secara kompulsif. Pertimbangkan notifikasi saat kembali, bukan kewajiban memantau tanaman terus-menerus.
+- **Dampak tool baru:** Soil Aerator memberi pemain kendali aktif untuk menyelamatkan tanaman. Jika pengurangan terlalu besar atau cooldown terlalu singkat, risiko overwatering menjadi tidak berarti; jika terlalu kecil, tool terasa tidak berguna. Nilai harus diuji terhadap laju pengeringan alami dan durasi kematian.
 - **Metrik sukses:** persentase pemain yang memakai alat; jumlah penggunaan rata-rata per sesi; waktu dari menanam ke panen; jumlah tanaman yang terkena efek; frekuensi penggunaan Sprinkler; dan perubahan pendapatan panen dibanding pemain yang tidak memakai booster. Target angka ditetapkan setelah baseline playtest.
 
 ## 9. Kriteria selesai (acceptance criteria)
@@ -223,6 +249,11 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Episode Overwatered baru setelah pemulihan memiliki timer baru dan tidak menjumlahkan durasi episode sebelumnya.
 - [ ] Timer Overwatered tetap akurat setelah plot unload, server restart, atau pemain disconnect.
 - [ ] UI memberi peringatan yang jelas saat tanaman Overwatered.
+- [ ] Soil Aerator (atau nama final yang disetujui) dapat mengurangi WaterLevel sesuai nilai tuning.
+- [ ] Soil Aerator tidak dapat membuat WaterLevel negatif.
+- [ ] Penggunaan Soil Aerator yang menurunkan WaterLevel ke/bawah toleransi memulihkan tanaman dan membatalkan timer kematian.
+- [ ] Jika WaterLevel tetap di atas toleransi setelah Soil Aerator digunakan, timer kematian tetap berjalan.
+- [ ] Penggunaan tidak valid atau tanpa izin tidak mengubah WaterLevel.
 - [ ] Sprinkler bekerja otomatis di area lingkaran selama durasi yang ditetapkan dan hilang setelah durasi berakhir.
 - [ ] Efek Sprinkler tidak membuat efek penyiraman melewati batas maksimum.
 - [ ] Seed Extractor menghapus tanaman target dan memberi benih sesuai tabel hasil.
@@ -240,3 +271,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v1 | 2026-11-15 | Dibuat sebagai spec DRAFT; mencatat Tools yang telah dikonfirmasi dan keputusan area lingkaran serta stacking berbatas maksimum | Melanjutkan desain Tools Garden Life |
 | v2 | 2026-11-15 | Memisahkan kadar air dari bonus pertumbuhan; menambahkan toleransi air per tanaman, status Overwatered, dan risiko kematian | Menindaklanjuti D-012 dan mencegah penyiraman berlebihan menjadi strategi tanpa konsekuensi |
 | v3 | 2026-11-15 | Menetapkan pemulihan jika kadar air kembali ke batas aman sebelum durasi kematian; timer episode baru setelah pulih | Menindaklanjuti D-013, memberi konsekuensi tanpa kematian instan |
+| v4 | 2026-11-15 | Menambahkan kebutuhan tool pengurang kadar air dengan Soil Aerator sebagai nama dan rancangan sementara | Menindaklanjuti D-014 agar pemain memiliki tindakan aktif untuk menyelamatkan tanaman |
