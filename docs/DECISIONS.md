@@ -7,6 +7,7 @@ Entri terbaru di paling atas.
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
 - Status: Aktif
+- Menggantikan: D-019 dan D-020 hanya pada bagian apakah buah yang sudah berhasil bermutasi dapat menerima mutasi banjir lanjutan.
 - Konteks: Peluang mutasi banjir 5% per menit tetap dapat menghasilkan mutasi berulang pada buah yang sama jika tanaman dibiarkan kebanjiran cukup lama. Mutasi bertumpuk dapat menjadikan membiarkan tanaman dalam kondisi berbahaya sebagai strategi farming yang terlalu menguntungkan.
 - Keputusan:
   - Setiap buah hanya dapat berhasil memperoleh mutasi banjir satu kali sepanjang siklus hidup buah tersebut.
