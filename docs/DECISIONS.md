@@ -115,7 +115,7 @@ Entri terbaru di paling atas.
   - Soil Aerator mengurangi WaterLevel 0,50 per tick dan zona aktif selama 2,5 menit (150 detik / 5 tick).
   - Pengeringan alami dipicu cuaca panas atau musim Summer. Laju dan interval pengurangan belum ditentukan.
   - Saat WaterLevel mencapai 4,00 atau lebih, Billboard Alert muncul di atas tanaman.
-  - Pemicu mutasi buah: pada rentang WaterLevel 4,00-4,99, peluang mutasi 5% per 2 menit paparan; pada WaterLevel 5,00, peluang mutasi banjir 25% per 1 menit paparan. Cara menghitung percobaan peluang per buah dan akumulasi paparan lintas perubahan level masih perlu dirinci sebelum implementasi.
+  - Pemicu mutasi buah (nilai awal): pada rentang WaterLevel 4,00-4,99, peluang mutasi 5% per 2 menit paparan; pada WaterLevel 5,00, peluang mutasi banjir 25% per 1 menit paparan. Nilai 25% level 5 kemudian digantikan oleh D-019 menjadi 15% per buah per 1 menit.
 - Alternatif yang ditolak: Mempertahankan WaterLevel integer saja, karena tidak dapat mewakili penambahan 0,15 dari Sprinkler.
 - Dampak: FEAT-002 dan GDD harus menggunakan skala pecahan yang sama. Seluruh perubahan WaterLevel, timer kematian, dan peluang mutasi dihitung server-authoritative.
 
