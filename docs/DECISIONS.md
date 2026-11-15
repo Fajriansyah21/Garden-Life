@@ -1,3 +1,48 @@
+### D-031 · Durasi standar episode cuaca non-Sunny
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Sistem cuaca membutuhkan durasi episode yang konsisten agar efek lingkungan, pergantian cuaca, dan perhitungan tick dapat dirancang serta diuji secara terukur.
+- Keputusan:
+  - Setiap episode cuaca selain **Sunny** berlangsung selama **20 tick**, setara dengan **600 detik atau 10 menit**.
+  - Satu tick cuaca berdurasi **30 detik**, mengikuti interval tick lingkungan yang telah digunakan pada D-018.
+  - Aturan durasi ini berlaku untuk seluruh cuaca non-Sunny, bukan hanya roster Spring.
+  - **Sunny dikecualikan** dari durasi standar ini. Durasi Sunny masih BELUM DIPUTUSKAN.
+  - Durasi episode tidak menetapkan peluang kemunculan, urutan transisi, atau jeda antarcuaca.
+  - Keputusan ini merupakan aturan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menggunakan durasi acak untuk setiap episode cuaca non-Sunny sebelum ada kebutuhan desain khusus.
+- Dampak:
+  - Semua efek cuaca berkala dapat menggunakan 20 tick sebagai durasi episode standar non-Sunny.
+  - Efek per tick harus dihentikan setelah episode berakhir dan tidak boleh berjalan melewati batas episode.
+  - Sistem cuaca perlu membedakan Sunny dari cuaca lain saat menentukan durasi.
+  - Tidak menetapkan perubahan source/sink ekonomi.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-030 · Aturan gameplay cuaca Drizzle
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Drizzle perlu memiliki identitas gerimis lembut dan menenangkan, dengan efek tanaman yang terasa berbeda dari Cloudy tanpa menjadikan hujan ringan sebagai hukuman berat.
+- Keputusan:
+  - Drizzle memiliki suasana gerimis lembut, tenang, dan menenangkan.
+  - Selama Drizzle, WaterLevel setiap tanaman yang terkena efek cuaca bertambah **0,05 per tick**.
+  - Penambahan WaterLevel tidak boleh melampaui batas maksimum **5,00** yang ditetapkan D-018.
+  - Setiap tick, setiap buah yang eligible melakukan roll Mutation **Wet (Basah)** secara independen dengan peluang **2,5% per buah per tick**.
+  - Roll Wet satu buah tidak memengaruhi hasil roll buah lain. Aturan D-022 tetap berlaku: jenis Mutation yang sama hanya dapat tercatat satu kali pada buah yang sama.
+  - Selama Drizzle, seluruh tanaman menerima tambahan waktu pertumbuhan **15%**, tanpa membedakan klasifikasi kebutuhan sinar matahari.
+  - Drizzle tidak memberikan bonus atau percepatan pertumbuhan.
+  - Drizzle tidak menimbulkan efek gameplay lain di luar aturan yang disebutkan, kecuali jika ditetapkan melalui keputusan baru.
+  - Tick Drizzle mengikuti interval **30 detik** pada D-018. Durasi episode mengikuti aturan cuaca non-Sunny pada D-031.
+  - Multiplier harga Mutation Wet, detail visual Wet, dan aturan penerapan modifier pada tanaman yang baru ditanam ketika Drizzle sedang berlangsung masih BELUM DIPUTUSKAN.
+  - Aturan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Roll Mutation satu kali untuk seluruh tanaman; memberi bonus pertumbuhan pada Drizzle; atau membatasi modifier waktu tumbuh hanya pada tanaman dengan kebutuhan sinar matahari tinggi.
+- Dampak:
+  - Sistem cuaca perlu menjalankan roll Mutation secara independen untuk setiap buah eligible pada setiap tick Drizzle.
+  - Sistem tanaman perlu membedakan WaterLevel dari modifier waktu pertumbuhan; penambahan air tidak otomatis mempercepat pertumbuhan.
+  - Karena 2,5% berlaku pada setiap tick, peluang kumulatif dapat menjadi signifikan untuk buah yang eligible sepanjang episode penuh. Nilai ini perlu dievaluasi melalui balancing/playtest tanpa mengubah keputusan secara diam-diam.
+  - Tidak ada perubahan source/sink ekonomi yang ditetapkan; Wet berpotensi memengaruhi harga jual setelah multipliernya diputuskan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-028 · Konsep cuaca Spring: Sunny dan Cloudy
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
