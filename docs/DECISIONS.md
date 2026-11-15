@@ -1,3 +1,25 @@
+### D-027 · Prompt Inventory tetap tersedia sampai dibuka
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Pemain perlu mendapat arahan untuk menemukan Starter Kit tanpa harus menghentikan eksplorasi kebun atau terus-menerus dikejar oleh UI.
+- Keputusan:
+  - Setelah pesan sambutan D-026 selesai dan menghilang, tampilkan penanda visual pada tombol Inventory beserta prompt: **"Perlengkapan kebunmu sudah tersedia. Buka Inventory untuk melihatnya!"**
+  - Penanda visual dan prompt tetap tersedia secara halus sampai pemain membuka Inventory.
+  - Jika pemain memilih menjelajahi plot dan belum membuka Inventory, prompt tetap tersedia; sistem tidak memaksa pemain kembali ke tombol atau menghentikan eksplorasi.
+  - Penanda visual berada pada tombol Inventory, bukan mengikuti posisi karakter atau kamera.
+  - Gunakan satu penekanan visual awal yang halus. Jangan mengulang pulse terus-menerus atau menggunakan kedipan cepat.
+  - Saat pemain membuka Inventory, prompt dan penanda visual onboarding ini langsung dihilangkan.
+  - Jika pemain membuka Inventory sebelum pesan sambutan 3 detik selesai, prompt Inventory tidak perlu ditampilkan setelah pesan sambutan menghilang.
+  - Inventory tetap dibuka atas tindakan pemain sendiri; tidak pernah terbuka otomatis.
+- Alternatif yang ditolak: Menghilangkan prompt setelah jeda singkat meskipun belum dibuka; membuat prompt mengikuti karakter; mengulang animasi pulse tanpa henti; atau memaksa pemain membuka Inventory.
+- Dampak:
+  - D-027 melengkapi urutan Arrival & First Impression D-026 dan onboarding Inventory D-025; tidak menggantikan keduanya.
+  - PLAYER_JOURNEY.md dan GDD diperbarui untuk menjelaskan perilaku prompt yang persisten tetapi tidak memaksa.
+  - Tidak mengubah isi Starter Kit, inventori, source/sink ekonomi, atau aturan gameplay.
+  - Tidak menetapkan pemulihan onboarding lintas disconnect/sesi; hal tersebut tetap perlu dirinci dalam spec onboarding.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-026 · Arrival & First Impression pemain baru
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
