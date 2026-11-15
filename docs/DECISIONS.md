@@ -1,3 +1,48 @@
+### D-028 · Konsep cuaca Spring: Sunny dan Cloudy
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Musim Spring membutuhkan identitas atmosfer dan aturan awal cuaca yang konsisten dengan visi Cozy Garden Life Simulator. Cuaca juga menjadi salah satu sumber kondisi lingkungan untuk tanaman dan Mutation, tetapi tidak setiap cuaca harus menghasilkan Mutation.
+- Keputusan:
+  - Identitas visual Spring adalah **Fresh Nature**: dominasi hijau segar, kuning, dan warna bunga alami; suasana hidup, cerah, dan penuh energi.
+  - Pola cuaca normal Spring adalah **Balanced**, dengan cuaca cerah dan hujan relatif seimbang. Distribusi peluang numerik belum ditetapkan.
+  - Roster konsep Spring terdiri dari tujuh cuaca: **Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm**.
+  - **Sunny** adalah cuaca awal ketika musim Spring dimulai, berperan sebagai cuaca dasar dan sering muncul kembali selama Spring. Sunny bersifat netral: tidak mengubah WaterLevel, waktu pertumbuhan, ukuran buah, atau status tanaman; Sunny tidak menghasilkan Mutation.
+  - **Cloudy** berperan sebagai cuaca transisi yang dapat mendahului Drizzle, Rainy, atau Thunderstorm.
+  - Saat satu episode Cloudy dimulai, WaterLevel setiap tanaman yang terkena efek cuaca bertambah **0,25 satu kali**. Tidak ada penambahan WaterLevel berkala selama episode Cloudy.
+  - Tanaman dengan kebutuhan sinar matahari tinggi menerima tambahan waktu tumbuh **15%** selama Cloudy. Tanaman dengan kebutuhan sinar matahari rendah atau sedang tidak terkena modifier ini.
+  - Jika Cloudy dimulai ketika tanaman yang memenuhi syarat sedang dalam proses tumbuh, **sisa waktu pertumbuhannya bertambah 15%**. Progres yang telah diperoleh tidak dihapus.
+  - Cloudy tidak menghasilkan Mutation.
+  - Durasi, peluang kemunculan, distribusi cuaca, nilai penurunan/penambahan selain yang disebut di atas, dan aturan transisi lengkap masih BELUM DIPUTUSKAN.
+  - Roster dan aturan Spring ini merupakan hasil eksplorasi konsep; tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Mengharuskan semua cuaca menghasilkan Mutation; memberi efek pertumbuhan negatif kepada semua tanaman saat Cloudy; dan menambah WaterLevel secara berkala selama Cloudy.
+- Dampak:
+  - Concept Backlog dan GDD mencatat identitas Spring serta aturan awal Sunny dan Cloudy sebagai konsep terkonfirmasi.
+  - Sistem data tanaman nantinya perlu memiliki klasifikasi kebutuhan sinar matahari agar modifier Cloudy dapat diterapkan secara selektif.
+  - Sistem pertumbuhan perlu memperhitungkan modifier waktu pada tanaman yang sedang tumbuh ketika Cloudy dimulai.
+  - Semua perubahan WaterLevel dan waktu pertumbuhan tetap harus dihitung server-authoritative jika kelak masuk implementasi.
+  - Tidak ada perubahan source/sink ekonomi yang ditetapkan.
+  - D-028 tidak menetapkan durasi musim, durasi cuaca, peluang kemunculan, Mutation Cloudy, atau scope rilis.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-029 · Menu informasi kondisi tanaman
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk kebutuhan konseptual UI; detail belum ditetapkan
+- Konteks: Pemain perlu dapat memeriksa kondisi tanaman dan memahami faktor yang sedang memengaruhi pertumbuhannya, termasuk efek musim dan cuaca.
+- Keputusan:
+  - Garden Life akan menyediakan **menu khusus informasi tanaman** yang dapat digunakan pemain untuk memeriksa kondisi tanaman.
+  - Menu tersebut harus membantu pemain memahami kondisi tanaman yang dipilih. Informasi rinci yang ditampilkan, susunan panel, cara membuka, interaksi, dan perilaku pada PC/perangkat sentuh masih BELUM DIPUTUSKAN.
+  - Informasi efek cuaca yang relevan, termasuk modifier waktu tumbuh Cloudy, perlu dapat dijelaskan kepada pemain melalui UI informasi tanaman ketika efek tersebut berlaku.
+  - Contoh field seperti tahap pertumbuhan, progres, sisa waktu, WaterLevel, dan status kondisi masih merupakan kandidat rancangan, bukan daftar final yang disetujui.
+  - Keputusan ini menetapkan kebutuhan konseptual UI dan tidak otomatis menetapkan scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Mengharuskan pemain menebak kondisi tanaman hanya dari tampilan visual tanpa akses ke informasi kondisi.
+- Dampak:
+  - GDD dan Concept Backlog mencatat kebutuhan menu informasi tanaman.
+  - Detail UI, field, interaksi, aksesibilitas, dan prioritas implementasi perlu dirancang dalam pembahasan/spec terpisah.
+  - Tidak ada perubahan pada ekonomi, pertumbuhan, atau aturan tanaman selain kebutuhan penyampaian informasi yang sudah ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-027 · Prompt Inventory tetap tersedia sampai dibuka
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
