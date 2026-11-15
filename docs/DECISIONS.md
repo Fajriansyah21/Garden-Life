@@ -30,6 +30,20 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Semua tanaman menerima penyiraman tanpa risiko, karena menghilangkan konsekuensi dari penggunaan alat secara berlebihan.
 - Dampak: Sistem tanaman perlu melacak kadar air secara terpisah dari bonus pertumbuhan. Watering Can dan Sprinkler dapat menambah kadar air; sistem harus memeriksa toleransi tanaman secara server-authoritative.
 
+### D-013 · Pemulihan tanaman dari overwatering
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Kematian tanaman akibat kelebihan air perlu memberi konsekuensi tanpa menghukum pemain secara instan.
+- Keputusan:
+  - Tanaman yang kadar airnya melewati toleransi masuk status Overwatered, bukan langsung mati.
+  - Tanaman memiliki kesempatan pulih jika kadar air turun kembali ke atau di bawah batas toleransi sebelum durasi kematian tercapai.
+  - Jika tanaman terus berada di atas batas toleransi hingga durasi kematian tercapai, tanaman mati.
+  - Pemulihan membatalkan hitungan waktu menuju kematian dan mengembalikan status tanaman ke kondisi tidak Overwatered.
+  - Durasi kematian, laju penurunan kadar air, serta aturan apakah tanaman yang pulih mengalami penalti sementara masih harus ditentukan dalam balancing/spec.
+- Alternatif yang ditolak: Kematian instan saat toleransi terlampaui; dianggap terlalu menghukum untuk game santai.
+- Dampak: Sistem tanaman perlu mencatat awal status Overwatered, mengevaluasi kadar air secara server-authoritative, membatalkan timer kematian ketika kadar air pulih, dan menyimpan status secara aman saat plot unload atau pemain disconnect.
+
 ## Format
 
 ```
