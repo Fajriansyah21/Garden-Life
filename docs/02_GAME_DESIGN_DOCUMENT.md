@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.2 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.3 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -41,7 +41,7 @@ Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempa
 |---|---|---|---|
 | Plot & kepemilikan | 4 plot persisten per server; kepemilikan Original Owner dan Active Owner dibedakan | M | Belum dibuat |
 | Kolaborasi plot | Pemilik mengundang pemain; kapasitas awal 2 dan dapat ditingkatkan menjadi 3 pemain | M | Belum dibuat |
-| Dekorasi & pembangunan | Farm/Build Tiles berukuran 5×5 dibeli dan masuk inventori dahulu; dekorasi tidak membutuhkan tile | M | Belum dibuat |
+| Dekorasi & pembangunan | Farm/Build Tiles memakai grid 5×5; dekorasi, bangunan, dan tanaman memakai free placement dengan opsi Snap to Grid | M | Belum dibuat |
 | Ekspansi plot | Plot berkembang melalui 4 stage ukuran yang telah ditetapkan | M | Belum dibuat |
 | Tanaman & farming | Aktivitas menanam, merawat, dan memanen secara santai | S | Belum dibuat |
 | Penyiraman | Watering Can pernah dibahas dengan kapasitas awal 100 ml; aturan penggunaan/refill belum ditetapkan | S | Belum dibuat |
@@ -91,11 +91,13 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - Objek yang sudah ditempatkan tetap pada posisi tetap saat plot diperluas.
 - Harga, syarat unlock, dan batas waktu upgrade **BELUM DIPUTUSKAN**.
 
-### Tile dan dekorasi
-- Farm/Build Tile berukuran 5×5.
-- Tile harus dibeli dan masuk inventori terlebih dahulu sebelum ditempatkan.
-- Dekorasi tidak membutuhkan tile sebagai alas/slot penempatan.
-- Grid, rotasi, batas penempatan, tabrakan objek, dan aturan penghapusan/pemindahan **BELUM DIPUTUSKAN**.
+### Tile, dekorasi, bangunan, dan tanaman
+- Farm Tile dan Build Tile berukuran 5×5 dan menggunakan **grid placement**.
+- Farm/Build Tile harus dibeli dan masuk inventori terlebih dahulu sebelum ditempatkan.
+- Dekorasi, bangunan, dan tanaman menggunakan **free placement**; penempatannya tidak diwajibkan mengikuti grid tile dan tidak membutuhkan tile sebagai alas/slot.
+- Pemain dapat mengaktifkan atau menonaktifkan **Snap to Grid** sebagai bantuan opsional untuk penempatan objek free placement.
+- Rotasi objek menggunakan interval **90°** sebagai aturan awal.
+- Batas area penempatan, validasi tabrakan, batas jumlah objek, pemindahan, penyimpanan, dan perilaku objek saat ekspansi plot **BELUM DIPUTUSKAN**.
 
 ## 7. UI / UX
 
@@ -144,7 +146,7 @@ UI yang dibutuhkan secara konseptual:
 
 ## 11. Risiko & pertanyaan terbuka
 
-1. Bagaimana aturan penempatan, grid, rotasi, batas objek, dan pemindahan dekorasi?
+1. Bagaimana batas area penempatan, validasi tabrakan, batas jumlah objek, dan aturan pemindahan/penyimpanan objek?
 2. Apa yang terjadi pada dekorasi/tile jika stage plot berubah atau objek berada di luar area aktif?
 3. Siapa yang menjadi Active Owner jika Original Owner offline dan beberapa anggota memiliki hak yang sama?
 4. Bagaimana undangan, keluar plot, kick, dan pergantian anggota memengaruhi inventori serta Shared Savings?
