@@ -18,6 +18,34 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-010 · Komposisi Starter Kit pemain baru
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Menentukan perlengkapan awal agar pemain dapat memulai pertanian di plot kosong dan memiliki sedikit dekorasi untuk personalisasi.
+- Keputusan:
+  - Starter Kit gratis berisi 8 jenis item dengan jumlah awal:
+    | Item | Jumlah |
+    |---|---:|
+    | Shovel | 1 |
+    | Watering Can | 10 |
+    | Pupuk | 1 |
+    | Farm Tile | 2 |
+    | Trowel | 1 |
+    | Benih Wortel | 10 |
+    | Kursi Kayu | 1 |
+    | Lampu Taman | 1 |
+  - Shovel digunakan untuk menghapus tanaman dan merupakan alat permanen, tidak habis karena digunakan.
+  - Trowel digunakan untuk memindahkan tanaman dan merupakan alat permanen, tidak habis karena digunakan.
+  - Kursi Kayu dan Lampu Taman adalah dua dekorasi dalam Starter Kit.
+  - Watering Can berjumlah 10 unit item. Kapasitas, konsumsi air, refill, dan apakah tiap unit merupakan alat terpisah atau persediaan belum ditentukan.
+  - Efek numerik, target penggunaan, dan aturan konsumsi Pupuk belum ditentukan.
+  - Waktu pemberian Starter Kit dan kebijakan pemberian ulang setelah reset akun tetap BELUM DIPUTUSKAN.
+- Alternatif yang ditolak: Starter Kit dekorasi-dominan atau kit tanpa perlengkapan farming; pemilik memilih kit yang memprioritaskan pertanian.
+- Dampak: Inventori/onboarding harus memberikan kuantitas di atas tanpa menempatkan objek otomatis di plot. Kit menjadi sumber item awal, bukan sumber Life Coin. Detail alat dan farming harus ditetapkan dalam spec sebelum implementasi.
+
+---
+
 ### D-009 · Starter Kit gratis untuk pemain baru
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
