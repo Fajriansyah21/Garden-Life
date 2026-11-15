@@ -1,5 +1,29 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik memilih opsi A untuk overwatering: tanaman masuk status Overwatered, mendapat kesempatan pulih, dan hanya mati jika kadar air tetap di atas toleransi sampai durasi kematian tercapai.
+  - D-013 ditambahkan sebagai keputusan aktif.
+  - FEAT-002 diperbarui ke v3 dengan aturan timer per episode, pemulihan, dan persistence timestamp server.
+  - GDD diperbarui untuk merangkum mekanik Overwatered yang dapat dipulihkan.
+- File diubah:
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Durasi Overwatered sebelum tanaman mati.
+  - Laju pengurangan kadar air alami.
+  - Toleransi dan kebutuhan air tiap jenis tanaman.
+  - Apakah tanaman Overwatered tetap tumbuh pada laju dasar.
+  - Radius, jumlah kadar air per siraman, cap bonus pertumbuhan, dan parameter Sprinkler.
+  - Detail Seed Extractor, Plant Sprayer, Harvest Basket, dan Pupuk yang masih belum memiliki balancing lengkap.
+- Asumsi / risiko:
+  - Timer kematian dihitung berdasarkan waktu server dan tetap berjalan saat pemain offline/plot unload; perlu dikonfirmasi implementasi persistence oleh Claude.
+  - Durasi numerik belum ditetapkan, sehingga FEAT-002 belum siap menjadi READY.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik mengonfirmasi area Watering Can dan Sprinkler berbentuk lingkaran serta efek penyiraman dapat bertambah hingga batas maksimum (D-011).
   - Pemilik mengonfirmasi setiap tanaman memiliki toleransi air; penyiraman berlebihan dapat menyebabkan tanaman mati (D-012).
   - FEAT-002 diperbarui untuk memisahkan kadar air tanaman dari bonus pertumbuhan penyiraman.
