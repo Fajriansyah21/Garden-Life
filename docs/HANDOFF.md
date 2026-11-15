@@ -1,5 +1,33 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-030 untuk Drizzle: WaterLevel +0,05 setiap tick; Mutation Wet 2,5% per buah secara independen setiap tick; seluruh tanaman menerima +15% waktu pertumbuhan tanpa bonus pertumbuhan.
+  - Menambahkan D-031: setiap cuaca selain Sunny berlangsung 20 tick × 30 detik = 600 detik/10 menit; durasi Sunny belum ditetapkan.
+  - GDD diperbarui ke v2.2 dan Concept Backlog diselaraskan.
+  - README diperbarui agar rentang keputusan tercatat sampai D-031.
+- File diubah:
+  - docs/DECISIONS.md (D-030 dan D-031)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.2)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Durasi Sunny, peluang kemunculan, distribusi cuaca, dan aturan transisi.
+  - Multiplier harga serta detail visual Mutation Wet.
+  - Apakah tanaman yang baru ditanam ketika Drizzle sedang berlangsung langsung menerima modifier waktu tumbuh +15%.
+  - Penanganan modifier pertumbuhan jika beberapa episode Cloudy/Drizzle terjadi sebelum tanaman selesai tumbuh.
+  - Detail Rainy, Windy, Misty, dan Thunderstorm.
+  - Rincian menu informasi kondisi tanaman.
+- Asumsi / risiko:
+  - Jika satu buah eligible sepanjang 20 tick Drizzle dan setiap roll independen, peluang kumulatif memperoleh Wet setidaknya sekali adalah sekitar 39,7%; perlu dievaluasi melalui balancing/playtest.
+  - WaterLevel tetap harus di-clamp pada 5,00; WaterLevel dan modifier pertumbuhan adalah parameter terpisah.
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+  - Tidak ada perubahan kode atau kenaikan status spec.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-028 untuk identitas Spring Fresh Nature, pola cuaca Balanced, roster tujuh cuaca Spring, serta aturan Sunny dan Cloudy.
   - Cloudy menambah WaterLevel +0,25 satu kali saat episode dimulai; tanaman dengan kebutuhan sinar matahari tinggi mendapat tambahan waktu tumbuh 15%.
   - Jika Cloudy dimulai saat tanaman yang memenuhi syarat sedang tumbuh, sisa waktu tumbuh bertambah 15% tanpa menghapus progres yang sudah diperoleh.
