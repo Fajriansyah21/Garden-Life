@@ -80,8 +80,8 @@ Greenhouse (kapasitas konsep 18 tanaman), 5 tier pupuk, 4 musim, efek cuaca, Wat
 - Gameplay: belum ada implementasi.
 - GDD: v1.4.
 - Build Mode: `FEAT-001`, status `DRAFT`.
-- Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v10).
-- Keputusan aktif: D-001 sampai D-018.
+- Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v11).
+- Keputusan aktif: D-001 sampai D-021 (dengan keputusan lama yang digantikan tetap tercatat dalam riwayat).
 - Tidak ada spec yang berstatus `READY`; hanya pemilik yang dapat menyetujui status tersebut.
 
 ## Dokumen utama
