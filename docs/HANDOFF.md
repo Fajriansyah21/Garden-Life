@@ -1,5 +1,32 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui dan meresmikan D-025 tentang onboarding First Visit dan pengenalan Starter Kit.
+  - Inventory tidak terbuka otomatis; pemain membukanya sendiri melalui penanda visual dan prompt.
+  - Tools, Farming, dan Decorations langsung terlihat bersama, lalu diperkenalkan bertahap melalui highlight/tooltip.
+  - Pemain bebas menjelajahi kategori, dapat melewati penjelasan, dan menutup Inventory sendiri.
+  - Setelah Inventory ditutup, pemain memilih Mulai Bertani atau Mulai Mendekorasi. Farming boleh ditonjolkan, tetapi tidak wajib.
+  - Onboarding awal berakhir setelah satu tindakan kreatif pertama berhasil.
+  - PLAYER_JOURNEY.md diperbarui ke v0.2, GDD ke v1.8, README dan DECISIONS diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-025)
+  - docs/design/PLAYER_JOURNEY.md (v0.2, DRAFT)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v1.8)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana onboarding dipulihkan jika pemain keluar/disconnect di tengah alur?
+  - Kapan prompt yang dilewati boleh muncul kembali?
+  - Apa detail UI, input, dan feedback placement pertama untuk PC serta perangkat sentuh?
+  - Detail final pilihan aktivitas dan visual penekanan jalur farming masih perlu dirapikan.
+- Asumsi / risiko:
+  - Highlight/tooltip harus tetap memungkinkan navigasi Inventory dan tidak menutupi kontrol penting.
+  - Tidak ada aturan waktu tumbuh, hasil panen, harga jual, atau reward baru yang ditetapkan.
+  - D-025 tidak menambah source/sink ekonomi dan tidak otomatis menyetujui scope di luar onboarding.
+  - Belum ada perubahan kode; semua spec tetap DRAFT.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui kerangka Player Journey empat tahap: First Visit, Early Garden, Growing Garden, dan Established Garden.
   - D-024 ditambahkan untuk mencatat struktur empat tahap sebagai kerangka pengalaman, bukan level atau gerbang waktu.
   - Dibuat docs/design/PLAYER_JOURNEY.md v0.1 berstatus DRAFT, berisi tujuan tiap tahap, aktivitas, feedback, sinyal transisi, risiko, loop lintas tahap, analisis, dependensi, dan pertanyaan terbuka.
