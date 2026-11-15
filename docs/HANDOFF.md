@@ -1,3 +1,30 @@
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik menetapkan komposisi Starter Kit melalui D-010.
+  - Kit berisi 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman.
+  - Shovel menghapus tanaman; Trowel memindahkan tanaman. Dua dekorasi kit adalah Kursi Kayu dan Lampu Taman.
+  - GDD diperbarui ke v0.9 dan Concept Backlog/README diselaraskan.
+- File diubah:
+  - README.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/DECISIONS.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. Tidak ada spec baru yang dinaikkan ke READY.
+- Pertanyaan terbuka:
+  - Apakah 10 Watering Can berarti 10 alat terpisah atau 10 unit persediaan; berapa kapasitas, konsumsi air, dan aturan refill?
+  - Berapa besar efek Pupuk, berapa kali digunakan, dan apakah efeknya dapat menumpuk?
+  - Kapan Starter Kit diberikan (awal onboarding atau setelah tutorial)?
+  - Apakah Starter Kit dapat diperoleh kembali setelah reset akun?
+- Asumsi / risiko:
+  - Shovel dan Trowel dicatat sebagai alat permanen dan tidak habis karena digunakan.
+  - Jumlah Watering Can dicatat sebagai 10 unit item sesuai keputusan pemilik; mekanisme internalnya belum ditentukan.
+  - Jangan menganggap konsep lama Watering Can 100 ml atau 5 tier pupuk telah disetujui.
+  - Kit tidak otomatis menempatkan item di plot; inventori yang menerima item.
+  - Tidak ada perubahan kode.
+
+---
+
 # HANDOFF · Catatan Serah-Terima
 
 ## 15 November 2026 · ChatGPT -> Claude
@@ -82,8 +109,8 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Kondisi awal plot: kosong tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan (D-008). Pemain baru menerima Starter Kit gratis sebagai inventori (D-009); isi kit belum diputuskan.
-- Dokumen desain: GDD v0.6; keputusan D-002 sampai D-007 telah dicatat (D-001 mengatur repo sebagai sumber kebenaran).
+- Kondisi awal plot: kosong tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan (D-008). Pemain baru menerima Starter Kit gratis sebagai inventori (D-009); isi kit telah ditetapkan melalui D-010.
+- Dokumen desain: GDD v0.9; keputusan D-002 sampai D-007 telah dicatat (D-001 mengatur repo sebagai sumber kebenaran).
 - Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
 - Pertanyaan terbuka: batas objek, surface placement, detail hak anggota di luar Build Mode, serta origin grid/pivot teknis asset.
