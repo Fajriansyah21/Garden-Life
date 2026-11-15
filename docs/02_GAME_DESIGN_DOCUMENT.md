@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.6 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.7 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -26,13 +26,17 @@
 Loop konseptual utama:
 
 1. Masuk ke kebun pribadi atau kebun bersama.
-2. Menata area dan menempatkan Farm/Build Tiles serta dekorasi.
-3. Menanam dan merawat tanaman sebagai aktivitas santai.
-4. Memanen atau memperoleh hasil aktivitas kebun.
-5. Menjual hasil bila sistem jual telah ditetapkan untuk memperoleh Life Coin.
-6. Menggunakan Life Coin untuk membuka ruang, membeli tile, tanaman, atau dekorasi.
-7. Kembali menata kebun sesuai kreativitas pemain.
+2. Mengenali plot kosong dan mulai membentuk kebun dengan objek yang tersedia.
+3. Menata area dan menempatkan Farm/Build Tiles serta dekorasi.
+4. Menanam dan merawat tanaman sebagai aktivitas santai.
+5. Memanen atau memperoleh hasil aktivitas kebun.
+6. Menjual hasil bila sistem jual telah ditetapkan untuk memperoleh Life Coin.
+7. Menggunakan Life Coin untuk membuka ruang, membeli tile, tanaman, atau dekorasi.
+8. Kembali menata kebun sesuai kreativitas pemain.
 
+**Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan. Isi starter inventory dan hadiah tutorial belum diputuskan.
+
+Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
 
 Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempatkan atau memperoleh objek kebun, dan mulai mengekspresikan gaya kebunnya. Target waktu numerik **BELUM DIPUTUSKAN**.
@@ -77,6 +81,8 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 
 ### Plot server
 - Satu server menyediakan 4 plot persisten.
+- Sesuai D-008, plot pemain dimulai kosong: tidak ada dekorasi, bangunan, atau tanaman yang sudah ditempatkan ketika pemain pertama kali masuk.
+- Isi starter inventory dan hadiah tutorial masih BELUM DIPUTUSKAN; kondisi plot kosong tidak berarti inventori harus kosong.
 - Plot tetap terikat pada Original Owner, termasuk ketika pemilik sedang offline.
 - Pemain yang diundang dapat berpindah dari plot miliknya sendiri ke plot pengundang; plot asalnya menjadi tersedia bagi pemain lain.
 - Original Owner adalah pemilik permanen plot.
