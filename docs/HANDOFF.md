@@ -1,5 +1,28 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan mutasi dihitung secara independen untuk setiap buah (D-019).
+  - WaterLevel 4,00-4,99: peluang mutasi 5% per buah per 2 menit paparan.
+  - WaterLevel 5,00: peluang mutasi banjir 15% per buah per 1 menit paparan, menggantikan usulan sebelumnya 25%.
+  - FEAT-002 diperbarui ke v9, tetap DRAFT.
+- File diubah:
+  - README.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana sisa waktu paparan dibawa saat WaterLevel berpindah antara 4,00-4,99 dan 5,00?
+  - Apakah buah yang sudah bermutasi kebal terhadap mutasi berikutnya, atau bisa mengalami mutasi lanjutan?
+  - Radius alat, laju pengeringan alami, dan detail tuning lain yang masih tercatat di FEAT-002.
+- Asumsi / risiko:
+  - Dengan roll independen 15% setiap menit, satu buah yang terpapar level 5 selama 15 menit penuh memiliki peluang kumulatif sekitar 91,3% untuk setidaknya satu mutasi.
+  - Dengan roll independen 5% setiap dua menit, paparan level 4 selama 14 menit menghasilkan peluang kumulatif sekitar 30,2%.
+  - Risiko ini disengaja hanya jika mutasi banjir memang diposisikan sebagai hasil yang sangat mungkin ketika tanaman dibiarkan kebanjiran.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan D-018 untuk menggantikan representasi integer D-017 dengan WaterLevel 0,00-5,00 berpresisi 0,01.
   - Label level 0-5 ditetapkan: Kering, Tanah sedikit basah, Tanah lumayan basah, Tanah Basah (rekomendasi), Tanah terlalu basah, dan Tanah kebanjiran.
   - Tick sistem ditetapkan 30 detik; Watering Can +0,50 per penggunaan; Sprinkler +0,15 per tick selama 10 menit; Soil Aerator -0,50 per tick selama 2,5 menit.
