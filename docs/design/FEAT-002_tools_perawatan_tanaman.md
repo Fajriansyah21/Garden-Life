@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v11 |
+| Versi | v12 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -46,7 +46,7 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 5. Area penyiraman ditentukan berdasarkan posisi titik penggunaan dan radius; tanaman tepat pada batas radius dianggap berada di dalam area.
 6. Watering Can bersifat manual dan memberikan efek langsung pada saat digunakan.
 7. Watering Can menambah WaterLevel sebesar 0,50 pada setiap tanaman yang terkena satu penggunaan. Nilai dibatasi maksimum 5,00.
-8. WaterLevel memakai rentang numerik 0,00-5,00 dan mendukung pecahan. Implementasi harus menyimpan nilai dalam satuan integer seperseratus (WaterLevelCenti: 0-500) agar penambahan 0,15 dapat dihitung tanpa galat floating point.
+8. WaterLevel memakai rentang numerik 0,00-5,00 dan mendukung pecahan. Implementasi harus menyimpan nilai dalam satuan integer seperseribu (WaterLevelMilli: 0-5000) agar penambahan 0,15 dapat dihitung tanpa galat floating point.
 9. Sistem wajib membedakan WaterLevel dari WateringEffectValue (bonus pertumbuhan). Keduanya tidak boleh disimpan atau dihitung sebagai satu nilai yang sama.
 10. Label WaterLevel: 0 = Kering; 1 = Tanah sedikit basah; 2 = Tanah lumayan basah; 3 = Tanah Basah (rekomendasi umum); 4 = Tanah terlalu basah/Overwatered; 5 = Tanah kebanjiran/Flooded. Level 4 dan 5 merupakan kondisi berbahaya.
 11. Timer kematian dimulai saat WaterLevel pertama kali mencapai 4,00 atau lebih dan berjalan selama WaterLevel tetap >=4,00. Timer tidak di-reset saat berpindah antara level 4 dan 5.
@@ -139,7 +139,7 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Soil Aerator status | Consumable | tipe alat | D-015 |
 | Soil Aerator konsumsi | 1 unit/aktivasi berhasil | unit/penggunaan | Dikonsumsi saat zona pengeringan aktif |
 | Soil Aerator area | Lingkaran | bentuk | D-015 |
-| Skala WaterLevel | 0,00-5,00; presisi 0,01 | level | Simpan sebagai integer 0-500 dalam satuan 0,01; D-018 |
+| Skala WaterLevel | 0,00-5,00; presisi 0,01 | level | Simpan sebagai integer 0-5000 dalam satuan 0,001; D-018 |
 | Rentang air ideal tanaman | Per jenis tanaman, dalam level 0-3 | level | Level 4 dan 5 selalu berbahaya untuk semua tanaman |
 | Soil Aerator radius | BELUM DIPUTUSKAN | studs | Radius zona pengeringan |
 | Tick global | 30 | detik | Digunakan oleh Soil Aerator dan Sprinkler |
@@ -156,7 +156,7 @@ Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engine
 - Besar dan interval pengeringan alami saat cuaca panas atau Summer.
 - Radius, batas zona aktif, dan aturan overlap Soil Aerator.
 - Radius Sprinkler dan bonus ukuran buah.
-- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 5% per 1 menit paparan (D-020).
+- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 2,5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 2,5% per 1 menit paparan (D-020).
 - Setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil bermutasi, buah tidak lagi mengikuti roll mutasi banjir berikutnya. Jika roll gagal, buah tetap eligible untuk interval berikutnya (D-021).
 - Aturan akumulasi sisa waktu ketika level berubah antara 4,00-4,99 dan 5,00 masih BELUM DIPUTUSKAN.
 
@@ -277,7 +277,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Watering Can menghasilkan area lingkaran dan memengaruhi semua tanaman di dalam radius.
 - [ ] Bonus pertumbuhan dari beberapa sumber penyiraman bertambah tetapi tidak melewati batas maksimum D-011.
 - [ ] Kadar air tanaman dihitung terpisah dari bonus pertumbuhan.
-- [ ] WaterLevel disimpan sebagai integer 0-500 (satuan 0,01), ditampilkan dalam rentang 0,00-5,00, dan tidak pernah keluar dari rentang tersebut.
+- [ ] WaterLevel disimpan sebagai integer 0-5000 (satuan 0,001), ditampilkan dalam rentang 0,00-5,00, dan tidak pernah keluar dari rentang tersebut.
 - [ ] Label WaterLevel 0-5 sesuai D-018 dan nilai pecahan ditampilkan dengan benar.
 - [ ] WaterLevel >=4,00 menampilkan status terlalu basah/banjir serta Billboard Alert di atas tanaman.
 - [ ] Penurunan WaterLevel yang masih menghasilkan nilai >=4,00 tidak membatalkan timer kematian.
@@ -330,6 +330,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v6 | 2026-11-15 | Menetapkan durasi Soil Aerator 3 menit dan menambahkan rekomendasi balancing awal berlabel ASUMSI | Menindaklanjuti D-016 dan menyediakan titik awal playtest tanpa mengunci angka usulan |
 | v7 | 2026-11-15 | Mengganti skala WaterLevel menjadi integer 0-5; level 4 Overwatered, level 5 Flooded; Soil Aerator mengurangi satu level per tick | Menindaklanjuti D-017 sesuai pilihan pemilik |
 | v8 | 2026-11-15 | Menggunakan WaterLevel pecahan 0,00-5,00; menetapkan tick 30 detik, timer kematian 15 menit, label level, Billboard Alert, nilai Watering Can/Sprinkler/Soil Aerator, durasi alat, dan pemicu pengeringan alami | Menindaklanjuti keputusan lanjutan pemilik; D-018 menggantikan D-017 |
-| v9 | 2026-11-15 | Menetapkan peluang mutasi independen per buah: 5% per 2 menit pada WaterLevel 4 dan 15% per 1 menit pada WaterLevel 5 | Menindaklanjuti D-019; algoritma sisa paparan lintas level masih perlu diputuskan |
+| v9 | 2026-11-15 | Menetapkan peluang mutasi independen per buah: 2,5% per 2 menit pada WaterLevel 4 dan 12,5% per 1 menit pada WaterLevel 5 | Menindaklanjuti D-019; algoritma sisa paparan lintas level masih perlu diputuskan |
 | v10 | 2026-11-15 | Menurunkan peluang mutasi banjir WaterLevel 5 dari 15% menjadi 5% per buah per menit | Menindaklanjuti D-020 agar peluang kumulatif selama jendela kematian 15 menit lebih terkendali |
 | v11 | 2026-11-15 | Menetapkan batas satu mutasi banjir berhasil per buah dan menyimpan statusnya secara persisten | Menindaklanjuti D-021 agar mutasi tidak dapat bertumpuk pada buah yang sama karena paparan banjir berkepanjangan |
+| v12 | 2026-11-15 | Mengubah representasi internal WaterLevel menjadi integer 0-5000 dengan presisi 0,001; UI tetap 2 desimal; menurunkan peluang Flooded WaterLevel menjadi 2,5% pada kedua rentang paparan | Menindaklanjuti D-033 dan D-035 tanpa mengubah status DRAFT |
