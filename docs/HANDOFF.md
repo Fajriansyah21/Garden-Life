@@ -2,15 +2,42 @@
 
 Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan satu blok handoff.
 
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik menyetujui matriks hak Build multiplayer.
+  - D-006 ditambahkan sebagai keputusan aktif.
+  - FEAT-001 diperbarui untuk memvalidasi izin berdasarkan peran dan kepemilikan objek; status tetap DRAFT.
+  - GDD diperbarui ke v0.5 dan Concept Backlog mencatat hak Build yang telah dikonfirmasi.
+- File diubah:
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-001_build_mode.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 tetap DRAFT dan menunggu keputusan/detail lanjutan serta persetujuan scope.
+- Cara tes (jika kode): belum ada perubahan kode.
+- Pertanyaan terbuka:
+  - Konversi ukuran grid tile 5×5 ke world units/Roblox studs.
+  - Batas jumlah objek per plot.
+  - Apakah surface placement masuk scope awal?
+  - Hak anggota untuk farming, Shared Savings, undangan, dan pengelolaan anggota di luar Build Mode.
+- Asumsi / risiko:
+  - Snap to Grid default OFF masih ASUMSI.
+  - Pemilik objek ditentukan server dari inventori/identitas pemain; client tidak boleh menentukan OwnerUserId.
+  - Hak Build tidak otomatis memberi hak akses Shared Savings atau fitur plot lainnya.
+  - Surface placement dan Store tanaman dengan state farming belum termasuk v1.
+
+---
+
 ## Status saat ini
 - Fase: 0 Discovery (visi utama sudah dikonfirmasi; exit criteria Discovery belum seluruhnya terpenuhi)
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Dokumen desain: GDD v0.4; keputusan D-002, D-003, D-004, dan D-005 telah dicatat.
+- Dokumen desain: GDD v0.5; keputusan D-002, D-003, D-004, D-005, dan D-006 telah dicatat.
 - Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
-- Pertanyaan terbuka: hak Build multiplayer, ukuran world-unit untuk grid 5×5, batas objek, dan surface placement.
+- Pertanyaan terbuka: ukuran world-unit untuk grid 5×5, batas objek, surface placement, serta detail hak anggota di luar Build Mode.
 
 ---
 
