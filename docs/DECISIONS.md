@@ -1,3 +1,25 @@
+### D-026 · Arrival & First Impression pemain baru
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Kedatangan pertama pemain perlu terasa langsung dan ramah, tanpa mengambil alih kontrol atau menambah karakter pemandu yang memperpanjang onboarding.
+- Keputusan:
+  - Pemain muncul langsung di plot pribadinya dan dapat menggerakkan karakter sejak awal.
+  - Kamera menggunakan kondisi normal; tidak ada cinematic, camera lock, atau urutan kamera khusus.
+  - Tidak ada NPC pemandu pada momen kedatangan pertama.
+  - Saat tiba, tampilkan pesan sambutan singkat: **"Selamat datang di kebunmu! Tempat kecil untuk menciptakan kebun impianmu."**
+  - Pesan sambutan tampil selama **3 detik**, lalu menghilang otomatis.
+  - Pesan tidak memblokir pergerakan, kamera, atau interaksi pemain. Tidak ada tombol konfirmasi dan pemain tidak perlu menunggu pesan selesai untuk bergerak.
+  - Setelah pesan sambutan menghilang, lanjutkan arahan penanda visual dan prompt Inventory sesuai D-025.
+  - Pesan sambutan hanya ditampilkan pada kunjungan pertama pemain ke plot pribadinya.
+- Alternatif yang ditolak: Cinematic/camera lock saat spawn, NPC pemandu yang menyapa pemain, dan dialog sambutan yang mewajibkan konfirmasi.
+- Dampak:
+  - PLAYER_JOURNEY.md bagian First Visit diperbarui untuk memasukkan momen kedatangan dan durasi pesan.
+  - GDD merangkum pendekatan Arrival & First Impression dan merujuk D-026.
+  - Tidak ada perubahan pada Starter Kit, inventori, source/sink ekonomi, atau aturan gameplay.
+  - D-026 melengkapi urutan onboarding D-025 dan tidak menggantikannya.
+  - D-026 tidak menyetujui scope implementasi di luar pengalaman kedatangan yang dijelaskan dan tidak menaikkan spec apa pun menjadi READY.
+
 ### D-025 · Onboarding First Visit dan pengenalan Starter Kit
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
