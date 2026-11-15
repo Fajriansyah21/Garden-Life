@@ -1,13 +1,15 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.5 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.6 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
 ## 1. Visi
 
+- **Nama game / map:** Garden Life.
 - **Pitch:** Garden Life adalah game Roblox santai tentang membangun, merawat, dan mendekorasi kebun pribadi bersama teman, dengan aktivitas farming serta manajemen dan ekonomi ringan sebagai pendukung.
+- **Genre / pengalaman:** Cozy garden building, decorating, light farming, dan social co-op.
 - **Pengalaman utama:** Kreativitas, relaksasi, rasa memiliki terhadap kebun, dan kepuasan melihat kebun berkembang sesuai gaya pemain.
 - **Prioritas desain:** Dekorasi dan ekspresi personal > pengalaman sosial/co-op > farming santai > manajemen dan ekonomi ringan.
 - **Game referensi (3):** **BELUM DIPUTUSKAN**. Jangan menetapkan referensi tanpa persetujuan pemilik.
@@ -62,6 +64,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - **Mata uang utama:** Life Coin.
 - **Identitas visual:** Koin emas dengan ikon daun.
 - **Saldo awal pribadi:** 1.000 Life Coin.
+- **Nama tampilan mata uang:** Life Coin, divisualisasikan sebagai koin emas dengan ikon daun.
 - **Shared Savings:** saldo terpisah yang dimiliki plot, bukan saldo pribadi anggota.
 - **Biaya akses anggota baru ke Shared Savings:** 5.000 Life Coin sebagai biaya administrasi; Original Owner harus menyetujui akses anggota baru.
 - **Source potensial:** penjualan hasil kebun. Nilai dan mekanisme penjualan **BELUM DIPUTUSKAN**.
@@ -93,7 +96,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - Harga, syarat unlock, dan batas waktu upgrade **BELUM DIPUTUSKAN**.
 
 ### Tile, dekorasi, bangunan, dan tanaman
-- Farm Tile dan Build Tile berukuran 5×5 dan menggunakan **grid placement**.
+- Farm Tile dan Build Tile masing-masing menempati footprint 5×5 sel grid. Berdasarkan D-007, 1 sel = 4×4 studs sehingga footprint satu tile = 20×20 studs dan menggunakan **grid placement**.
 - Farm/Build Tile harus dibeli dan masuk inventori terlebih dahulu sebelum ditempatkan.
 - Dekorasi, bangunan, dan tanaman menggunakan **free placement**; penempatannya tidak diwajibkan mengikuti grid tile dan tidak membutuhkan tile sebagai alas/slot.
 - Pemain dapat mengaktifkan atau menonaktifkan **Snap to Grid** sebagai bantuan opsional untuk penempatan objek free placement.
