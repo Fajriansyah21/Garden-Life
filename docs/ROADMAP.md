@@ -1,7 +1,7 @@
 # ROADMAP · Garden Life
 
 **Status dokumen:** DRAFT untuk ditinjau pemilik  
-**Versi:** 0.2  
+**Versi:** 0.3  
 **Tanggal dibuat:** 2026-11-15  
 **Pemilik keputusan:** Pemilik proyek  
 **Penyusun:** ChatGPT (Game Designer)
@@ -41,7 +41,7 @@ Roadmap digunakan untuk:
 | Gameplay | Belum ada implementasi |
 | FEAT-001 Build Mode | DRAFT |
 | FEAT-002 Tools & Perawatan Tanaman | DRAFT, v11 |
-| Keputusan desain | D-001 sampai D-023 |
+| Keputusan desain | D-001 sampai D-024 |
 | Spec READY | Belum ada |
 | Vertical Slice | Scope belum ditetapkan |
 | Tanggal rilis | Belum ditetapkan |
@@ -73,7 +73,7 @@ Pekerjaan:
 **Tujuan:** mendefinisikan pengalaman, sistem, dan scope sebelum implementasi.
 
 Pekerjaan:
-- [ ] Melengkapi player journey dari pemain baru hingga progres jangka panjang.
+- [x] Menyusun draft Player Journey empat tahap berdasarkan D-024; rincian masih DRAFT dan perlu review pemilik.
 - [ ] Memastikan core loop utama dan loop pendukung.
 - [ ] Menetapkan pengalaman 5 menit pertama sebagai rancangan yang dapat diuji.
 - [ ] Memetakan seluruh sistem pada Master System Checklist (bagian 5).
@@ -340,7 +340,7 @@ Risiko berikut adalah identifikasi awal, bukan klaim bahwa masalah telah terjadi
 | Roadmap utama | docs/ROADMAP.md | Peta fase, sistem, dependensi, risiko | DRAFT |
 | GDD | docs/02_GAME_DESIGN_DOCUMENT.md | Visi dan aturan tingkat tinggi | v1.5 |
 | Decision Log | docs/DECISIONS.md | Keputusan pemilik yang disetujui | D-001–D-022 |
-| Player Journey | docs/design/PLAYER_JOURNEY.md | Pengalaman pemain dari awal hingga progres lanjut | Belum dibuat |
+| Player Journey | docs/design/PLAYER_JOURNEY.md | Pengalaman pemain dari awal hingga progres lanjut | DRAFT v0.1 |
 | Economy Ledger | docs/design/ECONOMY_LEDGER.md | Semua source, sink, dan aliran Life Coin | Belum dibuat |
 | Vertical Slice Scope | docs/design/VERTICAL_SLICE_SCOPE.md | Batas fitur dan acceptance criteria Vertical Slice | Belum dibuat |
 | Risk Register | Bagian 9 dokumen ini; dapat dipisah nanti | Risiko dan mitigasi | DRAFT |
@@ -375,5 +375,6 @@ Pertanyaan berikut harus dibahas sebelum Roadmap dianggap final. Tidak ada jawab
 
 | Versi | Tanggal | Perubahan | Status |
 |---|---|---|---|
+| v0.3 | 2026-11-15 | Menambahkan artefak Player Journey DRAFT v0.1 dan mencatat empat tahap pengalaman berdasarkan D-024 | DRAFT |
 | v0.2 | 2026-11-15 | Mencatat visi Cozy Garden Life Simulator (D-023), cakupan Roadmap hingga jangka panjang, dan status pertanyaan cakupan Roadmap | DRAFT |
 | v0.1 | 2026-11-15 | Draft awal fase proyek, 30 area sistem, dependensi, checklist lintas sistem, risiko, dan pertanyaan terbuka | DRAFT |
