@@ -1,5 +1,31 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik memilih opsi A untuk kematian tanaman: Overwatered bertahap dengan kesempatan pulih (D-013).
+  - Pemilik menyatakan Garden Life membutuhkan tool tambahan untuk mengurangi kadar air tanah (D-014).
+  - FEAT-002 diperbarui ke v4 dengan rancangan sementara Soil Aerator.
+  - Soil Aerator direkomendasikan sebagai alat permanen yang menargetkan satu tanaman dan mengurangi WaterLevel, tetapi nama, tipe final, nilai pengurangan, dan cooldown belum disetujui.
+  - GDD diperbarui ke v1.1.
+- File diubah:
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Apakah nama Soil Aerator disetujui?
+  - Apakah alat pengurang air permanen atau consumable?
+  - Apakah targetnya satu tanaman atau area tanah?
+  - Berapa pengurangan WaterLevel per penggunaan dan cooldown?
+  - Berapa durasi Overwatered, laju pengeringan alami, toleransi tiap tanaman, dan nilai penyiraman?
+  - Apakah tanaman Overwatered tetap tumbuh pada laju dasar?
+- Asumsi / risiko:
+  - Soil Aerator permanen, target satu tanaman, pengurangan kadar air instan, dan cooldown per tanaman adalah rekomendasi DRAFT, bukan keputusan pemilik.
+  - Tool yang terlalu kuat dapat membuat overwatering kehilangan konsekuensi; tool terlalu lemah terasa tidak berguna.
+  - Semua angka balancing masih BELUM DIPUTUSKAN.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik memilih opsi A untuk overwatering: tanaman masuk status Overwatered, mendapat kesempatan pulih, dan hanya mati jika kadar air tetap di atas toleransi sampai durasi kematian tercapai.
   - D-013 ditambahkan sebagai keputusan aktif.
   - FEAT-002 diperbarui ke v3 dengan aturan timer per episode, pemulihan, dan persistence timestamp server.
