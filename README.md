@@ -134,6 +134,5 @@ Garden-Life/
 
 ## Tools
 
-- [Rojo](https://rojo.space) untuk sinkronisasi source dengan Roblox Studio.
 - Luau untuk implementasi Roblox.
 - Git/GitHub untuk version control dan dokumentasi bersama.
