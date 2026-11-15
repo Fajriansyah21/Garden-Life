@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v1 |
+| Versi | v1.2 |
 | Prioritas | Must |
 | Fase | 2 Vertical Slice (usulan; scope fase menunggu persetujuan pemilik) |
 | Penulis | ChatGPT |
