@@ -93,11 +93,16 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Cloudy: waktu tumbuh | +15% waktu tumbuh untuk tanaman dengan kebutuhan sinar matahari tinggi | Dikonfirmasi |
 | Cloudy saat tanaman sedang tumbuh | Sisa waktu tumbuh bertambah 15%; progres yang sudah diperoleh tidak dihapus | Dikonfirmasi |
 | Cloudy: Mutation | Tidak menghasilkan Mutation | Dikonfirmasi |
+| Drizzle | Gerimis lembut dan menenangkan; WaterLevel +0,05 setiap tick; Mutation Wet 2,5% per buah secara independen setiap tick; seluruh tanaman mendapat +15% waktu tumbuh tanpa bonus pertumbuhan | Dikonfirmasi (D-030) |
+| Durasi cuaca non-Sunny | 20 tick × 30 detik = 600 detik/10 menit per episode | Dikonfirmasi (D-031) |
+| Durasi Sunny | Dikecualikan dari durasi standar cuaca lain | Terbuka |
 | Menu informasi tanaman | Menu khusus agar pemain dapat memeriksa kondisi tanaman; rincian isi dan interaksi belum ditetapkan (D-029) | Kebutuhan konseptual dikonfirmasi |
 
 - Klasifikasi kebutuhan sinar matahari tanaman diperlukan untuk menerapkan efek Cloudy secara selektif; nama field dan skema data belum ditetapkan.
-- Durasi musim/cuaca, peluang dan distribusi kemunculan, serta aturan lengkap Drizzle, Rainy, Windy, Misty, dan Thunderstorm masih terbuka.
+- Durasi setiap cuaca non-Sunny ditetapkan 10 menit; durasi Sunny masih terbuka. Peluang dan distribusi kemunculan serta aturan lengkap Rainy, Windy, Misty, dan Thunderstorm masih terbuka.
 - Efek Cloudy pada sisa waktu pertumbuhan harus diproses satu kali ketika episode Cloudy dimulai untuk tanaman yang sedang tumbuh dan memenuhi syarat. Detail penanganan beberapa episode sebelum tanaman selesai tumbuh perlu dirinci sebelum implementasi.
+- Drizzle melakukan roll Mutation Wet per buah secara independen pada setiap tick 30 detik. Jenis Mutation yang sama tidak boleh tercatat dua kali pada buah yang sama sesuai D-022.
+- WaterLevel Drizzle tidak boleh melewati batas 5,00. Aturan penerapan modifier pertumbuhan pada tanaman yang baru ditanam selama Drizzle masih terbuka.
 - Tidak ada angka ekonomi atau perubahan source/sink yang ditetapkan oleh konsep ini.
 
 ## 6. Prinsip penyaringan fitur
