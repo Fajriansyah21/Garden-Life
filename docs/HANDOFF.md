@@ -82,7 +82,7 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Kondisi awal plot: kosong tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan (D-008). Starter inventory dan hadiah tutorial belum diputuskan.
+- Kondisi awal plot: kosong tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan (D-008). Pemain baru menerima Starter Kit gratis sebagai inventori (D-009); isi kit belum diputuskan.
 - Dokumen desain: GDD v0.6; keputusan D-002 sampai D-007 telah dicatat (D-001 mengatur repo sebagai sumber kebenaran).
 - Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
