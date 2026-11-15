@@ -8,7 +8,7 @@
 | Fase | 2 Vertical Slice (usulan; scope fase menunggu persetujuan pemilik) |
 | Penulis | ChatGPT |
 | Disetujui oleh | |
-| Bergantung pada | D-003, D-004, D-005, D-006 |
+| Bergantung pada | D-003, D-004, D-005, D-006, D-007 |
 | Perkiraan biaya | Belum dinilai Claude |
 
 ## 1. Tujuan pemain
@@ -28,9 +28,9 @@ Pemain dapat menata kebunnya dengan memasang, memindahkan, dan menyimpan tile, b
 1. Pemain memilih objek yang jumlahnya tersedia di inventori.
 2. Sistem membuat placement preview lokal. Preview tidak dianggap sebagai objek dunia yang tersimpan.
 3. Pemain menggerakkan preview dengan mouse atau input sentuh.
-4. Farm Tile dan Build Tile menggunakan grid placement 5×5 sesuai D-004.
+4. Farm Tile dan Build Tile menggunakan grid placement 5×5 sel sesuai D-004. Berdasarkan D-007, setiap sel berukuran 4×4 studs, sehingga footprint satu tile adalah 20×20 studs.
 5. Dekorasi, bangunan, dan tanaman menggunakan free placement sesuai D-004.
-6. Snap to Grid merupakan opsi bagi objek free placement. Status ON/OFF dipertahankan selama sesi Build Mode; nilai default awal **ASUMSI: OFF** agar free placement terasa bebas.
+6. Snap to Grid merupakan opsi bagi objek free placement. Status ON/OFF dipertahankan selama sesi Build Mode; nilai default awal **ASUMSI: OFF** agar free placement terasa bebas. Saat ON, posisi snap menggunakan kelipatan 4 studs pada bidang horizontal, relatif terhadap origin grid plot yang ditetapkan server.
 7. Semua objek dapat diputar dalam interval 90° sesuai D-004. Rotasi preview tidak mengubah data inventori.
 8. Preview menampilkan status valid atau tidak valid. Pemain tidak dapat mengonfirmasi preview yang tidak valid.
 9. Saat Place ditekan, client mengirim permintaan penempatan. Server memvalidasi ulang hak Build, inventori, batas plot, metadata objek, dan collision.
@@ -99,7 +99,10 @@ Setiap asset yang dapat ditempatkan wajib memiliki satu `PlacementProfile` dan b
 
 | Parameter | Nilai | Satuan | Catatan |
 |---|---:|---|---|
-| Tile grid footprint | 5×5 | ukuran tile | Sesuai D-003/D-004; konversi ke world studs belum ditetapkan |
+| Tile grid footprint | 5×5 | sel grid | Sesuai D-004; satu tile = 20×20 studs berdasarkan D-007 |
+| Grid cell size | 4×4 | studs | D-007; unit grid dasar pada bidang horizontal |
+| Tile world footprint | 20×20 | studs | 5 sel × 4 studs per sel |
+| Snap interval | 4 | studs | Kelipatan unit grid; origin plot ditetapkan server |
 | Rotation step | 90 | derajat | D-004 |
 | Rotation states | 4 | orientasi | 0°, 90°, 180°, 270° |
 | Snap to Grid default | OFF | boolean | ASUMSI desain, perlu persetujuan |
@@ -116,6 +119,8 @@ Setiap asset yang dapat ditempatkan wajib memiliki satu `PlacementProfile` dan b
 
 - Inventori kosong: tombol Place dinonaktifkan dan UI menampilkan pesan "Item tidak tersedia".
 - Preview di luar plot: preview berstatus tidak valid dan Place dinonaktifkan.
+- Posisi tile tidak sejajar grid 4-stud: server menolak penempatan.
+- Tile dengan footprint bukan 20×20 studs atau metadata grid yang tidak sesuai D-007: asset tidak dapat ditempatkan sampai metadata diperbaiki.
 - Collision tidak valid: preview berstatus tidak valid; tidak ada perubahan data.
 - Metadata asset tidak lengkap: asset tidak dapat dipilih untuk placement.
 - Pemain tidak memiliki hak Build: server menolak permintaan dan UI menampilkan pesan izin.
@@ -213,7 +218,9 @@ Setiap model yang dapat ditempatkan wajib menyediakan metadata PlacementProfile 
 
 - [ ] Pemain dapat membuka Build Mode dan melihat kategori inventori.
 - [ ] Pemain dapat memilih objek dan melihat placement preview.
-- [ ] Farm Tile dan Build Tile mengikuti grid placement 5×5.
+- [ ] Farm Tile dan Build Tile mengikuti grid placement 5×5 sel dengan ukuran 4 studs per sel.
+- [ ] Footprint Farm Tile dan Build Tile adalah 20×20 studs.
+- [ ] Stage 1 berukuran 80×80 studs dan dapat menampung 4×4 footprint tile secara geometris.
 - [ ] Dekorasi, bangunan, dan tanaman mendukung free placement.
 - [ ] Snap to Grid dapat diaktifkan dan dimatikan untuk objek free placement.
 - [ ] Objek dapat diputar dalam interval 90°.
@@ -243,3 +250,4 @@ Setiap model yang dapat ditempatkan wajib menyediakan metadata PlacementProfile 
 |---|---|---|---|
 | v1 | 2026-11-15 | Draft awal Build Mode, Hybrid Placement, dan Hybrid Collision | Merinci keputusan D-003, D-004, dan D-005 |
 | v1.1 | 2026-11-15 | Menetapkan matriks izin Build multiplayer | Pemilik menyetujui D-006; memperjelas izin berdasarkan peran dan kepemilikan objek |
+| v1.2 | 2026-11-15 | Menetapkan ukuran grid dunia 4 studs dan footprint tile 20×20 studs | D-007 menyelaraskan grid tile dengan ukuran plot |
