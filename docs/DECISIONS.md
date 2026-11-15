@@ -18,6 +18,15 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-005 · Hybrid Collision untuk Build Mode
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik
+- Status: Aktif
+- Konteks: Menjaga struktur bangunan tetap rapi tanpa menghilangkan kebebasan menyusun tanaman dan dekorasi kecil.
+- Keputusan: Build Mode menggunakan Hybrid Collision. GroundTile tidak boleh bertumpuk dengan GroundTile lain dan tidak memblokir objek di atasnya. Solid (bangunan/objek besar) tidak boleh bertabrakan dengan Solid atau Detail. Detail (tanaman/dekorasi kecil) boleh bertumpuk dengan Detail lain, tetapi tidak boleh menembus Solid. Setiap asset wajib memiliki PlacementProfile dan bounding volume.
+- Alternatif yang ditolak: Strict Placement untuk semua objek karena terlalu membatasi dekorasi; Full Free Placement karena memungkinkan bangunan saling menembus.
+- Dampak: Metadata setiap asset harus mendefinisikan profil tabrakan dan bounding volume. Surface placement seperti pot di atas meja belum termasuk dan memerlukan aturan terpisah.
+
 ### D-004 · Sistem Hybrid Placement untuk tile dan objek kebun
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik
