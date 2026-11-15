@@ -8,7 +8,7 @@
 | Fase | 2 Vertical Slice (usulan; scope fase menunggu persetujuan pemilik) |
 | Penulis | ChatGPT |
 | Disetujui oleh | |
-| Bergantung pada | D-003, D-004, D-005 |
+| Bergantung pada | D-003, D-004, D-005, D-006 |
 | Perkiraan biaya | Belum dinilai Claude |
 
 ## 1. Tujuan pemain
@@ -84,7 +84,16 @@ Setiap asset yang dapat ditempatkan wajib memiliki satu `PlacementProfile` dan b
 4. Saat satu objek sedang dipindahkan oleh seorang pemain, server memberi lock sementara pada objek tersebut. Permintaan Move/Store lain untuk objek yang sama ditolak sampai operasi selesai atau lock dilepas.
 5. Lock dilepas setelah operasi berhasil, dibatalkan, pemain keluar, atau sesi Build Mode berakhir.
 6. Permintaan Place/Move/Store yang dikirim berulang dengan operation ID yang sama hanya boleh diterapkan satu kali.
-7. Model hak Build untuk Original Owner, Active Owner, dan anggota plot **BELUM DIPUTUSKAN**. Implementasi multiplayer tidak boleh menebak matriks izin; perlu keputusan pemilik atau spec permission terpisah.
+7. Hak Build mengikuti D-006 dan diperiksa server pada setiap operasi:
+   - Original Owner dapat Place, Move, dan Store pada seluruh objek di plot.
+   - Active Owner dapat Place, Move, dan Store pada seluruh objek di plot selama memegang kendali aktif.
+   - Anggota dapat Place hanya dari inventori miliknya sendiri.
+   - Anggota dapat Move atau Store hanya objek dengan `OwnerUserId` yang sama dengan UserId anggota tersebut.
+   - Anggota tidak dapat Move atau Store objek milik pemain lain.
+   - Anggota tidak dapat mengubah hak anggota plot melalui Build Mode.
+8. Untuk operasi Place oleh anggota, server menetapkan `OwnerUserId` pada objek baru berdasarkan identitas pemain yang melakukan pembelian/pemilik item inventori; client tidak boleh mengirim atau mengganti nilai kepemilikan.
+9. Untuk Move atau Store, server memeriksa peran pemain dan kepemilikan objek saat operasi diproses, bukan hanya saat UI dibuka.
+10. Original Owner tetap memiliki otoritas penuh meskipun bukan Active Owner. Hak Active Owner berlaku selama status Active Owner masih valid; ketika status berpindah, izin langsung mengikuti status baru.
 
 ## 3. Data & angka tuning
 
@@ -98,7 +107,10 @@ Setiap asset yang dapat ditempatkan wajib memiliki satu `PlacementProfile` dan b
 | Permanent delete | Tidak tersedia | boolean | Gunakan Store |
 | Placement preview | 1 | objek aktif per pemain | Mencegah beberapa preview yang membingungkan |
 | Object lock | 1 | pemegang lock per objek | Lock hanya saat Move/Store |
-| Store refund | 1 | item | Kembali ke inventori tanpa Life Coin |
+| Store refund | 1 | item | Kembali ke inventori pemilik objek tanpa Life Coin |
+| Build permission roles | 3 | peran | Original Owner, Active Owner, Member; aturan sesuai D-006 |
+| Member object scope | Own objects only | cakupan | Anggota hanya Move/Store objek dengan OwnerUserId miliknya |
+| Owner override | Full plot | cakupan | Original Owner dan Active Owner dapat mengelola semua objek |
 
 ## 4. Kondisi tepi & kegagalan
 
@@ -107,6 +119,10 @@ Setiap asset yang dapat ditempatkan wajib memiliki satu `PlacementProfile` dan b
 - Collision tidak valid: preview berstatus tidak valid; tidak ada perubahan data.
 - Metadata asset tidak lengkap: asset tidak dapat dipilih untuk placement.
 - Pemain tidak memiliki hak Build: server menolak permintaan dan UI menampilkan pesan izin.
+- Anggota mencoba Move/Store objek pemain lain: server menolak operasi, objek dan inventori tidak berubah.
+- Anggota mencoba Place dengan AssetId yang tidak ada di inventori sendiri: server menolak operasi.
+- Anggota memalsukan OwnerUserId pada payload: server mengabaikan nilai client dan menggunakan kepemilikan yang tercatat di server.
+- Active Owner berubah ketika Build Mode masih terbuka: server memvalidasi ulang peran pada operasi berikutnya; operasi yang tidak lagi diizinkan ditolak.
 - Pemain keluar saat preview: preview dibuang tanpa perubahan.
 - Pemain keluar setelah server menerima operasi: server menyelesaikan operasi secara atomik atau menolak seluruh operasi; inventori dan layout tidak boleh berada pada kondisi setengah berubah.
 - Dua pemain memindahkan objek yang sama: hanya pemegang lock yang dapat menyelesaikan operasi.
@@ -184,7 +200,7 @@ Setiap model yang dapat ditempatkan wajib menyediakan metadata PlacementProfile 
   - Bounding volume yang tidak sesuai visual dapat membuat placement terasa terlalu ketat atau terlalu longgar.
   - Detail yang boleh overlap dapat menghasilkan clipping visual; tuning per asset diperlukan.
   - Multiplayer lock dan penyimpanan atomik menambah kompleksitas.
-  - Aturan hak Build belum ditetapkan.
+  - Perubahan Active Owner saat operasi Build berlangsung harus ditangani dengan validasi ulang izin di server.
   - Surface placement dan Store tanaman belum termasuk v1.
 - **Metrik sukses (target playtest awal, ASUMSI):**
   - ≥95% operasi Place/Move/Store yang valid berhasil tanpa inkonsistensi inventori/layout.
@@ -211,6 +227,13 @@ Setiap model yang dapat ditempatkan wajib menyediakan metadata PlacementProfile 
 - [ ] Store mengembalikan satu item ke inventori dan tidak memberikan Life Coin.
 - [ ] Dua pemain tidak dapat mengubah objek yang sama secara bersamaan.
 - [ ] Permintaan palsu atau tidak berizin ditolak server.
+- [ ] Original Owner dapat Place, Move, dan Store objek milik anggota mana pun.
+- [ ] Active Owner dapat Place, Move, dan Store objek milik anggota mana pun selama status Active Owner berlaku.
+- [ ] Anggota dapat Place hanya menggunakan item inventori miliknya sendiri.
+- [ ] Anggota dapat Move dan Store objek miliknya sendiri.
+- [ ] Anggota tidak dapat Move atau Store objek milik pemain lain.
+- [ ] Anggota tidak dapat mengubah hak anggota melalui Build Mode.
+- [ ] Perubahan Active Owner langsung memengaruhi izin pada permintaan Build berikutnya.
 - [ ] Perubahan layout tetap tersimpan setelah pemain keluar dan masuk kembali.
 - [ ] Tidak ada error di Output selama seluruh skenario pengujian.
 
@@ -219,3 +242,4 @@ Setiap model yang dapat ditempatkan wajib menyediakan metadata PlacementProfile 
 | Versi | Tanggal | Perubahan | Alasan |
 |---|---|---|---|
 | v1 | 2026-11-15 | Draft awal Build Mode, Hybrid Placement, dan Hybrid Collision | Merinci keputusan D-003, D-004, dan D-005 |
+| v1.1 | 2026-11-15 | Menetapkan matriks izin Build multiplayer | Pemilik menyetujui D-006; memperjelas izin berdasarkan peran dan kepemilikan objek |
