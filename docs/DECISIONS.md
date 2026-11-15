@@ -1,3 +1,37 @@
+### D-022 · Sistem Variant, Mutation, dan perhitungan harga buah
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Buah membutuhkan dua lapisan atribut khusus yang sama-sama mengubah tampilan dan nilai jual, tetapi memiliki aturan perolehan, penumpukan, serta prioritas visual yang berbeda.
+- Keputusan:
+  - Variant dan Mutation adalah dua sistem terpisah. Keduanya dapat dimiliki oleh buah yang sama dan sama-sama meningkatkan harga jual.
+  - Satu buah hanya dapat memiliki satu Variant. Variant yang sudah diperoleh bersifat permanen pada buah tersebut: tidak dapat diganti, ditimpa, atau ditumpuk dengan Variant lain.
+  - Variant mengubah tampilan buah dan memiliki prioritas visual tertinggi. Tampilan Variant tidak dapat ditimpa oleh tampilan Mutation.
+  - Variant yang telah diperoleh tetap menjadi atribut buah dan tidak hilang ketika buah memperoleh Mutation.
+  - Variant Seasonal meningkatkan Rarity buah. Variant Seasonal sangat langka dan memerlukan kondisi khusus. Nama Variant Winter diubah menjadi **Cristal**.
+  - Multiplier Variant:
+    | Variant | Multiplier harga |
+    |---|---:|
+    | Seasonal: Cristal (Winter) | 5x |
+    | Silver | 1,5x |
+    | Gold | 3x |
+    | Rainbow | 4x |
+  - Mutation juga mengubah tampilan buah dan meningkatkan harga jual. Sebuah buah dapat memiliki beberapa jenis Mutation sekaligus.
+  - Mutation yang baru diperoleh dapat menggantikan tampilan Mutation sebelumnya, tetapi tidak menghapus Mutation sebelumnya sebagai atribut atau menghilangkan multiplier ekonominya.
+  - Satu jenis Mutation hanya dapat tercatat satu kali pada buah yang sama. Mendapatkan jenis Mutation yang sudah dimiliki tidak menambahkan stack duplikat.
+  - Mutation dapat diperoleh melalui cuaca, musim, metode khusus, atau Plant Sprayer. Peluang, kondisi, dan multiplier masing-masing Mutation ditentukan secara individual; nilai multiplier Mutation belum ditetapkan secara global.
+  - Perhitungan harga jual menggunakan urutan: **Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation**.
+  - Multiplier Mutation dijumlahkan terlebih dahulu. Contoh: harga dasar 100 C, Variant Seasonal 5x, dan dua Mutation dengan multiplier 2x serta 5x menghasilkan 100 C × 5 × (2 + 5) = **3.500 C**.
+  - Jika buah tidak memiliki Variant, faktor Variant menggunakan nilai netral 1x. Jika buah tidak memiliki Mutation, faktor Mutation menggunakan nilai netral 1x.
+  - Angka 2x dan 5x pada contoh perhitungan hanya ilustrasi, bukan nilai multiplier Mutation yang telah disetujui.
+- Alternatif yang ditolak: Menjadikan Variant dan Mutation satu sistem; mengizinkan Variant ditimpa; menghapus efek ekonomi Mutation yang tampilannya ditimpa; serta mengalikan semua multiplier Mutation satu per satu tanpa penjumlahan terlebih dahulu.
+- Dampak:
+  - Data buah perlu menyimpan VariantId tunggal dan kumpulan MutationId unik secara persisten.
+  - Tampilan buah harus menerapkan prioritas Variant di atas Mutation, sementara semua atribut Mutation tetap dihitung untuk ekonomi.
+  - Sistem harga harus menghitung multiplier Variant dan Mutation secara terpisah sesuai urutan rumus.
+  - D-021 tetap berlaku khusus untuk batas satu keberhasilan mutasi banjir per buah; D-022 tidak menghapus batas tersebut.
+  - Detail tiap Mutation, peluang perolehan, efek tambahan, dan multiplier individual masih harus ditetapkan sebelum spec implementasi dinyatakan lengkap.
+
 # DECISIONS · Log Keputusan
 
 Aturan: **hanya ditambah, tidak dihapus.** Untuk mengubah keputusan, tulis entri baru yang menyebut "Menggantikan D-0xx".
