@@ -1,6 +1,6 @@
 # Garden Life
 
-**Garden Life** adalah game Roblox santai tentang membangun, merawat, dan mendekorasi kebun pribadi bersama teman. Fokus utamanya adalah kreativitas dan ekspresi personal melalui desain kebun. Farming, progres, dan ekonomi menjadi aktivitas pendukung, bukan simulator manajemen yang berat.
+**Garden Life** adalah **Cozy Garden Life Simulator** di Roblox. Pemain membangun, merawat, dan mendekorasi kebun pribadi yang terus berkembang, mengoleksi tanaman unik, serta mengunjungi kebun teman. Kreativitas dan ekspresi personal menjadi pusat pengalaman; farming, progres, dan ekonomi ringan menjadi aktivitas pendukung, bukan tujuan tunggal.
 
 > **Prinsip sumber kebenaran:** keputusan desain yang sudah disetujui harus tercatat di repo. Ide yang belum disetujui atau belum memiliki aturan lengkap harus ditandai sebagai usulan, asumsi, atau belum diputuskan.
 
@@ -10,8 +10,8 @@
 |---|---|
 | Nama game / map | **Garden Life** |
 | Platform | Roblox |
-| Genre / pengalaman | Cozy garden building, decorating, light farming, social co-op |
-| Fokus utama | Membangun dan mendekorasi kebun sesuai gaya pemain |
+| Genre / pengalaman | Cozy Garden Life Simulator: garden building, decorating, light farming, social co-op |
+| Fokus utama | Kebun pribadi sebagai ruang personal yang terus berkembang; dekorasi, ekspresi, koleksi tanaman, dan perawatan santai |
 | Prioritas pengalaman | Dekorasi & ekspresi personal > sosial/co-op > farming santai > manajemen dan ekonomi ringan |
 | Mode bermain | Solo dan multiplayer dalam plot bersama |
 | Mata uang | **Life Coin** |
@@ -78,10 +78,10 @@ Greenhouse (kapasitas konsep 18 tanaman), 5 tier pupuk, 4 musim, efek cuaca, Wat
 
 - Fase: **0 Discovery**, menuju Fase 1 Konsep & GDD.
 - Gameplay: belum ada implementasi.
-- GDD: v1.5.
+- GDD: v1.6.
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v11).
-- Log keputusan: D-001 sampai D-022; keputusan yang digantikan tetap tercatat sebagai riwayat.
+- Log keputusan: D-001 sampai D-023; keputusan yang digantikan tetap tercatat sebagai riwayat.
 - Tidak ada spec yang berstatus `READY`; hanya pemilik yang dapat menyetujui status tersebut.
 
 ## Dokumen utama
