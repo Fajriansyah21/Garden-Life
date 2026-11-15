@@ -18,6 +18,22 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-006 · Hak Build multiplayer berdasarkan kepemilikan objek
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik
+- Status: Aktif
+- Konteks: Menetapkan batas kolaborasi Build Mode agar anggota dapat berkontribusi pada kebun bersama tanpa kehilangan kendali atas objek yang mereka miliki.
+- Keputusan:
+  - Original Owner memiliki hak pengelolaan penuh atas Build Mode dan seluruh objek pada plot.
+  - Active Owner memiliki hak pengelolaan penuh selama memegang kendali aktif plot.
+  - Anggota dapat memasang objek dari inventori miliknya sendiri.
+  - Anggota dapat memindahkan dan menyimpan hanya objek yang OwnerUserId-nya sama dengan UserId anggota tersebut.
+  - Anggota tidak dapat memindahkan atau menyimpan objek milik pemain lain.
+  - Anggota tidak dapat mengelola hak anggota plot.
+  - Server wajib memvalidasi peran pemain dan kepemilikan objek untuk setiap operasi Place, Move, dan Store; UI client bukan sumber otoritas izin.
+- Alternatif yang ditolak: Semua anggota dapat mengubah semua objek, karena berisiko menghilangkan hasil dekorasi pemain lain; hanya Original Owner yang boleh Build, karena terlalu membatasi co-op.
+- Dampak: FEAT-001 harus menerapkan pemeriksaan izin berbasis peran dan OwnerUserId. Original Owner dan Active Owner dapat membantu mengatur seluruh kebun, sedangkan anggota memiliki ruang kontribusi yang terbatas pada objek sendiri. Hak Shared Savings, farming, undangan, dan pengelolaan anggota di luar Build Mode tidak ditentukan oleh keputusan ini.
+
 ### D-005 · Hybrid Collision untuk Build Mode
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik
