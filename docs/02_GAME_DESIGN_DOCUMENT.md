@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 2.1 · **Terakhir diubah:** 2026-11-15
+**Versi:** 2.2 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -48,12 +48,15 @@ Loop konseptual utama:
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 
 
-### Musim & cuaca: eksplorasi Spring (D-028)
+### Musim & cuaca: eksplorasi Spring (D-028, D-030, D-031)
 - Identitas visual Spring adalah **Fresh Nature** dengan pola cuaca **Balanced**. Roster konsepnya: Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
-- **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada.
+- **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada. Durasi Sunny belum ditetapkan.
 - **Cloudy** dapat menjadi transisi menuju Drizzle, Rainy, atau Thunderstorm. Saat episode dimulai, WaterLevel tanaman yang terkena efek bertambah 0,25 satu kali.
-- Selama Cloudy, tanaman dengan kebutuhan sinar matahari tinggi membutuhkan waktu tumbuh 15% lebih lama. Jika tanaman tersebut sedang tumbuh saat Cloudy dimulai, sisa waktu tumbuhnya juga bertambah 15%; progres yang sudah diperoleh tidak dihapus.
-- Cloudy tidak menghasilkan Mutation. Detail cuaca Spring lainnya, durasi, peluang, dan distribusi kemunculan masih BELUM DIPUTUSKAN.
+- Selama Cloudy, tanaman dengan kebutuhan sinar matahari tinggi membutuhkan waktu tumbuh 15% lebih lama. Jika tanaman tersebut sedang tumbuh saat Cloudy dimulai, sisa waktu tumbuhnya juga bertambah 15%; progres yang sudah diperoleh tidak dihapus. Cloudy tidak menghasilkan Mutation.
+- **Drizzle** adalah gerimis lembut dan menenangkan. Selama episode berlangsung, WaterLevel tanaman yang terkena efek bertambah 0,05 setiap tick. Setiap tick, setiap buah eligible melakukan roll Mutation Wet (Basah) secara independen dengan peluang 2,5%. Seluruh tanaman menerima tambahan waktu pertumbuhan 15%; Drizzle tidak memberikan bonus atau percepatan pertumbuhan. WaterLevel tetap dibatasi maksimum 5,00 sesuai D-018.
+- Setiap cuaca selain Sunny berlangsung selama 20 tick (600 detik/10 menit). Satu tick berdurasi 30 detik. Sunny dikecualikan dan durasinya masih BELUM DIPUTUSKAN (D-031).
+- Multiplier harga dan tampilan Mutation Wet, serta penerapan modifier Drizzle pada tanaman yang baru ditanam ketika episode sedang berjalan, masih BELUM DIPUTUSKAN.
+- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Rainy, Windy, Misty, dan Thunderstorm masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
