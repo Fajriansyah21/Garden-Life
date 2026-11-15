@@ -28,8 +28,8 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 
 | Elemen | Detail | Status |
 |---|---|---|
-| Farm Tile | Ukuran 5×5; dibeli dan masuk inventori sebelum ditempatkan | Dikonfirmasi |
-| Build Tile | Ukuran 5×5; dibeli dan masuk inventori sebelum ditempatkan | Dikonfirmasi |
+| Farm Tile | Ukuran 5×5 sel grid (20×20 studs); dibeli dan masuk inventori sebelum ditempatkan | Dikonfirmasi (D-007 untuk skala world) |
+| Build Tile | Ukuran 5×5 sel grid (20×20 studs); dibeli dan masuk inventori sebelum ditempatkan | Dikonfirmasi (D-007 untuk skala world) |
 | Dekorasi | Tidak membutuhkan tile sebagai alas/slot | Dikonfirmasi |
 | Stage 1 | 80×80 | Dikonfirmasi |
 | Stage 2 | 160×160 | Dikonfirmasi |
@@ -38,6 +38,8 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 | Arah ekspansi per upgrade | +40 kiri, +40 kanan, +80 belakang, +0 depan | Dikonfirmasi |
 | Posisi objek | Objek yang sudah ditempatkan tetap pada posisi tetap saat plot berkembang | Dikonfirmasi |
 | Harga dan syarat upgrade | Belum ditentukan | Terbuka |
+
+**Skala grid dunia (D-007):** Satu sel grid = 4×4 studs. Satu Farm Tile atau Build Tile mencakup 5×5 sel = 20×20 studs. Ukuran ini membuat Stage 1 (80×80 studs) setara dengan 4×4 footprint tile.
 
 **Aturan penempatan yang telah dikonfirmasi (D-004):** Farm Tile dan Build Tile memakai grid placement 5×5. Dekorasi, bangunan, dan tanaman memakai free placement. Snap to Grid tersedia sebagai opsi yang dapat diaktifkan/dinonaktifkan. Rotasi objek menggunakan interval 90° sebagai aturan awal.
 
