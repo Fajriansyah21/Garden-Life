@@ -24,6 +24,7 @@
   - Rekomendasi penyimpanan WaterLevel sebagai integer 0-500 adalah representasi teknis untuk presisi 0,01, bukan perubahan tampilan skala 0-5.
   - Jadwal tick Soil Aerator mencakup tick kelima tepat pada detik ke-150 sebelum zona ditutup; engineer perlu mempertahankan urutan ini.
   - Radius dan laju pengeringan alami tetap belum diputuskan.
+  - Risiko balancing mutasi: jika peluang dianggap roll independen per buah pada setiap interval, paparan level 4 selama 14 menit menghasilkan peluang kumulatif sekitar 30,2%; paparan level 5 selama 15 menit menghasilkan sekitar 98,7%. Ini bukan hasil final karena unit roll, interval parsial, dan akumulasi waktu belum disepakati.
   - Tidak ada perubahan kode.
 
 ## 15 November 2026 · ChatGPT -> Claude
