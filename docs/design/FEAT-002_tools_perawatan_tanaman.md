@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v10 |
+| Versi | v11 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -156,8 +156,9 @@ Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engine
 - Besar dan interval pengeringan alami saat cuaca panas atau Summer.
 - Radius, batas zona aktif, dan aturan overlap Soil Aerator.
 - Radius Sprinkler dan bonus ukuran buah.
-- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 5% per 1 menit paparan (D-020). Aturan akumulasi sisa waktu ketika level berubah dan mutasi lanjutan pada buah yang sudah bermutasi masih BELUM DIPUTUSKAN.
-- Aturan mutasi saat level air berpindah antara level 4 dan 5.
+- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 5% per 1 menit paparan (D-020).
+- Setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil bermutasi, buah tidak lagi mengikuti roll mutasi banjir berikutnya. Jika roll gagal, buah tetap eligible untuk interval berikutnya (D-021).
+- Aturan akumulasi sisa waktu ketika level berubah antara 4,00-4,99 dan 5,00 masih BELUM DIPUTUSKAN.
 
 ## 4. Kondisi tepi & kegagalan
 
@@ -218,9 +219,10 @@ Catatan: radius, interval tick, dan laju pengurangan sebaiknya berasal dari conf
 | SprinklerExpiresAt | timestamp | Waktu perangkat berakhir |
 | FruitSizeModifier | number | Modifier ukuran buah, jika sistem ukuran buah diterapkan |
 | FruitSubmergedExposure | struktur | Akumulasi paparan per buah untuk interval mutasi level 4 dan level 5 secara independen |
-| FruitMutationState | enum/struktur | Status mutasi buah; aturan apakah buah yang sudah bermutasi dapat mengalami mutasi lanjutan masih BELUM DIPUTUSKAN |
+| FruitMutationState | enum/struktur | Status mutasi yang sudah diterapkan pada buah |
+| FloodMutationApplied | boolean | True setelah mutasi banjir berhasil diterapkan; jika true, buah tidak eligible untuk roll mutasi banjir berikutnya (D-021) |
 
-Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer. Jangan menyimpan nilai yang dapat dihitung ulang jika tidak diperlukan. Status waktu harus menggunakan waktu server, bukan timer client.
+Catatan: `FloodMutationApplied` harus melekat pada identitas buah dan tersimpan selama siklus hidup buah. Jangan reset flag hanya karena tanaman berganti status air atau plot unload. Skema final mengikuti sistem tanaman/inventori yang dirancang engineer. Jangan menyimpan nilai yang dapat dihitung ulang jika tidak diperlukan. Status waktu harus menggunakan waktu server, bukan timer client.
 
 ## 6. UI yang dibutuhkan
 
@@ -307,6 +309,12 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Panen manual tetap dapat dilakukan tanpa Harvest Basket.
 - [ ] Plant Sprayer tidak habis karena digunakan, sedangkan cairan aplikasinya berkurang sesuai aturan.
 - [ ] Aksi tidak valid tidak mengurangi consumable.
+- [ ] Setiap buah memiliki roll mutasi independen; hasil satu buah tidak memengaruhi buah lain.
+- [ ] Mutasi banjir memiliki peluang 5% per buah per interval 1 menit pada WaterLevel 5,00 dan 5% per buah per interval 2 menit pada WaterLevel 4,00-4,99.
+- [ ] Jika roll mutasi banjir gagal, buah tetap eligible untuk roll berikutnya sesuai interval.
+- [ ] Setelah satu roll berhasil menerapkan mutasi banjir, buah tidak lagi menerima mutasi banjir tambahan sepanjang siklus hidupnya.
+- [ ] Status `FloodMutationApplied` tersimpan per buah dan tetap benar setelah perubahan WaterLevel, plot unload, atau server restart.
+- [ ] Roll dan perubahan status mutasi divalidasi server-authoritative.
 - [ ] Server memvalidasi semua target, kepemilikan, jumlah item, dan hasil.
 - [ ] Tidak ada error di Output saat seluruh skenario uji dijalankan.
 
@@ -324,3 +332,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v8 | 2026-11-15 | Menggunakan WaterLevel pecahan 0,00-5,00; menetapkan tick 30 detik, timer kematian 15 menit, label level, Billboard Alert, nilai Watering Can/Sprinkler/Soil Aerator, durasi alat, dan pemicu pengeringan alami | Menindaklanjuti keputusan lanjutan pemilik; D-018 menggantikan D-017 |
 | v9 | 2026-11-15 | Menetapkan peluang mutasi independen per buah: 5% per 2 menit pada WaterLevel 4 dan 15% per 1 menit pada WaterLevel 5 | Menindaklanjuti D-019; algoritma sisa paparan lintas level masih perlu diputuskan |
 | v10 | 2026-11-15 | Menurunkan peluang mutasi banjir WaterLevel 5 dari 15% menjadi 5% per buah per menit | Menindaklanjuti D-020 agar peluang kumulatif selama jendela kematian 15 menit lebih terkendali |
+| v11 | 2026-11-15 | Menetapkan batas satu mutasi banjir berhasil per buah dan menyimpan statusnya secara persisten | Menindaklanjuti D-021 agar mutasi tidak dapat bertumpuk pada buah yang sama karena paparan banjir berkepanjangan |
