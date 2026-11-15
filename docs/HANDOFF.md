@@ -1,5 +1,29 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan durasi zona Soil Aerator selama 3 menit/180 detik (D-016).
+  - FEAT-002 diperbarui ke v6.
+  - Ditambahkan rekomendasi balancing sementara berlabel ASUMSI: WaterLevel 0-100, radius 12 studs, tick 15 detik, pengurangan 2 water units/tick/tanaman, maksimal 1 zona per plot, dan aktivasi tanpa tanaman ditolak tanpa konsumsi item.
+  - Total pengeringan teoritis dari usulan tersebut adalah 24 water units per tanaman selama 3 menit penuh.
+  - GDD diperbarui ke v1.3 dan README diselaraskan dengan status dokumen.
+- File diubah:
+  - README.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Apakah usulan skala WaterLevel 0-100 disetujui?
+  - Apakah radius 12 studs, interval tick 15 detik, dan pengurangan 2 unit/tick disetujui?
+  - Apakah batas maksimal 1 zona aktif per plot dan aturan tanpa tanaman (tolak tanpa konsumsi) disetujui?
+  - Parameter Watering Can, Sprinkler, toleransi tanaman, dan durasi Overwatered.
+- Asumsi / risiko:
+  - Seluruh angka Soil Aerator selain durasi 180 detik masih ASUMSI.
+  - Pengeringan maksimum 24 unit per aktivasi perlu diuji agar tidak terlalu kuat/lemah.
+  - Tidak ada perubahan kode.
+  
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan Soil Aerator sebagai consumable dengan area lingkaran dan efek mempercepat pengeringan secara bertahap (D-015).
   - FEAT-002 diperbarui ke v5: satu aktivasi mengonsumsi satu item dan membentuk zona pengeringan yang mengurangi WaterLevel tanaman dalam radius melalui tick server.
   - Pemulihan tanaman tetap mengikuti D-013; jika WaterLevel kembali ke/bawah toleransi sebelum timer habis, tanaman pulih.
