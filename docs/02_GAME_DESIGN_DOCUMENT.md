@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 2.0 · **Terakhir diubah:** 2026-11-15
+**Versi:** 2.1 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -46,6 +46,16 @@ Loop konseptual utama:
 **Onboarding First Visit (D-025):** Pemain membuka Inventory sendiri melalui penanda visual dan prompt. Ketika terbuka, kelompok Tools, Farming, dan Decorations langsung terlihat; pengenalan dilakukan bertahap dengan highlight/tooltip tanpa mengunci navigasi. Pemain dapat melewati penjelasan dan menutup Inventory sendiri. Setelah itu pemain memilih jalur Mulai Bertani atau Mulai Mendekorasi. Farming dapat ditonjolkan sebagai rekomendasi, tetapi dekorasi tetap jalur yang setara. Onboarding awal berakhir setelah satu tindakan kreatif berhasil. Detail alur dan pertanyaan terbuka dicatat di [PLAYER_JOURNEY.md](design/PLAYER_JOURNEY.md).
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
+
+
+### Musim & cuaca: eksplorasi Spring (D-028)
+- Identitas visual Spring adalah **Fresh Nature** dengan pola cuaca **Balanced**. Roster konsepnya: Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
+- **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada.
+- **Cloudy** dapat menjadi transisi menuju Drizzle, Rainy, atau Thunderstorm. Saat episode dimulai, WaterLevel tanaman yang terkena efek bertambah 0,25 satu kali.
+- Selama Cloudy, tanaman dengan kebutuhan sinar matahari tinggi membutuhkan waktu tumbuh 15% lebih lama. Jika tanaman tersebut sedang tumbuh saat Cloudy dimulai, sisa waktu tumbuhnya juga bertambah 15%; progres yang sudah diperoleh tidak dihapus.
+- Cloudy tidak menghasilkan Mutation. Detail cuaca Spring lainnya, durasi, peluang, dan distribusi kemunculan masih BELUM DIPUTUSKAN.
+- Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+
 
 ### Tools & perawatan tanaman
 
@@ -155,6 +165,7 @@ UI yang dibutuhkan secara konseptual:
 - Panel Shared Savings dan Spending Limit.
 - Panel stage/ekspansi plot.
 - UI farming: tanaman, status pertumbuhan, alat penyiraman, dan panen (detail **BELUM DIPUTUSKAN**).
+- Menu informasi tanaman (D-029) untuk memeriksa kondisi tanaman. Daftar informasi, susunan panel, cara membuka, dan interaksi final masih **BELUM DIPUTUSKAN**.
 
 ## 8. Monetisasi
 
