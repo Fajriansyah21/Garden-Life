@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v5 |
+| Versi | v6 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -109,7 +109,7 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 9. Soil Aerator tidak menambah `WateringEffectValue` dan tidak memberikan bonus pertumbuhan. Fungsinya hanya mengurangi kadar air.
 10. Item dikonsumsi ketika zona berhasil diaktifkan, bukan pada setiap tick pengeringan. Aktivasi gagal karena lokasi/izin tidak valid tidak mengonsumsi item.
 11. Rekomendasi UX: zona memiliki visual penanda lingkaran dan indikator durasi agar pemain memahami area yang sedang dikeringkan.
-12. Radius, interval tick, pengurangan WaterLevel per tick, durasi zona, aturan zona yang saling tumpang tindih, batas jumlah zona aktif, serta apakah zona diwujudkan sebagai perangkat fisik yang terlihat BELUM DIPUTUSKAN.
+12. Durasi zona ditetapkan 180 detik (3 menit) sejak aktivasi berhasil (D-016). Radius, interval tick, pengurangan WaterLevel per tick, aturan zona yang saling tumpang tindih, batas jumlah zona aktif, serta apakah zona diwujudkan sebagai perangkat fisik yang terlihat masih BELUM DIPUTUSKAN.
 13. Seluruh perhitungan area, pengurangan kadar air, konsumsi item, dan pemulihan dilakukan server-authoritative. Client hanya menampilkan preview, animasi, dan hasil.
 
 ## 3. Data & angka tuning
@@ -144,11 +144,30 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Soil Aerator status | Consumable | tipe alat | D-015 |
 | Soil Aerator konsumsi | 1 unit/aktivasi berhasil | unit/penggunaan | Dikonsumsi saat zona pengeringan aktif |
 | Soil Aerator area | Lingkaran | bentuk | D-015 |
+| Skala WaterLevel | 0-100 (ASUMSI usulan) | water units | 0 = kering; 100 = batas skala internal; toleransi tiap tanaman tetap berbeda |
 | Soil Aerator radius | BELUM DIPUTUSKAN | studs | Radius zona pengeringan |
 | Soil Aerator interval tick | BELUM DIPUTUSKAN | detik | Interval pengurangan kadar air bertahap |
 | Soil Aerator pengurangan air | BELUM DIPUTUSKAN | water units/tick/tanaman | Diterapkan pada tanaman dalam radius |
-| Soil Aerator durasi zona | BELUM DIPUTUSKAN | menit | Zona berhenti setelah durasi habis |
-| Soil Aerator batas zona aktif | BELUM DIPUTUSKAN | zona/plot | Perlu aturan limit dan overlap |
+| Soil Aerator durasi zona | 180 | detik | 3 menit sejak aktivasi berhasil; D-016 |
+| Soil Aerator radius | 12 (ASUMSI usulan) | studs | Diameter zona 24 studs; perlu playtest |
+| Soil Aerator interval tick | 15 (ASUMSI usulan) | detik | 12 tick selama durasi 180 detik |
+| Soil Aerator pengurangan air | 2 (ASUMSI usulan) | water units/tick/tanaman | Total maksimum 24 water units selama zona aktif |
+| Soil Aerator batas zona aktif | 1 (ASUMSI usulan) | zona/plot | Aktivasi kedua ditolak selama zona pertama aktif; item tidak dikonsumsi |
+
+### Rekomendasi balancing sementara Soil Aerator (ASUMSI, belum disetujui)
+
+| Parameter | Nilai usulan | Alasan |
+|---|---:|---|
+| Skala WaterLevel | 0-100 | Memudahkan tuning lintas tanaman; toleransi tetap per jenis |
+| Radius | 12 studs | Diameter 24 studs, cukup untuk kelompok tanaman kecil tanpa mencakup seluruh plot |
+| Durasi | 180 detik | D-016, keputusan pemilik |
+| Interval tick | 15 detik | 12 tick per aktivasi, beban server relatif ringan |
+| Pengurangan per tick | 2 water units/tanaman | Maksimum 24 unit per aktivasi jika tanaman tetap di area selama 3 menit |
+| Zona aktif | Maksimal 1 per plot | Mencegah spam dan penumpukan pengeringan area |
+| Zona tanpa tanaman | Aktivasi ditolak, item tidak dikonsumsi | Mencegah item terbuang karena salah penempatan |
+| Overlap antar zona | Tidak berlaku jika hanya 1 zona aktif/plot | Aturan sederhana untuk vertical slice |
+
+**Catatan balancing:** nilai 12 studs, 15 detik, 2 unit/tick, skala 0-100, dan batas satu zona adalah usulan ASUMSI. Nilai tersebut bukan keputusan pemilik dan tidak boleh dianggap final untuk implementasi. Total pengeringan teoritis adalah 24 unit per tanaman selama 180 detik; nilai aktual lebih rendah jika tanaman masuk/keluar radius di tengah durasi.
 
 ## 4. Kondisi tepi & kegagalan
 
@@ -167,7 +186,9 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 - Tanaman keluar dari radius sebelum zona berakhir: pengeringan dari zona tersebut berhenti untuk tanaman itu.
 - Tanaman pulih selama zona aktif: timer Overwatered dibatalkan sesuai D-013; pengeringan dapat berlanjut hingga zona berakhir atau WaterLevel mencapai 0.
 - Dua zona Soil Aerator saling tumpang tindih: perilaku penggabungan laju pengeringan BELUM DIPUTUSKAN; implementasi tidak boleh menggandakan efek secara diam-diam.
-- Pemain mengaktifkan Soil Aerator tanpa tanaman di dalam radius: kebijakan konsumsi BELUM DIPUTUSKAN.
+- Pemain mengaktifkan Soil Aerator tanpa tanaman di dalam radius: rekomendasi DRAFT adalah menolak aktivasi dan tidak mengonsumsi item.
+- Zona Soil Aerator mencapai 180 detik: hentikan tick, hapus status zona aktif, dan jangan mengurangi kadar air setelah waktu kedaluwarsa.
+- Pemain mencoba mengaktifkan zona kedua pada plot yang sudah memiliki zona aktif: rekomendasi DRAFT adalah menolak aktivasi tanpa mengonsumsi item.
 - Plot unload atau server restart ketika tanaman Overwatered: hitung durasi berdasarkan timestamp server tersimpan; jangan mengandalkan timer client atau menghentikan timer hanya karena pemain offline.
 - Sprinkler dihancurkan, disimpan, atau plot mengalami unload sebelum durasi habis: perilaku penghentian dan pengembalian item BELUM DIPUTUSKAN.
 - Pemain disconnect saat Sprinkler aktif: efek harus tetap mengikuti waktu server dan status plot tersimpan; detail persistence perlu dikonfirmasi.
@@ -246,7 +267,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, exploit remote, serta kematian tanaman yang terasa tidak adil jika toleransi/indikator tidak jelas.
 - **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. D-013 menetapkan kesempatan pulih sebelum kematian.
 - **Risiko tambahan:** timer kematian yang berjalan saat pemain offline dapat terasa kejam. Tuning durasi harus memberi ruang sesi singkat dan tidak mendorong pemain login secara kompulsif. Pertimbangkan notifikasi saat kembali, bukan kewajiban memantau tanaman terus-menerus.
-- **Dampak tool baru:** Soil Aerator consumable berbentuk zona lingkaran memberi opsi penyelamatan area, bukan satu tanaman. Karena pengeringan berlangsung bertahap, pemain perlu memilih lokasi dan waktu aktivasi. Jika laju terlalu tinggi, risiko overwatering menjadi tidak berarti; jika terlalu rendah atau durasi terlalu pendek, item terasa sia-sia. Nilai harus diuji terhadap laju pengeringan alami dan durasi kematian.
+- **Dampak tool baru:** Soil Aerator consumable berbentuk zona lingkaran memberi opsi penyelamatan area, bukan satu tanaman. Durasi 3 menit memberi jendela penyelamatan yang jelas. Rekomendasi awal 12 studs, tick 15 detik, dan 2 unit/tick menghasilkan potensi pengurangan maksimum 24 unit per tanaman per aktivasi. Angka ini ASUMSI dan wajib diuji terhadap laju pengeringan alami, toleransi tanaman, serta durasi kematian.
 - **Ekonomi Soil Aerator:** Setiap aktivasi menghabiskan satu item, sehingga berpotensi menjadi sink Life Coin bila kelak dijual. Harga dan sumber perolehan belum diputuskan; jangan menganggap item otomatis dijual di toko.
 - **Metrik sukses:** persentase pemain yang memakai alat; jumlah penggunaan rata-rata per sesi; waktu dari menanam ke panen; jumlah tanaman yang terkena efek; frekuensi penggunaan Sprinkler; dan perubahan pendapatan panen dibanding pemain yang tidak memakai booster. Target angka ditetapkan setelah baseline playtest.
 
@@ -271,7 +292,8 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Soil Aerator tidak mengubah WateringEffectValue dan tidak dapat membuat WaterLevel negatif.
 - [ ] Tanaman yang mencapai batas aman selama proses pengeringan pulih dan timer kematian dibatalkan sesuai D-013.
 - [ ] Tanaman yang masih di atas toleransi tetap Overwatered dan timer kematian tetap berjalan.
-- [ ] Zona berhenti setelah durasi yang ditetapkan dan tidak lagi mengurangi WaterLevel.
+- [ ] Zona berhenti tepat setelah 180 detik (3 menit) berdasarkan waktu server dan tidak lagi mengurangi WaterLevel.
+- [ ] Jika rekomendasi balancing ASUMSI diterima, zona memiliki radius 12 studs, tick 15 detik, dan mengurangi 2 water units per tick per tanaman; nilai ini harus dapat diubah melalui config.
 - [ ] Aktivasi tidak valid atau tanpa izin tidak mengonsumsi item.
 - [ ] Sprinkler bekerja otomatis di area lingkaran selama durasi yang ditetapkan dan hilang setelah durasi berakhir.
 - [ ] Efek Sprinkler tidak membuat efek penyiraman melewati batas maksimum.
@@ -292,3 +314,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v3 | 2026-11-15 | Menetapkan pemulihan jika kadar air kembali ke batas aman sebelum durasi kematian; timer episode baru setelah pulih | Menindaklanjuti D-013, memberi konsekuensi tanpa kematian instan |
 | v4 | 2026-11-15 | Menambahkan kebutuhan tool pengurang kadar air dengan Soil Aerator sebagai nama dan rancangan sementara | Menindaklanjuti D-014 agar pemain memiliki tindakan aktif untuk menyelamatkan tanaman |
 | v5 | 2026-11-15 | Mengubah Soil Aerator menjadi consumable area lingkaran dengan pengeringan bertahap | Menindaklanjuti D-015 sesuai pilihan pemilik |
+| v6 | 2026-11-15 | Menetapkan durasi Soil Aerator 3 menit dan menambahkan rekomendasi balancing awal berlabel ASUMSI | Menindaklanjuti D-016 dan menyediakan titik awal playtest tanpa mengunci angka usulan |
