@@ -1,5 +1,30 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui identitas visi jangka panjang Garden Life sebagai **Cozy Garden Life Simulator**.
+  - D-023 ditambahkan: kebun pribadi yang terus berkembang menjadi ruang personal; pengalaman berpusat pada dekorasi, ekspresi, koleksi tanaman unik, perawatan santai, dan kunjungan sosial. Farming menjadi aktivitas pendukung.
+  - GDD diperbarui ke v1.6.
+  - Roadmap diperbarui ke v0.2 dan menegaskan cakupan visi hingga jangka panjang, dengan horizon First Release, Post-Release, dan Long-Term Vision.
+  - README diselaraskan dengan identitas visi baru.
+- File diubah:
+  - docs/DECISIONS.md (D-023)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v1.6)
+  - docs/ROADMAP.md (v0.2)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Target pemain yang lebih spesifik.
+  - Tiga game referensi dan pelajaran desain dari masing-masing.
+  - Player Journey dari pemain baru hingga progres jangka panjang.
+  - Pembagian fitur First Release, Post-Release, dan Long-Term Vision.
+- Asumsi / risiko:
+  - Persetujuan visi tidak otomatis menyetujui seluruh sistem atau ide sebagai scope First Release.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Membuat docs/ROADMAP.md v0.1 sebagai DRAFT.
   - Roadmap memetakan fase 0-7, 30 area sistem (SYS-01 sampai SYS-30), dependensi, checklist lintas sistem, risiko awal, serta artefak desain yang perlu dibuat.
   - Menambahkan tautan Roadmap ke README.md.
