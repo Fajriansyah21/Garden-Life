@@ -16,7 +16,7 @@
 | Mode bermain | Solo dan multiplayer dalam plot bersama |
 | Mata uang | **Life Coin** |
 | Identitas mata uang | Koin emas dengan ikon daun |
-| Saldo awal pribadi | **1.000 Life Coin** |
+| Saldo awal pribadi | **1.000 Life Coin** |\n| Item awal | Starter Kit gratis untuk pemain baru (isi belum ditentukan) |
 
 ## Pilar desain
 
