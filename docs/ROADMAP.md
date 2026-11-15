@@ -1,6 +1,7 @@
 # ROADMAP · Garden Life
 
 **Status dokumen:** DRAFT untuk ditinjau pemilik  
+**Versi:** 0.2  
 **Tanggal dibuat:** 2026-11-15  
 **Pemilik keputusan:** Pemilik proyek  
 **Penyusun:** ChatGPT (Game Designer)
@@ -8,6 +9,8 @@
 > Roadmap ini adalah peta kerja dan inventaris perancangan. Roadmap bukan persetujuan scope rilis, bukan komitmen tanggal, dan bukan instruksi implementasi. Hanya pemilik proyek yang dapat menyetujui prioritas, scope, dan perubahan arah. Semua hal yang belum disepakati tetap berstatus usulan atau BELUM DIPUTUSKAN.
 
 ## 1. Tujuan
+
+**Arah visi yang disetujui (D-023):** Garden Life adalah Cozy Garden Life Simulator. Kebun pribadi menjadi ruang personal yang terus berkembang melalui dekorasi, koleksi tanaman unik, perawatan santai, dan kunjungan sosial. Farming mendukung perkembangan kebun, bukan menjadi satu-satunya tujuan. Roadmap mencakup visi jangka panjang hingga Live-ops, dengan pemisahan First Release, Post-Release, dan Long-Term Vision; pemisahan ini tidak otomatis menyetujui scope fitur.
 
 Roadmap digunakan untuk:
 1. Memetakan pekerjaan dari Discovery hingga Live-ops.
@@ -34,11 +37,11 @@ Roadmap digunakan untuk:
 | Elemen | Status |
 |---|---|
 | Fase | Fase 0 Discovery, menuju Fase 1 Konsep & GDD |
-| GDD | v1.5 |
+| GDD | v1.6 |
 | Gameplay | Belum ada implementasi |
 | FEAT-001 Build Mode | DRAFT |
 | FEAT-002 Tools & Perawatan Tanaman | DRAFT, v11 |
-| Keputusan desain | D-001 sampai D-022 |
+| Keputusan desain | D-001 sampai D-023 |
 | Spec READY | Belum ada |
 | Vertical Slice | Scope belum ditetapkan |
 | Tanggal rilis | Belum ditetapkan |
@@ -52,7 +55,7 @@ Fase mengikuti docs/00_WORKFLOW.md. Rincian di bawah memperjelas pekerjaan dan g
 **Tujuan:** memastikan identitas dan arah produk.
 
 Pekerjaan:
-- [x] Visi dan pitch awal Garden Life.
+- [x] Visi dan pitch Garden Life, termasuk identitas jangka panjang Cozy Garden Life Simulator (D-023).
 - [x] Genre dan pilar desain.
 - [ ] Menentukan target pemain yang lebih spesifik.
 - [ ] Menentukan tiga game referensi dan pelajaran desain dari masing-masing.
@@ -351,7 +354,7 @@ Lokasi dan pemisahan dokumen dapat disesuaikan pemilik. Jangan membuat dokumen t
 
 Pertanyaan berikut harus dibahas sebelum Roadmap dianggap final. Tidak ada jawaban yang diasumsikan dari dokumen ini.
 
-1. Apakah Roadmap harus mencakup seluruh visi hingga Live-ops, atau hanya rilis pertama?
+1. **Terjawab (15 November 2026):** Roadmap mencakup seluruh visi hingga Live-ops dan pengembangan jangka panjang. Pembagian First Release, Post-Release, dan Long-Term Vision digunakan untuk memisahkan horizon scope.
 2. Apakah Vertical Slice menguji farming saja, atau farming sekaligus satu interaksi dekorasi dasar?
 3. Seberapa rinci Roadmap perlu mengatur urutan pekerjaan: fase/sistem saja, atau sampai estimasi implementasi?
 4. Apa target pemain yang lebih spesifik dan tiga game referensi yang disepakati?
@@ -372,4 +375,5 @@ Pertanyaan berikut harus dibahas sebelum Roadmap dianggap final. Tidak ada jawab
 
 | Versi | Tanggal | Perubahan | Status |
 |---|---|---|---|
+| v0.2 | 2026-11-15 | Mencatat visi Cozy Garden Life Simulator (D-023), cakupan Roadmap hingga jangka panjang, dan status pertanyaan cakupan Roadmap | DRAFT |
 | v0.1 | 2026-11-15 | Draft awal fase proyek, 30 area sistem, dependensi, checklist lintas sistem, risiko, dan pertanyaan terbuka | DRAFT |
