@@ -140,7 +140,6 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Rentang air ideal tanaman | Per jenis tanaman, dalam level 0-3 | level | Level 4 dan 5 selalu berbahaya untuk semua tanaman |
 | Soil Aerator radius | BELUM DIPUTUSKAN | studs | Radius zona pengeringan |
 | Soil Aerator interval tick | BELUM DIPUTUSKAN | detik | Interval pengurangan kadar air bertahap |
-| Soil Aerator pengurangan air | 1 | level/tick/tanaman | Diterapkan pada tanaman dalam radius; D-017 |
 | Soil Aerator durasi zona | 180 | detik | 3 menit sejak aktivasi berhasil; D-016 |
 | Soil Aerator radius | 12 (ASUMSI usulan) | studs | Diameter zona 24 studs; perlu playtest |
 | Soil Aerator interval tick | 15 (ASUMSI usulan) | detik | 12 tick selama durasi 180 detik |
