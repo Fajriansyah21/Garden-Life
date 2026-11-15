@@ -17,6 +17,19 @@ Entri terbaru di paling atas.
 - Dampak: Watering Can dan Sprinkler menggunakan area lingkaran. Sistem pertumbuhan perlu menghitung efek gabungan secara server dan membatasi hasilnya pada cap. Angka radius serta cap tetap menjadi parameter tuning.
 
 
+### D-012 · Toleransi air dan risiko overwatering tanaman
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Penyiraman yang dapat ditumpuk membutuhkan batas biologis agar pemain tidak memperoleh keuntungan tanpa risiko dari penyiraman berulang.
+- Keputusan:
+  - Setiap tanaman memiliki batas toleransi terhadap air.
+  - Penyiraman berlebihan yang melewati toleransi tanaman dapat menyebabkan tanaman mati.
+  - Batas toleransi dapat berbeda antarjenis tanaman dan harus menjadi parameter data tanaman.
+  - Nilai toleransi, akumulasi air per aplikasi, pemulihan kadar air, serta durasi/kondisi kematian belum ditentukan dan harus dirinci dalam spec.
+- Alternatif yang ditolak: Semua tanaman menerima penyiraman tanpa risiko, karena menghilangkan konsekuensi dari penggunaan alat secara berlebihan.
+- Dampak: Sistem tanaman perlu melacak kadar air secara terpisah dari bonus pertumbuhan. Watering Can dan Sprinkler dapat menambah kadar air; sistem harus memeriksa toleransi tanaman secara server-authoritative.
+
 ## Format
 
 ```
