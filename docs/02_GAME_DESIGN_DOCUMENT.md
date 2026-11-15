@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.3 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.4 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -97,7 +97,9 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - Dekorasi, bangunan, dan tanaman menggunakan **free placement**; penempatannya tidak diwajibkan mengikuti grid tile dan tidak membutuhkan tile sebagai alas/slot.
 - Pemain dapat mengaktifkan atau menonaktifkan **Snap to Grid** sebagai bantuan opsional untuk penempatan objek free placement.
 - Rotasi objek menggunakan interval **90°** sebagai aturan awal.
-- Batas area penempatan, validasi tabrakan, batas jumlah objek, pemindahan, penyimpanan, dan perilaku objek saat ekspansi plot **BELUM DIPUTUSKAN**.
+- Aturan tabrakan menggunakan **Hybrid Collision**: tile tidak boleh overlap dengan tile lain tetapi tidak memblokir objek di atasnya; bangunan/objek Solid tidak boleh overlap dengan Solid atau Detail; tanaman/dekorasi Detail boleh overlap dengan Detail lain tetapi tidak dengan Solid.
+- Setiap asset yang dapat ditempatkan wajib memiliki profil tabrakan dan bounding volume.
+- Batas area penempatan, batas jumlah objek, pemindahan, penyimpanan, serta perilaku objek saat ekspansi plot masih memerlukan detail lanjutan.
 
 ## 7. UI / UX
 
