@@ -156,7 +156,7 @@ Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engine
 - Besar dan interval pengeringan alami saat cuaca panas atau Summer.
 - Radius, batas zona aktif, dan aturan overlap Soil Aerator.
 - Radius Sprinkler dan bonus ukuran buah.
-- Aturan peluang mutasi buah akibat terendam (lihat pertanyaan terbuka pada HANDOFF).
+- Aturan peluang mutasi buah akibat terendam: sementara rentang 4,00-4,99 memakai peluang 5% per 2 menit, sedangkan level 5,00 memakai peluang mutasi banjir 25% per 1 menit; algoritma roll dan akumulasi paparan belum diputuskan.
 - Aturan mutasi saat level air berpindah antara level 4 dan 5.
 
 ## 4. Kondisi tepi & kegagalan
