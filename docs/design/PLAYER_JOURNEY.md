@@ -1,9 +1,9 @@
 # PLAYER JOURNEY · Garden Life
 
 **Status:** DRAFT  
-**Versi:** 0.4  
+**Versi:** 0.5  
 **Tanggal:** 2026-11-15  
-**Terkait:** D-008, D-009, D-010, D-023, D-024, D-025, D-026, D-027; GDD v2.0  
+**Terkait:** D-008, D-009, D-010, D-023, D-024, D-025, D-026, D-027, D-032; GDD v2.2  
 **Tujuan dokumen:** Menggambarkan perjalanan pengalaman pemain dari pertama kali masuk hingga memiliki kebun yang berkembang dan identitas personal.
 
 > Dokumen ini adalah rancangan pengalaman pemain, bukan spesifikasi implementasi atau persetujuan scope rilis. Aturan, fitur, angka, dan sistem yang belum diputuskan tetap ditandai sebagai usulan atau BELUM DIPUTUSKAN. Status dokumen hanya dapat diubah menjadi READY oleh pemilik proyek.
@@ -52,7 +52,8 @@ Pemain mengenali plot sebagai ruang personal, mengetahui bahwa Starter Kit terse
 - **Visible choices:** isi Starter Kit dan tiga kelompok item dapat dilihat sejak Inventory dibuka.
 - **Guided, not locked:** highlight dan penjelasan memberi arahan, tetapi pemain tetap bebas menjelajahi UI.
 - **Free choice, farming guided:** pemain dapat memilih bertani atau mendekorasi; farming boleh menjadi jalur rekomendasi, bukan kewajiban.
-- **One meaningful action:** onboarding awal berakhir setelah pemain berhasil melakukan satu tindakan kreatif pada jalur pilihannya.
+- **One meaningful action:** jika pemain memilih salah satu jalur, onboarding berakhir setelah satu tindakan kreatif berhasil. Pemain juga boleh melewati seluruh panduan melalui Skip Tutorial.
+- **Replayable by choice:** tutorial yang selesai atau dilewati hanya dapat dimulai kembali secara manual melalui Pengaturan.
 - **Immediate arrival:** pemain langsung dapat bergerak dengan kamera normal sejak muncul di plot; sambutan tidak mengambil alih kontrol.
 
 ### Arrival & First Impression (D-026)
@@ -64,7 +65,7 @@ Pemain mengenali plot sebagai ruang personal, mengetahui bahwa Starter Kit terse
 - Setelah pesan menghilang, lanjutkan ke penanda visual dan prompt Inventory sesuai D-025.
 - Pesan sambutan hanya ditampilkan pada kunjungan pertama pemain ke plot pribadinya.
 
-### Alur onboarding First Visit (D-025, D-026, dan D-027)
+### Alur onboarding First Visit (D-025, D-026, D-027, dan D-032)
 
 | Urutan | Pemicu / tindakan pemain | Respons game | Catatan desain |
 |---:|---|---|---|
@@ -75,10 +76,12 @@ Pemain mengenali plot sebagai ruang personal, mengetahui bahwa Starter Kit terse
 | 5 | Pengenalan kelompok dimulai | Highlight dan tooltip memperkenalkan Tools, lalu Farming, lalu Decorations | Navigasi tidak dikunci; pemain bebas memilih kelompok lain |
 | 6 | Pemain menjelajah atau menyelesaikan pengenalan | Biarkan Inventory tetap interaktif | Penjelasan dapat dilewati; detail kontrol final UI belum ditetapkan |
 | 7 | Pemain menutup Inventory | Tutup panel atas tindakan pemain | Tidak ada penutupan otomatis |
-| 8 | Inventory sudah ditutup | Tampilkan pilihan Mulai Bertani atau Mulai Mendekorasi | Farming dapat diberi penekanan visual sebagai rekomendasi, tetapi kedua pilihan setara sebagai jalur onboarding |
+| 8 | Inventory sudah ditutup | Tampilkan panel berisi Mulai Bertani, Mulai Mendekorasi, dan Skip Tutorial | Panel hanya muncul sekali dalam satu rangkaian tutorial; farming boleh direkomendasikan secara visual, tetapi kedua jalur setara |
 | 9A | Pemain memilih Mulai Bertani | Pandu pemain menempatkan Farm Tile, memilih Benih Wortel, lalu menanam | Jangan menambahkan waktu tumbuh, hasil, harga, atau reward yang belum diputuskan |
 | 9B | Pemain memilih Mulai Mendekorasi | Pandu pemain menempatkan Kursi Kayu atau Lampu Taman | Pemain bebas menentukan posisi dan tata letak |
-| 10 | Pemain berhasil melakukan tindakan kreatif pertama | Akhiri onboarding awal dan kembalikan kendali penuh kepada pemain | Tidak ada kewajiban mencoba jalur lainnya |
+| 9C | Pemain memilih Skip Tutorial | Tutup panel dan tandai onboarding sebagai selesai/dilewati | Tidak ada panduan jalur bertani atau dekorasi; seluruh gameplay tetap dapat diakses normal |
+| 10 | Pemain berhasil melakukan tindakan kreatif pertama pada jalur yang dipilih | Akhiri onboarding dan kembalikan kendali penuh kepada pemain | Tidak ada kewajiban mencoba jalur lainnya |
+| 11 | Pemain memilih Mulai Ulang Tutorial di Pengaturan | Mulai ulang panduan dari pengenalan Inventory | Pesan sambutan D-026 tidak diulang; state gameplay tidak direset |
 
 ### Kelompok Starter Kit
 
@@ -102,8 +105,11 @@ Kuantitas Starter Kit tetap mengikuti D-010. Pengelompokan ini hanya mengatur ca
 - Pemain boleh melewati pengenalan kelompok.
 - Pemain boleh menutup Inventory setelah melihat isi kit, meskipun belum menyelesaikan semua penjelasan.
 - Pemain boleh memilih jalur dekorasi tanpa mencoba farming, atau sebaliknya.
-- Jika pemain tidak mengikuti petunjuk atau menutup panel lebih awal, onboarding tidak boleh memaksa panel terbuka kembali. Petunjuk berikutnya dapat muncul secara kontekstual sesuai alur, tanpa mengunci kontrol.
-- Kondisi teknis untuk memulihkan onboarding setelah pemain keluar/disconnect belum ditentukan dan perlu dirinci pada spec onboarding.
+- Tombol **Skip Tutorial** mengakhiri onboarding saat itu juga. Pemain tidak mendapat panduan jalur bertani maupun dekorasi, tetapi seluruh fitur gameplay tetap tersedia normal.
+- Panel pilihan aktivitas tidak muncul kembali secara otomatis setelah pilihan jalur atau Skip Tutorial.
+- Pemain dapat memulai ulang tutorial secara manual melalui **Pengaturan → Mulai Ulang Tutorial**. Tutorial dimulai dari pengenalan Inventory, lalu kembali ke panel pilihan aktivitas.
+- Memulai ulang tutorial tidak mengulang pesan sambutan D-026 dan tidak mereset item, mata uang, objek, tanaman, atau progres gameplay.
+- Kondisi teknis untuk menyimpan dan memulihkan onboarding ketika pemain keluar/disconnect di tengah alur belum ditentukan dan perlu dirinci pada spec onboarding.
 
 ### Aktivitas inti
 
@@ -111,9 +117,10 @@ Kuantitas Starter Kit tetap mengikuti D-010. Pengelompokan ini hanya mengatur ca
 2. Menemukan tombol Inventory dan membukanya sendiri.
 3. Melihat Starter Kit dalam tiga kelompok yang langsung terlihat.
 4. Memahami fungsi item melalui penjelasan singkat yang bertahap dan dapat dilewati.
-5. Memilih jalur awal: bertani atau mendekorasi.
-6. Melakukan satu tindakan kreatif pertama.
-7. Mengetahui bahwa kebun dapat terus dikembangkan dengan kebebasan memilih aktivitas.
+5. Memilih jalur bertani/dekorasi atau melewati panduan melalui Skip Tutorial.
+6. Jika memilih jalur, melakukan satu tindakan kreatif pertama.
+7. Jika ingin mempelajari panduan lagi, memulai ulang tutorial dari Pengaturan.
+8. Mengetahui bahwa kebun dapat terus dikembangkan dengan kebebasan memilih aktivitas.
 
 ### Feedback yang dibutuhkan
 
@@ -131,8 +138,8 @@ First Visit dianggap berhasil ketika pemain:
 - mengenali plot sebagai ruang personal;
 - mengetahui Starter Kit tersedia di Inventory;
 - memahami bahwa item awal dikelompokkan menjadi Tools, Farming, dan Decorations;
-- memilih salah satu jalur aktivitas awal;
-- berhasil melakukan satu tindakan kreatif pada jalur tersebut.
+- memilih salah satu jalur dan berhasil melakukan satu tindakan kreatif, atau memilih Skip Tutorial;
+- memahami bahwa tutorial dapat dimulai ulang secara manual melalui Pengaturan.
 
 Ini bukan syarat unlock atau gerbang progres. Pemain boleh mengabaikan arahan dan mengeksplorasi game. Onboarding awal tidak boleh menahan akses ke kebun.
 
@@ -386,6 +393,7 @@ Jangan menetapkan target angka sebelum ada baseline playtest.
 
 | Versi | Tanggal | Perubahan | Status |
 |---|---|---|---|
+| v0.5 | 2026-11-15 | Memperjelas panel pilihan aktivitas, tombol Skip Tutorial, serta restart manual dari Pengaturan mulai tahap Inventory berdasarkan D-032 | DRAFT |
 | v0.4 | 2026-11-15 | Memperjelas perilaku prompt Inventory berdasarkan D-027: tetap tersedia secara halus sampai Inventory dibuka, tanpa mengejar pemain atau pulse berulang | DRAFT |
 | v0.3 | 2026-11-15 | Menambahkan Arrival & First Impression berdasarkan D-026: kontrol langsung aktif, tanpa cinematic/NPC, dan pesan sambutan non-blocking selama 3 detik sebelum prompt Inventory | DRAFT |
 | v0.2 | 2026-11-15 | Memperinci alur First Visit berdasarkan D-025: Inventory dibuka pemain, pengenalan tiga kelompok Starter Kit, pilihan bertani/dekorasi, dan tindakan kreatif pertama | DRAFT |
