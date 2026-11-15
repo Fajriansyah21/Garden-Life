@@ -1,5 +1,36 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-022 untuk membedakan Variant dan Mutation pada buah.
+  - Menetapkan satu Variant permanen per buah; Variant tidak dapat ditimpa dan memiliki prioritas tampilan tertinggi.
+  - Menetapkan Mutation dapat dimiliki beberapa jenis sekaligus; tampilan Mutation dapat ditimpa, tetapi atribut serta multiplier Mutation lama tetap aktif.
+  - Menetapkan satu jenis Mutation hanya dapat tercatat satu kali pada buah yang sama.
+  - Mengganti nama Variant Winter menjadi Cristal.
+  - Menetapkan multiplier Variant: Seasonal/Cristal 5x, Silver 1,5x, Gold 3x, Rainbow 4x.
+  - Menetapkan rumus harga: Harga Dasar × Multiplier Variant × jumlah multiplier Mutation. Multiplier Mutation dijumlahkan terlebih dahulu.
+  - Contoh: 100 C × 5 × (2 + 5) = 3.500 C. Angka 2x dan 5x hanya ilustrasi.
+  - Menetapkan faktor netral 1x jika buah tidak memiliki Variant atau Mutation.
+  - Mempertahankan aturan D-021 untuk mutasi banjir.
+- File diubah:
+  - docs/DECISIONS.md (D-022)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v1.5)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. Detail individual Mutation, peluang, dan multiplier-nya belum lengkap.
+- Cara tes (jika kode): tidak ada perubahan kode.
+- Pertanyaan terbuka:
+  - Daftar Mutation dan multiplier masing-masing.
+  - Kondisi dan peluang perolehan tiap Variant dan Mutation.
+  - Efek gameplay tambahan tiap Mutation, jika ada.
+- Asumsi / risiko:
+  - Faktor Variant dan faktor Mutation menggunakan nilai netral 1x ketika atribut terkait tidak ada, agar rumus harga tetap valid.
+  - Angka 2x dan 5x pada contoh hanya ilustrasi, bukan balancing final.
+  - Multiplier Mutation yang tertimpa secara visual tetap dihitung selama atribut Mutation tersebut masih dimiliki buah.
+  - Belum ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-021: setiap buah hanya dapat memperoleh mutasi banjir satu kali sepanjang siklus hidupnya.
   - Mempertahankan peluang D-020: 5% per buah per 1 menit pada WaterLevel 5,00; peluang WaterLevel 4,00-4,99 tetap 5% per 2 menit.
   - Memperbarui FEAT-002 ke v11 dengan data `FloodMutationApplied` dan kriteria penerimaan untuk mencegah mutasi banjir bertumpuk.
