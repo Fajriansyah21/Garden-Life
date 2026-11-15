@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 2.2 · **Terakhir diubah:** 2026-11-15
+**Versi:** 2.3 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -48,15 +48,18 @@ Loop konseptual utama:
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 
 
-### Musim & cuaca: eksplorasi Spring (D-028, D-030, D-031)
+### Musim & cuaca: eksplorasi Spring (D-028, D-030, D-031, D-034, D-035)
 - Identitas visual Spring adalah **Fresh Nature** dengan pola cuaca **Balanced**. Roster konsepnya: Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
 - **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada. Durasi Sunny belum ditetapkan.
 - **Cloudy** dapat menjadi transisi menuju Drizzle, Rainy, atau Thunderstorm. Saat episode dimulai, WaterLevel tanaman yang terkena efek bertambah 0,25 satu kali.
 - Selama Cloudy, tanaman dengan kebutuhan sinar matahari tinggi membutuhkan waktu tumbuh 15% lebih lama. Jika tanaman tersebut sedang tumbuh saat Cloudy dimulai, sisa waktu tumbuhnya juga bertambah 15%; progres yang sudah diperoleh tidak dihapus. Cloudy tidak menghasilkan Mutation.
 - **Drizzle** adalah gerimis lembut dan menenangkan. Selama episode berlangsung, WaterLevel tanaman yang terkena efek bertambah 0,05 setiap tick. Setiap tick, setiap buah eligible melakukan roll Mutation Wet (Basah) secara independen dengan peluang 2,5%. Seluruh tanaman menerima tambahan waktu pertumbuhan 15%; Drizzle tidak memberikan bonus atau percepatan pertumbuhan. WaterLevel tetap dibatasi maksimum 5,00 sesuai D-018.
+- **Rainy** memiliki hujan sedang hingga deras, tetapi tetap tenang, sejuk, dan sedikit sendu. WaterLevel tanaman yang terkena efek bertambah 0,075 setiap tick. Setiap buah eligible memiliki peluang 5% per tick untuk memperoleh Mutation Wet; buah yang sudah memiliki Wet memiliki peluang 2,5% per tick untuk berevolusi menjadi Flooded. Evolusi berhasil menggantikan Wet, sehingga Wet tidak lagi tercatat dan multiplier Wet tidak lagi berlaku. Seluruh tanaman menerima tambahan waktu pertumbuhan 20%; Rainy tidak memberikan bonus atau percepatan pertumbuhan (D-034).
+- Mutation Flooded dari evolusi Wet selama Rainy adalah Mutation yang sama dengan Flooded dari WaterLevel tinggi. Pada WaterLevel 4,00-4,99, peluang Flooded adalah 2,5% per interval paparan 2 menit; pada WaterLevel 5,00, peluangnya 2,5% per interval 1 menit. Satu buah hanya dapat memperoleh Flooded satu kali dari salah satu jalur tersebut (D-035). D-019 dan D-020 tetap menjadi riwayat, bukan nilai peluang aktif.
+- WaterLevel disimpan dengan presisi internal 0,001 (integer 0-5000), sedangkan UI menampilkan 2 angka desimal. Penambahan Rainy +0,075 tidak dibulatkan per tick; 20 tick menghasilkan total +1,500 sebelum clamp maksimum 5,000 (D-033).
 - Setiap cuaca selain Sunny berlangsung selama 20 tick (600 detik/10 menit). Satu tick berdurasi 30 detik. Sunny dikecualikan dan durasinya masih BELUM DIPUTUSKAN (D-031).
-- Multiplier harga dan tampilan Mutation Wet, serta penerapan modifier Drizzle pada tanaman yang baru ditanam ketika episode sedang berjalan, masih BELUM DIPUTUSKAN.
-- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Rainy, Windy, Misty, dan Thunderstorm masih BELUM DIPUTUSKAN.
+- Multiplier harga dan tampilan Mutation Wet/Flooded, urutan roll Wet dan evolusi Wet→Flooded dalam tick yang sama, serta penerapan modifier Drizzle/Rainy pada tanaman yang baru ditanam ketika episode sedang berjalan masih BELUM DIPUTUSKAN.
+- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Windy, Misty, dan Thunderstorm masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
@@ -67,7 +70,7 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Watering Can adalah consumable. Satu penggunaan menyiram semua tanaman di dalam area berbentuk lingkaran.
 - Efek penyiraman dapat bertambah melalui penggunaan berulang, tetapi dibatasi oleh nilai maksimum (D-011).
 - Setiap tanaman memiliki toleransi air. Kadar air yang melampaui toleransi menyebabkan status Overwatered, tetapi tanaman masih dapat pulih jika kadar air kembali ke batas aman sebelum durasi kematian tercapai (D-012, D-013). Kadar air dan bonus pertumbuhan adalah dua nilai terpisah.
-- Soil Aerator adalah consumable dengan area lingkaran yang mempercepat pengeringan kadar air secara bertahap. Satu aktivasi membentuk zona selama 2,5 menit (150 detik); setiap tick 30 detik mengurangi WaterLevel sebesar 0,50 pada tanaman di dalam radius. WaterLevel memakai rentang 0,00-5,00 dengan presisi 0,01; level 4 = Tanah terlalu basah dan level 5 = Tanah kebanjiran (D-018). Watering Can menambah 0,50 per penggunaan; Sprinkler menambah 0,15 per tick selama 10 menit. Tanaman yang berada pada WaterLevel >=4,00 selama 15 menit terus-menerus mati; Billboard Alert muncul di atas tanaman.
+- Soil Aerator adalah consumable dengan area lingkaran yang mempercepat pengeringan kadar air secara bertahap. Satu aktivasi membentuk zona selama 2,5 menit (150 detik); setiap tick 30 detik mengurangi WaterLevel sebesar 0,50 pada tanaman di dalam radius. WaterLevel memakai rentang 0,00-5,00 dengan presisi internal 0,001 (integer 0-5000), sementara UI menampilkan 2 angka desimal; level 4 = Tanah terlalu basah dan level 5 = Tanah kebanjiran (D-018, D-033). Watering Can menambah 0,50 per penggunaan; Sprinkler menambah 0,15 per tick selama 10 menit. Tanaman yang berada pada WaterLevel >=4,00 selama 15 menit terus-menerus mati; Billboard Alert muncul di atas tanaman.
 - Sprinkler adalah perangkat consumable yang ditempatkan pada plot. Area jangkauannya berbentuk lingkaran; selama durasi aktif, perangkat menyiram otomatis, mempercepat pertumbuhan, dan meningkatkan ukuran buah. Setelah durasi berakhir, perangkat dikonsumsi dan menghilang.
 - Seed Extractor mengorbankan satu tanaman untuk menghasilkan benih.
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
@@ -75,7 +78,7 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - **Variant dan Mutation buah (D-022):** keduanya merupakan sistem terpisah, sama-sama mengubah tampilan dan meningkatkan harga jual, serta dapat dimiliki bersamaan pada satu buah. Satu buah hanya dapat memiliki satu Variant; Variant permanen, tidak dapat diganti/ditimpa, dan tampilan Variant selalu berada di atas tampilan Mutation. Variant Seasonal meningkatkan Rarity dan sangat langka serta memerlukan kondisi khusus. Nama Variant Winter diubah menjadi Cristal. Multiplier Variant: Seasonal/Cristal 5x, Silver 1,5x, Gold 3x, Rainbow 4x.
 - Mutation dapat dimiliki dalam beberapa jenis pada satu buah. Jenis Mutation yang sama hanya dapat tercatat satu kali per buah. Mutation baru dapat menimpa tampilan Mutation sebelumnya, tetapi Mutation sebelumnya tetap tersimpan sebagai atribut dan multiplier ekonominya tetap aktif. Mutation dapat diperoleh dari cuaca, musim, metode khusus, atau Plant Sprayer. Multiplier masing-masing Mutation belum ditentukan dan akan dibahas satu per satu.
 - **Rumus harga buah (D-022):** Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation. Multiplier Mutation dijumlahkan terlebih dahulu. Contoh ilustratif: 100 C × 5 × (2 + 5) = 3.500 C. Jika tidak memiliki Variant atau Mutation, faktor terkait menggunakan nilai netral 1x. Angka 2x dan 5x hanya contoh, bukan nilai Mutation yang disetujui.
-- Mutasi akibat banjir dihitung independen per buah. Peluangnya 5% per 2 menit pada WaterLevel 4,00-4,99 dan 5% per 1 menit pada WaterLevel 5,00; setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil, buah tidak lagi mengikuti roll mutasi banjir berikutnya (D-019, D-020, D-021). D-022 tidak mengubah batas khusus mutasi banjir tersebut.
+- Mutation Flooded dari paparan WaterLevel dihitung independen per buah: peluang 2,5% per 2 menit pada WaterLevel 4,00-4,99 dan 2,5% per 1 menit pada WaterLevel 5,00. Satu buah hanya dapat memperoleh Flooded satu kali sepanjang siklus hidupnya, termasuk jika diperoleh melalui evolusi Wet selama Rainy (D-021, D-034, D-035).
 - Pupuk dari Starter Kit direncanakan mempercepat pertumbuhan, tetapi aturan penggunaan dan efek numeriknya belum diputuskan.
 
 Radius area, batas maksimum bonus pertumbuhan, rentang air ideal tiap tanaman, laju pengeringan alami saat cuaca panas/Summer, radius Soil Aerator dan Sprinkler, bonus ukuran buah, aturan akumulasi sisa paparan mutasi saat level air berubah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
