@@ -56,6 +56,20 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Hanya mengandalkan pengeringan alami, karena pemain tidak memiliki tindakan langsung untuk menyelamatkan tanaman yang mendekati batas kematian.
 - Dampak: FEAT-002 harus mencakup tool pengurang kadar air. Semua angka dan detail operasional wajib ditentukan sebelum spec READY.
 
+### D-015 · Mekanik Soil Aerator
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Pemain membutuhkan cara aktif untuk mengurangi kadar air berlebih pada beberapa tanaman sekaligus tanpa membuat pemulihan terjadi secara instan.
+- Keputusan:
+  - Nama tool: Soil Aerator.
+  - Soil Aerator merupakan consumable.
+  - Area efek Soil Aerator berbentuk lingkaran.
+  - Soil Aerator mempercepat pengeringan secara bertahap, bukan mengurangi kadar air secara instan.
+  - Radius, laju pengeringan, durasi efek, konsumsi per penggunaan, dan aturan penumpukan area masih harus ditetapkan dalam balancing/spec.
+- Alternatif yang ditolak: Alat permanen dengan target satu tanaman dan pengurangan instan; pemilik memilih item consumable dengan efek area dan pengeringan bertahap.
+- Dampak: FEAT-002 harus memproses pengurangan WaterLevel secara berkala pada tanaman yang berada di area lingkaran selama efek aktif. Pemulihan dari Overwatered tetap mengikuti D-013.
+
 ## Format
 
 ```
