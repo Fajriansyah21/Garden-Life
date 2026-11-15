@@ -1,5 +1,31 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui dan meresmikan D-026 tentang Arrival & First Impression pemain baru.
+  - Pemain langsung muncul di plot pribadi dengan kontrol karakter dan kamera normal.
+  - Tidak ada cinematic, camera lock, atau NPC pemandu.
+  - Pesan sambutan “Selamat datang di kebunmu! Tempat kecil untuk menciptakan kebun impianmu.” tampil non-blocking selama 3 detik, lalu menghilang.
+  - Setelah pesan hilang, penanda visual dan prompt Inventory berjalan sesuai D-025.
+  - PLAYER_JOURNEY.md diperbarui ke v0.3 (DRAFT), GDD ke v1.9, README, DECISIONS, dan HANDOFF diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-026)
+  - docs/design/PLAYER_JOURNEY.md (v0.3, DRAFT)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v1.9)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana onboarding dipulihkan jika pemain keluar/disconnect di tengah alur?
+  - Kapan prompt yang dilewati boleh muncul kembali?
+  - Apa detail UI, input, dan feedback placement pertama untuk PC serta perangkat sentuh?
+  - Detail final pilihan aktivitas dan visual penekanan jalur farming masih perlu dirapikan.
+- Asumsi / risiko:
+  - Pesan sambutan harus tetap non-blocking pada PC dan perangkat sentuh.
+  - Waktu 3 detik hanya durasi tampilan pesan, bukan waktu wajib sebelum pemain dapat bergerak.
+  - D-026 tidak menambah source/sink ekonomi dan tidak otomatis menyetujui scope di luar onboarding.
+  - Belum ada perubahan kode; semua spec tetap DRAFT.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui dan meresmikan D-025 tentang onboarding First Visit dan pengenalan Starter Kit.
   - Inventory tidak terbuka otomatis; pemain membukanya sendiri melalui penanda visual dan prompt.
   - Tools, Farming, dan Decorations langsung terlihat bersama, lalu diperkenalkan bertahap melalui highlight/tooltip.
