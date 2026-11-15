@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 1.4 · **Terakhir diubah:** 2026-11-15
+**Versi:** 1.5 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -52,7 +52,10 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Seed Extractor mengorbankan satu tanaman untuk menghasilkan benih.
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
 - Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
-- Mutasi akibat banjir dihitung independen per buah. Peluangnya 5% per 2 menit pada WaterLevel 4,00-4,99 dan 5% per 1 menit pada WaterLevel 5,00; setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil, buah tidak lagi mengikuti roll mutasi banjir berikutnya (D-019, D-020, D-021).
+- **Variant dan Mutation buah (D-022):** keduanya merupakan sistem terpisah, sama-sama mengubah tampilan dan meningkatkan harga jual, serta dapat dimiliki bersamaan pada satu buah. Satu buah hanya dapat memiliki satu Variant; Variant permanen, tidak dapat diganti/ditimpa, dan tampilan Variant selalu berada di atas tampilan Mutation. Variant Seasonal meningkatkan Rarity dan sangat langka serta memerlukan kondisi khusus. Nama Variant Winter diubah menjadi Cristal. Multiplier Variant: Seasonal/Cristal 5x, Silver 1,5x, Gold 3x, Rainbow 4x.
+- Mutation dapat dimiliki dalam beberapa jenis pada satu buah. Jenis Mutation yang sama hanya dapat tercatat satu kali per buah. Mutation baru dapat menimpa tampilan Mutation sebelumnya, tetapi Mutation sebelumnya tetap tersimpan sebagai atribut dan multiplier ekonominya tetap aktif. Mutation dapat diperoleh dari cuaca, musim, metode khusus, atau Plant Sprayer. Multiplier masing-masing Mutation belum ditentukan dan akan dibahas satu per satu.
+- **Rumus harga buah (D-022):** Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation. Multiplier Mutation dijumlahkan terlebih dahulu. Contoh ilustratif: 100 C × 5 × (2 + 5) = 3.500 C. Jika tidak memiliki Variant atau Mutation, faktor terkait menggunakan nilai netral 1x. Angka 2x dan 5x hanya contoh, bukan nilai Mutation yang disetujui.
+- Mutasi akibat banjir dihitung independen per buah. Peluangnya 5% per 2 menit pada WaterLevel 4,00-4,99 dan 5% per 1 menit pada WaterLevel 5,00; setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil, buah tidak lagi mengikuti roll mutasi banjir berikutnya (D-019, D-020, D-021). D-022 tidak mengubah batas khusus mutasi banjir tersebut.
 - Pupuk dari Starter Kit direncanakan mempercepat pertumbuhan, tetapi aturan penggunaan dan efek numeriknya belum diputuskan.
 
 Radius area, batas maksimum bonus pertumbuhan, rentang air ideal tiap tanaman, laju pengeringan alami saat cuaca panas/Summer, radius Soil Aerator dan Sprinkler, bonus ukuran buah, aturan akumulasi sisa paparan mutasi saat level air berubah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
