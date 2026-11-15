@@ -1,9 +1,9 @@
 # PLAYER JOURNEY · Garden Life
 
 **Status:** DRAFT  
-**Versi:** 0.1  
+**Versi:** 0.2  
 **Tanggal:** 2026-11-15  
-**Terkait:** D-008, D-009, D-010, D-023; GDD v1.6; ROADMAP v0.2  
+**Terkait:** D-008, D-009, D-010, D-023, D-024, D-025; GDD v1.8  
 **Tujuan dokumen:** Menggambarkan perjalanan pengalaman pemain dari pertama kali masuk hingga memiliki kebun yang berkembang dan identitas personal.
 
 > Dokumen ini adalah rancangan pengalaman pemain, bukan spesifikasi implementasi atau persetujuan scope rilis. Aturan, fitur, angka, dan sistem yang belum diputuskan tetap ditandai sebagai usulan atau BELUM DIPUTUSKAN. Status dokumen hanya dapat diubah menjadi READY oleh pemilik proyek.
@@ -43,49 +43,100 @@ Tahap ini adalah **fase pengalaman**, bukan level karakter, ranking, atau gerban
 
 ### Tujuan pengalaman
 
-Pemain memahami bahwa plot adalah ruang personal yang dapat dibentuk sesuai keinginannya. Pemain tidak merasa harus memahami seluruh sistem pada saat pertama masuk.
+Pemain mengenali plot sebagai ruang personal, mengetahui bahwa Starter Kit tersedia di Inventory, lalu memilih sendiri cara pertama untuk mulai membentuk kebun. Onboarding memberi arah tanpa mengambil alih kontrol atau memaksa pemain mengikuti tutorial panjang.
 
-### Kondisi dan pengalaman
+### Prinsip onboarding
 
-- Pemain memasuki dunia Garden Life dan mengenali lokasi plot miliknya.
-- Plot pertama kali dimasuki dalam kondisi kosong, tanpa dekorasi, bangunan, atau tanaman yang telah ditempatkan (D-008).
-- Pemain menerima Starter Kit sebagai inventori, bukan objek yang otomatis diletakkan di plot (D-009, D-010).
-- Pemain diperkenalkan pada tujuan dasar: membentuk kebun sendiri.
-- Pemain diberi kesempatan untuk melihat inventori dan mencoba tindakan sederhana, tanpa dipaksa mengikuti tutorial panjang.
+- **Contextual guidance:** petunjuk muncul saat relevan dengan tindakan pemain.
+- **Player-controlled:** pemain sendiri yang membuka dan menutup Inventory.
+- **Visible choices:** isi Starter Kit dan tiga kelompok item dapat dilihat sejak Inventory dibuka.
+- **Guided, not locked:** highlight dan penjelasan memberi arahan, tetapi pemain tetap bebas menjelajahi UI.
+- **Free choice, farming guided:** pemain dapat memilih bertani atau mendekorasi; farming boleh menjadi jalur rekomendasi, bukan kewajiban.
+- **One meaningful action:** onboarding awal berakhir setelah pemain berhasil melakukan satu tindakan kreatif pada jalur pilihannya.
+
+### Alur pengalaman yang disepakati (D-025)
+
+| Urutan | Pemicu / tindakan pemain | Respons game | Catatan desain |
+|---:|---|---|---|
+| 1 | Pemain masuk ke plot pertamanya | Tampilkan plot kosong dan identitas plot | Plot kosong mengikuti D-008; item awal tidak otomatis ditempatkan |
+| 2 | Pemain sudah mendapat kesempatan mengenali plot | Beri penanda visual pada tombol Inventory dan prompt singkat | Contoh teks: "Perlengkapan kebunmu sudah tersedia. Buka Inventory untuk melihatnya!" |
+| 3 | Pemain menekan tombol Inventory | Buka panel Inventory | Panel tidak dibuka otomatis |
+| 4 | Inventory tampil | Tampilkan ketiga kelompok: Tools, Farming, Decorations | Ketiganya terlihat sekaligus sejak awal |
+| 5 | Pengenalan kelompok dimulai | Highlight dan tooltip memperkenalkan Tools, lalu Farming, lalu Decorations | Navigasi tidak dikunci; pemain bebas memilih kelompok lain |
+| 6 | Pemain menjelajah atau menyelesaikan pengenalan | Biarkan Inventory tetap interaktif | Penjelasan dapat dilewati; detail kontrol final UI belum ditetapkan |
+| 7 | Pemain menutup Inventory | Tutup panel atas tindakan pemain | Tidak ada penutupan otomatis |
+| 8 | Inventory sudah ditutup | Tampilkan pilihan Mulai Bertani atau Mulai Mendekorasi | Farming dapat diberi penekanan visual sebagai rekomendasi, tetapi kedua pilihan setara sebagai jalur onboarding |
+| 9A | Pemain memilih Mulai Bertani | Pandu pemain menempatkan Farm Tile, memilih Benih Wortel, lalu menanam | Jangan menambahkan waktu tumbuh, hasil, harga, atau reward yang belum diputuskan |
+| 9B | Pemain memilih Mulai Mendekorasi | Pandu pemain menempatkan Kursi Kayu atau Lampu Taman | Pemain bebas menentukan posisi dan tata letak |
+| 10 | Pemain berhasil melakukan tindakan kreatif pertama | Akhiri onboarding awal dan kembalikan kendali penuh kepada pemain | Tidak ada kewajiban mencoba jalur lainnya |
+
+### Kelompok Starter Kit
+
+| Kelompok | Item | Fungsi yang dikenalkan |
+|---|---|---|
+| Tools | Shovel | Menghapus tanaman |
+| Tools | Trowel | Memindahkan tanaman |
+| Tools | Watering Can | Menyiram tanaman |
+| Tools | Pupuk | Direncanakan membantu pertumbuhan; efek dan aturan penggunaan belum ditetapkan |
+| Farming | Farm Tile | Menyediakan area untuk aktivitas tanam |
+| Farming | Benih Wortel | Benih awal untuk mulai menanam |
+| Decorations | Kursi Kayu | Dekorasi kebun |
+| Decorations | Lampu Taman | Dekorasi kebun |
+
+Kuantitas Starter Kit tetap mengikuti D-010. Pengelompokan ini hanya mengatur cara item diperkenalkan di UI, bukan mengubah inventori atau kepemilikan item.
+
+### Aturan kebebasan pemain
+
+- Pemain boleh memilih kelompok lain saat highlight sedang menjelaskan satu kelompok.
+- Pemain tidak perlu membaca semua tooltip untuk menggunakan item.
+- Pemain boleh melewati pengenalan kelompok.
+- Pemain boleh menutup Inventory setelah melihat isi kit, meskipun belum menyelesaikan semua penjelasan.
+- Pemain boleh memilih jalur dekorasi tanpa mencoba farming, atau sebaliknya.
+- Jika pemain tidak mengikuti petunjuk atau menutup panel lebih awal, onboarding tidak boleh memaksa panel terbuka kembali. Petunjuk berikutnya dapat muncul secara kontekstual sesuai alur, tanpa mengunci kontrol.
+- Kondisi teknis untuk memulihkan onboarding setelah pemain keluar/disconnect belum ditentukan dan perlu dirinci pada spec onboarding.
 
 ### Aktivitas inti
 
 1. Mengenali plot dan batas ruang pribadi.
-2. Mengenali inventori dan Starter Kit.
-3. Melihat atau mencoba cara menempatkan objek pertama.
-4. Mengetahui bahwa kebun dapat dikembangkan melalui dekorasi dan aktivitas tanaman.
-5. Mengetahui cara menyimpan/melanjutkan progres secara alami melalui sistem persistensi.
+2. Menemukan tombol Inventory dan membukanya sendiri.
+3. Melihat Starter Kit dalam tiga kelompok yang langsung terlihat.
+4. Memahami fungsi item melalui penjelasan singkat yang bertahap dan dapat dilewati.
+5. Memilih jalur awal: bertani atau mendekorasi.
+6. Melakukan satu tindakan kreatif pertama.
+7. Mengetahui bahwa kebun dapat terus dikembangkan dengan kebebasan memilih aktivitas.
 
 ### Feedback yang dibutuhkan
 
 - Identitas plot dan kepemilikan mudah dikenali.
-- Item awal terlihat jelas di inventori.
-- UI memberi petunjuk kontekstual untuk tindakan awal.
-- Aksi berhasil memiliki feedback visual/audio yang jelas; detail asset dan audio belum ditentukan.
-- Pemain tidak dihukum karena salah mencoba atau membatalkan placement.
+- Tombol Inventory mendapat penanda visual yang jelas tanpa menutupi kontrol lain.
+- Prompt Inventory singkat dan mudah dipahami.
+- Kategori Tools, Farming, dan Decorations terlihat bersamaan.
+- Highlight/tooltip menunjukkan kelompok yang sedang diperkenalkan tanpa menghalangi navigasi Inventory.
+- Aksi placement pertama memiliki preview dan feedback berhasil/gagal yang jelas sesuai Build Mode.
+- Pemain memahami bahwa memilih dekorasi tidak berarti melewatkan atau gagal dalam permainan.
 
 ### Hasil tahap / sinyal transisi
 
-Tahap First Visit dianggap berhasil ketika pemain:
-- mengetahui plot mana yang menjadi ruang pribadinya;
-- mengetahui bahwa Starter Kit tersedia di inventori;
-- memahami setidaknya satu cara untuk mulai menata kebun atau memilih aktivitas awal.
+First Visit dianggap berhasil ketika pemain:
+- mengenali plot sebagai ruang personal;
+- mengetahui Starter Kit tersedia di Inventory;
+- memahami bahwa item awal dikelompokkan menjadi Tools, Farming, dan Decorations;
+- memilih salah satu jalur aktivitas awal;
+- berhasil melakukan satu tindakan kreatif pada jalur tersebut.
 
-Ini bukan syarat unlock. Pemain boleh langsung melakukan aktivitas lain.
+Ini bukan syarat unlock atau gerbang progres. Pemain boleh mengabaikan arahan dan mengeksplorasi game. Onboarding awal tidak boleh menahan akses ke kebun.
 
 ### Risiko desain
 
 | Risiko | Mitigasi rancangan |
 |---|---|
-| Plot kosong terasa seperti tidak ada yang bisa dilakukan | Tampilkan inventori awal dan petunjuk tindakan pertama |
-| Terlalu banyak tutorial membuat pemain kewalahan | Gunakan bantuan kontekstual dan bertahap |
-| Pemain mengira item awal otomatis sudah terpasang | Jelaskan perbedaan plot kosong dan inventori berisi |
-| Pemain tidak memahami kebebasan dekorasi | Tunjukkan contoh aksi, bukan memaksa satu layout |
+| Plot kosong terasa seperti tidak ada yang bisa dilakukan | Tunjukkan bahwa Starter Kit tersedia di Inventory |
+| Inventory otomatis terbuka dan terasa mengambil alih kontrol | Biarkan pemain membuka panel sendiri melalui penanda visual |
+| Tutorial terlalu padat | Gunakan tooltip singkat dan penjelasan bertahap yang dapat dilewati |
+| Pemain mengira harus menyelesaikan seluruh tutorial kategori | Izinkan navigasi bebas dan penutupan Inventory kapan saja |
+| Pemain mengira farming wajib | Tampilkan jalur dekorasi sebagai pilihan yang sama-sama valid |
+| Pemain salah mengira item telah ditempatkan | Jelaskan bahwa Starter Kit berada di Inventory, bukan di plot |
+| Detail farming yang belum diputuskan terlanjur dijanjikan | Batasi arahan pada penempatan tile, pemilihan benih, dan tindakan menanam; jangan menyebut waktu/reward |
 
 ## 4. Tahap 2 · Early Garden
 
@@ -295,7 +346,7 @@ Jangan menetapkan target angka sebelum ada baseline playtest.
 
 | Tahap | Sistem yang dibutuhkan atau terkait | Status desain |
 |---|---|---|
-| First Visit | Plot, onboarding, Starter Kit, inventori, UI dasar, persistensi | Sebagian fondasi telah diputuskan; onboarding dan inventori lengkap belum dispesifikasikan |
+| First Visit | Plot, onboarding, Starter Kit, inventori, UI dasar, persistensi | Prinsip onboarding dicatat dalam D-025; detail UI, state, dan edge case masih perlu dirinci dalam spec |
 | Early Garden | Build Mode, dekorasi, Farm Tile, tanaman, tools, pertumbuhan, panen, toko/ekonomi | FEAT-001 dan FEAT-002 DRAFT; sistem tanaman dan ekonomi belum lengkap |
 | Growing Garden | Katalog tanaman/dekorasi, progres, ekspansi, koleksi, Variant/Mutation, musim/cuaca, sosial | Beberapa keputusan tingkat tinggi tersedia; detail dan scope belum disetujui |
 | Established Garden | Persistensi jangka panjang, kunjungan/co-op, konten lanjutan, event/Live-ops, moderasi, performa | Sebagian besar belum dirancang atau belum ditetapkan sebagai scope |
@@ -325,4 +376,5 @@ Jangan menetapkan target angka sebelum ada baseline playtest.
 
 | Versi | Tanggal | Perubahan | Status |
 |---|---|---|---|
+| v0.2 | 2026-11-15 | Memperinci alur First Visit berdasarkan D-025: Inventory dibuka pemain, pengenalan tiga kelompok Starter Kit, pilihan bertani/dekorasi, dan tindakan kreatif pertama | DRAFT |
 | v0.1 | 2026-11-15 | Draft awal empat tahap perjalanan pemain, loop lintas tahap, analisis, dependensi, dan pertanyaan terbuka | DRAFT |
