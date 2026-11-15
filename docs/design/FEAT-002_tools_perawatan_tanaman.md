@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v7 |
+| Versi | v8 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -11,7 +11,7 @@
 | Bergantung pada | Sistem tanaman, pertumbuhan, inventori, dan penyimpanan plot |
 | Perkiraan biaya | M (ASUMSI; Claude perlu mengonfirmasi) |
 
-> Spec ini merangkum aturan Tools yang telah dikonfirmasi. Nilai numerik yang belum diputuskan sengaja ditandai BELUM DIPUTUSKAN; spec belum siap implementasi.
+> Spec ini merangkum aturan Tools yang telah dikonfirmasi. Parameter yang belum diputuskan tetap ditandai BELUM DIPUTUSKAN; spec masih DRAFT.
 
 ## 1. Tujuan pemain
 
@@ -45,14 +45,15 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 4. Efek bonus pertumbuhan dari penyiraman dapat bertambah melalui penggunaan berulang, tetapi totalnya tidak boleh melewati batas maksimum D-011.
 5. Area penyiraman ditentukan berdasarkan posisi titik penggunaan dan radius; tanaman tepat pada batas radius dianggap berada di dalam area.
 6. Watering Can bersifat manual dan memberikan efek langsung pada saat digunakan.
-7. Penyiraman menaikkan WaterLevel tanaman dalam skala integer 0-5. Nilai penambahan per penggunaan BELUM DIPUTUSKAN dan hasil wajib di-clamp maksimum 5.
-8. Sistem wajib membedakan WaterLevel dari WateringEffectValue (bonus pertumbuhan). Keduanya tidak boleh disimpan atau dihitung sebagai satu nilai yang sama.
-9. WaterLevel 4 berarti Overwatered; WaterLevel 5 berarti Flooded (D-017).
-10. Tanaman pulih hanya ketika WaterLevel turun ke level 3 atau lebih rendah. Turun dari 5 ke 4 tidak memulihkan tanaman.
-11. Timer kematian dimulai saat WaterLevel naik dari level 0-3 ke level 4 atau 5. Timer terus berjalan selama WaterLevel >= 4; perpindahan antara level 4 dan 5 tidak memulai ulang timer.
-12. Rentang kadar air ideal dapat berbeda menurut jenis tanaman pada level 0-3. Level 4 dan 5 selalu kondisi berbahaya bagi semua tanaman.
-13. Bonus pertumbuhan penyiraman tetap mengikuti cap D-011 dan tidak meningkat tanpa batas. Perilaku pertumbuhan dasar saat Overwatered/Flooded masih BELUM DIPUTUSKAN.
-14. Kadar air berkurang secara alami dari waktu ke waktu. Laju pengurangan alami masih BELUM DIPUTUSKAN.
+7. Watering Can menambah WaterLevel sebesar 0,50 pada setiap tanaman yang terkena satu penggunaan. Nilai dibatasi maksimum 5,00.
+8. WaterLevel memakai rentang numerik 0,00-5,00 dan mendukung pecahan. Implementasi harus menyimpan nilai dalam satuan integer seperseratus (WaterLevelCenti: 0-500) agar penambahan 0,15 dapat dihitung tanpa galat floating point.
+9. Sistem wajib membedakan WaterLevel dari WateringEffectValue (bonus pertumbuhan). Keduanya tidak boleh disimpan atau dihitung sebagai satu nilai yang sama.
+10. Label WaterLevel: 0 = Kering; 1 = Tanah sedikit basah; 2 = Tanah lumayan basah; 3 = Tanah Basah (rekomendasi umum); 4 = Tanah terlalu basah/Overwatered; 5 = Tanah kebanjiran/Flooded. Level 4 dan 5 merupakan kondisi berbahaya.
+11. Timer kematian dimulai saat WaterLevel pertama kali mencapai 4,00 atau lebih dan berjalan selama WaterLevel tetap >=4,00. Timer tidak di-reset saat berpindah antara level 4 dan 5.
+12. Tanaman mati setelah berada terus-menerus pada WaterLevel >=4,00 selama 15 menit. Jika turun di bawah 4,00 sebelum 15 menit, tanaman pulih dan timer dibatalkan.
+13. Level 3 adalah rekomendasi umum, tetapi rentang air ideal/toleransi spesifik tanaman tetap dapat berbeda sesuai D-012. Tanaman pada level 4 dan 5 selalu berada dalam kondisi kelebihan air.
+14. Bonus pertumbuhan penyiraman tetap mengikuti cap D-011 dan tidak meningkat tanpa batas. Perilaku pertumbuhan dasar saat Overwatered/Flooded masih BELUM DIPUTUSKAN.
+15. Pengeringan alami terjadi karena kondisi cuaca panas atau musim Summer. Besar pengurangan WaterLevel dan interval evaluasinya masih BELUM DIPUTUSKAN.
 
 ### 2.5 Sprinkler
 1. Sprinkler adalah perangkat consumable yang ditempatkan pada plot.
@@ -60,8 +61,10 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 3. Selama durasi aktif, Sprinkler secara otomatis menerapkan efek penyiraman kepada tanaman di dalam area jangkauannya.
 4. Sprinkler juga meningkatkan ukuran buah tanaman yang terkena efek; besaran dan aturan ukuran buah belum ditentukan.
 5. Ketika durasi aktif berakhir, perangkat Sprinkler dikonsumsi dan dihapus dari plot.
-6. Efek penyiraman dari Sprinkler mengikuti batas maksimum efek penyiraman yang sama dengan Watering Can, kecuali keputusan lanjutan menetapkan aturan khusus.
-7. Penumpukan dari beberapa sumber efek tidak boleh melampaui batas maksimum.
+6. Sprinkler menambah WaterLevel sebesar 0,15 pada setiap tanaman dalam radius pada setiap tick.
+7. Tick sistem berdurasi 30 detik. Sprinkler aktif selama 10 menit (600 detik), setara 20 tick penyiraman.
+8. WaterLevel dari Sprinkler dibatasi maksimum 5,00. Bonus pertumbuhan penyiraman tetap mengikuti cap D-011.
+9. Efek ukuran buah tetap menjadi efek terpisah; nilai bonus ukuran dan aturan stacking BELUM DIPUTUSKAN.
 
 ### 2.6 Seed Extractor
 1. Seed Extractor digunakan pada satu tanaman atau pohon yang valid.
@@ -94,14 +97,14 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 ### 2.10 Soil Aerator
 1. Soil Aerator adalah item consumable yang membantu mengurangi kadar air berlebih secara aktif (D-014, D-015).
 2. Satu penggunaan berhasil mengonsumsi satu unit Soil Aerator dan mengaktifkan satu zona pengeringan berbentuk lingkaran pada titik tanah yang dipilih pemain.
-3. Semua tanaman yang berada di dalam radius zona menerima pengurangan WaterLevel secara bertahap melalui tick berkala server.
-4. Setiap tick yang berhasil mengeringkan tanaman mengurangi WaterLevel tepat 1 level. WaterLevel tidak boleh turun di bawah 0 (D-017).
-5. Tanaman yang masuk ke area saat zona masih aktif mulai menerima pengurangan pada tick berikutnya. Tanaman yang keluar dari area tidak lagi menerima pengurangan dari zona tersebut.
-6. Jika WaterLevel turun dari 5 ke 4, status tanaman berubah dari Flooded menjadi Overwatered; timer kematian tetap berjalan.
-7. Jika WaterLevel turun dari 4 ke 3 atau lebih rendah, tanaman pulih dan timer kematian dibatalkan sesuai D-013.
+3. Semua tanaman yang berada di dalam radius zona menerima pengurangan WaterLevel secara bertahap melalui tick server.
+4. Setiap tick mengurangi WaterLevel sebesar 0,50. Nilai tidak boleh turun di bawah 0,00.
+5. Tick sistem berdurasi 30 detik. Zona Soil Aerator aktif selama 2,5 menit (150 detik), dengan lima tick terjadwal pada detik ke-30, 60, 90, 120, dan 150 sejak aktivasi. Tick kelima diproses tepat pada batas akhir sebelum zona dinonaktifkan.
+6. Tanaman yang masuk ke area saat zona masih aktif mulai menerima pengurangan pada tick berikutnya. Tanaman yang keluar dari area tidak lagi menerima pengurangan dari zona tersebut.
+7. Jika WaterLevel turun dari 5,00 ke bawah 4,00, tanaman pulih dan timer kematian dibatalkan. Penurunan dari 5,00 ke 4,50 atau 4,00 belum memulihkan tanaman.
 8. Soil Aerator tidak mengubah WateringEffectValue dan tidak memberikan bonus pertumbuhan. Fungsinya hanya mengurangi kadar air.
 9. Item dikonsumsi ketika zona berhasil diaktifkan, bukan pada setiap tick pengeringan. Aktivasi gagal karena lokasi/izin tidak valid tidak mengonsumsi item.
-10. Durasi zona ditetapkan 180 detik (3 menit) sejak aktivasi berhasil (D-016). Radius, interval tick, aturan zona yang saling tumpang tindih, batas jumlah zona aktif, dan apakah zona diwujudkan sebagai perangkat fisik yang terlihat masih BELUM DIPUTUSKAN.
+10. Radius, aturan zona yang saling tumpang tindih, batas jumlah zona aktif, dan apakah zona diwujudkan sebagai perangkat fisik yang terlihat masih BELUM DIPUTUSKAN.
 11. Seluruh perhitungan area, pengurangan kadar air, konsumsi item, dan pemulihan dilakukan server-authoritative. Client hanya menampilkan preview, animasi, dan hasil.
 
 ## 3. Data & angka tuning
@@ -116,12 +119,12 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Watering Can radius | BELUM DIPUTUSKAN | studs | Perlu keputusan |
 | Watering Can konsumsi | 1 | unit/penggunaan | Satu penggunaan menghabiskan satu unit |
 | Batas maksimum bonus pertumbuhan penyiraman | BELUM DIPUTUSKAN | nilai efek | Cap bonus pertumbuhan, D-011; terpisah dari kadar air |
-| Penambahan WaterLevel Watering Can | BELUM DIPUTUSKAN | level/penggunaan | Menambah WaterLevel tiap tanaman yang terkena; clamp maksimum 5 |
-| Penambahan WaterLevel Sprinkler | BELUM DIPUTUSKAN | level/tick | Menambah WaterLevel pada setiap tick penyiraman; clamp maksimum 5 |
-| Pengurangan alami WaterLevel | BELUM DIPUTUSKAN | level/menit | Mengurangi WaterLevel dari waktu ke waktu |
+| Penambahan WaterLevel Watering Can | 0,50 | level/penggunaan | Setiap penggunaan; clamp maksimum 5,00 |
+| Penambahan WaterLevel Sprinkler | 0,15 | level/tick | Satu tick setiap 30 detik; clamp maksimum 5,00 |
+| Pengeringan alami WaterLevel | Cuaca panas atau musim Summer | pemicu | Besar pengurangan dan interval masih BELUM DIPUTUSKAN |
 | Rentang air ideal tanaman | Per jenis tanaman dalam level 0-3 | level | Level 4/5 selalu overwater/flooded; D-017 |
-| Durasi Overwatered/Flooded sebelum mati | BELUM DIPUTUSKAN | menit | Timer berjalan selama WaterLevel >= 4; D-013, D-017 |
-| Pemulihan Overwatered/Flooded | WaterLevel <= 3 | kondisi | Menghapus OverwateredSince dan mengembalikan status normal; D-013, D-017 |
+| Durasi Overwatered/Flooded sebelum mati | 15 | menit | Timer kontinu selama WaterLevel >= 4,00 |
+| Pemulihan Overwatered/Flooded | WaterLevel < 4,00 | kondisi | Menghapus timer kematian dan mengembalikan status normal |
 | Pengulangan Overwatered | Timer episode baru | aturan | Episode baru dimulai jika kadar air kembali melewati toleransi setelah pulih |
 | Pemulihan dari Overwatered | Ya | aturan | Pulih jika WaterLevel kembali ke/bawah toleransi sebelum timer kematian habis, D-013 |
 | Sprinkler area | Lingkaran | bentuk | Mengikuti keputusan area |
@@ -136,30 +139,25 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Soil Aerator status | Consumable | tipe alat | D-015 |
 | Soil Aerator konsumsi | 1 unit/aktivasi berhasil | unit/penggunaan | Dikonsumsi saat zona pengeringan aktif |
 | Soil Aerator area | Lingkaran | bentuk | D-015 |
-| Skala WaterLevel | 0-5 integer | level | Level 4 = Overwatered; level 5 = Flooded; D-017 |
+| Skala WaterLevel | 0,00-5,00; presisi 0,01 | level | Simpan sebagai integer 0-500 dalam satuan 0,01; D-018 |
 | Rentang air ideal tanaman | Per jenis tanaman, dalam level 0-3 | level | Level 4 dan 5 selalu berbahaya untuk semua tanaman |
 | Soil Aerator radius | BELUM DIPUTUSKAN | studs | Radius zona pengeringan |
-| Soil Aerator interval tick | BELUM DIPUTUSKAN | detik | Interval pengurangan kadar air bertahap |
-| Soil Aerator durasi zona | 180 | detik | 3 menit sejak aktivasi berhasil; D-016 |
-| Soil Aerator radius | 12 (ASUMSI usulan) | studs | Diameter zona 24 studs; perlu playtest |
-| Soil Aerator interval tick | 15 (ASUMSI usulan) | detik | 12 tick selama durasi 180 detik |
-| Soil Aerator pengurangan air | 1 | level/tick/tanaman | Setiap tick menurunkan WaterLevel satu level sampai minimum 0; D-017 |
+| Tick global | 30 | detik | Digunakan oleh Soil Aerator dan Sprinkler |
+| Soil Aerator durasi zona | 150 | detik | 2,5 menit sejak aktivasi berhasil; 5 tick termasuk tick pada batas akhir |
+| Soil Aerator radius | BELUM DIPUTUSKAN | studs | Radius zona pengeringan |
+| Soil Aerator interval tick | 30 | detik | 5 tick selama durasi 150 detik |
+| Soil Aerator pengurangan air | 0,50 | level/tick/tanaman | Setiap tick sampai minimum 0,00; D-018 |
 | Soil Aerator batas zona aktif | 1 (ASUMSI usulan) | zona/plot | Aktivasi kedua ditolak selama zona pertama aktif; item tidak dikonsumsi |
 
-### Rekomendasi balancing sementara Soil Aerator (ASUMSI, belum disetujui)
-
-| Parameter | Nilai usulan | Alasan |
-|---|---:|---|
-| Skala WaterLevel | 0-5 integer | Memudahkan tuning lintas tanaman; toleransi tetap per jenis |
-| Radius | 12 studs | Diameter 24 studs, cukup untuk kelompok tanaman kecil tanpa mencakup seluruh plot |
-| Durasi | 180 detik | D-016, keputusan pemilik |
-| Interval tick | 15 detik | 12 tick per aktivasi, beban server relatif ringan |
-| Pengurangan per tick | 1 level/tanaman | Level turun satu langkah per tick; berhenti pada 0 |
-| Zona aktif | Maksimal 1 per plot | Mencegah spam dan penumpukan pengeringan area |
-| Zona tanpa tanaman | Aktivasi ditolak, item tidak dikonsumsi | Mencegah item terbuang karena salah penempatan |
-| Overlap antar zona | Tidak berlaku jika hanya 1 zona aktif/plot | Aturan sederhana untuk vertical slice |
-
-**Catatan balancing:** radius 12 studs, interval 15 detik, dan batas satu zona aktif per plot masih ASUMSI. Skala WaterLevel 0-5 dan pengurangan satu level per tick adalah keputusan D-017. Jika interval 15 detik dipakai, zona 180 detik memiliki 12 tick; pengurangan efektif berhenti ketika tanaman mencapai WaterLevel 0.
+Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engineer:
+- Radius Watering Can, Sprinkler, dan Soil Aerator.
+- Cap bonus pertumbuhan dari penyiraman.
+- Rentang air ideal per jenis tanaman dalam rentang aman 0,00-3,99.
+- Besar dan interval pengeringan alami saat cuaca panas atau Summer.
+- Radius, batas zona aktif, dan aturan overlap Soil Aerator.
+- Radius Sprinkler dan bonus ukuran buah.
+- Aturan peluang mutasi buah akibat terendam (lihat pertanyaan terbuka pada HANDOFF).
+- Aturan mutasi saat level air berpindah antara level 4 dan 5.
 
 ## 4. Kondisi tepi & kegagalan
 
@@ -168,23 +166,23 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 - Watering Can digunakan tanpa tanaman di dalam radius: tentukan apakah penggunaan tetap mengonsumsi satu unit; BELUM DIPUTUSKAN.
 - Tanaman berada tepat di batas radius: dianggap masuk area.
 - Tanaman menerima beberapa sumber penyiraman pada waktu yang sama: hitung bonus pertumbuhan gabungan secara server dan clamp pada batas maksimum; akumulasi WaterLevel tetap dihitung terpisah dan dapat melewati toleransi tanaman.
-- WaterLevel mencapai 4: tandai tanaman Overwatered dan mulai hitung durasi kondisi tersebut jika sebelumnya berada pada level 0-3.
-- WaterLevel mencapai 5: tampilkan status Flooded; timer episode yang sudah dimulai tetap berjalan.
-- WaterLevel turun dari 5 ke 4: tanaman tetap Overwatered dan timer tidak di-reset.
-- WaterLevel turun ke 3 atau lebih rendah: tanaman pulih dan timer episode dihapus sesuai D-013.
-- WaterLevel turun ke 3 atau lebih rendah sebelum timer kematian habis: hapus OverwateredSince dan kembalikan status ke normal sesuai D-013.
+- WaterLevel mencapai 4,00: tandai tanaman Overwatered, mulai timer kematian 15 menit, dan munculkan Billboard Alert di atas tanaman.
+- WaterLevel mencapai 5,00: tampilkan status Flooded; timer episode yang sudah dimulai tetap berjalan dan Billboard Alert diperbarui.
+- WaterLevel turun tetapi masih >=4,00: tanaman tetap dalam kondisi berbahaya dan timer tidak di-reset.
+- WaterLevel turun di bawah 4,00: tanaman pulih dan timer episode dihapus sesuai D-013.
+- WaterLevel turun di bawah 4,00 sebelum timer 15 menit habis: hapus OverwateredSince dan kembalikan status ke normal.
 - Tanaman kembali melewati toleransi setelah pulih: mulai episode Overwatered baru; jangan menjumlahkan durasi episode lama.
-- WaterLevel tetap 4 atau 5 sampai durasi kematian tercapai: ubah status tanaman menjadi Dead.
+- WaterLevel tetap >=4,00 selama 15 menit: ubah status tanaman menjadi Dead.
 - Soil Aerator diaktifkan pada lokasi di luar plot atau tanpa izin: tolak aktivasi tanpa mengonsumsi item.
-- Soil Aerator menurunkan WaterLevel satu level per tick; hasil tidak boleh kurang dari 0.
-- Soil Aerator menurunkan WaterLevel dari 5 ke 4: status berubah dari Flooded menjadi Overwatered, tetapi timer kematian tetap berjalan.
-- Soil Aerator menurunkan WaterLevel dari 4 ke 3 atau lebih rendah: tanaman pulih dan timer kematian dibatalkan sesuai D-013.
+- Soil Aerator menurunkan WaterLevel 0,50 per tick; hasil tidak boleh kurang dari 0,00.
+- Soil Aerator menurunkan WaterLevel tetapi hasil masih >=4,00: status tetap berbahaya dan timer kematian terus berjalan.
+- Soil Aerator menurunkan WaterLevel hingga <4,00: tanaman pulih dan timer kematian dibatalkan.
 - Soil Aerator aktif dan tanaman memasuki radius: tanaman mulai menerima pengeringan pada tick berikutnya.
 - Tanaman keluar dari radius sebelum zona berakhir: pengeringan dari zona tersebut berhenti untuk tanaman itu.
 - Tanaman pulih selama zona aktif: timer Overwatered dibatalkan sesuai D-013; pengeringan dapat berlanjut hingga zona berakhir atau WaterLevel mencapai 0.
 - Dua zona Soil Aerator saling tumpang tindih: perilaku penggabungan laju pengeringan BELUM DIPUTUSKAN; implementasi tidak boleh menggandakan efek secara diam-diam.
 - Pemain mengaktifkan Soil Aerator tanpa tanaman di dalam radius: rekomendasi DRAFT adalah menolak aktivasi dan tidak mengonsumsi item.
-- Zona Soil Aerator mencapai 180 detik: hentikan tick, hapus status zona aktif, dan jangan mengurangi kadar air setelah waktu kedaluwarsa.
+- Zona Soil Aerator mencapai 150 detik: proses tick kelima pada batas akhir, lalu hentikan zona dan jangan mengurangi kadar air lagi.
 - Pemain mencoba mengaktifkan zona kedua pada plot yang sudah memiliki zona aktif: rekomendasi DRAFT adalah menolak aktivasi tanpa mengonsumsi item.
 - Plot unload atau server restart ketika tanaman Overwatered: hitung durasi berdasarkan timestamp server tersimpan; jangan mengandalkan timer client atau menghentikan timer hanya karena pemain offline.
 - Sprinkler dihancurkan, disimpan, atau plot mengalami unload sebelum durasi habis: perilaku penghentian dan pengembalian item BELUM DIPUTUSKAN.
@@ -203,9 +201,9 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | OwnerUserId | integer/string | Pemilik objek tanaman atau perangkat sesuai model data |
 | PlantId | string | Identitas tanaman |
 | GrowthState | struktur | Progres pertumbuhan yang sudah ada pada sistem tanaman |
-| WaterLevel | integer | Kadar air aktual tanaman pada skala 0-5; terpisah dari bonus pertumbuhan |
+| WaterLevelCenti | integer | Kadar air aktual 0-500; tampilkan dengan membagi 100 untuk skala 0,00-5,00 |
 | PreferredWaterRange | struktur/range | Rentang kadar air ideal per jenis tanaman pada level 0-3 |
-| OverwateredSince | timestamp/null | Waktu server saat tanaman mulai melewati toleransi |
+| OverwateredSince | timestamp/null | Waktu server saat WaterLevel pertama kali mencapai 4,00 |
 | PlantHealthState | enum | Kondisi Normal/Overwatered/Flooded/Dead |
 | WateringEffectValue | number | Bonus pertumbuhan aktif; bukan kadar air |
 | SoilAeratorZoneId | string | Identitas zona pengeringan aktif |
@@ -219,6 +217,8 @@ Catatan: radius, interval tick, dan laju pengurangan sebaiknya berasal dari conf
 | SprinklerPlacedAt | timestamp | Waktu perangkat mulai aktif |
 | SprinklerExpiresAt | timestamp | Waktu perangkat berakhir |
 | FruitSizeModifier | number | Modifier ukuran buah, jika sistem ukuran buah diterapkan |
+| FruitSubmergedExposure | struktur | Akumulasi waktu buah berada pada WaterLevel 4 dan 5; format interval mutasi masih perlu dikonfirmasi |
+| FruitMutationState | enum/struktur | Status mutasi buah yang sudah terjadi, agar mutasi tidak diproses berulang tanpa aturan |
 
 Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer. Jangan menyimpan nilai yang dapat dihitung ulang jika tidak diperlukan. Status waktu harus menggunakan waktu server, bukan timer client.
 
@@ -227,8 +227,8 @@ Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer.
 - Hotbar/inventori menampilkan ikon, nama, jumlah consumable, dan penanda alat permanen.
 - Saat Watering Can dipilih, tampilkan preview lingkaran jangkauan di tanah sebelum pemain mengonfirmasi penggunaan.
 - Preview lingkaran membedakan area valid dan tidak valid serta menampilkan tanaman yang akan terkena efek.
-- UI status tanaman menampilkan WaterLevel 0-5 dengan label yang mudah dipahami. Level 4 diberi status Overwatered dan level 5 Flooded; rentang ideal level 0-3 dapat diberi indikator sesuai jenis tanaman.
-- Saat tanaman Overwatered atau Flooded, tampilkan peringatan visual dan teks yang jelas; jangan hanya mengandalkan warna.
+- UI status tanaman menampilkan WaterLevel 0,00-5,00 dengan label: 0 Kering; 1 Tanah sedikit basah; 2 Tanah lumayan basah; 3 Tanah Basah (rekomendasi); 4 Tanah terlalu basah; 5 Tanah kebanjiran.
+- Saat tanaman mencapai WaterLevel >=4,00, tampilkan Billboard Alert tepat di atas tanaman. Alert harus menunjukkan status terlalu basah/banjir dan urgensi penyelamatan; tetap terbaca di PC dan perangkat sentuh, tidak menutupi seluruh tanaman.
 - Saat Soil Aerator dipilih, tampilkan preview zona lingkaran dan tanaman yang akan terkena pengeringan.
 - Saat zona aktif, tampilkan indikator durasi tersisa dan efek visual pengeringan yang mudah dikenali.
 - Jika tanaman masih Overwatered setelah satu atau beberapa tick, UI menjelaskan bahwa proses pengeringan masih berlangsung.
@@ -318,3 +318,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v5 | 2026-11-15 | Mengubah Soil Aerator menjadi consumable area lingkaran dengan pengeringan bertahap | Menindaklanjuti D-015 sesuai pilihan pemilik |
 | v6 | 2026-11-15 | Menetapkan durasi Soil Aerator 3 menit dan menambahkan rekomendasi balancing awal berlabel ASUMSI | Menindaklanjuti D-016 dan menyediakan titik awal playtest tanpa mengunci angka usulan |
 | v7 | 2026-11-15 | Mengganti skala WaterLevel menjadi integer 0-5; level 4 Overwatered, level 5 Flooded; Soil Aerator mengurangi satu level per tick | Menindaklanjuti D-017 sesuai pilihan pemilik |
+| v8 | 2026-11-15 | Menggunakan WaterLevel pecahan 0,00-5,00; menetapkan tick 30 detik, timer kematian 15 menit, label level, Billboard Alert, nilai Watering Can/Sprinkler/Soil Aerator, durasi alat, dan pemicu pengeringan alami | Menindaklanjuti keputusan lanjutan pemilik; D-018 menggantikan D-017 |
