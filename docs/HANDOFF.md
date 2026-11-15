@@ -1,5 +1,32 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-032 tentang pilihan **Skip Tutorial** setelah Inventory ditutup.
+  - Jika pemain memilih Skip Tutorial, onboarding langsung dianggap selesai/dilewati. Pemain tidak menerima panduan jalur bertani atau dekorasi, tetapi seluruh gameplay tetap dapat diakses normal.
+  - Panel pilihan aktivitas hanya muncul sekali dalam satu rangkaian tutorial dan tidak muncul kembali otomatis.
+  - Menambahkan opsi **Pengaturan → Mulai Ulang Tutorial**. Tutorial dimulai dari pengenalan Inventory, bukan dari pesan sambutan.
+  - Restart tutorial tidak mengubah Life Coin, inventori, Starter Kit, objek, tanaman, atau progres gameplay.
+  - PLAYER_JOURNEY.md diperbarui ke v0.5 (DRAFT), GDD ke v2.2, README dan DECISIONS diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-032)
+  - docs/design/PLAYER_JOURNEY.md (v0.5, DRAFT)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.2)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana state tutorial disimpan dan dipulihkan jika pemain disconnect/keluar di tengah alur.
+  - Detail UI dan konfirmasi tindakan Mulai Ulang Tutorial pada Pengaturan.
+  - Detail implementasi lintas PC dan perangkat sentuh.
+- Asumsi / risiko:
+  - Restart hanya mengulang panduan onboarding, bukan mengulang pemberian Starter Kit atau mengubah state gameplay.
+  - Pesan sambutan D-026 hanya untuk kedatangan pertama dan tidak diputar ulang.
+  - D-032 tidak menetapkan scope First Release/Vertical Slice dan tidak mengubah ekonomi.
+  - Tidak ada perubahan kode.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-030 untuk Drizzle: WaterLevel +0,05 setiap tick; Mutation Wet 2,5% per buah secara independen setiap tick; seluruh tanaman menerima +15% waktu pertumbuhan tanpa bonus pertumbuhan.
   - Menambahkan D-031: setiap cuaca selain Sunny berlangsung 20 tick × 30 detik = 600 detik/10 menit; durasi Sunny belum ditetapkan.
   - GDD diperbarui ke v2.2 dan Concept Backlog diselaraskan.
