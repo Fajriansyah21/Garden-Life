@@ -18,6 +18,18 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-008 · Kondisi awal plot pemain
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Garden Life berfokus pada kreativitas dan ekspresi personal melalui pembangunan serta dekorasi kebun. Kondisi awal plot menentukan seberapa besar ruang kreasi yang dimiliki pemain sejak pertama masuk.
+- Keputusan:
+  - Saat pertama kali pemain memasuki plot miliknya, area plot dimulai dalam kondisi kosong.
+  - Tidak ada dekorasi, bangunan, atau tanaman yang sudah ditempatkan di plot pada kondisi awal.
+  - Keputusan ini mengatur objek yang sudah berada di dunia/plot, bukan isi inventori. Starter inventory, hadiah tutorial, dan item awal masih belum diputuskan.
+- Alternatif yang ditolak: Kebun starter yang sudah memiliki dekorasi dan tanaman; ditolak agar pemain membentuk identitas kebunnya sendiri sejak awal.
+- Dampak: Onboarding perlu membantu pemain memperoleh atau menempatkan objek pertama tanpa mengandalkan dekorasi bawaan. Isi starter inventory dan hadiah tutorial harus dirancang terpisah dan tidak boleh diasumsikan dari keputusan ini.
+
 ### D-007 · Skala world grid dan footprint tile
 - Tanggal: 2026-11-15
 - Diputuskan oleh: ChatGPT (rekomendasi desain; disetujui melalui delegasi pemilik)
