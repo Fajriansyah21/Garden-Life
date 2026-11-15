@@ -1,17 +1,19 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 1.5 · **Terakhir diubah:** 2026-11-15
+**Versi:** 1.6 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
 ## 1. Visi
 
 - **Nama game / map:** Garden Life.
-- **Pitch:** Garden Life adalah game Roblox santai tentang membangun, merawat, dan mendekorasi kebun pribadi bersama teman, dengan aktivitas farming serta manajemen dan ekonomi ringan sebagai pendukung.
+- **Identitas visi jangka panjang (D-023):** Cozy Garden Life Simulator.
+- **Pitch:** Garden Life adalah game Roblox santai tentang membangun, merawat, dan mendekorasi kebun pribadi yang terus berkembang bersama teman. Pemain mengekspresikan gaya kebunnya, mengoleksi tanaman unik, merawat kebun, dan mengunjungi kebun pemain lain. Farming serta manajemen dan ekonomi ringan menjadi aktivitas pendukung, bukan satu-satunya tujuan.
 - **Genre / pengalaman:** Cozy garden building, decorating, light farming, dan social co-op.
-- **Pengalaman utama:** Kreativitas, relaksasi, rasa memiliki terhadap kebun, dan kepuasan melihat kebun berkembang sesuai gaya pemain.
-- **Prioritas desain:** Dekorasi dan ekspresi personal > pengalaman sosial/co-op > farming santai > manajemen dan ekonomi ringan.
+- **Pengalaman utama:** Kreativitas, relaksasi, rasa memiliki terhadap kebun sebagai ruang personal, koleksi, interaksi sosial, dan kepuasan melihat kebun berkembang sesuai gaya pemain.
+- **Prioritas desain:** Dekorasi dan ekspresi personal > pengalaman sosial/co-op > koleksi dan perawatan kebun > farming santai > manajemen dan ekonomi ringan.
+- **Arah scope:** Visi mencakup pengembangan jangka panjang, tetapi fitur dibagi ke First Release, Post-Release, dan Long-Term Vision. Persetujuan visi tidak otomatis menyetujui seluruh fitur sebagai scope rilis.
 - **Game referensi (3):** **BELUM DIPUTUSKAN**. Jangan menetapkan referensi tanpa persetujuan pemilik.
 
 ## 2. Target pemain
