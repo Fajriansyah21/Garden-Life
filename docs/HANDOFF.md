@@ -29,15 +29,43 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 
 ---
 
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - README dirapikan menjadi ringkasan proyek yang mencakup identitas Garden Life, pilar desain, plot, Build Mode, ekonomi, scope yang belum disetujui, status proyek, dan tautan dokumen.
+  - GDD diperbarui ke v0.6 agar nama map, genre, konsep, dan skala grid tercatat jelas.
+  - D-007 menetapkan 1 sel grid = 4×4 studs dan footprint Farm/Build Tile = 20×20 studs.
+  - FEAT-001 diperbarui ke v1.2 dengan ukuran grid dunia dan acceptance criteria terkait.
+  - Concept Backlog diselaraskan dengan skala grid yang diputuskan.
+- File diubah:
+  - README.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-001_build_mode.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 tetap DRAFT.
+- Cara tes (jika kode): belum ada perubahan kode.
+- Pertanyaan terbuka:
+  - Batas jumlah objek per plot.
+  - Apakah surface placement masuk scope awal?
+  - Hak anggota untuk farming, Shared Savings, undangan, dan pengelolaan anggota di luar Build Mode.
+  - Origin grid plot, pivot asset, dan toleransi snapping perlu dirinci pada tahap teknis.
+- Asumsi / risiko:
+  - Snap to Grid default OFF masih ASUMSI.
+  - D-007 menetapkan ukuran dasar grid, tetapi tidak menetapkan pivot/origin teknis setiap asset.
+  - Watering Can 100 ml, greenhouse 18 tanaman, 5 tier pupuk, 4 musim, cuaca, dan gudang bersama tetap ide lama yang belum disetujui sebagai scope rilis.
+
+---
+
 ## Status saat ini
 - Fase: 0 Discovery (visi utama sudah dikonfirmasi; exit criteria Discovery belum seluruhnya terpenuhi)
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Dokumen desain: GDD v0.5; keputusan D-002, D-003, D-004, D-005, dan D-006 telah dicatat.
+- Dokumen desain: GDD v0.6; keputusan D-002 sampai D-007 telah dicatat (D-001 mengatur repo sebagai sumber kebenaran).
 - Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
-- Pertanyaan terbuka: ukuran world-unit untuk grid 5×5, batas objek, surface placement, serta detail hak anggota di luar Build Mode.
+- Pertanyaan terbuka: batas objek, surface placement, detail hak anggota di luar Build Mode, serta origin grid/pivot teknis asset.
 
 ---
 
