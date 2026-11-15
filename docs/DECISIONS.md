@@ -1,3 +1,37 @@
+### D-025 · Onboarding First Visit dan pengenalan Starter Kit
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Pemain baru perlu memahami bahwa plot awal memang kosong, sementara Starter Kit tersedia di Inventory. Pengenalan harus memberi arah tanpa mengambil kendali pemain atau menjadikan farming sebagai kewajiban.
+- Keputusan:
+  - Onboarding First Visit menggunakan pendekatan kontekstual dan bertahap, bukan tutorial panjang yang mengunci urutan tindakan pemain.
+  - Setelah pemain mengenali plot, UI memberi penanda visual pada tombol Inventory beserta prompt singkat yang menjelaskan bahwa perlengkapan kebun tersedia di sana.
+  - Inventory tidak dibuka otomatis. Pemain harus menekan tombol Inventory sendiri.
+  - Saat Inventory pertama kali dibuka, ketiga kelompok Starter Kit langsung terlihat: **Tools**, **Farming**, dan **Decorations**.
+  - Kelompok diperkenalkan secara bertahap dengan urutan Tools -> Farming -> Decorations melalui highlight dan tooltip/prompt kontekstual.
+  - Isi kelompok:
+    | Kelompok | Item Starter Kit |
+    |---|---|
+    | Tools | Shovel, Trowel, Watering Can, Pupuk |
+    | Farming | Farm Tile, Benih Wortel |
+    | Decorations | Kursi Kayu, Lampu Taman |
+  - Pengenalan kelompok tidak mengunci navigasi Inventory. Pemain bebas memilih kelompok lain, melihat item, atau menjelajahi Inventory selama pengenalan berlangsung.
+  - Pemain dapat melewati penjelasan kelompok. Detail kontrol dan tampilan final tetap harus dijabarkan dalam dokumen desain/spec UI.
+  - Inventory tidak ditutup otomatis. Pemain menutup panel sendiri.
+  - Setelah Inventory ditutup, onboarding memperkenalkan pilihan aktivitas awal: **Mulai Bertani** atau **Mulai Mendekorasi**.
+  - Kedua pilihan merupakan jalur yang valid. Farming boleh ditonjolkan sebagai jalur rekomendasi, tetapi tidak wajib dan tidak boleh menghalangi pemain memilih dekorasi.
+  - Jalur bertani mengarahkan pemain untuk menempatkan Farm Tile, memilih Benih Wortel, lalu menanam. Jalur dekorasi mengarahkan pemain untuk menempatkan Kursi Kayu atau Lampu Taman.
+  - Onboarding awal berakhir setelah pemain berhasil melakukan satu tindakan kreatif pada jalur yang dipilih. Setelah itu pemain bebas mengeksplorasi game.
+  - Keputusan ini tidak menetapkan waktu tumbuh, hasil panen, harga jual, reward, maupun aturan ekonomi tanaman yang belum memiliki keputusan/spec.
+- Alternatif yang ditolak: Membuka Inventory secara otomatis; menyembunyikan kelompok item sampai tutorial selesai; mengunci pemain pada urutan tutorial; atau mewajibkan farming sebelum pemain boleh mendekorasi.
+- Dampak:
+  - PLAYER_JOURNEY.md bagian First Visit menjadi acuan alur onboarding dan tetap berstatus DRAFT sampai keseluruhan rancangan ditinjau.
+  - GDD merangkum prinsip onboarding dan merujuk D-025.
+  - UI Inventory perlu mendukung kategori yang langsung terlihat, highlight kontekstual, tooltip/prompt, serta navigasi bebas.
+  - Onboarding tidak menambah atau mengurangi item Starter Kit dan tidak menciptakan source/sink ekonomi baru.
+  - Metrik evaluasi kandidat: pemain berhasil membuka Inventory sendiri, memahami keberadaan Starter Kit, dan melakukan tindakan kreatif pertama; target numerik menunggu playtest.
+  - D-025 tidak menyetujui scope implementasi First Release di luar onboarding yang dirancang dan tidak menaikkan spec apa pun menjadi READY.
+
 ### D-022 · Sistem Variant, Mutation, dan perhitungan harga buah
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
