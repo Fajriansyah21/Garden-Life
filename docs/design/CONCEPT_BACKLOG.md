@@ -94,12 +94,18 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Cloudy saat tanaman sedang tumbuh | Sisa waktu tumbuh bertambah 15%; progres yang sudah diperoleh tidak dihapus | Dikonfirmasi |
 | Cloudy: Mutation | Tidak menghasilkan Mutation | Dikonfirmasi |
 | Drizzle | Gerimis lembut dan menenangkan; WaterLevel +0,05 setiap tick; Mutation Wet 2,5% per buah secara independen setiap tick; seluruh tanaman mendapat +15% waktu tumbuh tanpa bonus pertumbuhan | Dikonfirmasi (D-030) |
+| Rainy | Hujan sedang hingga deras tetapi tetap tenang; WaterLevel +0,075 per tick; Wet 5% per buah per tick; Wet dapat berevolusi menjadi Flooded dengan peluang 2,5% per buah per tick; seluruh tanaman mendapat +20% waktu tumbuh tanpa bonus pertumbuhan | Dikonfirmasi (D-034) |
+| Mutation Flooded | Peluang dari WaterLevel 4,00-4,99: 2,5% per 2 menit; WaterLevel 5,00: 2,5% per 1 menit. Satu Flooded per buah lintas semua jalur | Dikonfirmasi (D-035) |
+| Presisi WaterLevel | Internal 0,001 (integer 0-5000); UI tetap 2 angka desimal; Rainy +0,075 × 20 tick = +1,500 | Dikonfirmasi (D-033) |
 | Durasi cuaca non-Sunny | 20 tick × 30 detik = 600 detik/10 menit per episode | Dikonfirmasi (D-031) |
 | Durasi Sunny | Dikecualikan dari durasi standar cuaca lain | Terbuka |
 | Menu informasi tanaman | Menu khusus agar pemain dapat memeriksa kondisi tanaman; rincian isi dan interaksi belum ditetapkan (D-029) | Kebutuhan konseptual dikonfirmasi |
 
 - Klasifikasi kebutuhan sinar matahari tanaman diperlukan untuk menerapkan efek Cloudy secara selektif; nama field dan skema data belum ditetapkan.
-- Durasi setiap cuaca non-Sunny ditetapkan 10 menit; durasi Sunny masih terbuka. Peluang dan distribusi kemunculan serta aturan lengkap Rainy, Windy, Misty, dan Thunderstorm masih terbuka.
+- Durasi setiap cuaca non-Sunny ditetapkan 10 menit; durasi Sunny masih terbuka. Peluang dan distribusi kemunculan serta aturan transisi lengkap masih terbuka.
+- WaterLevel memakai presisi internal 0,001, tetapi UI tetap menampilkan dua angka desimal. Jangan membulatkan nilai per tick.
+- Rainy menjalankan roll Wet dan evolusi Wet→Flooded per buah. Urutan kedua roll ketika keduanya berpotensi terjadi pada tick yang sama masih perlu ditentukan sebelum implementasi.
+- Multiplier dan tampilan Wet/Flooded, serta modifier cuaca untuk tanaman yang baru ditanam di tengah episode, masih terbuka.
 - Efek Cloudy pada sisa waktu pertumbuhan harus diproses satu kali ketika episode Cloudy dimulai untuk tanaman yang sedang tumbuh dan memenuhi syarat. Detail penanganan beberapa episode sebelum tanaman selesai tumbuh perlu dirinci sebelum implementasi.
 - Drizzle melakukan roll Mutation Wet per buah secara independen pada setiap tick 30 detik. Jenis Mutation yang sama tidak boleh tercatat dua kali pada buah yang sama sesuai D-022.
 - WaterLevel Drizzle tidak boleh melewati batas 5,00. Aturan penerapan modifier pertumbuhan pada tanaman yang baru ditanam selama Drizzle masih terbuka.
