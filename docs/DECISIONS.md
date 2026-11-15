@@ -82,19 +82,36 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Durasi 5 atau 10 menit; pemilik memilih 3 menit.
 - Dampak: FEAT-002 harus menghentikan efek zona tepat setelah 180 detik berdasarkan waktu server.
 
-### D-019 · Mutasi buah dihitung secara independen per buah
+### D-020 · Peluang mutasi banjir diturunkan menjadi 5%
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
 - Status: Aktif
+- Menggantikan: D-019 khusus nilai peluang mutasi pada WaterLevel 5,00. Aturan independen per buah dan interval 1 menit tetap berlaku.
+- Konteks: Peluang mutasi banjir 15% per buah per menit menghasilkan peluang kumulatif sekitar 91,3% selama 15 roll, terlalu tinggi untuk pengalaman cozy dan durasi kematian tanaman 15 menit.
+- Keputusan:
+  - Setiap buah memiliki roll mutasi independen; hasil satu buah tidak memengaruhi buah lain.
+  - Pada WaterLevel 4,00-4,99, peluang mutasi tetap 5% per buah untuk setiap interval paparan lengkap selama 2 menit.
+  - Pada WaterLevel 5,00, peluang mutasi banjir diturunkan dari 15% menjadi 5% per buah untuk setiap interval paparan lengkap selama 1 menit.
+  - Roll mutasi diproses server-authoritative.
+  - Jika satu buah menerima 15 roll independen pada level 5, peluang kumulatif minimal satu mutasi adalah 1 - (0,95^15) = sekitar 53,7%.
+  - Urutan pemrosesan roll interval terakhir dan timer kematian pada batas 15 menit perlu ditetapkan di spec; jika tanaman mati sebelum roll ke-15, hanya 14 roll yang terjadi dan peluang kumulatifnya sekitar 51,2%.
+  - Aturan sisa waktu paparan saat WaterLevel berpindah antara 4,00-4,99 dan 5,00, serta apakah buah yang sudah bermutasi dapat mengalami mutasi lanjutan, masih BELUM DIPUTUSKAN.
+- Alternatif yang ditolak: Mempertahankan 15% per menit, karena peluang kumulatifnya terlalu tinggi untuk risiko yang seharusnya tetap terasa sebagai kejadian khusus.
+- Dampak: FEAT-002 diperbarui ke v10. Risiko mutasi banjir tetap lebih tinggi per satuan waktu daripada mutasi level 4, tetapi tidak lagi hampir pasti selama seluruh jendela Overwatered.
+
+### D-019 · Mutasi buah dihitung secara independen per buah
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif, dengan peluang level 5 digantikan oleh D-020
 - Konteks: Mutasi akibat kelebihan air perlu menghasilkan variasi per buah, bukan satu hasil mutasi yang diterapkan ke seluruh tanaman.
 - Keputusan:
   - Setiap buah yang terpapar kondisi air berlebih memiliki peluang mutasi sendiri. Hasil roll satu buah tidak memengaruhi buah lain pada tanaman yang sama.
   - Pada WaterLevel 4,00-4,99, peluang mutasi adalah 5% untuk setiap buah pada setiap interval paparan 2 menit.
-  - Pada WaterLevel 5,00, peluang mutasi banjir adalah 15% untuk setiap buah pada setiap interval paparan 1 menit.
+  - Pada WaterLevel 5,00, peluang mutasi banjir awalnya 15% untuk setiap buah pada setiap interval paparan 1 menit; nilai ini kemudian diturunkan menjadi 5% oleh D-020.
   - Roll mutasi diproses server-authoritative.
   - Aturan akumulasi sisa waktu paparan ketika WaterLevel berpindah antara rentang 4 dan level 5, serta apakah buah yang sudah bermutasi masih dapat mengalami mutasi lanjutan, belum diputuskan dan tidak boleh ditebak saat implementasi.
 - Analisis balancing:
-  - Jika satu buah mendapat 15 roll independen selama 15 menit penuh di WaterLevel 5, peluang kumulatif minimal satu mutasi adalah 1 - (0,85^15) = sekitar 91,3%.
+  - Analisis awal 15% per roll menghasilkan peluang kumulatif 91,3%; nilai peluang tersebut digantikan oleh D-020.
   - Pada WaterLevel 4 dengan 7 roll independen selama 14 menit, peluang kumulatif minimal satu mutasi adalah 1 - (0,95^7) = sekitar 30,2%.
   - Angka 15% dipilih pemilik sebagai risiko mutasi banjir yang tinggi. Angka ini bukan peluang sekali per tanaman, melainkan per buah per interval.
 - Dampak: Setiap buah membutuhkan pencatatan paparan/roll yang cukup agar peluang diterapkan independen dan tidak bergantung pada frekuensi update client.
