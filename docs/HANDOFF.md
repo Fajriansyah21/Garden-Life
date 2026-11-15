@@ -7,8 +7,31 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Dokumen desain: GDD v0.2; keputusan D-002 dan D-003 telah dicatat.
-- Pertanyaan terbuka: game referensi, target pemain/perangkat prioritas, detail core loop, dan aturan penempatan/dekorasi.
+- Dokumen desain: GDD v0.3; keputusan D-002, D-003, dan D-004 telah dicatat.
+- Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
+- Pertanyaan terbuka: game referensi, target pemain/perangkat prioritas, detail core loop, serta batas area dan validasi penempatan objek.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - Mengonfirmasi aturan Hybrid Placement berdasarkan keputusan pemilik.
+  - Memperbarui GDD ke v0.3, DECISIONS dengan D-004, dan Concept Backlog.
+- File diubah:
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/DECISIONS.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. Aturan telah dicatat sebagai keputusan desain, tetapi detail Build Mode belum lengkap untuk implementasi.
+- Pertanyaan terbuka:
+  - Batas area penempatan objek dan validasi tabrakan.
+  - Batas jumlah objek, pemindahan, penyimpanan layout, serta preview/konfirmasi/undo.
+  - Referensi game, target pemain/perangkat prioritas, dan detail core loop.
+- Asumsi / risiko:
+  - Grid tile 5×5 mengikuti ukuran tile yang telah ditetapkan; ukuran unit dunia Roblox untuk 1 sel grid belum ditentukan.
+  - Snap to Grid adalah bantuan opsional bagi objek free placement; aturan jarak snap dan titik pivot belum ditentukan.
+  - Rotasi 90° adalah interval awal; orientasi awal tiap asset dan pivot perlu ditentukan di spec/asset pipeline.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
 
 ---
 
