@@ -1,5 +1,29 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Membuat docs/ROADMAP.md v0.1 sebagai DRAFT.
+  - Roadmap memetakan fase 0-7, 30 area sistem (SYS-01 sampai SYS-30), dependensi, checklist lintas sistem, risiko awal, serta artefak desain yang perlu dibuat.
+  - Menambahkan tautan Roadmap ke README.md.
+  - Menegaskan bahwa Roadmap adalah inventaris dan peta kerja, bukan persetujuan scope rilis atau instruksi implementasi.
+- File diubah / dibuat:
+  - docs/ROADMAP.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Cara tes (jika kode): tidak ada perubahan kode.
+- Pertanyaan terbuka:
+  - Apakah cakupan Roadmap mencakup seluruh visi sampai Live-ops atau dibatasi ke rilis pertama?
+  - Apakah Vertical Slice menguji farming saja atau farming + satu interaksi dekorasi dasar?
+  - Seberapa rinci urutan pekerjaan perlu ditetapkan?
+  - Target pemain, tiga referensi game, scope rilis pertama, dan prioritas MUST masih perlu dibahas.
+- Asumsi / risiko:
+  - Daftar 30 SYS adalah inventaris area desain, bukan scope rilis yang disetujui.
+  - Interaksi dekorasi dalam Vertical Slice hanya usulan, belum keputusan.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-022 untuk membedakan Variant dan Mutation pada buah.
   - Menetapkan satu Variant permanen per buah; Variant tidak dapat ditimpa dan memiliki prioritas tampilan tertinggi.
   - Menetapkan Mutation dapat dimiliki beberapa jenis sekaligus; tampilan Mutation dapat ditimpa, tetapi atribut serta multiplier Mutation lama tetap aktif.
