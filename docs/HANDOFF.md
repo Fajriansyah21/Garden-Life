@@ -7,9 +7,37 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
-- Dokumen desain: GDD v0.3; keputusan D-002, D-003, dan D-004 telah dicatat.
+- Dokumen desain: GDD v0.4; keputusan D-002, D-003, D-004, dan D-005 telah dicatat.
+- Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
-- Pertanyaan terbuka: game referensi, target pemain/perangkat prioritas, detail core loop, serta batas area dan validasi penempatan objek.
+- Pertanyaan terbuka: hak Build multiplayer, ukuran world-unit untuk grid 5×5, batas objek, dan surface placement.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik memilih Hybrid Collision.
+  - D-005 ditambahkan ke DECISIONS.
+  - FEAT-001 Build Mode dibuat dengan status DRAFT.
+  - GDD dan Concept Backlog diperbarui.
+- File diubah / dibuat:
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/DECISIONS.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/design/FEAT-001_build_mode.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 masih DRAFT dan menunggu keputusan lanjutan pemilik.
+- Cara tes (jika kode): belum ada perubahan kode.
+- Pertanyaan terbuka:
+  - Matriks hak Build untuk Original Owner, Active Owner, dan anggota plot.
+  - Konversi ukuran tile/grid 5×5 ke world units/Roblox studs.
+  - Batas jumlah objek per plot.
+  - Apakah surface placement (pot di atas meja, lampu di atas pagar) masuk scope awal?
+- Asumsi / risiko:
+  - Snap to Grid default OFF adalah ASUMSI desain.
+  - Undo dan Delete permanen tidak termasuk v1; Store digunakan untuk mengambil objek.
+  - Surface placement dan Store tanaman dengan state farming belum termasuk v1.
+  - Claude perlu mengonfirmasi biaya implementasi dan mengidentifikasi ambiguitas teknis sebelum spec dapat disetujui.
 
 ---
 
