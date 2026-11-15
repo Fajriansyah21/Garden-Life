@@ -18,6 +18,19 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-004 · Sistem Hybrid Placement untuk tile dan objek kebun
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik
+- Status: Aktif
+- Konteks: Menetapkan fondasi penempatan agar penyusunan area kebun tetap rapi tanpa membatasi kreativitas dekorasi.
+- Keputusan:
+  - Farm Tile dan Build Tile menggunakan grid placement dengan ukuran grid 5×5.
+  - Dekorasi, bangunan, dan tanaman menggunakan free placement; objek tersebut tidak wajib berada pada titik grid dan tidak memerlukan tile sebagai alas/slot.
+  - Pemain dapat mengaktifkan atau menonaktifkan Snap to Grid sebagai bantuan opsional untuk objek free placement.
+  - Rotasi objek menggunakan interval 90° sebagai aturan awal.
+- Alternatif yang ditolak: Mewajibkan semua objek mengikuti grid, karena membatasi kebebasan menata kebun; menempatkan tile secara bebas, karena menghilangkan struktur dasar area.
+- Dampak: Build Mode perlu membedakan kategori penempatan tile dan objek free placement. UI harus menyediakan kontrol Snap to Grid dan rotasi. Batas area, tabrakan, batas jumlah objek, pemindahan, serta penyimpanan layout masih memerlukan perincian sebelum implementasi.
+
 ### D-002 · Identitas Garden Life: dekorasi kebun sebagai fokus utama
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik
