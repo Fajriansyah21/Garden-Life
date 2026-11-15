@@ -50,6 +50,27 @@
   - Fitur baru perlu dinilai berdasarkan kontribusinya terhadap kebun sebagai ruang personal, koleksi, perawatan santai, atau interaksi sosial.
   - D-023 tidak menetapkan fitur baru, angka balancing, maupun scope implementasi First Release.
 
+### D-024 · Struktur empat tahap Player Journey
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Garden Life membutuhkan kerangka perjalanan pemain dari pertama kali masuk hingga kebun berkembang agar desain onboarding, core loop, progres, dan fitur jangka panjang memiliki urutan pengalaman yang jelas.
+- Keputusan:
+  - Player Journey Garden Life dibagi menjadi empat tahap pengalaman:
+    1. **First Visit:** pemain mengenal dunia, plot, inventori awal, dan cara memulai.
+    2. **Early Garden:** pemain mulai membentuk kebun melalui dekorasi, penanaman, dan perawatan dasar.
+    3. **Growing Garden:** pemain memperluas kebun melalui koleksi, variasi, progres, dan interaksi sosial.
+    4. **Established Garden:** pemain memiliki kebun dengan identitas personal dan aktivitas berkelanjutan, termasuk aktivitas sosial yang lebih luas.
+  - Keempat tahap adalah kerangka pengalaman, bukan level, ranking, atau gerbang waktu. Pemain dapat bergerak dengan kecepatan berbeda dan memilih aktivitasnya.
+  - Tahap Established Garden bukan kondisi tamat; tahap tersebut merupakan keadaan berkelanjutan untuk menata, menikmati, berbagi, menemukan inspirasi, dan mengembangkan kebun kembali.
+  - Struktur empat tahap menjadi dasar penyusunan Player Journey dan pembahasan scope berikutnya.
+  - Persetujuan struktur tidak otomatis menyetujui seluruh fitur yang disebut dalam tahap sebagai scope First Release atau fitur implementasi.
+- Alternatif yang ditolak: Menjadikan tahap sebagai level atau milestone waktu yang kaku, karena dapat menciptakan tekanan progres yang tidak sesuai dengan visi cozy.
+- Dampak:
+  - Dokumen PLAYER_JOURNEY.md menjadi acuan pengalaman dari onboarding hingga jangka panjang.
+  - GDD dan Roadmap perlu menautkan Player Journey sebagai artefak Fase 1.
+  - Target waktu, level, metrik, dan scope tiap tahap tetap perlu dianalisis dan disetujui terpisah.
+
 # DECISIONS · Log Keputusan
 
 Aturan: **hanya ditambah, tidak dihapus.** Untuk mengubah keputusan, tulis entri baru yang menyebut "Menggantikan D-0xx".
