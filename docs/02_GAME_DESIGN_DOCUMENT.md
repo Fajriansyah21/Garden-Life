@@ -39,6 +39,20 @@ Loop konseptual utama:
 **Starter Kit (D-009 dan D-010):** Pemain baru menerima Starter Kit gratis sebagai item inventori dan item tidak otomatis ditempatkan di plot. Komposisi kit telah ditetapkan: 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman. Shovel menghapus tanaman; Trowel memindahkan tanaman. Detail kapasitas/refill Watering Can, efek/penggunaan Pupuk, waktu pemberian, serta aturan pemberian ulang masih BELUM DIPUTUSKAN.
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
+
+### Tools & perawatan tanaman
+
+Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](design/FEAT-002_tools_perawatan_tanaman.md), status DRAFT. Aturan yang telah dikonfirmasi:
+- Shovel dan Trowel adalah alat permanen. Shovel menghapus tanaman; Trowel memindahkan tanaman tanpa mereset progres pertumbuhannya.
+- Watering Can adalah consumable. Satu penggunaan menyiram semua tanaman di dalam area berbentuk lingkaran.
+- Efek penyiraman dapat bertambah melalui penggunaan berulang, tetapi dibatasi oleh nilai maksimum.
+- Sprinkler adalah perangkat consumable yang ditempatkan pada plot. Area jangkauannya berbentuk lingkaran; selama durasi aktif, perangkat menyiram otomatis, mempercepat pertumbuhan, dan meningkatkan ukuran buah. Setelah durasi berakhir, perangkat dikonsumsi dan menghilang.
+- Seed Extractor mengorbankan satu tanaman untuk menghasilkan benih.
+- Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
+- Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
+- Pupuk dari Starter Kit direncanakan mempercepat pertumbuhan, tetapi aturan penggunaan dan efek numeriknya belum diputuskan.
+
+Radius area, batas maksimum efek, durasi Sprinkler, interval penyiraman otomatis, bonus ukuran buah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
 
 Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempatkan atau memperoleh objek kebun, dan mulai mengekspresikan gaya kebunnya. Target waktu numerik **BELUM DIPUTUSKAN**.
@@ -52,7 +66,7 @@ Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempa
 | Dekorasi & pembangunan | Farm/Build Tiles memakai grid 5×5; dekorasi, bangunan, dan tanaman memakai free placement dengan opsi Snap to Grid | M | Belum dibuat |
 | Ekspansi plot | Plot berkembang melalui 4 stage ukuran yang telah ditetapkan | M | Belum dibuat |
 | Tanaman & farming | Aktivitas menanam, merawat, dan memanen secara santai | S | Belum dibuat |
-| Penyiraman | Starter Kit memberi 10 Watering Can; kapasitas, konsumsi, refill, dan model item belum ditetapkan | S | Belum dibuat |
+| Tools & perawatan tanaman | Watering Can, Sprinkler, Shovel, Trowel, Seed Extractor, Harvest Basket, Plant Sprayer, dan Pupuk | S | FEAT-002 (DRAFT) |
 | Panen & penjualan | Hasil kebun berpotensi menjadi sumber Life Coin | S | Belum dibuat |
 | Inventori & gudang | Inventori pribadi dan konsep gudang bersama pernah dibahas; aturan final belum ditetapkan | S | Belum dibuat |
 | Shared Savings / Bank | Tabungan milik plot untuk pembelian bersama, dengan kontrol pengeluaran | S | Belum dibuat |
