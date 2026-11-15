@@ -156,7 +156,7 @@ Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engine
 - Besar dan interval pengeringan alami saat cuaca panas atau Summer.
 - Radius, batas zona aktif, dan aturan overlap Soil Aerator.
 - Radius Sprinkler dan bonus ukuran buah.
-- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 15% per 1 menit paparan (D-019). Aturan akumulasi sisa waktu ketika level berubah dan mutasi lanjutan pada buah yang sudah bermutasi masih BELUM DIPUTUSKAN.
+- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 5% per 1 menit paparan (D-020). Aturan akumulasi sisa waktu ketika level berubah dan mutasi lanjutan pada buah yang sudah bermutasi masih BELUM DIPUTUSKAN.
 - Aturan mutasi saat level air berpindah antara level 4 dan 5.
 
 ## 4. Kondisi tepi & kegagalan
