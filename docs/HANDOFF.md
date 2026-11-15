@@ -1,5 +1,29 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui perilaku prompt Inventory yang tetap tersedia secara halus sampai pemain membuka Inventory; keputusan dicatat sebagai D-027.
+  - Jika pemain menjelajahi plot terlebih dahulu, prompt tetap tersedia tanpa mengejar karakter atau membatasi eksplorasi.
+  - Penanda berada pada tombol Inventory, mendapat satu penekanan visual awal yang halus, dan tidak mengulang pulse terus-menerus.
+  - Jika Inventory dibuka sebelum pesan sambutan 3 detik selesai, prompt tidak perlu ditampilkan setelah pesan sambutan menghilang.
+  - PLAYER_JOURNEY.md diperbarui ke v0.4 (DRAFT), GDD ke v2.0, README dan DECISIONS diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-027)
+  - docs/design/PLAYER_JOURNEY.md (v0.4, DRAFT)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.0)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana state onboarding dipulihkan jika pemain keluar/disconnect sebelum membuka Inventory?
+  - Apakah onboarding yang belum selesai dilanjutkan pada sesi berikutnya atau disederhanakan? Perlu diputuskan dalam spec onboarding.
+  - Apa detail UI, input, dan feedback placement pertama untuk PC serta perangkat sentuh?
+- Asumsi / risiko:
+  - Prompt yang persisten harus tetap ringkas dan tidak menutupi area penting layar, terutama pada perangkat sentuh.
+  - Penekanan visual hanya diberikan saat prompt pertama kali muncul; prompt kemudian tetap terlihat tanpa animasi berulang.
+  - D-027 tidak menambah source/sink ekonomi dan tidak mengubah isi Starter Kit.
+  - Belum ada perubahan kode; semua spec tetap DRAFT.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui dan meresmikan D-026 tentang Arrival & First Impression pemain baru.
   - Pemain langsung muncul di plot pribadi dengan kontrol karakter dan kamera normal.
   - Tidak ada cinematic, camera lock, atau NPC pemandu.
