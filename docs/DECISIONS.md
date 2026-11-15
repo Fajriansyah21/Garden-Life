@@ -73,7 +73,7 @@ Entri terbaru di paling atas.
 ### D-016 · Durasi zona Soil Aerator
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
-- Status: Aktif
+- Status: Digantikan oleh D-018
 - Konteks: Menentukan lama efek pengeringan area dari satu penggunaan Soil Aerator.
 - Keputusan:
   - Satu zona Soil Aerator aktif selama 3 menit (180 detik) sejak aktivasi berhasil.
@@ -105,7 +105,7 @@ Entri terbaru di paling atas.
 ### D-017 · Skala kadar air tanaman 0-5
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
-- Status: Aktif
+- Status: Digantikan oleh D-018
 - Konteks: Sistem kadar air perlu memakai skala sederhana dan mudah dibaca pemain, sekaligus membedakan kelebihan air dari kondisi banjir.
 - Keputusan:
   - WaterLevel menggunakan bilangan bulat dari 0 sampai 5.
