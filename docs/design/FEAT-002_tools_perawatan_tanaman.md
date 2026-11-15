@@ -310,7 +310,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Plant Sprayer tidak habis karena digunakan, sedangkan cairan aplikasinya berkurang sesuai aturan.
 - [ ] Aksi tidak valid tidak mengurangi consumable.
 - [ ] Setiap buah memiliki roll mutasi independen; hasil satu buah tidak memengaruhi buah lain.
-- [ ] Mutasi banjir memiliki peluang 5% per buah per interval 1 menit pada WaterLevel 5,00 dan 5% per buah per interval 2 menit pada WaterLevel 4,00-4,99.
+- [ ] Mutation Flooded memiliki peluang 2,5% per buah per interval 1 menit pada WaterLevel 5,00 dan 2,5% per buah per interval 2 menit pada WaterLevel 4,00-4,99 (D-035).
 - [ ] Jika roll mutasi banjir gagal, buah tetap eligible untuk roll berikutnya sesuai interval.
 - [ ] Setelah satu roll berhasil menerapkan mutasi banjir, buah tidak lagi menerima mutasi banjir tambahan sepanjang siklus hidupnya.
 - [ ] Status `FloodMutationApplied` tersimpan per buah dan tetap benar setelah perubahan WaterLevel, plot unload, atau server restart.
