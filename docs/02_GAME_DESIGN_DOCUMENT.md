@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 1.7 · **Terakhir diubah:** 2026-11-15
+**Versi:** 1.8 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -40,6 +40,8 @@ Loop konseptual utama:
 **Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan.
 
 **Starter Kit (D-009 dan D-010):** Pemain baru menerima Starter Kit gratis sebagai item inventori dan item tidak otomatis ditempatkan di plot. Komposisi kit telah ditetapkan: 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman. Shovel menghapus tanaman; Trowel memindahkan tanaman. Detail kapasitas/refill Watering Can, efek/penggunaan Pupuk, waktu pemberian, serta aturan pemberian ulang masih BELUM DIPUTUSKAN.
+
+**Onboarding First Visit (D-025):** Pemain membuka Inventory sendiri melalui penanda visual dan prompt. Ketika terbuka, kelompok Tools, Farming, dan Decorations langsung terlihat; pengenalan dilakukan bertahap dengan highlight/tooltip tanpa mengunci navigasi. Pemain dapat melewati penjelasan dan menutup Inventory sendiri. Setelah itu pemain memilih jalur Mulai Bertani atau Mulai Mendekorasi. Farming dapat ditonjolkan sebagai rekomendasi, tetapi dekorasi tetap jalur yang setara. Onboarding awal berakhir setelah satu tindakan kreatif berhasil. Detail alur dan pertanyaan terbuka dicatat di [PLAYER_JOURNEY.md](design/PLAYER_JOURNEY.md).
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 
