@@ -82,6 +82,23 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Durasi 5 atau 10 menit; pemilik memilih 3 menit.
 - Dampak: FEAT-002 harus menghentikan efek zona tepat setelah 180 detik berdasarkan waktu server.
 
+### D-019 · Mutasi buah dihitung secara independen per buah
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Mutasi akibat kelebihan air perlu menghasilkan variasi per buah, bukan satu hasil mutasi yang diterapkan ke seluruh tanaman.
+- Keputusan:
+  - Setiap buah yang terpapar kondisi air berlebih memiliki peluang mutasi sendiri. Hasil roll satu buah tidak memengaruhi buah lain pada tanaman yang sama.
+  - Pada WaterLevel 4,00-4,99, peluang mutasi adalah 5% untuk setiap buah pada setiap interval paparan 2 menit.
+  - Pada WaterLevel 5,00, peluang mutasi banjir adalah 15% untuk setiap buah pada setiap interval paparan 1 menit.
+  - Roll mutasi diproses server-authoritative.
+  - Aturan akumulasi sisa waktu paparan ketika WaterLevel berpindah antara rentang 4 dan level 5, serta apakah buah yang sudah bermutasi masih dapat mengalami mutasi lanjutan, belum diputuskan dan tidak boleh ditebak saat implementasi.
+- Analisis balancing:
+  - Jika satu buah mendapat 15 roll independen selama 15 menit penuh di WaterLevel 5, peluang kumulatif minimal satu mutasi adalah 1 - (0,85^15) = sekitar 91,3%.
+  - Pada WaterLevel 4 dengan 7 roll independen selama 14 menit, peluang kumulatif minimal satu mutasi adalah 1 - (0,95^7) = sekitar 30,2%.
+  - Angka 15% dipilih pemilik sebagai risiko mutasi banjir yang tinggi. Angka ini bukan peluang sekali per tanaman, melainkan per buah per interval.
+- Dampak: Setiap buah membutuhkan pencatatan paparan/roll yang cukup agar peluang diterapkan independen dan tidak bergantung pada frekuensi update client.
+
 ### D-018 · Skala WaterLevel pecahan dan tuning penyiraman/pengeringan
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
