@@ -1,5 +1,28 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan peluang mutasi banjir WaterLevel 5,00 diturunkan dari 15% menjadi 5% per buah per interval paparan lengkap 1 menit (D-020).
+  - Aturan mutasi independen per buah dari D-019 tetap berlaku.
+  - Peluang mutasi WaterLevel 4,00-4,99 tetap 5% per buah per interval paparan lengkap 2 menit.
+  - Jika satu buah menerima 15 roll independen pada level 5, peluang kumulatif minimal satu mutasi sekitar 53,7%; jika hanya 14 roll sebelum tanaman mati, sekitar 51,2%.
+  - FEAT-002 diperbarui ke v10 dan tetap DRAFT.
+- File diubah:
+  - README.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Bagaimana sisa waktu paparan dibawa saat WaterLevel berpindah antara 4,00-4,99 dan 5,00?
+  - Apakah roll interval terakhir pada menit ke-15 diproses sebelum atau sesudah timer kematian?
+  - Apakah buah yang sudah bermutasi kebal terhadap mutasi berikutnya atau dapat mengalami mutasi lanjutan?
+- Asumsi / risiko:
+  - Perhitungan 53,7% mengasumsikan 15 roll independen lengkap; urutan roll terakhir dan kematian masih perlu dikunci.
+  - Perhitungan 51,2% mengasumsikan tanaman mati setelah 14 interval lengkap tanpa roll tambahan pada batas kematian.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan mutasi dihitung secara independen untuk setiap buah (D-019).
   - WaterLevel 4,00-4,99: peluang mutasi 5% per buah per 2 menit paparan.
   - WaterLevel 5,00: peluang mutasi banjir 15% per buah per 1 menit paparan, menggantikan usulan sebelumnya 25%.
