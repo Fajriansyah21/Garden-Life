@@ -82,6 +82,23 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Durasi 5 atau 10 menit; pemilik memilih 3 menit.
 - Dampak: FEAT-002 harus menghentikan efek zona tepat setelah 180 detik berdasarkan waktu server.
 
+### D-017 · Skala kadar air tanaman 0-5
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Sistem kadar air perlu memakai skala sederhana dan mudah dibaca pemain, sekaligus membedakan kelebihan air dari kondisi banjir.
+- Keputusan:
+  - WaterLevel menggunakan bilangan bulat dari 0 sampai 5.
+  - Level 4 berarti Overwatered (kelebihan air).
+  - Level 5 berarti Flooded (tanah/tanaman berada dalam kondisi banjir).
+  - Level tidak boleh kurang dari 0 atau lebih dari 5.
+  - Turun dari level 5 ke level 4 belum memulihkan tanaman; pemulihan baru terjadi ketika WaterLevel turun ke level 3 atau lebih rendah, mengikuti D-013.
+  - Episode Overwatered dimulai ketika WaterLevel naik dari level 0-3 ke level 4 atau 5. Timer kematian terus berjalan selama WaterLevel berada pada level 4 atau 5; perpindahan antara level 4 dan 5 tidak memulai ulang timer.
+  - Rentang kadar air ideal dapat berbeda menurut jenis tanaman pada level 0-3. Level 4 dan 5 selalu dianggap kondisi kelebihan air.
+  - Soil Aerator mengurangi WaterLevel sebanyak 1 level per tick pada setiap tanaman di area lingkaran selama zona aktif. Interval tick masih harus ditentukan melalui balancing.
+- Alternatif yang ditolak: Skala kontinu 0-100 untuk WaterLevel, karena pemilik memilih level diskret yang lebih mudah dibaca dan diseimbangkan.
+- Dampak: FEAT-002 menggunakan integer WaterLevel 0-5. Logika status tanaman, UI, Watering Can, Sprinkler, pengeringan alami, dan Soil Aerator harus memakai skala yang sama. Rekomendasi interval tick, radius, dan jumlah zona aktif tetap parameter tuning terpisah.
+
 ## Format
 
 ```
