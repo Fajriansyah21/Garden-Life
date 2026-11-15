@@ -1,5 +1,34 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan WaterLevel menggunakan skala integer 0-5 (D-017).
+  - Level 4 berarti Overwatered dan level 5 berarti Flooded.
+  - Turun dari level 5 ke 4 tidak memulihkan tanaman; pemulihan hanya terjadi saat WaterLevel turun ke 3 atau lebih rendah.
+  - Timer kematian berjalan selama WaterLevel 4 atau 5 dan tidak di-reset saat berpindah di antara kedua level.
+  - Soil Aerator mengurangi WaterLevel satu level per tick pada tanaman dalam zona lingkaran aktif.
+  - FEAT-002 diperbarui ke v7; GDD v1.4 dan README diselaraskan.
+- File diubah:
+  - README.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Definisi label/indikator untuk level 0-3 dan rentang air ideal tiap tanaman.
+  - Radius Soil Aerator (usulan 12 studs masih ASUMSI).
+  - Interval tick Soil Aerator (usulan 15 detik masih ASUMSI).
+  - Batas jumlah zona Soil Aerator aktif per plot dan aturan overlap.
+  - Nilai penambahan WaterLevel dari Watering Can dan Sprinkler.
+  - Laju pengeringan alami, durasi Overwatered sebelum mati, dan parameter pertumbuhan.
+- Asumsi / risiko:
+  - WaterLevel 0-5 dan arti level 4/5 merupakan keputusan pemilik.
+  - Pengurangan satu level per tick merupakan interpretasi mekanik bertahap yang dipilih pemilik.
+  - Radius 12 studs, tick 15 detik, serta maksimal satu zona aktif per plot masih ASUMSI.
+  - Rentang air ideal tanaman dapat berbeda dalam level 0-3; level 4 dan 5 selalu kondisi berlebih.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan durasi zona Soil Aerator selama 3 menit/180 detik (D-016).
   - FEAT-002 diperbarui ke v6.
   - Ditambahkan rekomendasi balancing sementara berlabel ASUMSI: WaterLevel 0-100, radius 12 studs, tick 15 detik, pengurangan 2 water units/tick/tanaman, maksimal 1 zona per plot, dan aktivasi tanpa tanaman ditolak tanpa konsumsi item.
