@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 0.4 · **Terakhir diubah:** 2026-11-15
+**Versi:** 0.5 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -78,6 +78,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - Pemain yang diundang dapat berpindah dari plot miliknya sendiri ke plot pengundang; plot asalnya menjadi tersedia bagi pemain lain.
 - Original Owner adalah pemilik permanen plot.
 - Active Owner adalah pemegang kendali aktif saat sesi berlangsung. Jika Active Owner terputus, kendali berpindah ke anggota yang memenuhi aturan transfer; ketika Original Owner kembali, kendali kembali kepadanya. Urutan pemilihan pengganti **BELUM DIPUTUSKAN**.
+- Hak Build multiplayer mengikuti D-006: Original Owner dan Active Owner memiliki hak pengelolaan penuh; anggota hanya dapat memasang objek dari inventori sendiri serta memindahkan/menyimpan objek miliknya sendiri. Anggota tidak dapat mengubah objek milik pemain lain atau mengelola hak anggota.
 
 ### Stage dan ekspansi
 | Stage | Ukuran plot |
