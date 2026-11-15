@@ -40,7 +40,9 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 
 **Aturan penempatan yang telah dikonfirmasi (D-004):** Farm Tile dan Build Tile memakai grid placement 5×5. Dekorasi, bangunan, dan tanaman memakai free placement. Snap to Grid tersedia sebagai opsi yang dapat diaktifkan/dinonaktifkan. Rotasi objek menggunakan interval 90° sebagai aturan awal.
 
-Batas area penempatan, batas jumlah objek, validasi tabrakan, pemindahan, penyimpanan layout, dan perilaku objek saat ekspansi masih harus dirinci.
+**Aturan tabrakan yang dikonfirmasi (D-005):** GroundTile tidak boleh bertumpuk dengan GroundTile lain dan tidak memblokir objek di atasnya. Solid (bangunan/objek besar) tidak boleh overlap dengan Solid atau Detail. Detail (tanaman/dekorasi kecil) boleh overlap dengan Detail lain, tetapi tidak boleh menembus Solid. Setiap asset wajib memiliki PlacementProfile dan bounding volume.
+
+Surface placement seperti pot di atas meja belum termasuk. Batas area, jumlah objek, pemindahan, penyimpanan layout, dan perilaku objek saat ekspansi masih perlu dirinci.
 
 ## 4. Shared Savings / Bank
 
