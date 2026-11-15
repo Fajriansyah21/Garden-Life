@@ -22,6 +22,80 @@
   - Tidak ada perubahan pada Starter Kit, inventori, ekonomi, atau akses gameplay.
   - Tidak ada spec yang dinaikkan menjadi READY.
 
+
+### D-033 · Presisi internal WaterLevel hingga seperseribu
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Menggantikan: Ketentuan presisi 0,01 dan representasi integer seperseratus pada D-018; rentang WaterLevel, batas, label, dan aturan lain D-018 tetap berlaku.
+- Konteks: Efek cuaca Rainy membutuhkan penambahan WaterLevel +0,075 per tick. Presisi 0,01 akan memaksa pembulatan dan membuat total perubahan selama satu episode tidak akurat.
+- Keputusan:
+  - WaterLevel tetap memiliki rentang 0,00 sampai 5,00.
+  - Nilai WaterLevel disimpan secara internal dengan presisi 0,001, direpresentasikan sebagai integer 0-5000 dalam satuan seperseribu (misalnya field konseptual `WaterLevelMilli`).
+  - UI tetap menampilkan WaterLevel dengan 2 angka desimal. Tampilan dibulatkan untuk presentasi saja; nilai internal tidak boleh dibulatkan pada setiap tick.
+  - Semua perubahan WaterLevel dihitung dari nilai internal presisi 0,001, lalu dibatasi pada rentang 0,000-5,000.
+  - Contoh: Rainy menambah 0,075 per tick. Setelah 20 tick, total kenaikan adalah tepat 1,500 sebelum penerapan batas maksimum 5,000.
+  - D-033 mengubah presisi penyimpanan dan perhitungan, bukan nilai balancing Watering Can, Sprinkler, Soil Aerator, Cloudy, atau Drizzle.
+- Alternatif yang ditolak: Membulatkan +0,075 menjadi +0,08 setiap tick, karena menghasilkan total +1,60 setelah 20 tick dan mengubah balancing yang dipilih.
+- Dampak:
+  - Representasi WaterLevel pada GDD dan FEAT-002 harus menggunakan integer seperseribu.
+  - UI tetap menggunakan format dua angka desimal agar mudah dibaca.
+  - Semua operasi perubahan WaterLevel wajib server-authoritative.
+  - D-033 tidak mengubah rentang bahaya, timer kematian, atau batas maksimum D-018.
+
+### D-034 · Aturan gameplay cuaca Rainy
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Rainy perlu terasa lebih intens daripada Drizzle, tetapi tetap nyaman dan menenangkan, bukan badai atau cuaca ekstrem.
+- Keputusan:
+  - Rainy memiliki intensitas hujan sedang hingga deras dengan suasana tetap tenang, sejuk, dan sedikit sendu. Rainy bukan Thunderstorm.
+  - Selama Rainy, WaterLevel setiap tanaman yang terkena efek cuaca bertambah **0,075 per tick**.
+  - Setiap tick, setiap buah eligible melakukan roll Mutation **Wet (Basah)** secara independen dengan peluang **5% per buah per tick**.
+  - Setiap tick, buah yang telah memiliki Mutation Wet dan masih eligible melakukan roll evolusi Wet menjadi Mutation **Flooded** dengan peluang **2,5% per buah per tick**.
+  - Ketika evolusi berhasil, Mutation Wet digantikan oleh Mutation Flooded pada buah tersebut. Wet tidak lagi tercatat pada buah itu dan multiplier Wet tidak lagi berlaku; multiplier Flooded yang berlaku masih BELUM DIPUTUSKAN.
+  - Flooded dari evolusi Rainy adalah Mutation yang sama dengan Flooded yang dapat diperoleh melalui paparan WaterLevel tinggi. Batas satu kali Flooded per buah mengikuti D-035.
+  - Seluruh tanaman menerima tambahan waktu pertumbuhan **20%** selama Rainy, tanpa membedakan klasifikasi kebutuhan sinar matahari.
+  - Rainy tidak memberikan bonus atau percepatan pertumbuhan.
+  - WaterLevel tidak boleh melampaui 5,00. Perhitungan mengikuti presisi internal 0,001 dari D-033.
+  - Tick Rainy mengikuti interval 30 detik pada D-018 dan durasi episode mengikuti D-031, yaitu 20 tick / 10 menit.
+  - Efek visual dan audio Rainy harus membedakannya dari Drizzle melalui hujan yang lebih tebal/deras, langit lebih kelabu, dedaunan basah, dan genangan kecil/refleksi; detail asset final belum ditetapkan.
+  - Peluang kemunculan Rainy, aturan transisi, multiplier dan tampilan Mutation Wet/Flooded, serta penerapan modifier pada tanaman yang baru ditanam ketika Rainy sedang berlangsung masih BELUM DIPUTUSKAN.
+  - Aturan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menyamakan Rainy dengan Drizzle; memberi bonus pertumbuhan; atau menjadikan Rainy sebagai badai/Thunderstorm.
+- Dampak:
+  - Sistem cuaca perlu menjalankan roll Wet dan evolusi Wet→Flooded secara independen per buah eligible.
+  - Sistem pertumbuhan perlu menerapkan tambahan waktu 20% untuk semua tanaman.
+  - Sistem WaterLevel harus mempertahankan pecahan 0,075 tanpa pembulatan per tick sesuai D-033.
+  - Flooded tetap dibatasi satu kali per buah dan berbagi identitas Mutation dengan jalur WaterLevel tinggi sesuai D-035.
+  - Tidak ada perubahan source/sink ekonomi yang ditetapkan; multiplier Mutation masih terbuka.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-035 · Peluang Mutation Flooded dan batas satu kali per buah
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Menggantikan: Nilai peluang mutasi banjir pada D-019 dan D-020. Ketentuan satu kali berhasil per buah pada D-021 tetap berlaku dan diperjelas lintas semua jalur perolehan.
+- Konteks: Mutation Flooded memiliki dua jalur perolehan, yaitu evolusi Wet selama Rainy dan paparan WaterLevel tinggi. Peluang jalur WaterLevel perlu diturunkan agar seimbang dengan jalur cuaca.
+- Keputusan:
+  - Pada WaterLevel **4,00-4,99**, setiap buah eligible melakukan roll Mutation Flooded dengan peluang **2,5% per interval paparan 2 menit**.
+  - Pada WaterLevel **5,00**, setiap buah eligible melakukan roll Mutation Flooded dengan peluang **2,5% per interval paparan 1 menit**.
+  - Interval paparan tetap mengikuti ketentuan D-019 dan D-020; hanya peluangnya yang diubah dari 5% menjadi 2,5%.
+  - Mutation Flooded yang diperoleh dari Rainy dan Mutation Flooded yang diperoleh dari WaterLevel tinggi adalah jenis Mutation yang sama.
+  - Satu buah hanya dapat memperoleh Mutation Flooded **satu kali sepanjang siklus hidup buah**, tanpa memandang jalur perolehannya.
+  - Jika buah memperoleh Flooded melalui evolusi Wet saat Rainy, buah tidak lagi eligible untuk roll Flooded dari WaterLevel tinggi. Jika buah memperoleh Flooded dari WaterLevel tinggi lebih dahulu, buah tidak lagi eligible untuk evolusi Wet menjadi Flooded.
+  - Evolusi Wet menjadi Flooded menggantikan Wet sesuai D-034; aturan umum Mutation lain tetap mengikuti D-022.
+  - Aturan akumulasi sisa waktu paparan ketika WaterLevel berpindah antara rentang 4,00-4,99 dan 5,00 masih BELUM DIPUTUSKAN.
+  - Keputusan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Mempertahankan peluang 5% pada kedua rentang WaterLevel; peluang yang lebih tinggi berisiko membuat Flooded terlalu sering diperoleh selama paparan berbahaya.
+- Dampak:
+  - D-019 dan D-020 tetap tersimpan sebagai riwayat, tetapi angka peluang aktif digantikan oleh D-035.
+  - FEAT-002 dan GDD harus menampilkan peluang 2,5% pada kedua rentang WaterLevel.
+  - Status Flooded harus disimpan per buah dan mencegah roll dari semua jalur setelah berhasil.
+  - Tidak ada multiplier harga yang ditetapkan; dampak ekonomi masih perlu dianalisis setelah multiplier Mutation diputuskan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+
 ### D-031 · Durasi standar episode cuaca non-Sunny
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
