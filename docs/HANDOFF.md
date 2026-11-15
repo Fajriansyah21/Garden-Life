@@ -1,5 +1,33 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik mengonfirmasi area Watering Can dan Sprinkler berbentuk lingkaran serta efek penyiraman dapat bertambah hingga batas maksimum (D-011).
+  - Pemilik mengonfirmasi setiap tanaman memiliki toleransi air; penyiraman berlebihan dapat menyebabkan tanaman mati (D-012).
+  - FEAT-002 diperbarui untuk memisahkan kadar air tanaman dari bonus pertumbuhan penyiraman.
+  - Direkomendasikan fase Overwatered sebelum kematian agar pemain mendapat peringatan dan kesempatan memperbaiki kondisi.
+- File diubah:
+  - docs/DECISIONS.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Berapa radius Watering Can dan Sprinkler?
+  - Berapa penambahan kadar air dari Watering Can dan tiap tick Sprinkler?
+  - Seberapa cepat kadar air berkurang secara alami?
+  - Berapa toleransi air setiap jenis tanaman?
+  - Berapa lama tanaman boleh berada dalam status Overwatered sebelum mati?
+  - Apakah tanaman pulih jika kadar air kembali ke batas aman?
+  - Berapa cap bonus pertumbuhan, durasi Sprinkler, interval penyiraman, dan bonus ukuran buah?
+  - Berapa hasil Seed Extractor serta detail Plant Sprayer dan Pupuk?
+- Asumsi / risiko:
+  - Rekomendasi fase Overwatered sebelum kematian masih usulan desain DRAFT, bukan keputusan pemilik.
+  - Kadar air dan bonus pertumbuhan adalah dua parameter berbeda; angka keduanya belum ditentukan.
+  - Kematian tanaman dapat terasa menghukum jika indikator kadar air dan peringatan tidak jelas.
+  - Efek ukuran buah Sprinkler berpotensi memengaruhi ekonomi penjualan dan perlu diuji.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik memilih area penyiraman berbentuk lingkaran.
   - Pemilik menetapkan efek penyiraman dapat bertambah hingga batas maksimum.
   - D-011 ditambahkan untuk mencatat bentuk area dan aturan stacking berbatas maksimum.
