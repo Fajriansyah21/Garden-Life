@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 1.0 · **Terakhir diubah:** 2026-11-15
+**Versi:** 1.1 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -47,13 +47,14 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Watering Can adalah consumable. Satu penggunaan menyiram semua tanaman di dalam area berbentuk lingkaran.
 - Efek penyiraman dapat bertambah melalui penggunaan berulang, tetapi dibatasi oleh nilai maksimum (D-011).
 - Setiap tanaman memiliki toleransi air. Kadar air yang melampaui toleransi menyebabkan status Overwatered, tetapi tanaman masih dapat pulih jika kadar air kembali ke batas aman sebelum durasi kematian tercapai (D-012, D-013). Kadar air dan bonus pertumbuhan adalah dua nilai terpisah.
+- Garden Life membutuhkan tool untuk mengurangi kadar air tanah secara aktif agar pemain dapat menyelamatkan tanaman Overwatered (D-014). `Soil Aerator` adalah nama dan rancangan sementara yang masih menunggu konfirmasi detail.
 - Sprinkler adalah perangkat consumable yang ditempatkan pada plot. Area jangkauannya berbentuk lingkaran; selama durasi aktif, perangkat menyiram otomatis, mempercepat pertumbuhan, dan meningkatkan ukuran buah. Setelah durasi berakhir, perangkat dikonsumsi dan menghilang.
 - Seed Extractor mengorbankan satu tanaman untuk menghasilkan benih.
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
 - Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
 - Pupuk dari Starter Kit direncanakan mempercepat pertumbuhan, tetapi aturan penggunaan dan efek numeriknya belum diputuskan.
 
-Radius area, batas maksimum bonus pertumbuhan, nilai penambahan/pengurangan kadar air, toleransi tiap tanaman, durasi Overwatered sebelum mati, durasi Sprinkler, interval penyiraman otomatis, bonus ukuran buah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
+Radius area, batas maksimum bonus pertumbuhan, nilai penambahan/pengurangan kadar air, toleransi tiap tanaman, durasi Overwatered sebelum mati, besaran pengurangan air dan cooldown Soil Aerator, durasi Sprinkler, interval penyiraman otomatis, bonus ukuran buah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
 
 Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempatkan atau memperoleh objek kebun, dan mulai mengekspresikan gaya kebunnya. Target waktu numerik **BELUM DIPUTUSKAN**.
