@@ -264,7 +264,7 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, exploit remote, serta kematian tanaman yang terasa tidak adil jika toleransi/indikator tidak jelas.
 - **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. D-013 menetapkan kesempatan pulih sebelum kematian.
 - **Risiko tambahan:** timer kematian yang berjalan saat pemain offline dapat terasa kejam. Tuning durasi harus memberi ruang sesi singkat dan tidak mendorong pemain login secara kompulsif. Pertimbangkan notifikasi saat kembali, bukan kewajiban memantau tanaman terus-menerus.
-- **Dampak tool baru:** Soil Aerator consumable berbentuk zona lingkaran memberi opsi penyelamatan area, bukan satu tanaman. Durasi 3 menit memberi jendela penyelamatan yang jelas. Rekomendasi radius 12 studs dan interval 15 detik masih ASUMSI dan wajib diuji melalui playtest. Setiap tick menurunkan satu level sesuai D-017.
+- **Dampak tool baru:** Soil Aerator consumable berbentuk zona lingkaran memberi opsi penyelamatan area, bukan satu tanaman. Durasi 2,5 menit memberi jendela penyelamatan yang terbatas. Setiap tick 30 detik menurunkan WaterLevel 0,50 sesuai D-018; radius masih BELUM DIPUTUSKAN.
 - **Ekonomi Soil Aerator:** Setiap aktivasi menghabiskan satu item, sehingga berpotensi menjadi sink Life Coin bila kelak dijual. Harga dan sumber perolehan belum diputuskan; jangan menganggap item otomatis dijual di toko.
 - **Metrik sukses:** persentase pemain yang memakai alat; jumlah penggunaan rata-rata per sesi; waktu dari menanam ke panen; jumlah tanaman yang terkena efek; frekuensi penggunaan Sprinkler; dan perubahan pendapatan panen dibanding pemain yang tidak memakai booster. Target angka ditetapkan setelah baseline playtest.
 
@@ -275,10 +275,11 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Watering Can menghasilkan area lingkaran dan memengaruhi semua tanaman di dalam radius.
 - [ ] Bonus pertumbuhan dari beberapa sumber penyiraman bertambah tetapi tidak melewati batas maksimum D-011.
 - [ ] Kadar air tanaman dihitung terpisah dari bonus pertumbuhan.
-- [ ] WaterLevel selalu berupa integer 0-5 dan tidak pernah keluar dari rentang tersebut.
-- [ ] WaterLevel 4 menampilkan status Overwatered dan WaterLevel 5 menampilkan status Flooded.
-- [ ] Turun dari level 5 ke 4 tidak membatalkan timer kematian.
-- [ ] Tanaman pulih dan timer dibatalkan hanya ketika WaterLevel turun ke level 3 atau lebih rendah.
+- [ ] WaterLevel disimpan sebagai integer 0-500 (satuan 0,01), ditampilkan dalam rentang 0,00-5,00, dan tidak pernah keluar dari rentang tersebut.
+- [ ] Label WaterLevel 0-5 sesuai D-018 dan nilai pecahan ditampilkan dengan benar.
+- [ ] WaterLevel >=4,00 menampilkan status terlalu basah/banjir serta Billboard Alert di atas tanaman.
+- [ ] Penurunan WaterLevel yang masih menghasilkan nilai >=4,00 tidak membatalkan timer kematian.
+- [ ] Tanaman pulih dan timer dibatalkan hanya ketika WaterLevel turun di bawah 4,00.
 - [ ] Setiap jenis tanaman memiliki toleransi air yang divalidasi server.
 - [ ] Tanaman yang melewati toleransi masuk status Overwatered.
 - [ ] Tanaman tidak langsung mati saat pertama kali melewati toleransi air.
@@ -286,16 +287,18 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Jika kadar air tetap di atas toleransi sampai durasi kematian habis, tanaman berubah menjadi Dead.
 - [ ] Episode Overwatered baru setelah pemulihan memiliki timer baru dan tidak menjumlahkan durasi episode sebelumnya.
 - [ ] Timer Overwatered tetap akurat setelah plot unload, server restart, atau pemain disconnect.
-- [ ] UI memberi peringatan yang jelas saat tanaman Overwatered.
+- [ ] UI memberi Billboard Alert di atas tanaman saat WaterLevel >=4,00.
 - [ ] Soil Aerator mengonsumsi satu item saat zona lingkaran berhasil diaktifkan.
 - [ ] Zona Soil Aerator mengurangi WaterLevel tanaman di dalam radius secara bertahap pada tick server.
 - [ ] Tanaman yang masuk/keluar radius mulai/berhenti menerima pengeringan sesuai aturan area.
-- [ ] Soil Aerator menurunkan WaterLevel satu level per tick server pada tanaman dalam radius dan tidak mengubah WateringEffectValue.
+- [ ] Soil Aerator menurunkan WaterLevel 0,50 per tick server pada tanaman dalam radius, setiap 30 detik, dan tidak mengubah WateringEffectValue.
 - [ ] Soil Aerator tidak dapat membuat WaterLevel kurang dari 0.
 - [ ] Tanaman yang mencapai batas aman selama proses pengeringan pulih dan timer kematian dibatalkan sesuai D-013.
 - [ ] Tanaman yang masih di atas toleransi tetap Overwatered dan timer kematian tetap berjalan.
-- [ ] Zona berhenti tepat setelah 180 detik (3 menit) berdasarkan waktu server dan tidak lagi mengurangi WaterLevel.
-- [ ] Jika rekomendasi balancing ASUMSI diterima, zona memiliki radius 12 studs dan tick 15 detik; nilai ini harus dapat diubah melalui config.
+- [ ] Zona Soil Aerator aktif selama 150 detik; lima tick terjadi pada detik ke-30, 60, 90, 120, dan 150, lalu zona berhenti.
+- [ ] Watering Can menambah 0,50 WaterLevel per penggunaan pada tanaman yang terkena.
+- [ ] Sprinkler menambah 0,15 WaterLevel per tick 30 detik selama 10 menit (20 tick), dengan batas maksimum 5,00.
+- [ ] Pengeringan alami aktif karena cuaca panas atau musim Summer; besar pengurangannya berasal dari config setelah ditentukan.
 - [ ] Aktivasi tidak valid atau tanpa izin tidak mengonsumsi item.
 - [ ] Sprinkler bekerja otomatis di area lingkaran selama durasi yang ditetapkan dan hilang setelah durasi berakhir.
 - [ ] Efek Sprinkler tidak membuat efek penyiraman melewati batas maksimum.
