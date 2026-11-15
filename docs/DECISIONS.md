@@ -18,6 +18,19 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-007 · Skala world grid dan footprint tile
+- Tanggal: 2026-11-15
+- Diputuskan oleh: ChatGPT (rekomendasi desain; disetujui melalui delegasi pemilik)
+- Status: Aktif
+- Konteks: Istilah grid 5×5 perlu diterjemahkan menjadi ukuran dunia Roblox yang konsisten dengan ukuran plot dan mudah digunakan untuk menyusun tile.
+- Keputusan:
+  - Satu sel grid berukuran 4 × 4 studs.
+  - Satu Farm Tile atau Build Tile memiliki footprint 5 × 5 sel grid, yaitu 20 × 20 studs.
+  - Ukuran plot Stage 1 sebesar 80 × 80 studs setara dengan area 4 × 4 footprint tile; Stage 2 = 8 × 8, Stage 3 = 12 × 12, dan Stage 4 = 16 × 16 footprint tile.
+  - Ukuran 4 studs per sel menjadi unit grid dasar untuk placement tile. Objek free placement tetap mengikuti aturan free placement; Snap to Grid menggunakan kelipatan unit grid ini kecuali aturan asset tertentu ditetapkan kemudian.
+- Alternatif yang ditolak: 1 stud per sel karena menghasilkan footprint tile 5 × 5 studs dan grid sangat rapat; 5 studs per sel karena footprint tile menjadi 25 × 25 studs dan tidak membagi ukuran plot 80 studs secara utuh.
+- Dampak: FEAT-001 dan asset pipeline harus menggunakan skala grid 4 studs. Tile perlu memiliki footprint 20 × 20 studs. Batas pivot, origin grid plot, toleransi snapping, dan ukuran bounding volume asset tetap harus ditentukan secara teknis tanpa mengubah unit dasar ini.
+
 ### D-006 · Hak Build multiplayer berdasarkan kepemilikan objek
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik
