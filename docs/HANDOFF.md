@@ -1,3 +1,34 @@
+## 2026-11-15 · ChatGPT -> Claude
+- Selesai:
+  - Menambahkan D-033: WaterLevel memakai presisi internal 0,001 (integer 0-5000), sementara UI tetap menampilkan dua angka desimal. Nilai +0,075 Rainy dipertahankan tanpa pembulatan per tick; 20 tick menghasilkan +1,500.
+  - Menambahkan D-034 untuk Rainy: hujan sedang hingga deras tetapi tetap menenangkan; WaterLevel +0,075/tick; Wet 5% per buah per tick; Wet→Flooded 2,5% per buah per tick; seluruh tanaman menerima +20% waktu tumbuh tanpa bonus pertumbuhan.
+  - Menambahkan D-035: peluang Flooded dari WaterLevel 4,00-4,99 menjadi 2,5% per 2 menit dan dari WaterLevel 5,00 menjadi 2,5% per 1 menit. Satu buah hanya dapat memperoleh Flooded satu kali dari jalur Rainy maupun WaterLevel.
+  - D-019 dan D-020 dipertahankan sebagai riwayat; peluang aktifnya digantikan oleh D-035. D-021 tetap berlaku dan diperjelas lintas jalur.
+  - GDD diperbarui ke v2.3, Concept Backlog diselaraskan, FEAT-002 diperbarui ke v12 dan tetap DRAFT, README diperbarui sampai D-035.
+- File diubah:
+  - docs/DECISIONS.md (D-033, D-034, D-035)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.3)
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md (v12, DRAFT)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Urutan roll Wet dan evolusi Wet→Flooded jika keduanya berpotensi terjadi pada tick Rainy yang sama.
+  - Multiplier harga dan tampilan Mutation Wet/Flooded.
+  - Apakah tanaman yang baru ditanam saat Drizzle/Rainy aktif langsung menerima modifier waktu tumbuh dan efek cuaca.
+  - Durasi Sunny, peluang/distribusi cuaca, serta aturan transisi lengkap.
+  - Aturan gameplay Rainy, Windy, Misty, dan Thunderstorm selain yang sudah dicatat.
+  - Detail menu informasi tanaman, termasuk status "Sudah Disiram" ketika Drizzle, Rainy, atau Thunderstorm berlangsung.
+  - Akumulasi sisa waktu paparan saat WaterLevel berpindah antara 4,00-4,99 dan 5,00.
+- Asumsi / risiko:
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk scope First Release/Vertical Slice.
+  - Efek cuaca, WaterLevel, roll Mutation, dan pertumbuhan harus server-authoritative jika kelak diimplementasikan.
+  - Multiplier Flooded/Wet belum ditentukan sehingga dampak ekonomi belum dapat dihitung.
+  - Tidak ada perubahan kode. Tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
   - Menambahkan D-032 tentang pilihan **Skip Tutorial** setelah Inventory ditutup.
