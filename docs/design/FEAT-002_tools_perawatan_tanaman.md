@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v2 |
+| Versi | v3 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -50,9 +50,15 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 9. Setiap jenis tanaman memiliki `MaxWaterTolerance`. Nilai ini menentukan kadar air maksimum yang dapat ditoleransi tanpa risiko overwatering.
 10. Sumber penyiraman menambah `WaterLevel` sesuai nilai aplikasi masing-masing. Bonus pertumbuhan dari penyiraman dihitung terpisah dan tetap mengikuti cap D-011.
 11. Jika `WaterLevel` melebihi `MaxWaterTolerance`, tanaman masuk status `Overwatered`. Status ini dapat berujung pada kematian jika kondisi berlangsung melewati durasi toleransi.
-12. Rekomendasi desain DRAFT: gunakan fase peringatan/Overwatered sebelum kematian, bukan kematian instan pada satu aplikasi berlebih. Ini memberi kesempatan pemain mengurangi atau menghentikan penyiraman. Durasi fase dan mekanisme pemulihan BELUM DIPUTUSKAN.
-13. Tanaman yang berada di status Overwatered tidak menerima bonus pertumbuhan tambahan dari kelebihan air. Cap bonus pertumbuhan D-011 tetap berlaku.
-14. Pemulihan kadar air dilakukan melalui pengurangan alami dari waktu ke waktu. Laju pengurangan dan apakah tiap jenis tanaman memiliki laju berbeda BELUM DIPUTUSKAN.
+12. Tanaman yang melewati `MaxWaterTolerance` masuk status `Overwatered`; tanaman tidak langsung mati saat status ini dimulai (D-013).
+13. Saat memasuki status Overwatered, server mencatat `OverwateredSince` menggunakan waktu server.
+14. Selama `WaterLevel` tetap di atas `MaxWaterTolerance`, durasi Overwatered terus berjalan.
+15. Jika `WaterLevel` turun ke atau di bawah `MaxWaterTolerance` sebelum durasi kematian tercapai, tanaman pulih: status kembali normal dan `OverwateredSince` dihapus/null.
+16. Jika `WaterLevel` tetap di atas `MaxWaterTolerance` sampai durasi kematian tercapai, tanaman berubah menjadi `Dead`.
+17. Setelah tanaman pulih, jika kadar air kembali melewati toleransi, episode Overwatered baru dimulai dan timer baru dicatat. Waktu dari episode sebelumnya tidak dijumlahkan.
+18. Bonus pertumbuhan penyiraman tetap dibatasi cap D-011 dan tidak meningkat karena tanaman Overwatered.
+19. Rekomendasi balancing: selama Overwatered, hentikan bonus pertumbuhan dari penyiraman tambahan. Apakah tanaman tetap tumbuh pada laju dasar selama fase ini masih BELUM DIPUTUSKAN.
+20. Kadar air berkurang secara alami dari waktu ke waktu. Laju pengurangan dan apakah tiap jenis tanaman memiliki laju berbeda BELUM DIPUTUSKAN.
 
 ### 2.5 Sprinkler
 1. Sprinkler adalah perangkat consumable yang ditempatkan pada plot.
@@ -107,8 +113,10 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | Penambahan kadar air Sprinkler | BELUM DIPUTUSKAN | water units/tick | Menambah WaterLevel pada setiap tick penyiraman |
 | Pengurangan alami kadar air | BELUM DIPUTUSKAN | water units/menit | Mengurangi WaterLevel dari waktu ke waktu |
 | Toleransi air tanaman | Per jenis tanaman | water units | Field MaxWaterTolerance pada data tanaman, D-012 |
-| Durasi Overwatered sebelum mati | BELUM DIPUTUSKAN | menit | Hanya jika WaterLevel tetap di atas toleransi |
-| Pemulihan dari Overwatered | BELUM DIPUTUSKAN | aturan | Apakah tanaman pulih jika WaterLevel kembali ke toleransi |
+| Durasi Overwatered sebelum mati | BELUM DIPUTUSKAN | menit | Timer berjalan selama WaterLevel > MaxWaterTolerance; D-013 |
+| Pemulihan Overwatered | WaterLevel <= MaxWaterTolerance | kondisi | Menghapus OverwateredSince dan mengembalikan status normal; D-013 |
+| Pengulangan Overwatered | Timer episode baru | aturan | Episode baru dimulai jika kadar air kembali melewati toleransi setelah pulih |
+| Pemulihan dari Overwatered | Ya | aturan | Pulih jika WaterLevel kembali ke/bawah toleransi sebelum timer kematian habis, D-013 |
 | Sprinkler area | Lingkaran | bentuk | Mengikuti keputusan area |
 | Sprinkler radius | BELUM DIPUTUSKAN | studs | Perlu keputusan |
 | Sprinkler durasi | BELUM DIPUTUSKAN | menit | Perlu keputusan |
@@ -127,8 +135,10 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 - Tanaman berada tepat di batas radius: dianggap masuk area.
 - Tanaman menerima beberapa sumber penyiraman pada waktu yang sama: hitung bonus pertumbuhan gabungan secara server dan clamp pada batas maksimum; akumulasi WaterLevel tetap dihitung terpisah dan dapat melewati toleransi tanaman.
 - WaterLevel melebihi MaxWaterTolerance: tandai tanaman Overwatered dan mulai hitung durasi kondisi tersebut.
-- WaterLevel kembali ke atau di bawah MaxWaterTolerance sebelum batas kematian: perilaku pemulihan masih BELUM DIPUTUSKAN.
-- WaterLevel tetap di atas MaxWaterTolerance melewati durasi kematian: tanaman mati sesuai D-012; durasi pastinya BELUM DIPUTUSKAN.
+- WaterLevel kembali ke atau di bawah MaxWaterTolerance sebelum timer kematian habis: hapus OverwateredSince dan kembalikan status ke normal sesuai D-013.
+- Tanaman kembali melewati toleransi setelah pulih: mulai episode Overwatered baru; jangan menjumlahkan durasi episode lama.
+- WaterLevel tetap di atas MaxWaterTolerance sampai durasi kematian tercapai: ubah status tanaman menjadi Dead.
+- Plot unload atau server restart ketika tanaman Overwatered: hitung durasi berdasarkan timestamp server tersimpan; jangan mengandalkan timer client atau menghentikan timer hanya karena pemain offline.
 - Sprinkler dihancurkan, disimpan, atau plot mengalami unload sebelum durasi habis: perilaku penghentian dan pengembalian item BELUM DIPUTUSKAN.
 - Pemain disconnect saat Sprinkler aktif: efek harus tetap mengikuti waktu server dan status plot tersimpan; detail persistence perlu dikonfirmasi.
 - Dua pemain menggunakan alat pada tanaman yang sama: server memproses aksi secara berurutan dan mencegah panen/ekstraksi ganda atas hasil yang sama.
@@ -148,7 +158,8 @@ Pemain dapat merawat, memindahkan, menghapus, memperbanyak, dan memanen tanaman 
 | WaterLevel | number | Kadar air aktual tanaman; terpisah dari bonus pertumbuhan |
 | MaxWaterTolerance | number | Batas toleransi air dari data jenis tanaman |
 | OverwateredSince | timestamp/null | Waktu server saat tanaman mulai melewati toleransi |
-| PlantHealthState | enum | Kondisi normal/Overwatered/Dead jika sistem kesehatan digunakan |
+| PlantHealthState | enum | Kondisi Normal/Overwatered/Dead |
+| OverwateredSince | timestamp/null | Timestamp awal episode Overwatered; null jika normal/pulih |
 | WateringEffectValue | number | Bonus pertumbuhan aktif; bukan kadar air |
 | WateringEffectExpiresAt | timestamp | Waktu berakhir efek jika efek berbatas durasi |
 | SprinklerPlacedAt | timestamp | Waktu perangkat mulai aktif |
@@ -164,6 +175,7 @@ Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer.
 - Preview lingkaran membedakan area valid dan tidak valid serta menampilkan tanaman yang akan terkena efek.
 - UI status tanaman menampilkan indikator kadar air yang mudah dipahami (misalnya Normal, Basah, Overwatered), tanpa mewajibkan pemain membaca angka internal.
 - Saat tanaman Overwatered, tampilkan peringatan visual yang jelas dan konsisten; hindari hanya mengandalkan warna agar tetap terbaca oleh pemain dengan gangguan persepsi warna.
+- UI menampilkan bahwa tanaman masih dapat diselamatkan selama belum mati; jika timer kematian ditampilkan, gunakan bahasa yang mudah dipahami dan tidak menuntut pemain membaca angka teknis.
 - Saat Sprinkler ditempatkan, tampilkan preview lingkaran jangkauan dan konfirmasi posisi.
 - Sprinkler aktif menampilkan indikator durasi tersisa yang mudah dibaca.
 - Seed Extractor menampilkan konfirmasi bahwa tanaman akan dikorbankan untuk menghasilkan benih.
@@ -192,7 +204,8 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - **Dampak core loop:** Tools memperkaya loop tanam–rawat–panen dan memberi pilihan antara interaksi manual, otomatis, dan kenyamanan. Watering Can mendukung sesi singkat; Sprinkler mendukung pemain yang ingin menata kebun sambil membiarkan tanaman dirawat.
 - **Source/sink ekonomi:** Consumable Watering Can, Sprinkler, cairan Plant Sprayer, Seed Extractor, Harvest Basket, dan Pupuk berpotensi menjadi sink Life Coin jika dijual di toko. Harga dan sumber pendapatan belum ditentukan; tidak boleh menganggap semuanya berbayar.
 - **Risiko:** bonus pertumbuhan berlebihan, stacking tanpa batas, buah besar menciptakan inflasi hasil jual, penggunaan otomatis menambah beban server, exploit remote, serta kematian tanaman yang terasa tidak adil jika toleransi/indikator tidak jelas.
-- **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. Overwatering sebaiknya memiliki fase peringatan sebelum kematian.
+- **Rekomendasi balancing:** pisahkan kadar air dari bonus pertumbuhan. Watering Can dan Sprinkler dapat meningkatkan keduanya, tetapi hanya bonus pertumbuhan yang dibatasi cap D-011; kadar air mengikuti toleransi masing-masing tanaman D-012. D-013 menetapkan kesempatan pulih sebelum kematian.
+- **Risiko tambahan:** timer kematian yang berjalan saat pemain offline dapat terasa kejam. Tuning durasi harus memberi ruang sesi singkat dan tidak mendorong pemain login secara kompulsif. Pertimbangkan notifikasi saat kembali, bukan kewajiban memantau tanaman terus-menerus.
 - **Metrik sukses:** persentase pemain yang memakai alat; jumlah penggunaan rata-rata per sesi; waktu dari menanam ke panen; jumlah tanaman yang terkena efek; frekuensi penggunaan Sprinkler; dan perubahan pendapatan panen dibanding pemain yang tidak memakai booster. Target angka ditetapkan setelah baseline playtest.
 
 ## 9. Kriteria selesai (acceptance criteria)
@@ -204,7 +217,11 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 - [ ] Kadar air tanaman dihitung terpisah dari bonus pertumbuhan.
 - [ ] Setiap jenis tanaman memiliki toleransi air yang divalidasi server.
 - [ ] Tanaman yang melewati toleransi masuk status Overwatered.
-- [ ] Tanaman dapat mati jika status Overwatered berlangsung melewati durasi yang ditetapkan dalam tabel tuning.
+- [ ] Tanaman tidak langsung mati saat pertama kali melewati toleransi air.
+- [ ] Jika kadar air kembali ke/bawah toleransi sebelum durasi kematian habis, tanaman pulih dan timer episode dihapus.
+- [ ] Jika kadar air tetap di atas toleransi sampai durasi kematian habis, tanaman berubah menjadi Dead.
+- [ ] Episode Overwatered baru setelah pemulihan memiliki timer baru dan tidak menjumlahkan durasi episode sebelumnya.
+- [ ] Timer Overwatered tetap akurat setelah plot unload, server restart, atau pemain disconnect.
 - [ ] UI memberi peringatan yang jelas saat tanaman Overwatered.
 - [ ] Sprinkler bekerja otomatis di area lingkaran selama durasi yang ditetapkan dan hilang setelah durasi berakhir.
 - [ ] Efek Sprinkler tidak membuat efek penyiraman melewati batas maksimum.
@@ -222,3 +239,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 |---|---|---|---|
 | v1 | 2026-11-15 | Dibuat sebagai spec DRAFT; mencatat Tools yang telah dikonfirmasi dan keputusan area lingkaran serta stacking berbatas maksimum | Melanjutkan desain Tools Garden Life |
 | v2 | 2026-11-15 | Memisahkan kadar air dari bonus pertumbuhan; menambahkan toleransi air per tanaman, status Overwatered, dan risiko kematian | Menindaklanjuti D-012 dan mencegah penyiraman berlebihan menjadi strategi tanpa konsekuensi |
+| v3 | 2026-11-15 | Menetapkan pemulihan jika kadar air kembali ke batas aman sebelum durasi kematian; timer episode baru setelah pulih | Menindaklanjuti D-013, memberi konsekuensi tanpa kematian instan |
