@@ -44,6 +44,18 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Kematian instan saat toleransi terlampaui; dianggap terlalu menghukum untuk game santai.
 - Dampak: Sistem tanaman perlu mencatat awal status Overwatered, mengevaluasi kadar air secara server-authoritative, membatalkan timer kematian ketika kadar air pulih, dan menyimpan status secara aman saat plot unload atau pemain disconnect.
 
+### D-014 · Kebutuhan alat untuk mengurangi kadar air tanah
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Tanaman yang Overwatered membutuhkan cara aktif untuk mengurangi kadar air agar pemain memiliki kesempatan menyelamatkannya sebelum durasi kematian tercapai.
+- Keputusan:
+  - Garden Life membutuhkan satu tool yang dapat membantu mengurangi kadar air berlebih pada tanah/tanaman.
+  - Tool ini menjadi opsi pemulihan aktif selain menunggu kadar air berkurang secara alami.
+  - Nama tool, status permanen/consumable, target penggunaan, besaran pengurangan air, dan cooldown BELUM DIPUTUSKAN.
+- Alternatif yang ditolak: Hanya mengandalkan pengeringan alami, karena pemain tidak memiliki tindakan langsung untuk menyelamatkan tanaman yang mendekati batas kematian.
+- Dampak: FEAT-002 harus mencakup tool pengurang kadar air. Semua angka dan detail operasional wajib ditentukan sebelum spec READY.
+
 ## Format
 
 ```
