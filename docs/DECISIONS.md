@@ -18,6 +18,18 @@ Entri terbaru di paling atas.
 
 ---
 
+### D-009 · Starter Kit gratis untuk pemain baru
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Plot dimulai kosong sesuai D-008. Pemain tetap membutuhkan cara untuk mulai membangun tanpa harus menghabiskan saldo awal sebelum memahami permainan.
+- Keputusan:
+  - Pemain baru menerima Starter Kit secara gratis.
+  - Starter Kit diberikan sebagai item inventori, bukan objek yang otomatis ditempatkan di plot.
+  - Jenis item, jumlah tiap item, waktu pemberian yang tepat, dan apakah kit dapat diperoleh kembali setelah reset akun masih BELUM DIPUTUSKAN.
+- Alternatif yang ditolak: Memulai dengan inventori kosong dan mewajibkan pembelian item pertama menggunakan Life Coin; pendekatan ini berisiko menghambat pengalaman awal.
+- Dampak: Onboarding dan inventori harus mendukung pemberian item gratis. Starter Kit menjadi sumber item awal (bukan sumber Life Coin); harga toko dan ekonomi tetap perlu diseimbangkan terpisah.
+
 ### D-008 · Kondisi awal plot pemain
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
