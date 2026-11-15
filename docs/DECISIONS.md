@@ -32,6 +32,24 @@
   - D-021 tetap berlaku khusus untuk batas satu keberhasilan mutasi banjir per buah; D-022 tidak menghapus batas tersebut.
   - Detail tiap Mutation, peluang perolehan, efek tambahan, dan multiplier individual masih harus ditetapkan sebelum spec implementasi dinyatakan lengkap.
 
+### D-023 · Identitas visi jangka panjang Garden Life
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Roadmap perlu memiliki arah produk jangka panjang yang konsisten agar pengembangan sistem dan konten tidak kehilangan identitas utama Garden Life.
+- Keputusan:
+  - Identitas pengalaman jangka panjang Garden Life adalah **Cozy Garden Life Simulator**.
+  - Garden Life berpusat pada kebun pribadi pemain sebagai ruang personal yang terus berkembang.
+  - Pengalaman utama yang ingin didukung adalah mendekorasi dan mengekspresikan gaya kebun, mengoleksi tanaman unik, merawat kebun, serta mengunjungi kebun teman.
+  - Farming merupakan aktivitas pendukung perkembangan kebun, bukan satu-satunya tujuan permainan.
+  - Visi ini berlaku sebagai arah jangka panjang dan tidak otomatis menjadikan seluruh sistem atau ide sebagai scope First Release.
+  - Pembagian pekerjaan ke First Release, Post-Release, dan Long-Term Vision digunakan untuk memisahkan prioritas rilis dari pengembangan masa depan. Detail scope tiap lapisan tetap memerlukan analisis dan persetujuan pemilik.
+- Alternatif yang ditolak: Memposisikan Garden Life terutama sebagai farming simulator atau game manajemen pertanian berat, karena tidak sesuai dengan prioritas dekorasi, ekspresi personal, dan pengalaman cozy.
+- Dampak:
+  - GDD dan Roadmap harus menggunakan identitas ini sebagai acuan saat menyusun player journey, prioritas sistem, dan scope.
+  - Fitur baru perlu dinilai berdasarkan kontribusinya terhadap kebun sebagai ruang personal, koleksi, perawatan santai, atau interaksi sosial.
+  - D-023 tidak menetapkan fitur baru, angka balancing, maupun scope implementasi First Release.
+
 # DECISIONS · Log Keputusan
 
 Aturan: **hanya ditambah, tidak dihapus.** Untuk mengubah keputusan, tulis entri baru yang menyebut "Menggantikan D-0xx".
