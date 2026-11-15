@@ -10,7 +10,8 @@ Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hila
 - Garden Life adalah pengalaman Roblox santai yang berfokus pada membangun dan mendekorasi kebun.
 - Manajemen dan ekonomi hanya menjadi lapisan pendukung, bukan tantangan utama.
 - Life Coin adalah mata uang utama, divisualisasikan sebagai koin emas berikon daun.
-- Saldo awal pribadi: 1.000 Life Coin.\n- Pemain baru menerima Starter Kit gratis sebagai item inventori (D-009); isi dan jumlah item belum ditentukan.
+- Saldo awal pribadi: 1.000 Life Coin.
+- Pemain baru menerima Starter Kit gratis sebagai item inventori (D-009); komposisinya ditetapkan melalui D-010.
 
 ## 2. Plot dan multiplayer
 
@@ -87,7 +88,23 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 5. Pisahkan keputusan yang telah dikonfirmasi dari asumsi dan usulan baru.
 6. Setiap angka implementasi harus masuk tabel tuning pada spec fitur.
 
-## 7. Starter Kit\n\n| Elemen | Detail | Status |\n|---|---|---|\n| Pemberian | Gratis untuk pemain baru | Dikonfirmasi (D-009) |\n| Bentuk | Item masuk inventori, tidak otomatis ditempatkan di plot | Dikonfirmasi (D-009) |\n| Isi dan jumlah | Belum ditentukan | Terbuka |\n| Waktu pemberian dan aturan perolehan ulang | Belum ditentukan | Terbuka |\n\n## 8. Pertanyaan desain berikutnya
+## 7. Starter Kit
+
+| Item | Jumlah | Fungsi / status |
+|---|---:|---|
+| Shovel | 1 | Menghapus tanaman; alat permanen |
+| Watering Can | 10 | Menyiram tanaman; kapasitas/refill belum ditentukan |
+| Pupuk | 1 | Mempercepat tanaman; efek/penggunaan belum ditentukan |
+| Farm Tile | 2 | Area pertanian |
+| Trowel | 1 | Memindahkan tanaman; alat permanen |
+| Benih Wortel | 10 | Bibit awal |
+| Kursi Kayu | 1 | Dekorasi |
+| Lampu Taman | 1 | Dekorasi |
+
+- Pemberian: gratis untuk pemain baru, D-009.
+- Bentuk: item masuk inventori dan tidak otomatis ditempatkan di plot, D-009.
+- Komposisi dan kuantitas: dikonfirmasi melalui D-010.
+- Waktu pemberian dan aturan perolehan ulang: masih terbuka.\n\n## 8. Pertanyaan desain berikutnya
 
 - Bagaimana detail Build Mode (preview, konfirmasi, undo/move) dan batas area penempatan?
 - Apakah perlu aturan tabrakan berbeda untuk tile, dekorasi, bangunan, dan tanaman?
