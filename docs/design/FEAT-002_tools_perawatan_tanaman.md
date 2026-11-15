@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v8 |
+| Versi | v9 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -156,7 +156,7 @@ Parameter berikut masih BELUM DIPUTUSKAN dan tidak boleh di-hardcode oleh engine
 - Besar dan interval pengeringan alami saat cuaca panas atau Summer.
 - Radius, batas zona aktif, dan aturan overlap Soil Aerator.
 - Radius Sprinkler dan bonus ukuran buah.
-- Aturan peluang mutasi buah akibat terendam: sementara rentang 4,00-4,99 memakai peluang 5% per 2 menit, sedangkan level 5,00 memakai peluang mutasi banjir 25% per 1 menit; algoritma roll dan akumulasi paparan belum diputuskan.
+- Mutasi dihitung secara independen untuk setiap buah: WaterLevel 4,00-4,99 memberi peluang 5% per 2 menit paparan; WaterLevel 5,00 memberi peluang mutasi banjir 15% per 1 menit paparan (D-019). Aturan akumulasi sisa waktu ketika level berubah dan mutasi lanjutan pada buah yang sudah bermutasi masih BELUM DIPUTUSKAN.
 - Aturan mutasi saat level air berpindah antara level 4 dan 5.
 
 ## 4. Kondisi tepi & kegagalan
@@ -217,8 +217,8 @@ Catatan: radius, interval tick, dan laju pengurangan sebaiknya berasal dari conf
 | SprinklerPlacedAt | timestamp | Waktu perangkat mulai aktif |
 | SprinklerExpiresAt | timestamp | Waktu perangkat berakhir |
 | FruitSizeModifier | number | Modifier ukuran buah, jika sistem ukuran buah diterapkan |
-| FruitSubmergedExposure | struktur | Akumulasi waktu buah berada pada WaterLevel 4 dan 5; format interval mutasi masih perlu dikonfirmasi |
-| FruitMutationState | enum/struktur | Status mutasi buah yang sudah terjadi, agar mutasi tidak diproses berulang tanpa aturan |
+| FruitSubmergedExposure | struktur | Akumulasi paparan per buah untuk interval mutasi level 4 dan level 5 secara independen |
+| FruitMutationState | enum/struktur | Status mutasi buah; aturan apakah buah yang sudah bermutasi dapat mengalami mutasi lanjutan masih BELUM DIPUTUSKAN |
 
 Catatan: skema final mengikuti sistem tanaman/inventori yang dirancang engineer. Jangan menyimpan nilai yang dapat dihitung ulang jika tidak diperlukan. Status waktu harus menggunakan waktu server, bukan timer client.
 
@@ -322,3 +322,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v6 | 2026-11-15 | Menetapkan durasi Soil Aerator 3 menit dan menambahkan rekomendasi balancing awal berlabel ASUMSI | Menindaklanjuti D-016 dan menyediakan titik awal playtest tanpa mengunci angka usulan |
 | v7 | 2026-11-15 | Mengganti skala WaterLevel menjadi integer 0-5; level 4 Overwatered, level 5 Flooded; Soil Aerator mengurangi satu level per tick | Menindaklanjuti D-017 sesuai pilihan pemilik |
 | v8 | 2026-11-15 | Menggunakan WaterLevel pecahan 0,00-5,00; menetapkan tick 30 detik, timer kematian 15 menit, label level, Billboard Alert, nilai Watering Can/Sprinkler/Soil Aerator, durasi alat, dan pemicu pengeringan alami | Menindaklanjuti keputusan lanjutan pemilik; D-018 menggantikan D-017 |
+| v9 | 2026-11-15 | Menetapkan peluang mutasi independen per buah: 5% per 2 menit pada WaterLevel 4 dan 15% per 1 menit pada WaterLevel 5 | Menindaklanjuti D-019; algoritma sisa paparan lintas level masih perlu diputuskan |
