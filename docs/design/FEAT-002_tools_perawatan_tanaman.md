@@ -3,7 +3,7 @@
 | Field | Isi |
 |---|---|
 | Status | DRAFT |
-| Versi | v9 |
+| Versi | v10 |
 | Prioritas | Should |
 | Fase | 1 Konsep & GDD, kandidat Vertical Slice setelah scope disetujui |
 | Penulis | ChatGPT |
@@ -323,3 +323,4 @@ Seluruh asset berstatus placeholder sampai masuk pipeline asset.
 | v7 | 2026-11-15 | Mengganti skala WaterLevel menjadi integer 0-5; level 4 Overwatered, level 5 Flooded; Soil Aerator mengurangi satu level per tick | Menindaklanjuti D-017 sesuai pilihan pemilik |
 | v8 | 2026-11-15 | Menggunakan WaterLevel pecahan 0,00-5,00; menetapkan tick 30 detik, timer kematian 15 menit, label level, Billboard Alert, nilai Watering Can/Sprinkler/Soil Aerator, durasi alat, dan pemicu pengeringan alami | Menindaklanjuti keputusan lanjutan pemilik; D-018 menggantikan D-017 |
 | v9 | 2026-11-15 | Menetapkan peluang mutasi independen per buah: 5% per 2 menit pada WaterLevel 4 dan 15% per 1 menit pada WaterLevel 5 | Menindaklanjuti D-019; algoritma sisa paparan lintas level masih perlu diputuskan |
+| v10 | 2026-11-15 | Menurunkan peluang mutasi banjir WaterLevel 5 dari 15% menjadi 5% per buah per menit | Menindaklanjuti D-020 agar peluang kumulatif selama jendela kematian 15 menit lebih terkendali |
