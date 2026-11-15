@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 1.6 · **Terakhir diubah:** 2026-11-15
+**Versi:** 1.7 · **Terakhir diubah:** 2026-11-15
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -15,6 +15,7 @@
 - **Prioritas desain:** Dekorasi dan ekspresi personal > pengalaman sosial/co-op > koleksi dan perawatan kebun > farming santai > manajemen dan ekonomi ringan.
 - **Arah scope:** Visi mencakup pengembangan jangka panjang, tetapi fitur dibagi ke First Release, Post-Release, dan Long-Term Vision. Persetujuan visi tidak otomatis menyetujui seluruh fitur sebagai scope rilis.
 - **Game referensi (3):** **BELUM DIPUTUSKAN**. Jangan menetapkan referensi tanpa persetujuan pemilik.
+- **Player Journey (D-024):** empat tahap pengalaman, yaitu First Visit, Early Garden, Growing Garden, dan Established Garden. Tahap ini bukan level atau gerbang waktu. Rincian pengalaman DRAFT berada di [PLAYER_JOURNEY.md](design/PLAYER_JOURNEY.md).
 
 ## 2. Target pemain
 
