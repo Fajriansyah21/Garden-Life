@@ -70,6 +70,18 @@ Entri terbaru di paling atas.
 - Alternatif yang ditolak: Alat permanen dengan target satu tanaman dan pengurangan instan; pemilik memilih item consumable dengan efek area dan pengeringan bertahap.
 - Dampak: FEAT-002 harus memproses pengurangan WaterLevel secara berkala pada tanaman yang berada di area lingkaran selama efek aktif. Pemulihan dari Overwatered tetap mengikuti D-013.
 
+### D-016 · Durasi zona Soil Aerator
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Menentukan lama efek pengeringan area dari satu penggunaan Soil Aerator.
+- Keputusan:
+  - Satu zona Soil Aerator aktif selama 3 menit (180 detik) sejak aktivasi berhasil.
+  - Setelah durasi habis, zona berhenti memberikan efek pengeringan.
+  - Radius, interval tick, dan laju pengurangan kadar air masih harus ditentukan melalui balancing.
+- Alternatif yang ditolak: Durasi 5 atau 10 menit; pemilik memilih 3 menit.
+- Dampak: FEAT-002 harus menghentikan efek zona tepat setelah 180 detik berdasarkan waktu server.
+
 ## Format
 
 ```
