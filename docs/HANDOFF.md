@@ -1,5 +1,32 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-028 untuk identitas Spring Fresh Nature, pola cuaca Balanced, roster tujuh cuaca Spring, serta aturan Sunny dan Cloudy.
+  - Cloudy menambah WaterLevel +0,25 satu kali saat episode dimulai; tanaman dengan kebutuhan sinar matahari tinggi mendapat tambahan waktu tumbuh 15%.
+  - Jika Cloudy dimulai saat tanaman yang memenuhi syarat sedang tumbuh, sisa waktu tumbuh bertambah 15% tanpa menghapus progres yang sudah diperoleh.
+  - Cloudy tidak menghasilkan Mutation.
+  - Menambahkan D-029: kebutuhan menu khusus agar pemain dapat memeriksa kondisi tanaman; rincian field dan interaksi masih terbuka.
+  - GDD diperbarui ke v2.1 dan Concept Backlog mencatat eksplorasi Spring.
+- File diubah:
+  - docs/DECISIONS.md (D-028 dan D-029)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.1)
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+  - README.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Durasi, peluang, dan distribusi tujuh cuaca Spring.
+  - Detail Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
+  - Penanganan modifier Cloudy jika beberapa episode Cloudy terjadi sebelum tanaman selesai tumbuh.
+  - Isi, susunan, cara membuka, dan interaksi menu informasi tanaman.
+- Asumsi / risiko:
+  - Seasons & Weather tetap EXPLORING dan tidak otomatis masuk scope First Release atau Vertical Slice.
+  - Klasifikasi kebutuhan sinar matahari per tanaman harus ditentukan dalam data tanaman sebelum implementasi.
+  - Tidak ada perubahan kode, ekonomi, atau status spec.
+
+---
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui perilaku prompt Inventory yang tetap tersedia secara halus sampai pemain membuka Inventory; keputusan dicatat sebagai D-027.
   - Jika pemain menjelajahi plot terlebih dahulu, prompt tetap tersedia tanpa mengejar karakter atau membatasi eksplorasi.
   - Penanda berada pada tombol Inventory, mendapat satu penekanan visual awal yang halus, dan tidak mengulang pulse terus-menerus.
