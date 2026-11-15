@@ -1,5 +1,33 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik memilih area penyiraman berbentuk lingkaran.
+  - Pemilik menetapkan efek penyiraman dapat bertambah hingga batas maksimum.
+  - D-011 ditambahkan untuk mencatat bentuk area dan aturan stacking berbatas maksimum.
+  - FEAT-002 Tools & Perawatan Tanaman dibuat dengan status DRAFT.
+  - GDD diperbarui untuk merangkum fungsi Tools dan menautkan FEAT-002.
+- File diubah / dibuat:
+  - docs/DECISIONS.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT; angka tuning dan beberapa perilaku edge case masih terbuka.
+- Pertanyaan terbuka:
+  - Berapa radius Watering Can dan Sprinkler?
+  - Berapa nilai maksimum efek penyiraman, dan apakah stacking menambah durasi, kekuatan, atau keduanya?
+  - Berapa durasi aktif dan interval penyiraman Sprinkler?
+  - Berapa bonus ukuran buah dari Sprinkler?
+  - Berapa benih yang dihasilkan Seed Extractor?
+  - Apa jenis cairan Plant Sprayer, efek, peluang mutasi, dan aturan stacking-nya?
+  - Bagaimana aturan penggunaan Pupuk?
+  - Apakah Watering Can tetap mengonsumsi unit saat tidak ada tanaman di dalam radius?
+- Asumsi / risiko:
+  - FEAT-002 mencatat Sprinkler menggunakan cap penyiraman yang sama dengan Watering Can; perlu konfirmasi jika ingin perlakuan khusus.
+  - Efek ukuran buah dapat memengaruhi hasil jual dan inflasi ekonomi; perlu diuji setelah harga tanaman ditetapkan.
+  - Biaya implementasi FEAT-002 masih perkiraan dan perlu dikonfirmasi Claude.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan komposisi Starter Kit melalui D-010.
   - Kit berisi 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman.
   - Shovel menghapus tanaman; Trowel memindahkan tanaman. Dua dekorasi kit adalah Kursi Kayu dan Lampu Taman.
