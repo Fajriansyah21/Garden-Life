@@ -1,3 +1,27 @@
+### D-032 · Skip Tutorial dan mulai ulang tutorial dari Pengaturan
+- Tanggal: 2026-11-15
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif
+- Konteks: Pemain perlu memiliki pilihan yang jelas untuk melewati panduan awal tanpa kehilangan akses gameplay, sekaligus tetap dapat mempelajari tutorial kembali jika berubah pikiran.
+- Keputusan:
+  - Setelah pemain menutup Inventory pada alur First Visit, tampilkan panel pilihan aktivitas yang berisi **Mulai Bertani**, **Mulai Mendekorasi**, dan **Skip Tutorial**.
+  - Panel pilihan aktivitas hanya ditampilkan satu kali dalam satu rangkaian tutorial. Panel tidak muncul kembali secara otomatis setelah pemain memilih salah satu jalur atau Skip Tutorial.
+  - Jika pemain memilih **Skip Tutorial**, tutup panel dan tandai onboarding sebagai selesai/dilewati. Pemain tidak menerima panduan jalur bertani maupun jalur dekorasi pada rangkaian tersebut.
+  - Skip Tutorial tidak mengunci atau menyembunyikan fitur gameplay. Pemain tetap dapat menggunakan Inventory, bertani, mendekorasi, dan mengakses seluruh fitur yang tersedia secara normal.
+  - Jika pemain memilih Mulai Bertani atau Mulai Mendekorasi, jalankan panduan jalur yang dipilih sesuai D-025. Onboarding selesai setelah satu tindakan kreatif berhasil.
+  - Sediakan opsi **Mulai Ulang Tutorial** pada menu Pengaturan. Saat dipilih, tutorial dimulai kembali dari tahap pengenalan Inventory, kemudian berlanjut ke panel pilihan aktivitas dan panduan jalur.
+  - Mulai Ulang Tutorial tidak mengulang pesan sambutan D-026. Pesan sambutan tetap hanya menjadi bagian dari kedatangan pertama pemain.
+  - Memulai ulang tutorial hanya mengulang state/panduan onboarding. Tidak boleh mereset atau mengubah Life Coin, inventori, Starter Kit, objek yang telah ditempatkan, tanaman, atau progres gameplay pemain.
+  - Setelah tutorial selesai atau dilewati, pemain dapat memulainya kembali secara manual melalui Pengaturan.
+  - Perilaku penyimpanan dan pemulihan state tutorial ketika pemain disconnect atau keluar di tengah tutorial masih perlu dirinci dalam spec; D-032 tidak menetapkan aturan sesi tersebut.
+- Alternatif yang ditolak: Menggunakan tombol "Nanti saja" yang menyiratkan panel akan muncul lagi otomatis; menjadikan panel pilihan aktivitas sebagai fitur permanen; atau mengulang pesan sambutan saat tutorial dimulai ulang.
+- Dampak:
+  - D-032 melengkapi D-025 dan alur First Visit; tidak menggantikan D-025, D-026, atau D-027.
+  - PLAYER_JOURNEY.md dan GDD diperbarui untuk membedakan penyelesaian tutorial, skip, dan restart manual.
+  - Menu Pengaturan membutuhkan entri **Mulai Ulang Tutorial**.
+  - Tidak ada perubahan pada Starter Kit, inventori, ekonomi, atau akses gameplay.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-031 · Durasi standar episode cuaca non-Sunny
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
