@@ -52,9 +52,10 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Seed Extractor mengorbankan satu tanaman untuk menghasilkan benih.
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
 - Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
+- Mutasi akibat banjir dihitung independen per buah. Peluangnya 5% per 2 menit pada WaterLevel 4,00-4,99 dan 5% per 1 menit pada WaterLevel 5,00; setiap buah hanya dapat memperoleh mutasi banjir satu kali. Setelah berhasil, buah tidak lagi mengikuti roll mutasi banjir berikutnya (D-019, D-020, D-021).
 - Pupuk dari Starter Kit direncanakan mempercepat pertumbuhan, tetapi aturan penggunaan dan efek numeriknya belum diputuskan.
 
-Radius area, batas maksimum bonus pertumbuhan, rentang air ideal tiap tanaman, laju pengeringan alami saat cuaca panas/Summer, radius Soil Aerator dan Sprinkler, bonus ukuran buah, peluang dan aturan akumulasi paparan mutasi buah saat level air berubah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
+Radius area, batas maksimum bonus pertumbuhan, rentang air ideal tiap tanaman, laju pengeringan alami saat cuaca panas/Summer, radius Soil Aerator dan Sprinkler, bonus ukuran buah, aturan akumulasi sisa paparan mutasi saat level air berubah, hasil Seed Extractor, dan efek cairan Plant Sprayer masih BELUM DIPUTUSKAN. Detail tersebut tidak boleh ditebak saat implementasi.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
 
 Pengalaman 5 menit pertama harus mengutamakan pemain bisa memahami plot, menempatkan atau memperoleh objek kebun, dan mulai mengekspresikan gaya kebunnya. Target waktu numerik **BELUM DIPUTUSKAN**.
