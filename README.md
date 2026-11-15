@@ -88,7 +88,7 @@ Greenhouse (kapasitas konsep 18 tanaman), 5 tier pupuk, 4 musim, efek cuaca, Wat
 
 | Dokumen | Fungsi |
 |---|---|
-| [GDD](docs/02_GAME_DESIGN_DOCUMENT.md) | Visi, core loop, sistem, ekonomi, dunia, dan scope |
+| [Roadmap](docs/ROADMAP.md) | Peta fase proyek, master system checklist, dependensi, risiko, dan scope yang masih terbuka |\n| [GDD](docs/02_GAME_DESIGN_DOCUMENT.md) | Visi, core loop, sistem, ekonomi, dunia, dan scope |
 | [DECISIONS](docs/DECISIONS.md) | Log keputusan yang disetujui; hanya ditambah, tidak menghapus |
 | [HANDOFF](docs/HANDOFF.md) | Status kerja dan serah-terima ChatGPT ↔ Claude |
 | [Concept Backlog](docs/design/CONCEPT_BACKLOG.md) | Ide terdahulu, status, dan pertanyaan desain |
