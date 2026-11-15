@@ -34,7 +34,9 @@ Loop konseptual utama:
 7. Menggunakan Life Coin untuk membuka ruang, membeli tile, tanaman, atau dekorasi.
 8. Kembali menata kebun sesuai kreativitas pemain.
 
-**Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan.\n\n**Starter Kit (D-009):** Pemain baru menerima Starter Kit gratis sebagai item inventori. Item tidak otomatis ditempatkan di plot. Jenis item, jumlah, waktu pemberian, dan aturan perolehan ulang masih BELUM DIPUTUSKAN.
+**Kondisi awal plot (D-008):** Saat pertama kali dimasuki, plot tidak memiliki dekorasi, bangunan, atau tanaman yang sudah ditempatkan.
+
+**Starter Kit (D-009 dan D-010):** Pemain baru menerima Starter Kit gratis sebagai item inventori dan item tidak otomatis ditempatkan di plot. Komposisi kit telah ditetapkan: 1 Shovel permanen, 10 Watering Can, 1 Pupuk, 2 Farm Tile, 1 Trowel permanen, 10 Benih Wortel, 1 Kursi Kayu, dan 1 Lampu Taman. Shovel menghapus tanaman; Trowel memindahkan tanaman. Detail kapasitas/refill Watering Can, efek/penggunaan Pupuk, waktu pemberian, serta aturan pemberian ulang masih BELUM DIPUTUSKAN.
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 **Catatan:** Langkah jual, detail pertumbuhan tanaman, dan daftar sumber/penguras uang masih perlu dirancang. Jangan mengimplementasikan detail yang belum memiliki spec.
