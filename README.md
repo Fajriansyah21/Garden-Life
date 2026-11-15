@@ -78,10 +78,10 @@ Greenhouse (kapasitas konsep 18 tanaman), 5 tier pupuk, 4 musim, efek cuaca, Wat
 
 - Fase: **0 Discovery**, menuju Fase 1 Konsep & GDD.
 - Gameplay: belum ada implementasi.
-- GDD: v1.6.
+- GDD: v1.7.
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v11).
-- Log keputusan: D-001 sampai D-023; keputusan yang digantikan tetap tercatat sebagai riwayat.
+- Log keputusan: D-001 sampai D-024; keputusan yang digantikan tetap tercatat sebagai riwayat.
 - Tidak ada spec yang berstatus `READY`; hanya pemilik yang dapat menyetujui status tersebut.
 
 ## Dokumen utama
@@ -90,6 +90,7 @@ Greenhouse (kapasitas konsep 18 tanaman), 5 tier pupuk, 4 musim, efek cuaca, Wat
 |---|---|
 | [Roadmap](docs/ROADMAP.md) | Peta fase proyek, master system checklist, dependensi, risiko, dan scope yang masih terbuka |
 | [GDD](docs/02_GAME_DESIGN_DOCUMENT.md) | Visi, core loop, sistem, ekonomi, dunia, dan scope |
+| [Player Journey](docs/design/PLAYER_JOURNEY.md) | Perjalanan pengalaman pemain dari First Visit hingga Established Garden |
 | [DECISIONS](docs/DECISIONS.md) | Log keputusan yang disetujui; hanya ditambah, tidak menghapus |
 | [HANDOFF](docs/HANDOFF.md) | Status kerja dan serah-terima ChatGPT ↔ Claude |
 | [Concept Backlog](docs/design/CONCEPT_BACKLOG.md) | Ide terdahulu, status, dan pertanyaan desain |
