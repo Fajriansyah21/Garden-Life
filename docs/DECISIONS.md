@@ -86,7 +86,7 @@ Entri terbaru di paling atas.
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
 - Status: Aktif
-- Menggantikan: D-017 untuk representasi skala dan nilai perubahan WaterLevel. Ketentuan level 4/5 sebagai kondisi berbahaya dan pemulihan saat keluar dari rentang berbahaya tetap dipertahankan dengan penyesuaian numerik.
+- Menggantikan: D-017 untuk representasi skala dan nilai perubahan WaterLevel, serta D-016 untuk durasi Soil Aerator. Ketentuan level 4/5 sebagai kondisi berbahaya tetap dipertahankan dengan penyesuaian numerik.
 - Konteks: Nilai penyiraman dan pengeringan membutuhkan perubahan pecahan, sehingga WaterLevel integer 0-5 tidak lagi memadai.
 - Keputusan:
   - WaterLevel memiliki rentang 0,00 sampai 5,00 dan presisi 0,01. Rekomendasi implementasi: simpan sebagai integer 0-500 dalam satuan seperseratus untuk menghindari galat floating point.
