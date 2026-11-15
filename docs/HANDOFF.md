@@ -1,5 +1,33 @@
 ## 15 November 2026 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan D-018 untuk menggantikan representasi integer D-017 dengan WaterLevel 0,00-5,00 berpresisi 0,01.
+  - Label level 0-5 ditetapkan: Kering, Tanah sedikit basah, Tanah lumayan basah, Tanah Basah (rekomendasi), Tanah terlalu basah, dan Tanah kebanjiran.
+  - Tick sistem ditetapkan 30 detik; Watering Can +0,50 per penggunaan; Sprinkler +0,15 per tick selama 10 menit; Soil Aerator -0,50 per tick selama 2,5 menit.
+  - Tanaman mati setelah WaterLevel >=4,00 berlangsung terus-menerus selama 15 menit; Billboard Alert muncul di atas tanaman.
+  - Pengeringan alami dipicu cuaca panas atau musim Summer.
+  - FEAT-002 diperbarui ke v8 (DRAFT), GDD dan README diselaraskan.
+- File diubah:
+  - README.md
+  - docs/DECISIONS.md
+  - docs/design/FEAT-002_tools_perawatan_tanaman.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Radius Watering Can, Sprinkler, dan Soil Aerator.
+  - Laju dan interval pengeringan alami saat cuaca panas/Summer.
+  - Aturan teknis peluang mutasi buah: apakah 5%/2 menit dan 25%/1 menit merupakan roll independen per buah per interval; bagaimana sisa waktu paparan diperlakukan saat level berubah; dan apakah mutasi bisa terjadi lebih dari sekali pada buah yang sama.
+  - Batas zona Soil Aerator aktif per plot dan aturan overlap.
+  - Cap bonus pertumbuhan penyiraman, rentang ideal air tiap tanaman, bonus ukuran buah Sprinkler, serta detail tools lain.
+- Asumsi / risiko:
+  - Interpretasi sementara untuk mutasi: peluang 5% dan 25% dicatat sebagai peluang berbasis interval paparan, tetapi unit roll dan persistensi waktu paparan belum diputuskan; jangan implementasikan dengan menebak.
+  - Rekomendasi penyimpanan WaterLevel sebagai integer 0-500 adalah representasi teknis untuk presisi 0,01, bukan perubahan tampilan skala 0-5.
+  - Jadwal tick Soil Aerator mencakup tick kelima tepat pada detik ke-150 sebelum zona ditutup; engineer perlu mempertahankan urutan ini.
+  - Radius dan laju pengeringan alami tetap belum diputuskan.
+  - Tidak ada perubahan kode.
+
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan WaterLevel menggunakan skala integer 0-5 (D-017).
   - Level 4 berarti Overwatered dan level 5 berarti Flooded.
   - Turun dari level 5 ke 4 tidak memulihkan tanaman; pemulihan hanya terjadi saat WaterLevel turun ke 3 atau lebih rendah.
