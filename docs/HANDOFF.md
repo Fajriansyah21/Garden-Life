@@ -1,5 +1,25 @@
 # HANDOFF · Catatan Serah-Terima
 
+## 15 November 2026 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik memilih kondisi awal plot **A: Kebun Kosong**.
+  - D-008 mencatat bahwa plot pertama kali dimasuki tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan.
+  - GDD diperbarui ke v0.7 untuk mencatat kondisi awal plot dan dampaknya pada core loop.
+- File diubah:
+  - docs/DECISIONS.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Apa isi starter inventory pemain?
+  - Apakah tutorial memberi item gratis, Life Coin, atau keduanya?
+  - Bagaimana cara pemain memperoleh objek/dekorasi pertamanya?
+- Asumsi / risiko:
+  - Plot kosong hanya menetapkan tidak adanya objek yang sudah ditempatkan; tidak menetapkan inventori awal.
+  - Jangan menganggap saldo awal 1.000 Life Coin otomatis cukup untuk membeli item tertentu sebelum harga toko ditetapkan.
+
+---
+
 Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan satu blok handoff.
 
 ## 15 November 2026 · ChatGPT -> Claude
@@ -58,10 +78,11 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 ---
 
 ## Status saat ini
-- Fase: 0 Discovery (visi utama sudah dikonfirmasi; exit criteria Discovery belum seluruhnya terpenuhi)
+- Fase: 0 Discovery, bergerak menuju Fase 1 Konsep & GDD (exit criteria Discovery belum seluruhnya terpenuhi)
 - Fitur aktif: belum ada implementasi gameplay.
 - Spec READY menunggu dikerjakan: belum ada.
 - Arah utama: pengalaman santai membangun dan mendekorasi kebun; manajemen dan ekonomi ringan sebagai pendukung.
+- Kondisi awal plot: kosong tanpa dekorasi, bangunan, atau tanaman yang sudah ditempatkan (D-008). Starter inventory dan hadiah tutorial belum diputuskan.
 - Dokumen desain: GDD v0.6; keputusan D-002 sampai D-007 telah dicatat (D-001 mengatur repo sebagai sumber kebenaran).
 - Spec Build Mode: FEAT-001 berstatus DRAFT.
 - Placement: Hybrid Placement dikonfirmasi; tile memakai grid 5×5, dekorasi/bangunan/tanaman memakai free placement, Snap to Grid opsional, rotasi 90°.
