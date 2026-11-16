@@ -3,7 +3,7 @@
   - Menambahkan D-038 untuk aturan konsep Thunderstorm, sambaran petir, Mutation Shocked/Charged, risiko kerusakan tanaman, Lightning Rod, dan Thunderstorm Relief.
   - Thunderstorm melakukan roll sambaran 1% per plot per tick selama 20 tick/10 menit, maksimal 5 sambaran per plot per episode.
   - Area dampak sambaran radius 8 studs; Lightning Rod radius 24 studs dengan peluang pengalihan 50% dan durabilitas 3 sambaran berhasil dialihkan.
-  - Thunderstorm Relief radius 20 studs, maksimal 3 stack, pengurangan risiko gosong/mati 5 poin persentase per stack, dan durabilitas tiap item 3 sambaran yang dilindungi secara berurutan. Tiga item memberi hingga 9 sambaran perlindungan dengan kekuatan yang menurun setelah tiap item habis.
+  - Thunderstorm Relief radius 20 studs, maksimal 3 stack, pengurangan risiko gosong/mati 5 poin persentase per stack, dan durabilitas tiap item 3 sambaran secara independen. Setiap sambaran mengurangi durabilitas semua Relief yang area lingkarannya mencakup titik sambaran; jika dua area terkena, kedua item masing-masing berkurang 1.
   - Tanaman tersambar memperoleh Shocked 100% pada seluruh buah dan setiap buah melakukan roll Charged 15%. Hasil kondisi tanaman saling eksklusif: 60% tidak rusak, 25% gosong, 15% mati.
   - WaterLevel dan tambahan waktu pertumbuhan mengikuti Rainy: +0,075 WaterLevel per tick dan +20% waktu tumbuh.
   - GDD diperbarui ke v2.6; README dan Concept Backlog diselaraskan.
@@ -24,7 +24,7 @@
 - Asumsi / risiko:
   - Peluang sambaran 1% per plot per tick menghasilkan peluang sekitar 18,21% untuk setidaknya satu sambaran dalam 20 tick dan rata-rata teoritis 0,2 sambaran per plot per episode.
   - Risiko kerusakan dihitung sebagai hasil saling eksklusif; nilai dasar 60% tidak rusak, 25% gosong, dan 15% mati.
-  - Durabilitas Thunderstorm Relief dikonsumsi berurutan antar-item agar tiga item memberikan total hingga 9 sambaran perlindungan; efek stack turun 15, 10, 5, lalu 0 poin persentase.
+  - Durabilitas Thunderstorm Relief dihitung per item dan berkurang untuk setiap sambaran yang titik dampaknya berada dalam area item tersebut. Area yang tumpang tindih menyebabkan setiap item yang terkena kehilangan 1 durabilitas pada sambaran yang sama.
   - Detail ekonomi Mutation, pupuk dari tanaman mati, dan revive Robux belum dapat dihitung.
   - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk First Release/Vertical Slice.
   - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
