@@ -1,3 +1,31 @@
+## 2026-11-16 · ChatGPT -> Claude
+- Selesai:
+  - Menambahkan D-036 untuk cuaca Windy: angin sepoi-sepoi, WaterLevel -0,005 setiap 2 tick (60 detik), dengan batas minimum 0,000.
+  - Windy menerapkan multiplier laju pertumbuhan 1,5x pada seluruh tanaman dan pertumbuhan buah; durasi dasar tanaman tidak diubah permanen.
+  - Windy tidak menghasilkan Mutation.
+  - GDD diperbarui ke v2.4 dan Concept Backlog diselaraskan. README diperbarui sampai D-036.
+- File diubah:
+  - docs/DECISIONS.md (D-036)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.4)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Detail Misty dan Thunderstorm.
+  - Peluang/distribusi cuaca dan aturan transisi lengkap.
+  - Modifier cuaca pada tanaman yang baru ditanam ketika episode sedang berlangsung.
+  - Detail UI menu informasi tanaman dan status "Sudah Disiram" saat cuaca basah.
+  - Multiplier harga dan tampilan Mutation Wet/Flooded.
+  - Akumulasi sisa waktu paparan ketika WaterLevel berpindah antara 4,00-4,99 dan 5,00.
+- Asumsi / risiko:
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk scope First Release/Vertical Slice.
+  - Pengurangan WaterLevel Windy membantu pemulihan tanah basah; percepatan pertumbuhan berpotensi meningkatkan frekuensi panen dan perlu dievaluasi bersama ekonomi tanaman.
+  - Efek cuaca dan pertumbuhan harus server-authoritative jika kelak diimplementasikan.
+  - Tidak ada perubahan kode. Tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
 ## 2026-11-15 · ChatGPT -> Claude
 - Selesai:
   - Menambahkan D-033: WaterLevel memakai presisi internal 0,001 (integer 0-5000), sementara UI tetap menampilkan dua angka desimal. Nilai +0,075 Rainy dipertahankan tanpa pembulatan per tick; 20 tick menghasilkan +1,500.
