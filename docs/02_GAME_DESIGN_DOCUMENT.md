@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 2.4 · **Terakhir diubah:** 2026-11-16
+**Versi:** 2.5 · **Terakhir diubah:** 2026-11-16
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -57,10 +57,11 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - **Rainy** memiliki hujan sedang hingga deras, tetapi tetap tenang, sejuk, dan sedikit sendu. WaterLevel tanaman yang terkena efek bertambah 0,075 setiap tick. Setiap buah eligible memiliki peluang 5% per tick untuk memperoleh Mutation Wet; buah yang sudah memiliki Wet memiliki peluang 2,5% per tick untuk berevolusi menjadi Flooded. Evolusi berhasil menggantikan Wet, sehingga Wet tidak lagi tercatat dan multiplier Wet tidak lagi berlaku. Seluruh tanaman menerima tambahan waktu pertumbuhan 20%; Rainy tidak memberikan bonus atau percepatan pertumbuhan (D-034).
 - Mutation Flooded dari evolusi Wet selama Rainy adalah Mutation yang sama dengan Flooded dari WaterLevel tinggi. Pada WaterLevel 4,00-4,99, peluang Flooded adalah 2,5% per interval paparan 2 menit; pada WaterLevel 5,00, peluangnya 2,5% per interval 1 menit. Satu buah hanya dapat memperoleh Flooded satu kali dari salah satu jalur tersebut (D-035). D-019 dan D-020 tetap menjadi riwayat, bukan nilai peluang aktif.
 - **Windy** adalah angin sepoi-sepoi. Selama episode berlangsung, WaterLevel tanaman yang terkena efek berkurang 0,005 setiap 2 tick (60 detik), dengan batas minimum 0,000. Kecepatan seluruh proses pertumbuhan tanaman dan pertumbuhan buah menjadi 1,5x dari kecepatan normal 1,0x. Bonus berlaku untuk semua tanaman tanpa pengecualian klasifikasi sinar matahari. Windy tidak menghasilkan Mutation (D-036).
+- **Misty** menerapkan kenaikan WaterLevel +0,25 satu kali pada awal episode, mengikuti Cloudy. Seluruh tanaman menerima tambahan waktu pertumbuhan 15%, mengikuti Drizzle, tanpa bonus atau percepatan pertumbuhan. Setiap buah yang belum memiliki Misty melakukan roll Mutation Misty 6,697% per tick; peluang kumulatifnya sekitar 75% setelah 20 roll independen. Buah yang sudah memiliki Misty melakukan roll evolusi menuju Foggy sebesar 0,809% per tick. Peluang tersebut setara sekitar 15% setelah 20 roll evolusi eligible. Karena roll Foggy baru dimulai setelah Misty diperoleh, jumlah roll aktual dapat kurang dari 20. Jika evolusi berhasil, Foggy menggantikan Misty dan Misty tidak lagi tercatat pada buah (D-037).
 - WaterLevel disimpan dengan presisi internal 0,001 (integer 0-5000), sedangkan UI menampilkan 2 angka desimal. Penambahan Rainy +0,075 tidak dibulatkan per tick; 20 tick menghasilkan total +1,500 sebelum clamp maksimum 5,000 (D-033).
 - Setiap cuaca selain Sunny berlangsung selama 20 tick (600 detik/10 menit). Satu tick berdurasi 30 detik. Sunny dikecualikan dan durasinya masih BELUM DIPUTUSKAN (D-031).
-- Multiplier harga dan tampilan Mutation Wet/Flooded, urutan roll Wet dan evolusi Wet→Flooded dalam tick yang sama, serta penerapan modifier Drizzle/Rainy pada tanaman yang baru ditanam ketika episode sedang berjalan masih BELUM DIPUTUSKAN.
-- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Misty dan Thunderstorm masih BELUM DIPUTUSKAN.
+- Multiplier harga dan tampilan Mutation Wet/Flooded/Misty/Foggy, urutan roll Wet dan evolusi Wet→Flooded dalam tick yang sama, serta penerapan modifier cuaca pada tanaman yang baru ditanam ketika episode sedang berjalan masih BELUM DIPUTUSKAN.
+- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Thunderstorm masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
