@@ -1,3 +1,28 @@
+### D-037 · Aturan gameplay cuaca Misty dan evolusi Foggy
+- Tanggal: 2026-11-16
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Misty perlu memiliki identitas gameplay berbasis Mutation yang berbeda dari cuaca hujan, dengan Foggy sebagai evolusi langka dari Misty.
+- Keputusan:
+  - Selama Misty, WaterLevel setiap tanaman yang terkena efek cuaca bertambah **0,25 satu kali saat episode Misty dimulai**, mengikuti aturan Cloudy. Tidak ada penambahan WaterLevel berkala selama episode.
+  - Seluruh tanaman menerima tambahan waktu pertumbuhan **15%** selama Misty, mengikuti modifier pertumbuhan Drizzle. Misty tidak memberikan bonus atau percepatan pertumbuhan.
+  - Setiap tick, setiap buah eligible yang **belum memiliki Mutation Misty** melakukan roll secara independen untuk memperoleh Mutation **Misty** dengan peluang **6,697% per buah per tick**.
+  - Peluang 6,697% menghasilkan peluang kumulatif sekitar **75%** setelah 20 roll independen pada satu buah yang eligible sepanjang episode penuh.
+  - Setiap tick, setiap buah yang **sudah memiliki Mutation Misty dan belum memiliki Foggy** melakukan roll evolusi secara independen dengan peluang **0,809% per buah per tick** untuk berevolusi menjadi Mutation **Foggy**.
+  - Peluang 0,809% menghasilkan peluang kumulatif sekitar **15% setelah 20 roll evolusi eligible**. Karena buah baru eligible setelah memperoleh Misty, jumlah roll evolusi aktual dalam satu episode dapat kurang dari 20; peluang Foggy aktual per episode karena itu bergantung pada tick saat Misty diperoleh.
+  - Jika evolusi berhasil, Mutation Misty **digantikan** oleh Mutation Foggy. Misty tidak lagi tercatat pada buah tersebut dan multiplier Misty tidak lagi berlaku; multiplier Foggy masih BELUM DIPUTUSKAN.
+  - Roll Mutation Misty dan evolusi Misty→Foggy dilakukan independen per buah. Buah yang telah memiliki Misty tidak lagi melakukan roll Misty; buah yang telah berevolusi menjadi Foggy tidak lagi melakukan roll evolusi.
+  - Tick Misty mengikuti interval 30 detik dan durasi cuaca non-Sunny mengikuti D-031, yaitu 20 tick / 10 menit.
+  - Aturan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menumpuk Misty dan Foggy pada buah yang sama setelah evolusi; Foggy dipilih sebagai evolusi yang menggantikan Mutation asal agar status evolusi tetap tunggal dan jelas.
+- Dampak:
+  - Sistem cuaca perlu menjalankan roll Misty per buah yang belum memiliki Misty dan roll evolusi Foggy hanya pada buah yang telah memiliki Misty.
+  - Sistem Mutation perlu mengganti status Misty menjadi Foggy ketika evolusi berhasil, bukan menyimpan keduanya.
+  - Sistem WaterLevel perlu menerapkan kenaikan satu kali +0,25 pada awal episode Misty.
+  - Sistem pertumbuhan perlu menerapkan tambahan waktu 15% untuk seluruh tanaman selama Misty.
+  - Multiplier harga dan tampilan visual Mutation Misty/Foggy masih belum ditentukan; dampak ekonomi belum dapat dihitung.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-036 · Aturan gameplay cuaca Windy
 - Tanggal: 2026-11-16
 - Diputuskan oleh: Pemilik proyek
