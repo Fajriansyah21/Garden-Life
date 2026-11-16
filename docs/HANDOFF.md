@@ -1,5 +1,36 @@
 ## 2026-11-16 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-037 untuk cuaca Misty dan evolusi Mutation Foggy.
+  - Misty menambah WaterLevel +0,25 satu kali pada awal episode dan menambah waktu pertumbuhan seluruh tanaman 15%.
+  - Peluang Mutation Misty ditetapkan 6,697% per buah eligible per tick, setara sekitar 75% setelah 20 roll independen.
+  - Buah yang sudah memiliki Misty melakukan roll evolusi Foggy sebesar 0,809% per tick eligible, setara sekitar 15% setelah 20 roll evolusi eligible.
+  - Foggy menggantikan Misty saat evolusi berhasil.
+  - GDD diperbarui ke v2.5; README dan Concept Backlog diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-037)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.5)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Tampilan visual serta multiplier harga Mutation Misty dan Foggy.
+  - Detail Thunderstorm.
+  - Peluang/distribusi cuaca dan aturan transisi lengkap.
+  - Modifier cuaca pada tanaman yang baru ditanam ketika episode sedang berlangsung.
+  - Multiplier harga dan tampilan Mutation Wet/Flooded.
+  - Akumulasi sisa waktu paparan ketika WaterLevel berpindah antara 4,00-4,99 dan 5,00.
+- Asumsi / risiko:
+  - Peluang kumulatif Foggy sebesar 15% dihitung atas 20 roll evolusi yang eligible. Karena roll evolusi baru tersedia setelah Misty diperoleh, peluang aktual Foggy dalam satu episode Misty dapat lebih rendah dari 15%.
+  - Multiplier Mutation belum ditetapkan, sehingga dampak ekonomi Misty/Foggy belum dapat dihitung.
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk scope First Release/Vertical Slice.
+  - Efek cuaca dan pertumbuhan harus server-authoritative jika kelak diimplementasikan.
+  - Tidak ada perubahan kode. Tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
+## 2026-11-16 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-036 untuk cuaca Windy: angin sepoi-sepoi, WaterLevel -0,005 setiap 2 tick (60 detik), dengan batas minimum 0,000.
   - Windy menerapkan multiplier laju pertumbuhan 1,5x pada seluruh tanaman dan pertumbuhan buah; durasi dasar tanaman tidak diubah permanen.
   - Windy tidak menghasilkan Mutation.
