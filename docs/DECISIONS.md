@@ -1,3 +1,26 @@
+### D-036 · Aturan gameplay cuaca Windy
+- Tanggal: 2026-11-16
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Windy perlu menjadi cuaca ringan yang mendukung perawatan dan pertumbuhan tanaman tanpa menambahkan tekanan atau Mutation.
+- Keputusan:
+  - Windy digambarkan sebagai **angin sepoi-sepoi**, bukan angin kencang.
+  - Selama Windy, WaterLevel setiap tanaman yang terkena efek cuaca berkurang **0,005 setiap 2 tick**. Satu tick berdurasi 30 detik berdasarkan D-018, sehingga pengurangan terjadi setiap 60 detik.
+  - WaterLevel tidak boleh turun di bawah **0,000**. Perhitungan mengikuti presisi internal 0,001 dari D-033.
+  - Selama Windy, kecepatan seluruh proses pertumbuhan tanaman dan pertumbuhan buah menjadi **1,5x** dari kecepatan normal (1,0x). Ini adalah multiplier laju pertumbuhan, bukan perubahan permanen pada durasi dasar tanaman.
+  - Bonus kecepatan 1,5x berlaku untuk **semua tanaman**, tanpa pengecualian berdasarkan kebutuhan sinar matahari.
+  - Windy **tidak menghasilkan Mutation**.
+  - Durasi Windy mengikuti aturan cuaca non-Sunny pada D-031, yaitu 20 tick / 10 menit.
+  - Aturan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menggambarkan Windy sebagai angin kencang; memberi efek pertumbuhan hanya pada klasifikasi tanaman tertentu; atau menghasilkan Mutation dari Windy.
+- Dampak:
+  - Sistem WaterLevel perlu mengurangi nilai sebesar 0,005 pada interval dua tick selama Windy, dengan batas minimum 0,000.
+  - Sistem pertumbuhan perlu menerapkan multiplier laju 1,5x pada seluruh tanaman dan proses pertumbuhan buah selama episode Windy.
+  - Windy tidak menambah jalur perolehan Mutation dan tidak menambah multiplier harga buah.
+  - Pengurangan WaterLevel dapat membantu mengurangi risiko overwatering, sementara percepatan pertumbuhan dapat meningkatkan frekuensi panen. Dampak ekonomi perlu dievaluasi setelah data tanaman, harga jual, dan durasi pertumbuhan ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+
 ### D-032 · Skip Tutorial dan mulai ulang tutorial dari Pengaturan
 - Tanggal: 2026-11-15
 - Diputuskan oleh: Pemilik proyek
