@@ -1,3 +1,43 @@
+### D-038 · Aturan gameplay Thunderstorm, sambaran petir, dan item perlindungan
+- Tanggal: 2026-11-16
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Thunderstorm menjadi cuaca Spring yang jarang menimbulkan sambaran di plot pemain, memberi peluang Mutation eksklusif, tetapi membawa risiko kerusakan tanaman yang dapat dikurangi melalui item perlindungan.
+- Keputusan:
+  - Thunderstorm mengikuti durasi cuaca non-Sunny pada D-031, yaitu **20 tick / 10 menit**, dengan satu tick setiap **30 detik**.
+  - Pada setiap tick Thunderstorm, setiap plot melakukan roll sambaran secara independen dengan peluang **1% per plot per tick**.
+  - Maksimal terjadi **5 sambaran per plot dalam satu episode Thunderstorm**. Batas ini menghitung seluruh kejadian sambaran, termasuk sambaran yang berhasil dialihkan oleh Lightning Rod.
+  - Dengan 20 roll independen pada peluang 1%, peluang satu plot mengalami setidaknya satu sambaran dalam satu episode adalah sekitar **18,21%** sebelum memperhitungkan batas maksimum; jumlah sambaran rata-rata teoritis adalah **0,2 per episode**.
+  - Titik sambaran ditentukan secara acak di dalam plot. Area dampak setiap sambaran berbentuk lingkaran dengan radius **8 studs**. Hanya tanaman yang berada di dalam area dampak yang terkena efek sambaran.
+  - Setiap buah pada tanaman yang terkena sambaran memperoleh Mutation **Shocked** dengan peluang **100%** dan melakukan roll Mutation **Charged** secara independen dengan peluang **15%**. Shocked dan Charged dapat dimiliki bersamaan pada buah yang sama sesuai D-022. Multiplier harga dan tampilan kedua Mutation masih BELUM DIPUTUSKAN.
+  - Hasil kondisi tanaman akibat satu sambaran bersifat saling eksklusif: **60% tidak mengalami kerusakan**, **25% menjadi gosong**, dan **15% mati**.
+  - Tanaman gosong masih dapat dirawat, tetapi penalti dan durasi efeknya masih BELUM DIPUTUSKAN.
+  - Tanaman mati tidak dapat dipulihkan melalui perawatan biasa. Pemain dapat membuangnya, mengolahnya menjadi pupuk, atau memilih opsi revive menggunakan Robux. Harga Robux, hasil pupuk, dan aturan revive masih BELUM DIPUTUSKAN.
+  - WaterLevel selama Thunderstorm bertambah **0,075 per tick**, mengikuti Rainy pada D-034 dan presisi D-033.
+  - Seluruh tanaman menerima tambahan waktu pertumbuhan **20%** selama Thunderstorm, mengikuti Rainy pada D-034. Thunderstorm tidak memberikan bonus atau percepatan pertumbuhan.
+  - **Lightning Rod** memiliki area berbentuk lingkaran dengan radius **24 studs**. Setiap kejadian sambaran yang titiknya berada dalam area tersebut memiliki peluang **50%** untuk dialihkan ke Lightning Rod. Satu Lightning Rod dapat menahan maksimal **3 sambaran yang berhasil dialihkan**, lalu habis/tidak lagi memberi perlindungan. Sambaran yang dialihkan tetap dihitung terhadap batas 5 sambaran per plot per episode.
+  - **Thunderstorm Relief** memiliki area berbentuk lingkaran dengan radius **20 studs**. Tanaman di dalam area menerima pengurangan peluang gosong sebesar **5 poin persentase** dan pengurangan peluang mati sebesar **5 poin persentase** per stack aktif.
+  - Thunderstorm Relief dapat ditumpuk maksimal **3 item** pada area yang sama. Tiga stack aktif menurunkan peluang gosong dari 25% menjadi 10% dan peluang mati dari 15% menjadi 0%; peluang tidak rusak menjadi 90%.
+  - Setiap Thunderstorm Relief memiliki durabilitas **3 sambaran yang dilindungi** secara individual. Durabilitas dikonsumsi berurutan: satu item menyerap 3 sambaran terlebih dahulu, kemudian item berikutnya. Setelah satu item habis, pengurangan risiko turun sesuai jumlah stack yang masih aktif (15, 10, 5, lalu 0 poin persentase). Hanya sambaran dengan titik dampak di dalam area Relief yang mengonsumsi durabilitas.
+  - Efek perlindungan berlaku pada tanaman yang berada di dalam area lingkaran masing-masing item. Tanaman di luar area tidak menerima efeknya.
+  - Aturan ini merupakan rancangan konsep dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Membuat Thunderstorm sebagai cuaca yang sering menyambar; memberi efek kerusakan seluruh plot; atau menjadikan risiko gosong dan mati dapat terjadi bersamaan pada satu hasil sambaran.
+- Dampak:
+  - Sistem cuaca perlu menjalankan roll sambaran independen per plot setiap tick Thunderstorm dan membatasi total kejadian per plot per episode menjadi 5.
+  - Sistem sambaran perlu menentukan titik dampak acak, menghitung tanaman dalam radius 8 studs, lalu memproses pengalihan Lightning Rod dan perlindungan Thunderstorm Relief.
+  - Sistem Mutation perlu memberikan Shocked kepada seluruh buah pada tanaman yang terkena dan melakukan roll Charged 15% per buah.
+  - Sistem kondisi tanaman perlu memilih tepat satu hasil dari tidak rusak/gosong/mati sesuai peluang yang ditetapkan dan menghitung pengurangan risiko dari Relief aktif.
+  - Thunderstorm Relief menambahkan mekanisme perlindungan area dan durabilitas item; Lightning Rod menambahkan mekanisme pengalihan sambaran.
+  - Mutation dan opsi revive Robux berpotensi memengaruhi ekonomi/monetisasi. Multiplier Mutation, penalti gosong, hasil pupuk, dan harga revive belum ditetapkan sehingga dampak ekonomi final belum dapat dihitung.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Perilaku beberapa Lightning Rod dengan area tumpang tindih: urutan roll pengalihan atau pemilihan satu rod.
+  - Penalti dan durasi status gosong.
+  - Detail pemulihan tanaman gosong, hasil konversi tanaman mati menjadi pupuk, dan harga/aturan revive Robux.
+  - Multiplier harga dan tampilan visual Mutation Shocked/Charged.
+  - Aturan penanaman tanaman baru saat Thunderstorm sedang berlangsung.
+  - Peluang kemunculan Thunderstorm dalam distribusi cuaca Spring dan aturan transisinya.
+
 ### D-037 · Aturan gameplay cuaca Misty dan evolusi Foggy
 - Tanggal: 2026-11-16
 - Diputuskan oleh: Pemilik proyek
