@@ -1,3 +1,32 @@
+### D-039 · Status Scorched dan penalti hasil buah
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Tanaman yang terkena hasil kerusakan gosong dari Thunderstorm perlu memiliki identitas visual, penalti hasil panen, dan jalur pemulihan yang jelas.
+- Keputusan:
+  - Tanaman dengan kondisi **Scorched** ditampilkan berwarna hitam seperti tanaman yang hangus terbakar.
+  - Tanaman Scorched hanya menghasilkan **50% dari jumlah buah normal** pada setiap hasil panen selama status tersebut aktif.
+  - Jumlah buah hasil panen Scorched dihitung dengan rumus: `floor(jumlah_buah_normal × 0,5)`. Hasil selalu dibulatkan ke bawah ke bilangan bulat.
+  - Jika jumlah buah normal adalah 1, tanaman Scorched menghasilkan **0 buah**.
+  - Status Scorched tidak memiliki batas waktu dan tidak pulih secara otomatis.
+  - Satu-satunya cara menghilangkan status Scorched adalah menggunakan item **Vitamin**.
+  - Jumlah Vitamin yang dibutuhkan, aturan konsumsi item, target penggunaan, animasi/UI, dan detail efek pemulihan masih BELUM DIPUTUSKAN.
+  - Aturan ini merupakan rancangan konsep Thunderstorm dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Membatasi penalti berdasarkan timer atau memulihkan Scorched secara otomatis; membulatkan hasil buah ke atas; atau menjamin minimal satu buah untuk tanaman yang normalnya menghasilkan satu buah.
+- Dampak:
+  - Sistem panen perlu menerapkan hasil 50% dengan pembulatan ke bawah pada tanaman berstatus Scorched.
+  - Sistem kondisi tanaman perlu mempertahankan Scorched sampai item Vitamin berhasil digunakan.
+  - Visual tanaman perlu membedakan kondisi Scorched melalui tampilan hitam seperti hangus.
+  - Tanaman dengan hasil normal satu buah tidak menghasilkan buah selama Scorched, sehingga pemulihan menggunakan Vitamin menjadi penting.
+  - Harga, ketersediaan, dan konsumsi Vitamin belum ditentukan; dampak ekonomi belum dapat dihitung.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Jumlah Vitamin yang digunakan per tanaman dan apakah satu item menyembuhkan satu tanaman.
+  - Cara memperoleh Vitamin, harga toko, dan apakah Vitamin dapat ditumpuk dalam inventori.
+  - UI, animasi, dan feedback saat Vitamin digunakan.
+  - Penalti pertumbuhan atau efek lain selain pengurangan jumlah buah; saat ini hanya penalti hasil buah yang dikonfirmasi.
+  - Detail kondisi tanaman mati, konversi menjadi pupuk, dan revive Robux tetap terbuka sesuai D-038.
+
 ### D-038 · Aturan gameplay Thunderstorm, sambaran petir, dan item perlindungan
 - Tanggal: 2026-11-16
 - Diputuskan oleh: Pemilik proyek
