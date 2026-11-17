@@ -1,3 +1,25 @@
+### D-041 · Identitas visual musim Summer: Golden Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Setelah eksplorasi identitas Spring, musim berikutnya yang dibahas adalah Summer. Setiap musim perlu memiliki identitas suasana yang mudah dikenali.
+- Keputusan:
+  - Identitas visual dan suasana Summer menggunakan konsep **Golden Summer**.
+  - Summer harus terasa **cerah dan hangat**.
+  - Keputusan ini menetapkan arah suasana musim, bukan detail final lingkungan, palet warna, aset visual, kalender, distribusi cuaca, atau mekanik gameplay.
+  - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menetapkan identitas Summer yang redup atau dingin sebagai arah utama musim.
+- Dampak:
+  - Eksplorasi visual Summer berikutnya harus konsisten dengan suasana cerah dan hangat.
+  - Mekanik gameplay dan ekonomi Summer masih perlu dirancang terpisah; belum ada angka balancing yang ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Palet warna, tampilan langit, pencahayaan, vegetasi, bunga, dan lingkungan khas Summer.
+  - Roster cuaca, distribusi, durasi, dan transisi cuaca Summer.
+  - Efek cuaca pada WaterLevel, pertumbuhan, buah, Mutation, serta kondisi tanaman.
+  - Tanaman musiman, kalender, dan hubungan Summer dengan sistem musim lainnya.
+  - Apakah dan kapan Seasons & Weather masuk scope rilis.
+
 ### D-040 · Efek penggunaan Vitamin untuk memulihkan tanaman Scorched
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
