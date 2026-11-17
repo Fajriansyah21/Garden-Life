@@ -123,9 +123,10 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 
 | Elemen | Rancangan yang dikonfirmasi | Status |
 |---|---|---|
-| Identitas visual dan suasana | Golden Summer: cerah dan hangat | Dikonfirmasi |
-| Arah lingkungan | Countryside Summer: hamparan rumput, padang bunga, kebun buah, pagar kayu, dan lanskap pedesaan musim panas | Dikonfirmasi |
-| Palet warna dan pencahayaan | Warna final, langit, intensitas/sudut cahaya, dan saturasi | Terbuka |
+| Identitas visual dan suasana | Golden Summer: cerah dan hangat | Dikonfirmasi (D-041) |
+| Arah lingkungan | Countryside Summer: hamparan rumput, padang bunga, kebun buah, pagar kayu, dan lanskap pedesaan musim panas | Dikonfirmasi (D-042) |
+| Arah palet warna | Fresh Summer: hijau segar, biru langit, kuning cerah, dan putih, dengan aksen emas dari Golden Summer | Dikonfirmasi (D-043) |
+| Detail warna dan pencahayaan | Kode warna, proporsi, warna tiap aset, intensitas/sudut cahaya, dan saturasi | Terbuka |
 | Vegetasi dan aset | Spesies bunga, pohon buah, rumput, pagar, jalan, dan properti pedesaan spesifik | Terbuka |
 | Cuaca | Roster, distribusi, durasi, dan transisi cuaca Summer | Terbuka |
 | Efek gameplay | WaterLevel, pertumbuhan, buah, Mutation, dan kondisi tanaman | Terbuka |
