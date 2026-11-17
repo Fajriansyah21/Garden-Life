@@ -1,5 +1,37 @@
 ## 2026-11-17 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui rancangan konsep Heatwave melalui D-046.
+  - Heatwave mengurangi WaterLevel seluruh tanaman secara bertahap; minimum 0,000 dan berhenti saat episode berakhir. Nilai pengurangan per tick masih terbuka.
+  - Klasifikasi panas: Heat-loving, Heat-neutral, Heat-sensitive, dan Extremely Heat-sensitive.
+  - Heat-sensitive dan Extremely Heat-sensitive memperoleh status Overheat setelah 3 menit paparan panas berturut-turut. Risiko kematian diperiksa saat Overheat dimulai.
+  - Heat-sensitive memiliki peluang kematian di bawah 50%; peluang tepat kedua kategori masih terbuka.
+  - Overheat memerlukan 30 menit pemulihan dalam kondisi sejuk/tidak panas atau hujan; Ice Cooler direncanakan dapat menghapus status.
+  - Sunburnt dan Blazing dapat dimiliki bersamaan. Dengan asumsi 20 tick, peluang per tick masing-masing 2,945% dan 0,5254% untuk target kumulatif 45% dan 10%.
+  - D-046 dicatat; GDD diperbarui ke v3.4 dan Concept Backlog diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-046)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.4)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Pengurangan WaterLevel per tick dan modifier pertumbuhan/ukuran buah.
+  - Peluang kematian tepat untuk kedua kategori sensitif panas.
+  - Perilaku timer pemulihan 30 menit jika cuaca panas kembali.
+  - Multiplier dan tampilan Sunburnt/Blazing.
+  - Apakah Heatwave juga dapat muncul di luar rantai Tornado D-045.
+  - Detail item Ice Cooler.
+- Asumsi / risiko:
+  - Perhitungan peluang mutasi menggunakan 20 roll independen per episode Heatwave.
+  - Durasi Heatwave diasumsikan mengikuti standar cuaca non-Sunny D-031 untuk perhitungan awal; durasi final belum diputuskan.
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk scope First Release atau Vertical Slice.
+  - Tidak ada perubahan kode.
+  
+---
+
+## 2026-11-17 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui D-045 untuk pemicu dan distribusi Tornado Summer.
   - Penghitung Tornado berlaku untuk satu server, minimal 1 dan maksimal 5 per Summer.
   - Lima pemeriksaan pada progres 50%, 60%, 70%, 80%, dan 85%; empat peluang awal masing-masing 10%.
