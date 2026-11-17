@@ -1,7 +1,7 @@
 # CONCEPT BACKLOG · Garden Life
 
 **Status dokumen:** Catatan desain konsep, bukan instruksi implementasi.
-**Terakhir diperbarui:** 2026-11-16
+**Terakhir diperbarui:** 2026-11-17
 
 Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hilang saat GDD disusun ulang. Hanya hal yang dikonfirmasi pemilik yang diperlakukan sebagai keputusan. Hal yang belum lengkap tetap berstatus eksplorasi.
 
@@ -115,6 +115,7 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 - Windy mengurangi WaterLevel sebesar 0,005 setiap dua tick dan menerapkan multiplier laju pertumbuhan 1,5x pada seluruh tanaman serta pertumbuhan buah. Windy tidak menghasilkan Mutation (D-036).
 - Misty menambahkan WaterLevel +0,25 satu kali pada awal episode dan +15% waktu tumbuh untuk seluruh tanaman. Roll Misty dan evolusi Foggy dilakukan independen per buah; Foggy menggantikan Misty setelah evolusi berhasil (D-037). Peluang Foggy 15% berlaku setelah 20 roll evolusi eligible, bukan otomatis per episode karena eligibility baru dimulai setelah buah memperoleh Misty.
 - Thunderstorm memiliki risiko gosong/mati serta opsi revive Robux; penalti gosong, hasil pupuk, harga revive, dan multiplier Shocked/Charged belum ditentukan (D-038).
+- **Scorched (D-039):** Tanaman terlihat hitam seperti hangus, menghasilkan 50% jumlah buah normal dengan pembulatan ke bawah (termasuk 0 buah jika hasil normal 1), tidak pulih otomatis, dan hanya dapat disembuhkan dengan item Vitamin. Detail jumlah/konsumsi, sumber, harga, serta UI Vitamin masih terbuka.
 - Detail distribusi peluang cuaca, transisi, dan penanganan beberapa Lightning Rod dengan area tumpang tindih masih terbuka.
 - Tidak ada angka ekonomi atau perubahan source/sink yang ditetapkan oleh konsep ini.
 
