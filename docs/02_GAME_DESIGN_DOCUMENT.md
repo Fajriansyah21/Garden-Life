@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 2.8 · **Terakhir diubah:** 2026-11-17
+**Versi:** 2.9 · **Terakhir diubah:** 2026-11-17
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -68,6 +68,13 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Thunderstorm masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
+
+### Eksplorasi Summer: identitas Golden Summer (D-041)
+- Identitas visual dan suasana Summer menggunakan konsep **Golden Summer**: cerah dan hangat.
+- Keputusan ini baru menetapkan arah suasana musim. Palet warna final, tampilan langit, pencahayaan, vegetasi, bunga, dan aset lingkungan masih BELUM DIPUTUSKAN.
+- Roster cuaca, distribusi dan transisi cuaca, durasi, serta efek gameplay Summer masih BELUM DIPUTUSKAN.
+- Dampak Summer terhadap WaterLevel, pertumbuhan, buah, Mutation, kondisi tanaman, dan ekonomi masih BELUM DIPUTUSKAN.
+- Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 ### Tools & perawatan tanaman
 
