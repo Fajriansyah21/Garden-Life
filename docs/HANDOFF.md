@@ -1,3 +1,31 @@
+## 2026-11-17 · ChatGPT -> Claude
+- Selesai:
+  - Menambahkan D-039 untuk visual dan penalti hasil panen tanaman Scorched.
+  - Tanaman Scorched berwarna hitam seperti hangus terbakar.
+  - Hasil panen menjadi 50% dari jumlah buah normal dan dibulatkan ke bawah; tanaman dengan hasil normal 1 buah menghasilkan 0 buah.
+  - Scorched tidak memiliki batas waktu, tidak pulih otomatis, dan hanya dapat disembuhkan menggunakan item Vitamin.
+  - GDD diperbarui ke v2.7; README dan Concept Backlog diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-039)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.7)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Berapa Vitamin yang dibutuhkan untuk menyembuhkan satu tanaman dan bagaimana item dikonsumsi?
+  - Bagaimana cara memperoleh Vitamin dan berapa harganya?
+  - Bagaimana UI/animasi penggunaan Vitamin?
+  - Hasil pupuk dari tanaman mati dan aturan revive Robux.
+  - Multiplier/visual Shocked dan Charged.
+  - Perilaku beberapa Lightning Rod dengan area tumpang tindih.
+  - Modifier cuaca pada tanaman baru saat Thunderstorm aktif dan distribusi/transisi cuaca Spring.
+- Asumsi / risiko:
+  - Rumus hasil Scorched menggunakan floor(hasil normal × 0,5), sehingga tanaman dengan hasil normal 1 buah menghasilkan 0 buah.
+  - Vitamin menjadi satu-satunya jalur pemulihan Scorched; detail ekonomi item belum ditentukan.
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk First Release/Vertical Slice.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
 ## 2026-11-16 · ChatGPT -> Claude
 - Selesai:
   - Menambahkan D-038 untuk aturan konsep Thunderstorm, sambaran petir, Mutation Shocked/Charged, risiko kerusakan tanaman, Lightning Rod, dan Thunderstorm Relief.
