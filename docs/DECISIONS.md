@@ -1,3 +1,31 @@
+### D-044 · Pembagian warna lingkungan Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: D-043 menetapkan arah palet Fresh Summer. Pembagian warna per elemen diperlukan agar identitas visual dapat diterapkan secara konsisten pada lingkungan Countryside Summer.
+- Keputusan:
+  - Rumput dan padang menggunakan variasi hijau segar, hijau muda, dan hijau tua.
+  - Langit menggunakan biru cerah; awan menggunakan putih.
+  - Bunga dan padang bunga menggunakan kuning cerah, putih, dan krem sebagai warna utama yang diselingi variasi alami.
+  - Kebun buah menggunakan dedaunan hijau dengan warna buah cerah sesuai jenis buah.
+  - Pagar dan properti kayu menggunakan kayu cokelat muda, beige, dan krem; hindari kesan kayu gelap atau lapuk sebagai karakter dominan.
+  - Jalan setapak menggunakan beige dan warna tanah hangat yang tidak mengambil perhatian dari tanaman.
+  - Aksen emas digunakan secara terbatas pada pantulan cahaya di daun, rumput, bunga, buah, tepi properti, dan efek atmosfer.
+  - Emas tidak menjadi warna dominan lingkungan; hijau tetap menjadi warna dominan agar Summer terasa segar dan subur.
+  - Pembagian ini adalah arah warna konseptual, bukan kode HEX/RGB, material, nilai saturasi, intensitas pencahayaan, atau spesifikasi aset final.
+  - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Dampak:
+  - Eksplorasi aset Summer mengikuti pembagian warna per elemen di atas.
+  - Warna netral kayu dan jalan berfungsi sebagai pendamping, bukan pusat perhatian.
+  - Tidak ada angka balancing ekonomi atau gameplay yang ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Kode warna dan proporsi warna tiap elemen.
+  - Intensitas, arah, dan temperatur pencahayaan serta efek atmosfer.
+  - Jenis vegetasi, bunga, pohon buah, dan aset lingkungan spesifik.
+  - Roster cuaca, distribusi, durasi, transisi, serta efek gameplay Summer.
+  - Tanaman musiman, kalender, dan apakah Seasons & Weather masuk scope rilis.
+
 ### D-043 · Palet warna Summer: Fresh Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
