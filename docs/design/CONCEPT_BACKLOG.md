@@ -132,7 +132,11 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Cuaca | Roster, distribusi, durasi, dan transisi cuaca Summer | Terbuka |
 | Efek gameplay | WaterLevel, pertumbuhan, buah, Mutation, dan kondisi tanaman | Terbuka |
 | Tanaman musiman dan kalender | Jenis tanaman dan hubungan Summer dengan sistem kalender | Terbuka |
+| Pemicu Tornado | Heatwave → Summer Shower → Muggy → Tornado; rantai harus berurutan | Dikonfirmasi sebagai konsep (D-045) |
+| Distribusi Tornado | Satu penghitung per server; minimal 1 dan maksimal 5 per Summer; lima pemeriksaan pada progres 50/60/70/80/85%; empat peluang awal 10%; jaminan pada 85% jika belum ada Tornado | Dikonfirmasi sebagai konsep (D-045) |
 | Scope rilis | Seasons & Weather belum otomatis masuk First Release atau Vertical Slice | Terbuka |
+**Aturan Tornado Summer (D-045):** Penghitung berlaku untuk satu server dan direset pada awal Summer baru. Tornado minimal terjadi 1 kali dan maksimal 5 kali per Summer. Kesempatan pemeriksaan tersedia pada progres 50%, 60%, 70%, 80%, dan 85%. Empat kesempatan pertama masing-masing memiliki peluang 10% untuk memulai rantai. Pada kesempatan kelima, peluangnya 10% jika setidaknya satu Tornado sudah terjadi; jika belum ada Tornado, rantai dijamin dimulai. Rantai Heatwave → Summer Shower → Muggy → Tornado harus berurutan. Interupsi cuaca pada kesempatan biasa membatalkan rantai dan kesempatan tidak dikembalikan. Rantai pada kesempatan jaminan dilindungi dari interupsi cuaca. Satu rantai hanya menghasilkan satu Tornado. Durasi Summer dan cuaca masih perlu ditentukan agar jaminan pada progres 85% dapat selesai sebelum musim berakhir.
+
 
 ## 6. Prinsip penyaringan fitur
 
