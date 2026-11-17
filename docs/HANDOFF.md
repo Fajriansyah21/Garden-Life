@@ -1,5 +1,30 @@
 ## 2026-11-17 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui D-045 untuk pemicu dan distribusi Tornado Summer.
+  - Penghitung Tornado berlaku untuk satu server, minimal 1 dan maksimal 5 per Summer.
+  - Lima pemeriksaan pada progres 50%, 60%, 70%, 80%, dan 85%; empat peluang awal masing-masing 10%.
+  - Pada pemeriksaan 85%, rantai dijamin jika belum ada Tornado; jika sudah ada, peluang tetap 10%.
+  - Rantai Heatwave → Summer Shower → Muggy → Tornado; interupsi membatalkan percobaan biasa, sedangkan rangkaian jaminan dilindungi.
+  - D-045 dicatat; GDD diperbarui ke v3.3 dan Concept Backlog diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-045)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.3)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Durasi musim Summer dan durasi cuaca Summer.
+  - Efek gameplay dan detail visual Heatwave, Summer Shower, Muggy, dan Tornado.
+- Asumsi / risiko:
+  - Durasi musim harus menyediakan waktu cukup untuk menyelesaikan rangkaian jaminan yang dimulai pada progres 85%.
+  - Seasons & Weather tetap eksplorasi dan belum otomatis masuk scope First Release atau Vertical Slice.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
+---
+
+## 2026-11-17 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui pembagian warna lingkungan Summer per elemen (D-044).
   - Rumput/padang hijau; langit biru dan awan putih; bunga kuning/putih/krem; kebun buah berdaun hijau dengan buah cerah; properti kayu cokelat muda/beige/krem; jalan beige/tanah hangat.
   - Aksen emas digunakan terbatas pada pantulan cahaya dan detail atmosfer, bukan sebagai warna dominan.
