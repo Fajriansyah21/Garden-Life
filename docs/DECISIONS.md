@@ -1,3 +1,29 @@
+### D-040 · Efek penggunaan Vitamin untuk memulihkan tanaman Scorched
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: D-039 menetapkan Vitamin sebagai satu-satunya cara memulihkan tanaman Scorched. Efek dan jumlah konsumsi item perlu ditentukan agar perilaku pemulihan jelas.
+- Keputusan:
+  - Menggunakan **1 item Vitamin** pada **1 tanaman Scorched** menghilangkan status Scorched dari tanaman tersebut.
+  - Satu item Vitamin hanya dapat memulihkan satu tanaman.
+  - Pemulihan hanya menghapus status Scorched. Vitamin tidak mengubah atau mereset umur tanaman, ukuran tanaman, maupun progres pertumbuhan yang sudah dimiliki.
+  - Setelah status Scorched dihapus, tanaman kembali menghasilkan jumlah buah normal sesuai aturan tanaman tersebut.
+  - Vitamin tidak dapat digunakan pada tanaman yang tidak berstatus Scorched; aturan konsumsi pada percobaan penggunaan yang tidak valid perlu mengikuti validasi server dan tidak boleh menghabiskan item.
+  - Cara memperoleh Vitamin, harga, batas stack inventori, tampilan UI, animasi, dan feedback penggunaan masih BELUM DIPUTUSKAN.
+  - Aturan ini merupakan rancangan konsep Thunderstorm dan tidak otomatis memasukkan Seasons & Weather ke scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menggunakan lebih dari satu Vitamin untuk satu tanaman; mereset umur, ukuran, atau progres pertumbuhan saat pemulihan; atau membuat Vitamin mengubah parameter tanaman selain status Scorched.
+- Dampak:
+  - Sistem item perlu mengonsumsi satu Vitamin untuk satu pemulihan tanaman Scorched.
+  - Sistem kondisi tanaman menghapus Scorched setelah penggunaan valid dan mempertahankan state tanaman lainnya.
+  - Sistem panen kembali menggunakan hasil normal setelah Scorched dihapus.
+  - Vitamin menjadi item pemulihan dan penguras inventori; harga serta sumber perolehannya belum ditetapkan sehingga dampak Life Coin belum dapat dihitung.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Cara memperoleh Vitamin dan harga toko atau sumber lainnya.
+  - Batas stack dan kapasitas inventori Vitamin.
+  - UI, animasi, feedback, serta cara memilih tanaman target.
+  - Detail kondisi tanaman mati, konversi menjadi pupuk, dan revive Robux sesuai D-038.
+
 ### D-039 · Status Scorched dan penalti hasil buah
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
