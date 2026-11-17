@@ -137,6 +137,24 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Scope rilis | Seasons & Weather belum otomatis masuk First Release atau Vertical Slice | Terbuka |
 **Aturan Tornado Summer (D-045):** Penghitung berlaku untuk satu server dan direset pada awal Summer baru. Tornado minimal terjadi 1 kali dan maksimal 5 kali per Summer. Kesempatan pemeriksaan tersedia pada progres 50%, 60%, 70%, 80%, dan 85%. Empat kesempatan pertama masing-masing memiliki peluang 10% untuk memulai rantai. Pada kesempatan kelima, peluangnya 10% jika setidaknya satu Tornado sudah terjadi; jika belum ada Tornado, rantai dijamin dimulai. Rantai Heatwave → Summer Shower → Muggy → Tornado harus berurutan. Interupsi cuaca pada kesempatan biasa membatalkan rantai dan kesempatan tidak dikembalikan. Rantai pada kesempatan jaminan dilindungi dari interupsi cuaca. Satu rantai hanya menghasilkan satu Tornado. Durasi Summer dan cuaca masih perlu ditentukan agar jaminan pada progres 85% dapat selesai sebelum musim berakhir.
 
+#### Heatwave dan kondisi tanaman Summer (D-046)
+
+| Elemen | Rancangan yang dikonfirmasi | Status |
+|---|---|---|
+| Penguapan | WaterLevel seluruh tanaman berkurang bertahap selama Heatwave; minimum 0,000; berhenti saat cuaca berakhir | Dikonfirmasi; nilai per tick terbuka |
+| Heat-loving | Mendapat bonus pertumbuhan | Dikonfirmasi; besar bonus terbuka |
+| Heat-neutral | Tidak mendapat bonus atau penalti | Dikonfirmasi |
+| Heat-sensitive | Pertumbuhan dan produksi buah lebih lambat; ukuran buah lebih kecil | Dikonfirmasi; angka modifier terbuka |
+| Extremely Heat-sensitive | Kategori terpisah yang sangat rentan terhadap panas | Dikonfirmasi; angka modifier terbuka |
+| Overheat | Heat-sensitive dan Extremely Heat-sensitive mendapat status setelah 3 menit paparan panas berturut-turut | Dikonfirmasi |
+| Risiko kematian | Diperiksa saat Overheat dimulai; Heat-sensitive di bawah 50%; Extremely Heat-sensitive dapat mati | Dikonfirmasi secara konsep; peluang tepat terbuka |
+| Pemulihan Overheat | Membutuhkan 30 menit dalam kondisi pemulihan (lingkungan/cuaca tidak panas atau hujan); tidak hilang seketika saat Heatwave berakhir | Dikonfirmasi; perilaku timer saat panas kembali terbuka |
+| Ice Cooler | Item yang direncanakan dapat menghapus Overheat | Fungsi konsep dikonfirmasi; detail item terbuka |
+| Sunburnt | Mutation buah, target kumulatif 45% setelah 20 tick; 2,945% per tick | Dikonfirmasi dengan asumsi 20 tick |
+| Blazing | Mutation buah, target kumulatif 10% setelah 20 tick; 0,5254% per tick | Dikonfirmasi dengan asumsi 20 tick |
+| Stacking mutasi | Sunburnt dan Blazing dapat dimiliki bersamaan pada buah yang sama | Dikonfirmasi |
+| Durasi dan angka final | Durasi Heatwave, penguapan, modifier, peluang kematian, multiplier Mutation | Terbuka |
+
 
 ## 6. Prinsip penyaringan fitur
 
