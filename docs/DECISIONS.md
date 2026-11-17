@@ -1,3 +1,29 @@
+### D-043 · Palet warna Summer: Fresh Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: D-041 menetapkan suasana Summer sebagai Golden Summer dan D-042 menetapkan arah lingkungannya sebagai Countryside Summer. Palet warna diperlukan untuk menyatukan keduanya menjadi identitas visual yang konsisten.
+- Keputusan:
+  - Palet warna utama Summer menggunakan arah **Fresh Summer**.
+  - Warna utama dan aksen yang menjadi acuan adalah hijau segar, biru langit, kuning cerah, dan putih.
+  - Aksen emas dari identitas **Golden Summer** tetap digunakan untuk memberi kesan cahaya hangat musim panas.
+  - Palet ini diterapkan pada arah lingkungan Countryside Summer, sehingga lanskap tetap terasa hijau, subur, cerah, dan hidup; bukan kering atau didominasi warna cokelat.
+  - Keputusan ini menetapkan arah palet, bukan kode warna, nilai HEX/RGB, material, intensitas pencahayaan, atau aturan implementasi aset.
+  - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Alternatif yang tidak dipilih: Golden Warm dan Soft Countryside sebagai palet utama.
+- Dampak:
+  - Eksplorasi visual Summer berikutnya menggunakan Fresh Summer dengan aksen emas.
+  - Palet perlu menjaga keseimbangan hijau-biru-kuning-putih dan tidak menggeser lanskap menjadi kering atau autumn-like.
+  - Tidak ada angka balancing ekonomi atau gameplay yang ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Kode warna, rentang hue/saturasi/value, dan proporsi tiap warna.
+  - Warna langit, rumput, bunga, kebun buah, pagar, jalan, dan properti.
+  - Intensitas, arah, dan temperatur pencahayaan serta efek atmosfer.
+  - Jenis vegetasi, bunga, pohon buah, dan aset lingkungan spesifik.
+  - Roster cuaca, distribusi, durasi, transisi, serta efek gameplay Summer.
+  - Tanaman musiman, kalender, dan apakah Seasons & Weather masuk scope rilis.
+
 ### D-042 · Arah lingkungan Summer: Countryside Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
