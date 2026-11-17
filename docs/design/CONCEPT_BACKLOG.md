@@ -119,12 +119,14 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 - Detail distribusi peluang cuaca, transisi, dan penanganan beberapa Lightning Rod dengan area tumpang tindih masih terbuka.
 - Tidak ada angka ekonomi atau perubahan source/sink yang ditetapkan oleh konsep ini.
 
-### Eksplorasi Summer: identitas Golden Summer (D-041)
+### Eksplorasi Summer: Golden Summer dan Countryside Summer (D-041, D-042)
 
 | Elemen | Rancangan yang dikonfirmasi | Status |
 |---|---|---|
 | Identitas visual dan suasana | Golden Summer: cerah dan hangat | Dikonfirmasi |
-| Palet warna dan lingkungan | Warna, langit, pencahayaan, vegetasi, bunga, dan aset khas Summer | Terbuka |
+| Arah lingkungan | Countryside Summer: hamparan rumput, padang bunga, kebun buah, pagar kayu, dan lanskap pedesaan musim panas | Dikonfirmasi |
+| Palet warna dan pencahayaan | Warna final, langit, intensitas/sudut cahaya, dan saturasi | Terbuka |
+| Vegetasi dan aset | Spesies bunga, pohon buah, rumput, pagar, jalan, dan properti pedesaan spesifik | Terbuka |
 | Cuaca | Roster, distribusi, durasi, dan transisi cuaca Summer | Terbuka |
 | Efek gameplay | WaterLevel, pertumbuhan, buah, Mutation, dan kondisi tanaman | Terbuka |
 | Tanaman musiman dan kalender | Jenis tanaman dan hubungan Summer dengan sistem kalender | Terbuka |
