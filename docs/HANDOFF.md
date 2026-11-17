@@ -1,5 +1,33 @@
 ## 2026-11-17 · ChatGPT -> Claude
 - Selesai:
+  - Menambahkan D-040 untuk aturan penggunaan Vitamin pada tanaman Scorched.
+  - Satu Vitamin menyembuhkan satu tanaman Scorched.
+  - Vitamin hanya menghapus status Scorched; umur, ukuran, dan progres pertumbuhan tanaman tetap dipertahankan.
+  - Setelah pulih, tanaman kembali menghasilkan jumlah buah normal.
+  - GDD diperbarui ke v2.8; README dan Concept Backlog diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-040)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v2.8)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka:
+  - Cara memperoleh Vitamin dan harga.
+  - Batas stack dan kapasitas inventori Vitamin.
+  - UI, animasi, feedback, serta pemilihan tanaman target saat menggunakan Vitamin.
+  - Hasil konversi tanaman mati menjadi pupuk dan aturan revive Robux.
+  - Multiplier/visual Shocked dan Charged.
+  - Perilaku beberapa Lightning Rod dengan area tumpang tindih.
+  - Modifier cuaca pada tanaman baru saat Thunderstorm aktif dan distribusi/transisi cuaca Spring.
+- Asumsi / risiko:
+  - Satu item Vitamin hanya boleh menghapus status Scorched pada satu tanaman.
+  - Penggunaan pada tanaman yang tidak Scorched tidak mengonsumsi Vitamin.
+  - Seasons & Weather tetap eksplorasi dan tidak otomatis masuk First Release/Vertical Slice.
+  - Tidak ada perubahan kode dan tidak ada spec yang dinaikkan menjadi READY.
+
+## 2026-11-17 · ChatGPT -> Claude
+- Selesai:
   - Menambahkan D-039 untuk visual dan penalti hasil panen tanaman Scorched.
   - Tanaman Scorched berwarna hitam seperti hangus terbakar.
   - Hasil panen menjadi 50% dari jumlah buah normal dan dibulatkan ke bawah; tanaman dengan hasil normal 1 buah menghasilkan 0 buah.
