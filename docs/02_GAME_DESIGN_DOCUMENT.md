@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.0 · **Terakhir diubah:** 2026-11-17
+**Versi:** 3.1 · **Terakhir diubah:** 2026-11-17
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -69,11 +69,13 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
-### Eksplorasi Summer: Golden Summer dan Countryside Summer (D-041, D-042)
+### Eksplorasi Summer: Golden Summer, Countryside Summer, dan Fresh Summer (D-041, D-042, D-043)
 - Identitas visual dan suasana Summer menggunakan konsep **Golden Summer**: cerah dan hangat.
 - Arah lingkungan Summer adalah **Countryside Summer**: lanskap pedesaan musim panas dengan hamparan rumput, padang bunga, kebun buah, pagar kayu, dan suasana lanskap yang disinari matahari hangat.
-- Golden Summer menetapkan karakter cahaya dan suasana; Countryside Summer menetapkan arah lanskap. Keduanya merupakan satu identitas visual yang saling melengkapi.
-- Palet warna final, pencahayaan spesifik, jenis bunga/pohon/vegetasi, aset lingkungan, dan tata letak masih BELUM DIPUTUSKAN.
+- Palet warna utama menggunakan **Fresh Summer**: hijau segar, biru langit, kuning cerah, dan putih, dengan aksen emas dari Golden Summer.
+- Palet Fresh Summer menjaga lanskap Countryside Summer tetap terasa hijau, subur, cerah, dan hidup, bukan kering atau didominasi warna cokelat.
+- Golden Summer menetapkan karakter cahaya dan suasana; Countryside Summer menetapkan arah lanskap; Fresh Summer menetapkan arah palet warna. Ketiganya saling melengkapi.
+- Kode warna, proporsi warna, pencahayaan spesifik, jenis bunga/pohon/vegetasi, aset lingkungan, dan tata letak masih BELUM DIPUTUSKAN.
 - Roster cuaca, distribusi dan transisi cuaca, durasi, serta efek gameplay Summer masih BELUM DIPUTUSKAN.
 - Dampak Summer terhadap WaterLevel, pertumbuhan, buah, Mutation, kondisi tanaman, dan ekonomi masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
