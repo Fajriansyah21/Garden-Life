@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.3 · **Terakhir diubah:** 2026-11-17
+**Versi:** 3.4 · **Terakhir diubah:** 2026-11-17
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -85,6 +85,12 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Golden Summer menetapkan karakter cahaya dan suasana; Countryside Summer menetapkan arah lanskap; Fresh Summer menetapkan arah palet; D-044 menetapkan pembagian warna konseptual per elemen.
 - Kode warna, proporsi warna, pencahayaan spesifik, jenis bunga/pohon/vegetasi, aset lingkungan, dan tata letak masih BELUM DIPUTUSKAN.
 - **Tornado Summer (D-045):** Penghitung Tornado berlaku untuk satu server, dengan batas minimal 1 dan maksimal 5 Tornado per musim Summer. Tornado baru eligible mulai progres musim 50%. Sistem memeriksa peluang pada progres 50%, 60%, 70%, 80%, dan 85%; empat kesempatan pertama masing-masing memiliki peluang 10% untuk memulai rantai. Pada kesempatan kelima, peluang tetap 10% jika server sudah mengalami setidaknya satu Tornado. Jika belum ada Tornado sama sekali, rantai dijamin dimulai. Rantai harus berurutan Heatwave → Summer Shower → Muggy → Tornado. Jika cuaca lain menyela sebelum Muggy selesai pada kesempatan biasa, rantai dibatalkan dan kesempatan tidak dikembalikan. Jika kesempatan kelima menjadi jaminan minimum, rangkaian pemicu dilindungi dari interupsi cuaca lain. Satu rantai hanya menghasilkan satu Tornado; setelah Tornado kelima dimulai, pemicu dinonaktifkan sampai Summer berikutnya. Penghitung direset pada awal Summer baru.
+- **Heatwave (D-046):** WaterLevel seluruh tanaman di seluruh plot berkurang bertahap selama Heatwave, tidak boleh turun di bawah 0,000, dan penguapan berhenti ketika episode berakhir. Nilai pengurangan per tick masih BELUM DIPUTUSKAN dan harus mempertimbangkan toleransi air masing-masing tanaman.
+- Klasifikasi panas tanaman terdiri dari Heat-loving, Heat-neutral, Heat-sensitive, dan Extremely Heat-sensitive. Heat-loving mendapat bonus pertumbuhan; Heat-neutral tidak mendapat bonus atau penalti; Heat-sensitive mengalami pertumbuhan lebih lambat, produksi buah lebih lama, dan ukuran buah lebih kecil. Extremely Heat-sensitive merupakan kelompok terpisah yang sangat rentan terhadap panas. Besaran seluruh modifier masih BELUM DIPUTUSKAN.
+- Tanaman Heat-sensitive dan Extremely Heat-sensitive memperoleh status **Overheat** setelah terpapar cuaca panas selama 3 menit berturut-turut. Risiko kematian diperiksa ketika Overheat mulai diberikan. Heat-sensitive memiliki peluang kematian di bawah 50%; nilai tepatnya belum ditentukan. Extremely Heat-sensitive dapat mati akibat panas, tetapi peluang tepatnya juga belum ditentukan.
+- Overheat membutuhkan 30 menit waktu pemulihan dalam kondisi yang memungkinkan pemulihan, yaitu lingkungan/cuaca tidak lagi panas atau hujan. Status tidak langsung hilang saat Heatwave berakhir. Item Ice Cooler direncanakan dapat menghapus Overheat; detail item dibahas terpisah.
+- Mutation **Sunburnt** dan **Blazing** merupakan Mutation berbeda dan dapat dimiliki bersamaan pada buah yang sama. Dengan asumsi 20 tick per episode (mengikuti durasi standar non-Sunny D-031), target peluang kumulatif setelah 20 roll independen adalah 45% untuk Sunburnt dan 10% untuk Blazing. Peluang per tick hasil hitung masing-masing **2,945%** dan **0,5254%** per buah. Mutation yang sama tidak dicatat dua kali pada buah yang sama sesuai D-022.
+- Durasi Heatwave final, pengurangan WaterLevel per tick, modifier pertumbuhan/ukuran, peluang kematian tepat, multiplier dan tampilan Mutation, serta aturan tanaman/buah yang muncul di tengah episode masih BELUM DIPUTUSKAN.
 - Roster lengkap, distribusi cuaca selain peluang pemicu Tornado, durasi Summer dan cuaca, serta efek gameplay Summer masih BELUM DIPUTUSKAN.
 - Dampak Summer terhadap WaterLevel, pertumbuhan, buah, Mutation, kondisi tanaman, dan ekonomi masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
