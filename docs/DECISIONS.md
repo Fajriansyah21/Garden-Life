@@ -1,3 +1,31 @@
+### D-045 · Pemicu dan distribusi kejadian Tornado Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Tornado harus menjadi kejadian langka selama Summer, tetapi tetap memiliki batas minimal dan maksimal yang terkontrol. Pemicu Tornado juga harus terkait dengan rangkaian cuaca yang jelas.
+- Keputusan:
+  - Penghitung Tornado berlaku untuk satu server secara keseluruhan, bukan per plot. Semua plot berbagi satu penghitung.
+  - Dalam satu musim Summer, Tornado terjadi minimal 1 kali dan maksimal 5 kali.
+  - Tornado baru eligible mulai progres musim 50%.
+  - Sistem memiliki lima kesempatan pemeriksaan pada progres musim 50%, 60%, 70%, 80%, dan 85%.
+  - Peluang memulai rantai pada empat kesempatan pertama masing-masing 10%.
+  - Pada kesempatan kelima (85%), peluangnya 10% jika server sudah mengalami setidaknya satu Tornado. Jika belum ada Tornado sama sekali, rantai pemicu dijamin dimulai.
+  - Rantai pemicu harus berurutan: Heatwave → Summer Shower → Muggy → Tornado.
+  - Pada empat kesempatan biasa, jika cuaca lain menyela sebelum Muggy selesai, rantai dibatalkan dan kesempatan yang telah digunakan tidak dikembalikan.
+  - Jika kesempatan kelima menjadi jaminan minimum, rangkaian Heatwave → Summer Shower → Muggy dilindungi dari interupsi cuaca lain agar minimal satu Tornado dapat terjadi.
+  - Satu rangkaian hanya menghasilkan satu Tornado. Setelah Tornado kelima dimulai, seluruh pemicu Tornado dinonaktifkan sampai Summer berikutnya.
+  - Penghitung direset ketika musim Summer baru dimulai.
+- Alternatif yang ditolak: Tornado muncul secara acak tanpa syarat, atau penghitung terpisah untuk setiap plot. Pendekatan tersebut tidak memberi kontrol yang cukup terhadap kelangkaan dan total kejadian per server.
+- Dampak:
+  - Sistem cuaca memerlukan penghitung server-wide dan pencatatan kesempatan pemeriksaan per musim.
+  - Distribusi ini menjaga Tornado tetap langka sambil menjamin minimal satu kejadian.
+  - Durasi Summer dan durasi masing-masing cuaca tetap perlu ditentukan agar rangkaian jaminan pada 85% memiliki waktu untuk selesai sebelum musim berakhir.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Efek gameplay, visual, durasi, lintasan, radius dampak, dan perlindungan Tornado.
+  - Durasi musim Summer dan durasi cuaca Summer.
+  - Detail perilaku transisi cuaca Summer selain rantai Tornado yang ditetapkan di sini.
+
 ### D-044 · Pembagian warna lingkungan Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
