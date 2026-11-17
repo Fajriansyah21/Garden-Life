@@ -1,3 +1,30 @@
+### D-042 · Arah lingkungan Summer: Countryside Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: D-041 menetapkan suasana Summer sebagai Golden Summer yang cerah dan hangat. Lingkungan khas diperlukan agar Summer memiliki identitas yang berbeda dari Spring.
+- Keputusan:
+  - Arah lingkungan Summer menggunakan **Countryside Summer**.
+  - Ciri visual utamanya adalah suasana pedesaan musim panas: hamparan rumput, padang bunga, kebun buah, pagar kayu, dan nuansa lanskap pedesaan yang disinari matahari hangat.
+  - Arah Countryside Summer menjadi interpretasi lingkungan dari identitas Golden Summer; keduanya digunakan bersama, bukan sebagai pilihan yang saling menggantikan.
+  - Detail palet warna final, bentuk/jenis vegetasi, spesies bunga dan pohon buah, aset lingkungan, tata letak, serta pencahayaan spesifik masih BELUM DIPUTUSKAN.
+  - Keputusan ini hanya menetapkan arah visual lingkungan dan tidak menetapkan roster cuaca atau mekanik gameplay.
+  - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Alternatif yang tidak dipilih: Tropical Summer sebagai arah lingkungan utama.
+- Dampak:
+  - Eksplorasi aset dan lingkungan Summer berikutnya harus mengutamakan karakter countryside, bukan lanskap tropis.
+  - Identitas visual tetap perlu terasa cozy dan selaras dengan prioritas dekorasi serta ekspresi personal Garden Life.
+  - Tidak ada angka balancing ekonomi atau gameplay yang ditetapkan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Palet warna, pencahayaan, langit, dan tingkat saturasi visual.
+  - Jenis bunga, pohon, tanaman buah, rumput, dan elemen lanskap yang spesifik.
+  - Detail prop seperti pagar, jalan setapak, bangku, lumbung, atau bangunan pedesaan lainnya.
+  - Roster cuaca, distribusi, durasi, dan transisi cuaca Summer.
+  - Efek cuaca pada WaterLevel, pertumbuhan, buah, Mutation, serta kondisi tanaman.
+  - Tanaman musiman, kalender, dan hubungan Summer dengan sistem musim lainnya.
+  - Apakah dan kapan Seasons & Weather masuk scope rilis.
+
 ### D-041 · Identitas visual musim Summer: Golden Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
