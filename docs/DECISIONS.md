@@ -1,3 +1,45 @@
+### D-046 · Mekanik Heatwave, Overheat, dan mutasi buah Summer
+- Tanggal: 2026-11-17
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; belum menjadi persetujuan scope implementasi
+- Konteks: Heatwave harus memiliki dampak gameplay yang berbeda dari Sunny, memengaruhi pengelolaan air, kecocokan tanaman terhadap panas, kondisi tanaman, dan Mutation buah.
+- Keputusan:
+  - Selama Heatwave, WaterLevel seluruh tanaman di seluruh plot berkurang secara bertahap. Pengurangan tidak boleh membuat WaterLevel kurang dari 0,000 dan berhenti ketika Heatwave berakhir.
+  - Besar pengurangan WaterLevel per tick masih BELUM DIPUTUSKAN karena perlu disesuaikan dengan toleransi air masing-masing tanaman.
+  - Klasifikasi kebutuhan panas tanaman terdiri dari Heat-loving, Heat-neutral, Heat-sensitive, dan Extremely Heat-sensitive.
+  - Heat-loving memperoleh bonus pertumbuhan selama Heatwave. Besar bonus masih BELUM DIPUTUSKAN.
+  - Heat-neutral tidak memperoleh bonus atau penalti pertumbuhan akibat Heatwave.
+  - Heat-sensitive mengalami perlambatan pertumbuhan dan produksi buah lebih lama; ukuran buah lebih kecil. Besar perlambatan dan pengurangan ukuran masih BELUM DIPUTUSKAN.
+  - Extremely Heat-sensitive merupakan klasifikasi terpisah yang sangat rentan terhadap panas; besaran efek pertumbuhan, produksi buah, ukuran buah, dan peluang kematian masih BELUM DIPUTUSKAN.
+  - Tanaman Heat-sensitive dan Extremely Heat-sensitive memperoleh status **Overheat** setelah terpapar cuaca panas selama 3 menit berturut-turut.
+  - Risiko kematian tanaman diperiksa ketika status Overheat mulai diberikan, bukan sejak Heatwave dimulai.
+  - Tanaman Heat-sensitive memiliki peluang kematian di bawah 50%. Nilai peluang pastinya masih BELUM DIPUTUSKAN.
+  - Tanaman Extremely Heat-sensitive dapat mati akibat panas saat Overheat dimulai; nilai peluang kematiannya masih BELUM DIPUTUSKAN.
+  - Status Overheat membutuhkan 30 menit waktu pemulihan dalam kondisi yang memungkinkan pemulihan, yaitu ketika lingkungan/cuaca tidak lagi panas atau ketika hujan turun. Status tidak langsung hilang hanya karena Heatwave berakhir.
+  - Item Ice Cooler direncanakan dapat menghilangkan Overheat. Fungsi ini dikonfirmasi secara konsep; aturan item, konsumsi, harga, dan UI akan dibahas pada rancangan item.
+  - Mutation **Sunburnt** dan **Blazing** adalah dua Mutation berbeda dan dapat dimiliki bersamaan pada buah yang sama, mengikuti prinsip multi-Mutation D-022.
+  - Dengan asumsi satu episode Heatwave berlangsung 20 tick (mengikuti durasi standar cuaca non-Sunny D-031), target peluang kumulatif per buah setelah 20 roll eligible adalah 45% untuk Sunburnt dan 10% untuk Blazing.
+  - Peluang per tick hasil perhitungan untuk 20 roll independen: Sunburnt **2,945%** dan Blazing **0,5254%**. Roll dilakukan secara independen untuk setiap buah pada setiap tick; Mutation yang sama tidak dicatat dua kali pada buah yang sama sesuai D-022.
+  - Peluang mutasi di atas bergantung pada asumsi 20 tick / 10 menit. Durasi Heatwave dan penerapan roll pada buah yang baru muncul selama episode masih perlu dipastikan.
+  - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Alternatif yang ditolak: Menjadikan Heatwave sekadar perubahan pencahayaan Sunny tanpa dampak gameplay; menambahkan Overheat langsung saat Heatwave dimulai tanpa masa paparan; menghilangkan Overheat seketika ketika Heatwave berakhir; atau membuat Sunburnt dan Blazing saling menggantikan.
+- Dampak:
+  - Heatwave mendorong pemain memantau WaterLevel dan lebih aktif merawat tanaman.
+  - Klasifikasi panas memberi konsekuensi berbeda pada pemilihan tanaman dan komposisi kebun.
+  - Overheat menambah kondisi tanaman yang memerlukan pemulihan, sementara Ice Cooler direncanakan sebagai item penguras/alat pemulihan inventori.
+  - Sunburnt dan Blazing menambah jalur Mutation yang berpotensi meningkatkan nilai jual sesuai sistem harga buah D-022; multiplier kedua Mutation belum ditetapkan sehingga dampak ekonomi belum dapat dihitung.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Pengurangan WaterLevel per tick dan hubungan nilainya dengan toleransi air setiap tanaman.
+  - Besar bonus pertumbuhan Heat-loving, penalti pertumbuhan Heat-sensitive/Extremely Heat-sensitive, dan pengurangan ukuran buah.
+  - Peluang kematian tepat untuk Heat-sensitive dan Extremely Heat-sensitive.
+  - Apakah durasi pemulihan 30 menit menghitung waktu hanya ketika kondisi sejuk/hujan terpenuhi, serta perilaku timer jika cuaca panas kembali.
+  - Durasi Heatwave final dan penanganan tanaman/buah yang muncul di tengah episode.
+  - Multiplier, tampilan, dan detail penerapan Mutation Sunburnt/Blazing.
+  - Aturan item Ice Cooler, termasuk cara memperoleh, jumlah penggunaan, durasi/target efek, harga, dan UI.
+  - Apakah Heatwave hanya muncul sebagai bagian rantai Tornado D-045 atau juga dapat muncul sebagai cuaca Summer biasa; jika muncul secara terpisah, apakah episode tersebut berpengaruh pada pemeriksaan rantai Tornado.
+  - Durasi Summer dan cuaca Summer agar rantai Tornado yang dijamin pada progres 85% dapat selesai sebelum musim berakhir.
+
 ### D-045 · Pemicu dan distribusi kejadian Tornado Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
