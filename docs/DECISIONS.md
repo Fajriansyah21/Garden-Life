@@ -980,3 +980,52 @@ Entri terbaru di paling atas.
 - Keputusan: Semua dokumen, spec, kode, dan daftar asset disimpan di repo ini. Pembagian peran: ChatGPT = Perancang, Claude = Engineer, Pemilik = penyetuju.
 - Alternatif yang ditolak: Menyalin konteks manual antar chat (rawan selisih).
 - Dampak: Semua alur kerja mengikuti `00_WORKFLOW.md`.
+
+### D-047 · Transisi musim, toleransi tanaman, dan perlindungan musim
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Empat musim direncanakan lengkap pada First Release. Transisi musim perlu terasa alami, memberi strategi perawatan, dan menghindari hukuman offline yang tidak sejalan dengan pengalaman cozy.
+- Keputusan:
+  - Setiap musim berlangsung 30 hari in-game. Satu hari berdurasi 720 tick × 30 detik = 6 jam real-time; satu musim setara 180 jam real-time.
+  - Transisi musim menggunakan **Soft Transition** selama hari 28-30. Perubahan visual lingkungan berlangsung bertahap.
+  - Tanaman yang tidak cocok dengan musim baru memasuki status **Dormant** pada hari pertama musim baru.
+  - Dormant berlangsung 7 hari in-game aktif: timer hanya berjalan saat plot ditempati minimal satu pemain dan freeze saat plot kosong. Pertumbuhan tanaman freeze selama Dormant.
+  - Buah pada tanaman Dormant tetap eligible untuk roll Mutation cuaca selama plot ditempati. Ketika plot kosong, roll Mutation cuaca dan efek cuaca pada tanaman di plot tersebut freeze; kalender dan visual cuaca server tetap berjalan.
+  - Setelah Dormant habis, efek luar musim memakai tiga tingkat toleransi tanaman:
+    - **Tolerant:** laju pertumbuhan 0,7× dan hasil 80%; tidak mati karena ketidakcocokan musim.
+    - **Sensitive:** laju pertumbuhan 0,4× dan hasil 50%; tidak mati karena ketidakcocokan musim.
+    - **Strict:** memasuki fase **Layu** selama 1 hari in-game aktif (6 jam online). Pertumbuhan, produksi buah, dan Mutation berhenti selama Layu.
+  - Jika tanaman Strict Layu tidak dirawat sampai timer habis, tanaman Mati. Opsi tanaman mati mengikuti D-038: cabut/buang, jadikan pupuk, atau revive memakai Robux.
+  - **Herbal Tea** adalah item perawatan khusus tanaman Layu akibat musim. Satu penggunaan memulai pemulihan 30 menit online dan memerlukan satu kali penyiraman. Saat berhasil, tanaman kembali ke Dormant 7 hari aktif. Herbal Tea tidak menyembuhkan status lain.
+  - **Season Pill** diterapkan ke satu tanaman dan membuatnya kompatibel dengan musim aktif sampai musim itu berakhir. Efek hilang jika tanaman dicabut atau dibuang; Pill tidak menghapus kondisi buruk lain dan tidak dapat dipakai pada tanaman mati.
+  - **Greenhouse** masuk target First Release, memiliki kapasitas 18 tanaman, dan membebaskan tanaman di dalam dari Dormant serta Layu akibat musim. Greenhouse tidak memberi Mutation cuaca. Tanaman tetap membutuhkan air dan tetap dapat mengalami Overwatered karena penyiraman atau Sprinkler berlebih. Greenhouse tidak menghapus kondisi buruk yang sudah ada.
+- Dampak:
+  - Sistem tanaman membutuhkan data kompatibilitas musim dan tingkat toleransi Tolerant/Sensitive/Strict.
+  - Sistem plot menentukan "ditempati" berdasarkan kehadiran minimal satu pemain, bukan hanya Original Owner.
+  - UI harus memperingatkan pemain sebelum musim berganti, saat Dormant/Layu dimulai, dan sebelum timer Layu habis; interval notifikasi detail masih BELUM DIPUTUSKAN.
+  - Harga, sumber, stack, dan biaya Greenhouse/Season Pill/Herbal Tea masih BELUM DIPUTUSKAN; tidak ada angka ekonomi yang ditetapkan oleh keputusan ini.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-048 · Durasi, distribusi, dan transisi cuaca Spring
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Spring membutuhkan ritme cuaca Balanced yang memberi ruang bermain santai, sementara cuaca berisiko tetap jarang dan mudah dipahami.
+- Keputusan:
+  - Sunny berlangsung 40 tick / 20 menit. Aturan 20 tick / 10 menit untuk seluruh cuaca non-Sunny dari D-031 tetap berlaku.
+  - Spring dimulai dengan Sunny. Satu server memakai satu cuaca bersama untuk semua plot dan pemain melihat kondisi langit yang sama.
+  - Distribusi pemilihan cuaca Spring menggunakan bobot berikut sebagai **ASUMSI balancing** sampai playtest ekonomi selesai: Sunny 34, Cloudy 16, Drizzle 14, Windy 12, Rainy 10, Misty 8, Thunderstorm 6.
+  - Cuaca yang baru selesai tidak boleh langsung terpilih lagi; Sunny tetap boleh menyusul cuaca apa pun.
+  - Thunderstorm hanya dapat mengikuti Cloudy atau Rainy dan maksimal terjadi 2 episode per hari in-game.
+  - Misty hanya dapat mengikuti Cloudy, Drizzle, atau Rainy.
+  - Drizzle dapat mengikuti Rainy dan Rainy dapat mengikuti Drizzle.
+  - Windy dapat mengikuti cuaca mana pun selain Windy.
+  - Setelah Thunderstorm, cuaca berikutnya dipilih Sunny atau Cloudy dengan peluang 50/50.
+  - Pada Soft Transition hari 28-30, 20% pemilihan cuaca memakai tabel musim berikutnya hanya untuk visual. Efek gameplay cuaca musim baru baru mulai pada hari pertama musim baru.
+  - Saat plot kosong, visual dan kalender cuaca server tetap berjalan; efek cuaca, WaterLevel, pertumbuhan, dan Mutation pada tanaman di plot kosong freeze sesuai D-047.
+- Dampak:
+  - Bobot adalah parameter tuning, bukan harga atau source/sink ekonomi final. Dampaknya pada pasokan Mutation, panen, dan WaterLevel wajib dievaluasi lewat simulasi/playtest.
+  - Aturan cuaca musim berikutnya diperlukan sebelum aturan Soft Transition lintas semua musim dapat dinyatakan lengkap.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+

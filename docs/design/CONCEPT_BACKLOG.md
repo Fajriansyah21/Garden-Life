@@ -1,7 +1,7 @@
 # CONCEPT BACKLOG · Garden Life
 
 **Status dokumen:** Catatan desain konsep, bukan instruksi implementasi.
-**Terakhir diperbarui:** 2026-11-17
+**Terakhir diperbarui:** 2026-11-21
 
 Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hilang saat GDD disusun ulang. Hanya hal yang dikonfirmasi pemilik yang diperlakukan sebagai keputusan. Hal yang belum lengkap tetap berstatus eksplorasi.
 
@@ -101,11 +101,12 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Mutation Flooded | Peluang dari WaterLevel 4,00-4,99: 2,5% per 2 menit; WaterLevel 5,00: 2,5% per 1 menit. Satu Flooded per buah lintas semua jalur | Dikonfirmasi (D-035) |
 | Presisi WaterLevel | Internal 0,001 (integer 0-5000); UI tetap 2 angka desimal; Rainy +0,075 × 20 tick = +1,500 | Dikonfirmasi (D-033) |
 | Durasi cuaca non-Sunny | 20 tick × 30 detik = 600 detik/10 menit per episode | Dikonfirmasi (D-031) |
-| Durasi Sunny | Dikecualikan dari durasi standar cuaca lain | Terbuka |
+| Siklus cuaca Spring | Bobot ASUMSI 34/16/14/12/10/8/6 untuk Sunny/Cloudy/Drizzle/Windy/Rainy/Misty/Thunderstorm; aturan transisi D-048 | Dikonfirmasi sebagai konsep (D-048) |
+| Durasi Sunny | 40 tick / 20 menit | Dikonfirmasi (D-048) |
 | Menu informasi tanaman | Menu khusus agar pemain dapat memeriksa kondisi tanaman; rincian isi dan interaksi belum ditetapkan (D-029) | Kebutuhan konseptual dikonfirmasi |
 
 - Klasifikasi kebutuhan sinar matahari tanaman diperlukan untuk menerapkan efek Cloudy secara selektif; nama field dan skema data belum ditetapkan.
-- Durasi setiap cuaca non-Sunny ditetapkan 10 menit; durasi Sunny masih terbuka. Peluang dan distribusi kemunculan serta aturan transisi lengkap masih terbuka.
+- Durasi non-Sunny 10 menit dan Sunny 20 menit. Bobot Spring masih ASUMSI balancing; aturan transisi aktif ada di D-048.
 - WaterLevel memakai presisi internal 0,001, tetapi UI tetap menampilkan dua angka desimal. Jangan membulatkan nilai per tick.
 - Rainy menjalankan roll Wet dan evolusi Wet→Flooded per buah. Urutan kedua roll ketika keduanya berpotensi terjadi pada tick yang sama masih perlu ditentukan sebelum implementasi.
 - Multiplier dan tampilan Wet/Flooded/Misty/Foggy, serta modifier cuaca untuk tanaman yang baru ditanam di tengah episode, masih terbuka.

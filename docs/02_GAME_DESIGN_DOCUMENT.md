@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.4 · **Terakhir diubah:** 2026-11-17
+**Versi:** 3.5 · **Terakhir diubah:** 2026-11-21
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -48,9 +48,9 @@ Loop konseptual utama:
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 
 
-### Musim & cuaca: eksplorasi Spring (D-028, D-030, D-031, D-034, D-035)
+### Musim & cuaca: Spring (D-028, D-030, D-031, D-034, D-035, D-047, D-048)
 - Identitas visual Spring adalah **Fresh Nature** dengan pola cuaca **Balanced**. Roster konsepnya: Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
-- **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada. Durasi Sunny belum ditetapkan.
+- **Sunny** menjadi cuaca awal Spring dan cuaca dasar yang sering muncul. Efek gameplay dan Mutation: tidak ada. Durasi Sunny adalah 40 tick / 20 menit (D-048).
 - **Cloudy** dapat menjadi transisi menuju Drizzle, Rainy, atau Thunderstorm. Saat episode dimulai, WaterLevel tanaman yang terkena efek bertambah 0,25 satu kali.
 - Selama Cloudy, tanaman dengan kebutuhan sinar matahari tinggi membutuhkan waktu tumbuh 15% lebih lama. Jika tanaman tersebut sedang tumbuh saat Cloudy dimulai, sisa waktu tumbuhnya juga bertambah 15%; progres yang sudah diperoleh tidak dihapus. Cloudy tidak menghasilkan Mutation.
 - **Drizzle** adalah gerimis lembut dan menenangkan. Selama episode berlangsung, WaterLevel tanaman yang terkena efek bertambah 0,05 setiap tick. Setiap tick, setiap buah eligible melakukan roll Mutation Wet (Basah) secara independen dengan peluang 2,5%. Seluruh tanaman menerima tambahan waktu pertumbuhan 15%; Drizzle tidak memberikan bonus atau percepatan pertumbuhan. WaterLevel tetap dibatasi maksimum 5,00 sesuai D-018.
@@ -63,10 +63,11 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - **Scorched (D-039, D-040):** Tanaman gosong ditampilkan berwarna hitam seperti hangus terbakar. Selama status Scorched aktif, jumlah buah setiap panen menjadi 50% dari hasil normal dan dibulatkan ke bawah (`floor(jumlah_buah_normal × 0,5)`). Tanaman yang normalnya menghasilkan 1 buah menghasilkan 0 buah saat Scorched. Status ini tidak memiliki batas waktu dan tidak pulih otomatis. Satu item Vitamin memulihkan satu tanaman Scorched; Vitamin hanya menghapus status Scorched tanpa mengubah atau mereset umur, ukuran, maupun progres pertumbuhan tanaman. Setelah pulih, tanaman kembali menghasilkan buah dalam jumlah normal. Cara memperoleh Vitamin, harga, batas stack inventori, dan detail UI masih BELUM DIPUTUSKAN.
 - **Lightning Rod** memiliki area lingkaran radius **24 studs** dan peluang 50% untuk mengalihkan sambaran yang jatuh di dalam area. Satu rod menahan maksimal 3 sambaran yang berhasil dialihkan. **Thunderstorm Relief** memiliki area lingkaran radius **20 studs** dan mengurangi peluang gosong serta mati masing-masing 5 poin persentase per stack aktif. Maksimal 3 stack; durabilitas setiap item 3 sambaran yang dilindungi secara independen. Setiap sambaran mengurangi durabilitas semua Relief yang area lingkarannya mencakup titik sambaran sebesar 1; jika sambaran berada dalam dua area, kedua item kehilangan 1 durabilitas. Item yang tidak mencakup titik sambaran tidak berkurang. Pengurangan risiko dihitung dari jumlah Relief aktif yang melindungi tanaman (D-038).
 - WaterLevel disimpan dengan presisi internal 0,001 (integer 0-5000), sedangkan UI menampilkan 2 angka desimal. Penambahan Rainy +0,075 tidak dibulatkan per tick; 20 tick menghasilkan total +1,500 sebelum clamp maksimum 5,000 (D-033).
-- Setiap cuaca selain Sunny berlangsung selama 20 tick (600 detik/10 menit). Satu tick berdurasi 30 detik. Sunny dikecualikan dan durasinya masih BELUM DIPUTUSKAN (D-031).
+- Setiap cuaca selain Sunny berlangsung selama 20 tick (600 detik/10 menit). Sunny berlangsung 40 tick / 20 menit. Satu tick berdurasi 30 detik (D-031, D-048).
 - Multiplier harga dan tampilan Mutation Wet/Flooded/Misty/Foggy, urutan roll Wet dan evolusi Wet→Flooded dalam tick yang sama, serta penerapan modifier cuaca pada tanaman yang baru ditanam ketika episode sedang berjalan masih BELUM DIPUTUSKAN.
-- Peluang kemunculan dan distribusi cuaca, aturan transisi lengkap, serta detail Thunderstorm masih BELUM DIPUTUSKAN.
-- Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+- Siklus cuaca Spring (D-048): bobot **ASUMSI** Sunny 34, Cloudy 16, Drizzle 14, Windy 12, Rainy 10, Misty 8, Thunderstorm 6. Cuaca yang selesai tidak berulang langsung. Thunderstorm hanya mengikuti Cloudy/Rainy dan maksimal 2 episode per hari in-game; Misty hanya mengikuti Cloudy/Drizzle/Rainy; Windy tidak mengikuti Windy; setelah Thunderstorm berlaku Sunny/Cloudy 50/50.
+- Satu server berbagi satu cuaca. Saat plot kosong, visual serta kalender cuaca server tetap berjalan, tetapi WaterLevel, pertumbuhan, dan Mutation tanaman di plot itu freeze (D-047, D-048).
+- Spring masuk target First Release bersama tiga musim lain; seluruh detail efek, ekonomi, dan roster tiga musim lain tetap memerlukan keputusan tersendiri.
 
 
 ### Eksplorasi Summer: Golden Summer, Countryside Summer, dan Fresh Summer (D-041, D-042, D-043, D-044)
@@ -94,6 +95,14 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Roster lengkap, distribusi cuaca selain peluang pemicu Tornado, durasi Summer dan cuaca, serta efek gameplay Summer masih BELUM DIPUTUSKAN.
 - Dampak Summer terhadap WaterLevel, pertumbuhan, buah, Mutation, kondisi tanaman, dan ekonomi masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
+
+
+### Transisi musim dan perlindungan tanaman (D-047)
+- Satu musim berlangsung 30 hari in-game: 720 tick/hari, satu tick 30 detik, atau 6 jam real-time per hari dan 180 jam per musim.
+- Soft Transition berlangsung hari 28-30. Tanaman tidak cocok musim memasuki Dormant pada hari pertama musim baru. Dormant 7 hari in-game aktif, timer hanya berjalan saat plot ditempati, dan pertumbuhan freeze.
+- Setelah Dormant: Tolerant tumbuh 0,7× dengan yield 80%; Sensitive tumbuh 0,4× dengan yield 50%; Strict Layu 1 hari in-game aktif. Tanaman Strict Layu tidak dirawat akan mati; opsi mati mengikuti D-038.
+- Herbal Tea merawat satu tanaman Layu akibat musim selama 30 menit online dan membutuhkan satu penyiraman, lalu tanaman kembali Dormant. Season Pill membuat satu tanaman kompatibel dengan musim aktif hingga musim berakhir; efek hilang saat tanaman dicabut/dibuang.
+- Greenhouse First Release berkapasitas 18 tanaman, mencegah Dormant/Layu musim dan Mutation cuaca, tetapi tidak menghentikan kebutuhan air atau Overwatered.
 
 ### Tools & perawatan tanaman
 

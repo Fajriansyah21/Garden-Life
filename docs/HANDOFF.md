@@ -1,3 +1,27 @@
+## 2026-11-21 · Hermes -> Pemilik
+- Selesai:
+  - D-047 mencatat durasi musim, Soft Transition, Dormant, toleransi Tolerant/Sensitive/Strict, Layu, Herbal Tea, Season Pill, Greenhouse, dan aturan plot kosong.
+  - D-048 mencatat durasi Sunny 20 menit, bobot cuaca Spring sebagai ASUMSI balancing, batas Thunderstorm, serta aturan transisi cuaca.
+  - Spring serta tiga musim lain ditargetkan lengkap untuk First Release. Tidak ada scope Vertical Slice yang ditetapkan.
+- File diubah:
+  - docs/DECISIONS.md (D-047, D-048)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.5)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Urutan Wet dan evolusi Wet→Flooded pada tick yang sama.
+  - Modifier cuaca untuk tanaman baru di tengah episode.
+  - Harga/sumber/stack Herbal Tea, Season Pill, dan Greenhouse; hasil pupuk serta revive Robux.
+  - Roster, efek, dan tabel cuaca tiga musim lain untuk Soft Transition lintas musim.
+- Asumsi / risiko:
+  - Bobot D-048 adalah ASUMSI balancing dan perlu simulasi ekonomi/playtest sebelum nilai final.
+  - Greenhouse melindungi musim tetapi tidak dari Overwatered; UI wajib menjelaskan perbedaan ini.
+  - Tidak ada perubahan kode dan tidak ada spec dinaikkan menjadi READY.
+
+---
+
 ## 2026-11-17 · ChatGPT -> Claude
 - Selesai:
   - Pemilik menyetujui rancangan konsep Heatwave melalui D-046.
@@ -1084,3 +1108,11 @@ Entri terbaru di paling atas. Setiap sesi ChatGPT atau Claude berakhir dengan sa
 - Pertanyaan terbuka:
 - Asumsi / risiko:
 ```
+
+## 2026-11-21 · Claude -> Pemilik (Brainstorming Spring)
+- Selesai:
+  - Keputusan D-047 untuk transisi musim (Dormant, Layu, Herbal Tea, Greenhouse).
+- File diubah:
+  - docs/DECISIONS.md (D-047)
+  - docs/HANDOFF.md
+- Pertanyaan terbuka: harga item, mekanik detail tanaman Strict, detail visual tanaman Layu.
