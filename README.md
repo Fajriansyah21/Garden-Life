@@ -93,7 +93,8 @@ Greenhouse (kapasitas 18 tanaman), 4 musim, siklus cuaca, dan dua tier pupuk dit
 | [Player Journey](docs/design/PLAYER_JOURNEY.md) | Perjalanan pengalaman pemain dari First Visit hingga Established Garden |
 | [DECISIONS](docs/DECISIONS.md) | Log keputusan yang disetujui; hanya ditambah, tidak menghapus |
 | [HANDOFF](docs/HANDOFF.md) | Status kerja dan serah-terima ChatGPT ↔ Claude |
-| [Concept Backlog](docs/design/CONCEPT_BACKLOG.md) | Ide terdahulu, status, dan pertanyaan desain |
+|| [Concept Backlog](docs/design/CONCEPT_BACKLOG.md) | Ide terdahulu, status, dan pertanyaan desain |
+|| [PRD Spring](docs/design/PRD_SPRING.md) | Draft kebutuhan produk Spring untuk First Release; belum disetujui |
 | [FEAT-001 Build Mode](docs/design/FEAT-001_build_mode.md) | Spec Build Mode dan Hybrid Placement |
 | [Workflow](docs/00_WORKFLOW.md) | Alur persetujuan, implementasi, dan verifikasi |
 | [Design Analysis System](docs/01_DESIGN_ANALYSIS_SYSTEM.md) | Kerangka analisis desain dan ekonomi |
