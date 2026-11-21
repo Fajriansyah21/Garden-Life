@@ -1,5 +1,29 @@
 ## 2026-11-21 · Hermes -> Pemilik
 - Selesai:
+  - D-049 mencatat timer pupuk freeze saat plot kosong, dua tier pupuk First Release, aturan penggunaan pupuk, dan koreksi batas 15 Mutation unik per buah.
+  - D-050 mencatat Variant musiman per plot dengan pity 0,05 poin persentase, rebranding item, batas Storm Catcher/Storm Shield, Protection Kit, harga Season Pill 80%, dan opsi tanaman mati akibat Thunderstorm.
+  - Harga Season Pill diarahkan 80% dari harga jual tanaman dewasa; nama alat Watering Can, Sprinkler, Shovel, dan Trowel tetap; Soil Aerator menjadi Earth Digger.
+  - Starter Protection Kit Small menggunakan Life Coin; Medium menggunakan Robux dan hanya berisi jumlah item lebih banyak, tanpa keunggulan mekanik.
+- File diubah:
+  - docs/DECISIONS.md (D-049, D-050)
+  - docs/02_GAME_DESIGN_DOCUMENT.md
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Harga/sumber/stack pupuk dan item perlindungan.
+  - Formula final multiplier pertumbuhan dan audit ekonomi Mutation.
+  - Detail Starter Protection Kit Small/Medium dan isi masing-masing.
+- Asumsi/risiko:
+  - Nilai Basic/Premium dan durasi pupuk masih parameter konsep yang perlu simulasi ekonomi.
+  - Event musim ditunda untuk update setelah First Release.
+  - Tidak ada perubahan kode dan tidak ada spec dinaikkan menjadi READY.
+
+---
+
+## 2026-11-21 · Hermes -> Pemilik
+- Selesai:
   - D-047 mencatat durasi musim, Soft Transition, Dormant, toleransi Tolerant/Sensitive/Strict, Layu, Herbal Tea, Season Pill, Greenhouse, dan aturan plot kosong.
   - D-048 mencatat durasi Sunny 20 menit, bobot cuaca Spring sebagai ASUMSI balancing, batas Thunderstorm, serta aturan transisi cuaca.
   - Spring serta tiga musim lain ditargetkan lengkap untuk First Release. Tidak ada scope Vertical Slice yang ditetapkan.

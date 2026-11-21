@@ -135,7 +135,7 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Tanaman musiman dan kalender | Jenis tanaman dan hubungan Summer dengan sistem kalender | Terbuka |
 | Pemicu Tornado | Heatwave → Summer Shower → Muggy → Tornado; rantai harus berurutan | Dikonfirmasi sebagai konsep (D-045) |
 | Distribusi Tornado | Satu penghitung per server; minimal 1 dan maksimal 5 per Summer; lima pemeriksaan pada progres 50/60/70/80/85%; empat peluang awal 10%; jaminan pada 85% jika belum ada Tornado | Dikonfirmasi sebagai konsep (D-045) |
-| Scope rilis | Seasons & Weather belum otomatis masuk First Release atau Vertical Slice | Terbuka |
+| Scope rilis | Spring dan tiga musim lain ditargetkan lengkap untuk First Release; scope Vertical Slice belum ditentukan | First Release dikonfirmasi; Vertical Slice terbuka |
 **Aturan Tornado Summer (D-045):** Penghitung berlaku untuk satu server dan direset pada awal Summer baru. Tornado minimal terjadi 1 kali dan maksimal 5 kali per Summer. Kesempatan pemeriksaan tersedia pada progres 50%, 60%, 70%, 80%, dan 85%. Empat kesempatan pertama masing-masing memiliki peluang 10% untuk memulai rantai. Pada kesempatan kelima, peluangnya 10% jika setidaknya satu Tornado sudah terjadi; jika belum ada Tornado, rantai dijamin dimulai. Rantai Heatwave → Summer Shower → Muggy → Tornado harus berurutan. Interupsi cuaca pada kesempatan biasa membatalkan rantai dan kesempatan tidak dikembalikan. Rantai pada kesempatan jaminan dilindungi dari interupsi cuaca. Satu rantai hanya menghasilkan satu Tornado. Durasi Summer dan cuaca masih perlu ditentukan agar jaminan pada progres 85% dapat selesai sebelum musim berakhir.
 
 #### Heatwave dan kondisi tanaman Summer (D-046)
@@ -191,3 +191,12 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 - Bagaimana pemain memperoleh, menyimpan, dan membelanjakan Life Coin?
 - Bagaimana hak anggota plot di luar Build Mode dibedakan (farm, bank, invite, remove)?
 - Apa aturan penyelesaian sesi dan penyimpanan layout saat beberapa pemain mengedit bersamaan?
+
+### Pupuk dan timer plot kosong (D-049)
+
+- Timer pupuk freeze saat plot kosong dan berjalan ketika minimal satu pemain menempati plot.
+- First Release memakai Basic Fertilizer (+0,2×, 120 tick) dan Premium Fertilizer (+0,5×, 240 tick).
+- Satu pupuk aktif per tanaman; tidak dapat ditumpuk atau menggantikan efek aktif.
+- Dapat digunakan bersama Season Pill, cuaca, dan Greenhouse; tidak dapat digunakan pada Dormant, Layu, atau Mati.
+- Harga, sumber, stack inventori, dan detail formula pertumbuhan masih terbuka.
+- Batas 15 berlaku pada jumlah Mutation unik per buah, bukan multiplier pertumbuhan.

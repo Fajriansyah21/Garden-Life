@@ -72,7 +72,7 @@
 
 ## Batas scope yang perlu dijaga
 
-Greenhouse (kapasitas 18 tanaman), 4 musim, dan siklus cuaca ditargetkan masuk First Release melalui keputusan desain. Detail implementasi, ekonomi, dan spec fitur tetap belum otomatis siap dikerjakan. 5 tier pupuk, Watering Can 100 ml, dan gudang bersama tetap konsep terbuka. Scope Vertical Slice masih perlu ditentukan.
+Greenhouse (kapasitas 18 tanaman), 4 musim, siklus cuaca, dan dua tier pupuk ditargetkan masuk First Release melalui keputusan desain. Detail implementasi, ekonomi, dan spec fitur tetap belum otomatis siap dikerjakan. 5 tier pupuk, Watering Can 100 ml, dan gudang bersama tetap konsep terbuka. Scope Vertical Slice masih perlu ditentukan.
 
 ## Status proyek
 
@@ -81,7 +81,7 @@ Greenhouse (kapasitas 18 tanaman), 4 musim, dan siklus cuaca ditargetkan masuk F
 - GDD: v3.5.
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v12).
-- Log keputusan: D-001 sampai D-048; keputusan yang digantikan tetap tercatat sebagai riwayat.
+- Log keputusan: D-001 sampai D-049; keputusan yang digantikan tetap tercatat sebagai riwayat.
 - Tidak ada spec yang berstatus `READY`; hanya pemilik yang dapat menyetujui status tersebut.
 
 ## Dokumen utama

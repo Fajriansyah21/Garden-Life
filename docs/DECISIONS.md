@@ -1029,3 +1029,46 @@ Entri terbaru di paling atas.
   - Aturan cuaca musim berikutnya diperlukan sebelum aturan Soft Transition lintas semua musim dapat dinyatakan lengkap.
   - Tidak ada spec yang dinaikkan menjadi READY.
 
+### D-049 · Pupuk, timer plot kosong, dan batas Mutation
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Pupuk perlu mempercepat pertumbuhan tanpa mengubah WaterLevel, Mutation, Variant, atau kualitas buah. Sistem harus tetap ringan dan konsisten dengan aturan plot kosong.
+- Keputusan:
+  - Timer dan efek pupuk **freeze saat plot kosong**. Timer berjalan kembali ketika minimal satu pemain menempati plot.
+  - Kalender musim dan cuaca server tetap berjalan saat plot kosong, tetapi pupuk tidak mengonsumsi durasi dan tidak mempercepat pertumbuhan tanaman di plot tersebut.
+  - First Release menggunakan 2 tier pupuk: **Basic Fertilizer** dan **Premium Fertilizer**. Konsep 5 tier pupuk tetap belum digunakan.
+  - Basic Fertilizer memberi bonus laju pertumbuhan **+0,2×** selama **120 tick**.
+  - Premium Fertilizer memberi bonus laju pertumbuhan **+0,5×** selama **240 tick**.
+  - Satu tanaman hanya dapat memiliki satu efek pupuk aktif. Pupuk baru tidak dapat ditumpuk atau menggantikan pupuk aktif.
+  - Pupuk dapat digunakan bersama Season Pill, multiplier cuaca, dan Greenhouse.
+  - Pupuk tidak dapat digunakan pada tanaman Dormant, Layu, atau Mati.
+  - Pupuk tidak mengubah Mutation, Variant, WaterLevel, kualitas buah, atau kondisi tanaman.
+  - Perhitungan laju pertumbuhan menggunakan bonus pupuk aditif terhadap multiplier pertumbuhan aktif; formula final sistem pertumbuhan masih perlu dirinci dalam spec.
+  - Batas **15** berlaku untuk jumlah Mutation unik yang dapat tersimpan pada satu buah, bukan batas multiplier pertumbuhan tanaman.
+- Dampak:
+  - Semua durasi pupuk disimpan dalam tick; 120 tick = 1 jam real-time dan 240 tick = 2 jam real-time.
+  - UI perlu menampilkan efek dan sisa timer pupuk, termasuk status paused saat plot kosong.
+  - Harga, sumber, kapasitas stack inventori, dan tampilan Basic/Premium Fertilizer masih BELUM DIPUTUSKAN.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-050 · Variant musiman dan perlindungan Thunderstorm
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Spring membutuhkan reward koleksi yang tidak memaksa pemain grind, serta perlindungan Thunderstorm yang memberi pilihan antara Life Coin dan Robux tanpa keunggulan eksklusif Robux.
+- Keputusan:
+  - Variant musiman muncul alami selama musim dengan satu roll harian per plot.
+  - Peluang dasar adalah **0,5% per plot per hari in-game**. Setiap kegagalan menaikkan peluang roll berikutnya sebesar **0,05 poin persentase**. Peluang reset ke 0,5% saat musim berganti.
+  - Variant musiman disimpan persisten pada data tanaman dan tetap terpisah dari Mutation.
+  - Rebranding cozy: Vitamin menjadi **Scorch Balm** untuk Scorched; Herbal Tea menjadi **Bloom Tea** untuk Layu musim; Lightning Rod menjadi **Storm Catcher**; Thunderstorm Relief menjadi **Storm Shield**. Nama final tetap dapat ditinjau sebelum spec.
+  - Storm Catcher maksimal 2 per plot.
+  - Storm Shield maksimal 1 per plot. Radius dan efek Storm Shield dapat di-upgrade maksimal 3 level; setiap upgrade mengorbankan satu Storm Shield tambahan, sehingga total 3 item diperlukan untuk hasil maksimal.
+  - **Small Protection Kit** dibeli dengan Life Coin. **Medium Protection Kit** dibeli dengan Robux dan hanya berisi jumlah item lebih banyak, tanpa keunggulan mekanik. Detail isi dan jumlah masih BELUM DIPUTUSKAN.
+  - Season Pill diarahkan memiliki harga 80% dari harga jual tanaman dewasa yang menjadi targetnya. Angka ekonomi final menunggu data harga tanaman dan buah.
+  - Tanaman mati akibat Thunderstorm tidak menghasilkan item khusus. Pilihannya sama dengan tanaman mati lain: cabut/buang, jadikan pupuk biasa, atau revive dengan Robux.
+- Dampak:
+  - Sistem Variant harus membedakan roll harian per plot dari roll Mutation per tick saat plot ditempati.
+  - Ekonomi perlu menguji pity Variant agar tidak menghasilkan pasokan Variant atau pendapatan berlebih.
+  - Harga dan isi semua item perlindungan, Scorch Balm, Bloom Tea, serta Season Pill masih perlu ditetapkan melalui audit ekonomi.
+  - Tidak ada spec yang dinaikkan menjadi READY.

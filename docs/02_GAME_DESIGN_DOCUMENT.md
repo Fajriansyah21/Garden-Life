@@ -97,12 +97,14 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
-### Transisi musim dan perlindungan tanaman (D-047)
+### Transisi musim, perlindungan tanaman, dan pupuk (D-047, D-049)
 - Satu musim berlangsung 30 hari in-game: 720 tick/hari, satu tick 30 detik, atau 6 jam real-time per hari dan 180 jam per musim.
 - Soft Transition berlangsung hari 28-30. Tanaman tidak cocok musim memasuki Dormant pada hari pertama musim baru. Dormant 7 hari in-game aktif, timer hanya berjalan saat plot ditempati, dan pertumbuhan freeze.
 - Setelah Dormant: Tolerant tumbuh 0,7× dengan yield 80%; Sensitive tumbuh 0,4× dengan yield 50%; Strict Layu 1 hari in-game aktif. Tanaman Strict Layu tidak dirawat akan mati; opsi mati mengikuti D-038.
 - Herbal Tea merawat satu tanaman Layu akibat musim selama 30 menit online dan membutuhkan satu penyiraman, lalu tanaman kembali Dormant. Season Pill membuat satu tanaman kompatibel dengan musim aktif hingga musim berakhir; efek hilang saat tanaman dicabut/dibuang.
 - Greenhouse First Release berkapasitas 18 tanaman, mencegah Dormant/Layu musim dan Mutation cuaca, tetapi tidak menghentikan kebutuhan air atau Overwatered.
+- Pupuk First Release memiliki dua tier: Basic Fertilizer (+0,2× selama 120 tick) dan Premium Fertilizer (+0,5× selama 240 tick). Timer/efek freeze saat plot kosong; satu tanaman hanya dapat memiliki satu pupuk aktif. Pupuk dapat dipakai bersama Season Pill, cuaca, dan Greenhouse, tetapi tidak pada Dormant, Layu, atau Mati.
+- Pupuk tidak mengubah WaterLevel, Mutation, Variant, kualitas buah, atau kondisi tanaman. Batas 15 berlaku pada jumlah Mutation unik per buah, bukan pertumbuhan.
 
 ### Tools & perawatan tanaman
 
