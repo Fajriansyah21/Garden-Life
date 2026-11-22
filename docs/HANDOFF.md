@@ -4,10 +4,11 @@
   - Memulihkan PRD Spring yang sebelumnya berisi roster Summer, berdasarkan GDD dan keputusan Spring.
   - Menyelaraskan GDD dengan Shared Weather v1: Wet Rainy 2,5%, multiplier pertumbuhan, nama item perlindungan, dan rincian Autumn.
   - Memperbarui PRD Autumn dengan produksi Leaffall, kapasitas daun, eksklusivitas bahan organik, dan aturan Rest/Greenhouse.
-  - Menambahkan D-063: Greenhouse mencegah Rest baru, tetapi tidak mengakhiri Rest yang sudah aktif.
+  - Menambahkan usulan D-063: Greenhouse mencegah Rest baru, tetapi tidak mengakhiri Rest yang sudah aktif; menunggu persetujuan pemilik.
 - File diubah: README.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.16), docs/DECISIONS.md (D-063), docs/HANDOFF.md, docs/design/PRD_SPRING.md, docs/design/PRD_AUTUMN.md.
 - Spec READY untuk dikerjakan: tidak ada.
 - Pertanyaan terbuka:
+  - Persetujuan pemilik atas usulan D-063 mengenai Rest/Greenhouse.
   - Distribusi jumlah tumpukan/daun Leaffall dalam rentang D-061.
   - Multiplier Mutation dan harga item Spring/Autumn masih perlu balancing.
 - Asumsi yang perlu dicek:
