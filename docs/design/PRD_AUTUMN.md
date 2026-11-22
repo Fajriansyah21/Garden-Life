@@ -7,7 +7,7 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 - Durasi: 30 hari in-game.
 - Soft Transition hari 28–30: preview visual musim berikutnya 20%, tanpa efek gameplay musim depan.
 - Frost mulai hari 25 sampai pergantian Winter. Hari 25–27: peluang Frost 10% per pemilihan cuaca. Durasi Frost 10 menit.
-- Status berhenti tumbuh bernama **Rest**, bukan Dormant. Rest membekukan pertumbuhan. Bukan mati. Berakhir lewat Season Pill, Greenhouse, atau musim yang cocok kembali.
+- Status berhenti tumbuh bernama **Rest**, bukan Dormant. Rest membekukan pertumbuhan. Bukan mati. Greenhouse mencegah tanaman masuk Rest karena ketidakcocokan musim, tetapi tidak menghapus Rest yang sudah aktif. Rest yang sudah aktif berakhir melalui Season Pill atau saat musim kembali cocok (D-063).
 
 ## 3. Roster cuaca normal
 | Cuaca | Bobot | Durasi | Efek |
@@ -27,15 +27,18 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 - Frost bukan cuaca normal. Memberi status **Frosted**. Menurunkan suhu. Tidak membunuh langsung.
 - Cold-hardy: pertumbuhan normal.
 - Temperature-sensitive: tumbuh 0,75× selama Frost.
-- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir tanpa Greenhouse atau Season Pill, masuk status Rest.
+- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir, masuk Rest jika tidak terlindungi Greenhouse atau Season Pill. Greenhouse mencegah Rest baru, tetapi tidak memulihkan tanaman yang sudah Rest
 - Mutation Frost: **Chill**, Rare, 1% per buah eligible per tick. Kumulatif sekitar 18,2% per episode 20 tick. ASUMSI.
 
 ## 5. Leaf Accumulation
-- Leaffall menaruh tumpukan daun di plot aktif.
+- Leaffall menaruh 1-3 tumpukan daun per plot per episode. Setiap tumpukan berisi 10-20 Fallen Leaves (D-061); pemilihan jumlah dalam rentang ini belum memiliki distribusi final.
+- Fallen Leaves hanya bertambah pada plot aktif. Plot kosong tidak menghasilkan tumpukan catch-up.
+- Kapasitas inventory Fallen Leaves: 500.
 - Garden Rake: menyapu daun ke satu titik, bisa dipakai berulang, tidak masuk inventory.
 - Tangan: ambil daun satu per satu dari titik tumpukan.
 - Leaf Basket: sekali pakai, ambil semua daun dalam radius lingkaran langsung ke inventory.
 - Daun tidak dibersihkan selama 2 hari in-game: tanaman di bawahnya status **Blocked**, pertumbuhan −50%.
+- Satu bahan organik hanya dapat dialokasikan ke Heater atau Leafy Compost Bin, tidak keduanya. UI wajib meminta konfirmasi tujuan bahan (D-061).
 - Mutation Leaffall: **Fall**, Epic, 0,5% per buah eligible per tick. Kumulatif sekitar 9,5% per episode 20 tick. ASUMSI. Chance tidak bergantung jumlah daun.
 
 ## 6. Leafy Compost Bin
@@ -69,11 +72,11 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 ## 9. Kriteria penerimaan
 1. Autumn berjalan 30 hari in-game.
 2. Bobot cuaca normal sesuai tabel. Tidak ada cuaca yang mengulang langsung.
-3. Leaffall menaruh daun hanya di plot aktif.
+3. Leaffall menghasilkan 1-3 tumpukan/plot/episode, 10-20 daun/tumpukan, inventory maksimal 500 daun, hanya pada plot aktif
 4. Garden Rake, tangan, dan Leaf Basket bekerja sesuai peran masing-masing.
 5. Daun tidak dibersihkan 2 hari memberi Blocked −50%.
 6. Bin: 100 poin, 30 menit, 3 batch, sisa poin tersimpan, Tier Ceiling benar.
-7. Frost mulai hari 25. Frosted tidak membunuh. Cold-sensitive tanpa perlindungan masuk Rest setelah Frost berakhir.
+7. Frost mulai hari 25. Frosted tidak membunuh. Cold-sensitive tanpa perlindungan masuk Rest setelah Frost berakhir; Greenhouse mencegah Rest baru tetapi tidak menghapus Rest aktif
 8. Label UI memakai Rest, bukan Dormant.
 9. Chill dan Fall hanya roll pada buah eligible di plot ditempati.
 10. Tidak ada spec yang dinaikkan menjadi READY.
