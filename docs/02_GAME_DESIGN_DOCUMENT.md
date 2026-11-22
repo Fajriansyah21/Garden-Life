@@ -113,7 +113,7 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 
 ### Rest dan kompos Autumn (D-056, D-063)
 - Status berhenti tumbuh bernama Rest, bukan Dormant. Rest membekukan pertumbuhan dan bukan kematian.
-- Greenhouse mencegah tanaman masuk Rest akibat ketidakcocokan musim, tetapi tidak menghapus Rest yang sudah aktif. Tanaman yang sudah Rest pulih melalui Season Pill atau ketika musim kembali cocok (D-063).
+- Usulan D-063 (menunggu persetujuan): Greenhouse mencegah tanaman masuk Rest akibat ketidakcocokan musim, tetapi tidak menghapus Rest yang sudah aktif. Tanaman yang sudah Rest pulih melalui Season Pill atau ketika musim kembali cocok.
 - Tier Ceiling kompos: daun/Common maksimal Basic; Uncommon/Rare maksimal Medium; Epic+ maksimal Super.
 - Garden Rake mengumpulkan daun ke satu titik. Leaf Basket sekali pakai mengambil daun dalam radius ke inventory.
 
