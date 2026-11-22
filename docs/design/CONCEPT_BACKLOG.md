@@ -109,6 +109,27 @@ Harga bibit individual boleh berbeda dalam tier yang sama. Baseline D-052 tetap 
 - Simulasi pendapatan/modal/keuntungan: Carrot 150/100/50 LC; Daisy 200/150/50 LC; Strawberry 2.700/300/2.400 LC; Lettuce 200/120/80 LC.
 - Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
 
+#### Balancing awal tanaman Uncommon (D-066)
+Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil per panen | Total panen | Regrow | Harga jual |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Tulip | Single Harvest **(DIPUTUSKAN)** | 500 LC (ASUMSI) | 5 menit (ASUMSI) | 1 bunga (ASUMSI) | 1 (ASUMSI) | - | 800 LC/bunga (ASUMSI) |
+| Blueberry | Multi Harvest **(DIPUTUSKAN)** | 700 LC (ASUMSI) | 6 menit (ASUMSI) | 8 buah **(DIPUTUSKAN)** | 10 **(DIPUTUSKAN)** | 4 menit (ASUMSI) | 120 LC/buah (ASUMSI) |
+| Bell Pepper | Multi Harvest **(DIPUTUSKAN)** | 1.200 LC (ASUMSI) | 8 menit (ASUMSI) | 6 buah **(DIPUTUSKAN)** | 8 **(DIPUTUSKAN)** | 6 menit (ASUMSI) | 250 LC/buah (ASUMSI) |
+| Mint | Single Harvest **(DIPUTUSKAN)** | 300 LC **(DIPUTUSKAN)** | 4 menit (ASUMSI) | 3 daun (ASUMSI) | 1 (ASUMSI) | - | 200 LC/daun (ASUMSI) |
+
+Simulasi sementara berdasarkan angka ASUMSI di tabel (belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca):
+
+| Tanaman | Total hasil | Pendapatan | Modal bibit | Keuntungan kotor | Waktu hingga panen terakhir |
+|---|---:|---:|---:|---:|---:|
+| Tulip | 1 bunga | 800 LC | 500 LC | 300 LC | 5 menit |
+| Blueberry | 80 buah | 9.600 LC | 700 LC | 8.900 LC | 42 menit |
+| Bell Pepper | 48 buah | 12.000 LC | 1.200 LC | 10.800 LC | 50 menit |
+| Mint | 3 daun | 600 LC | 300 LC | 300 LC | 4 menit |
+
+Waktu panen terakhir dihitung sebagai waktu tumbuh awal + (total panen - 1) × regrow. Angka pendapatan dan keuntungan hanya simulasi dari harga jual sementara, bukan nilai final.
+
 ### Eksplorasi Spring: identitas dan cuaca (D-028)
 
 Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Weather masih berstatus eksplorasi dan belum otomatis menjadi scope rilis.
