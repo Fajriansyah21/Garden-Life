@@ -1,4 +1,14 @@
 ## 2026-11-22 · ChatGPT -> Pemilik
+- Selesai: Pemilik menyetujui roster konsep 20 tanaman reguler melalui D-064: Common 4, Uncommon 4, Rare 4, Epic 3, Legendary 2, Mystic 3. Golden Apple dan Moonflower tetap tanaman event, di luar roster reguler.
+- File diubah: docs/DECISIONS.md (D-064), docs/02_GAME_DESIGN_DOCUMENT.md (v3.17), docs/design/CONCEPT_BACKLOG.md, README.md, docs/HANDOFF.md.
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka: Harga benih dan jual per tanaman; harga tier yang tercatat di D-052 tidak diubah. Parameter growth/yield, season affinity, kebutuhan air/panas/dingin, serta sumber perolehan tier tinggi masih perlu dibahas.
+- Asumsi yang perlu dicek: Tidak ada angka ekonomi atau parameter gameplay tanaman baru yang ditetapkan dalam D-064.
+- Perubahan dokumentasi saja; tidak ada kode gameplay.
+
+---
+
+## 2026-11-22 · ChatGPT -> Pemilik
 - Selesai:
   - Memperbarui README agar log keputusan mencakup D-063.
   - Memulihkan PRD Spring yang sebelumnya berisi roster Summer, berdasarkan GDD dan keputusan Spring.
