@@ -1,5 +1,30 @@
 ## 2026-11-22 · ChatGPT -> Claude
 - Selesai:
+  - Mencatat D-066 untuk balancing konsep Uncommon.
+  - Menetapkan Tulip dan Mint sebagai Single Harvest; Blueberry dan Bell Pepper sebagai Multi Harvest finite.
+  - Blueberry: 8 buah per panen, 10 panen total.
+  - Bell Pepper: 6 buah per panen, 8 panen total.
+  - Mint: harga bibit 300 LC.
+  - Menambahkan tabel balancing dan simulasi ekonomi sementara ke GDD serta Concept Backlog.
+- File diubah:
+  - README.md
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.19)
+  - docs/DECISIONS.md (D-066)
+  - docs/design/CONCEPT_BACKLOG.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. Balancing Uncommon adalah konsep, bukan spec implementasi.
+- Pertanyaan terbuka:
+  - Konfirmasi harga bibit selain Mint, waktu tumbuh awal, yield Tulip dan Mint, regrow Blueberry/Bell Pepper, serta harga jual.
+  - Balancing profit-per-minute setelah angka provisional dikonfirmasi dan dibandingkan dengan Common.
+- Asumsi / risiko:
+  - Harga jual dan parameter lain yang tidak ditandai DIPUTUSKAN masih ASUMSI sementara.
+  - Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
+  - Tidak ada kode gameplay yang diubah.
+
+---
+
+## 2026-11-22 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui balancing konsep awal tanaman Common melalui D-065.
   - Daisy ditetapkan Single Harvest dengan harga jual 200 LC.
   - Strawberry ditetapkan menghasilkan 6 buah per panen dan memiliki 10 panen total (termasuk panen pertama), dengan regrow 3 menit.
