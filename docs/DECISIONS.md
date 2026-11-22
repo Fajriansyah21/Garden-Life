@@ -1215,3 +1215,14 @@ Entri terbaru di paling atas.
 - Tanggal: 2026-11-22
 - Keputusan: Durasi 30 hari, Soft Transition 3 hari. Roster: Sunny, Overcast, Snowfall, Heavy Snow, Frost, Freezing Rain, Blizzard. Mekanik salju: Heavy Snow/Blizzard (>2 hari = Frozen -50%). Snow Shovel -> Snow Block. Blizzard (event, 14 studs, Mutation Glacial Epic, Blizzard Legendary). Heater (10 studs, kebal Frozen/Frosted, kapasitas 500, bahan bakar kayu/organik).
 
+### D-059 · Mekanik Heater dan Frozen
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Final untuk implementasi
+- Keputusan:
+  - Frozen: Tanaman yang tertutup salju >2 hari = pertumbuhan 0× (Freeze total). Bukan mati.
+  - Heater: Radius 10 studs, kebal Frozen/Frosted, kapasitas 500 unit.
+  - Konsumsi Heater: 0,5 unit/tick (setara ~25 jam real-time jika penuh).
+  - Nilai Bahan Bakar: Daun (1), Tanaman Mati (5-20), Kayu (50).
+  - Bonus "Hot Embers": Tanaman mati memberikan durasi panas 1,5× lipat karena kepadatan energi lebih tinggi.
+

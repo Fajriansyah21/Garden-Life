@@ -1,3 +1,10 @@
+## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-059 (Heater: 0,5 unit/tick, kapasitas 500, bahan bakar kayu/organik, bonus 1,5× Hot Embers; Frozen: pertumbuhan 0×). Audit Winter selesai.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.12), README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
 ## 2026-11-22 · Hermes -> Pemilik: D-057 & D-058 Finalized.
 
 ## 2026-11-22 · Hermes -> Pemilik

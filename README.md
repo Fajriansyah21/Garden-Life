@@ -78,7 +78,7 @@ Greenhouse (kapasitas 18 tanaman), 4 musim, siklus cuaca, dan dua tier pupuk dit
 
 - Fase: **1 Konsep & GDD**.
 - Gameplay: belum ada implementasi.
-- GDD: v3.11.
+- GDD: v3.12.
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v12).
 - Log keputusan: D-001 sampai D-058; keputusan yang digantikan tetap tercatat sebagai riwayat.
