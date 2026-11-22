@@ -1189,3 +1189,20 @@ Entri terbaru di paling atas.
   - Aturan: Daun tidak dibersihkan >2 hari -> status Blocked (-50% pertumbuhan).
   - Tingkat pupuk: Biasa, Medium, Super (ditentukan oleh tier bahan tertinggi).
 
+### D-056 · Rest, Tier Ceiling kompos, dan alat daun Autumn
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Nama Dormant membingungkan. Autumn juga butuh batas tier pupuk dan peran jelas antara Garden Rake dan Leaf Basket.
+- Keputusan:
+  - Status tanaman yang berhenti tumbuh karena musim tidak cocok atau dingin bernama **Rest**, bukan Dormant dan bukan fase.
+  - Rest membekukan pertumbuhan. Tanaman Rest tidak bisa diberi pupuk, dipanen, atau menerima Mutation cuaca. Bukan mati.
+  - Rest berakhir lewat Season Pill, Greenhouse, atau saat musim yang cocok kembali.
+  - Frosted tetap status penalti sementara. Cold-sensitive masuk Rest setelah Frost berakhir jika tidak dilindungi Greenhouse atau Season Pill. Frost tidak membunuh langsung.
+  - Tier Ceiling Leafy Compost Bin: daun atau tanaman mati Common menghasilkan maksimal Basic; Uncommon atau Rare maksimal Medium; Epic, Legendary, atau Mystic maksimal Super. Poin hanya mengisi 100 per pupuk. Sisa poin tersimpan.
+  - Garden Rake mengumpulkan daun ke satu titik dan bisa dipakai berulang. Leaf Basket sekali pakai mengambil semua daun dalam radius langsung ke inventory. Tangan mengambil daun satu per satu dari titik tumpukan.
+- Dampak:
+  - UI memakai label Rest, bukan Dormant.
+  - Daun tidak bisa menghasilkan Super Fertilizer.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+

@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.9 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.10 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -110,6 +110,11 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Toleransi dingin: Cold-hardy (normal), Temperature-sensitive (0,75× saat Frost), Cold-sensitive (berhenti tumbuh saat Frost lalu Dormant bila tidak dilindungi).
 - Garden Rake mengumpulkan daun ke satu titik. Daun dapat diambil satu per satu atau dengan Leaf Basket sekali pakai, masuk inventory, lalu diolah menjadi pupuk. Daun yang tidak dibersihkan selama 2 hari memberi Blocked dan penalti pertumbuhan 50%.
 - Sunny dan Windy tidak memberi Mutation khusus. Mutation Frost bernama Chill dan Mutation Leaffall bernama Fall; tier dan chance masih terbuka.
+
+### Rest dan kompos Autumn (D-056)
+- Status berhenti tumbuh bernama Rest, bukan Dormant. Rest membekukan pertumbuhan dan bukan kematian.
+- Tier Ceiling kompos: daun/Common maksimal Basic; Uncommon/Rare maksimal Medium; Epic+ maksimal Super.
+- Garden Rake mengumpulkan daun ke satu titik. Leaf Basket sekali pakai mengambil daun dalam radius ke inventory.
 
 ### Transisi musim, perlindungan tanaman, dan pupuk (D-047, D-049)
 - Roster Summer: Sunny (40 tick/20 min), Cloudy, Windy, Heatwave, Summer Shower, Muggy, dan Tornado.

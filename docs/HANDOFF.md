@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-056. Status Rest menggantikan nama Dormant. Tier Ceiling kompos dan peran Garden Rake / Leaf Basket dikunci.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.10), README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+- Berikutnya: PRD Autumn.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-055 (Leafy Compost Bin, nilai poin tanaman mati, sistem antrean 3 batch, waktu persistent 30 menit).
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.9), README.md, docs/HANDOFF.md.
 
