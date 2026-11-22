@@ -92,7 +92,22 @@ Roster 20 tanaman reguler telah disetujui pemilik untuk konsep. Roster ini bukan
 | Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
 | **Total** | **20 tanaman** | **20** |
 
-Tanaman event berada di luar roster reguler D-064. Harga, pertumbuhan, yield, season affinity, kebutuhan air/panas/dingin, cara memperoleh, dan detail visual final untuk tanaman reguler masih terbuka. Baseline harga tier D-052 tidak diubah.
+Tanaman event berada di luar roster reguler D-064. Parameter tanaman selain balancing Common D-065, termasuk season affinity, kebutuhan air/panas/dingin, cara memperoleh, dan detail visual final masih terbuka.
+
+#### Balancing awal tanaman Common (D-065)
+Harga bibit individual boleh berbeda dalam tier yang sama. Baseline D-052 tetap menjadi acuan rarity, bukan harga seragam wajib untuk setiap tanaman.
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil per panen | Harga jual |
+|---|---|---:|---:|---:|---:|
+| Carrot | Single Harvest | 100 LC | 1 menit | 1 carrot | 150 LC |
+| Daisy | Single Harvest | 150 LC | 3 menit | 1 bunga | 200 LC |
+| Strawberry | Repeat Harvest | 300 LC | 4 menit | 6 buah | 45 LC/buah |
+| Lettuce | Single Harvest | 120 LC | 2 menit | 1 kepala | 200 LC |
+
+- Strawberry: 10 panen total (panen pertama + 9 panen ulang), regrow 3 menit, total 31 menit sampai panen ke-10.
+- 8 buah per panen masih opsi yang belum dipilih; baseline saat ini 6 buah.
+- Simulasi pendapatan/modal/keuntungan: Carrot 150/100/50 LC; Daisy 200/150/50 LC; Strawberry 2.700/300/2.400 LC; Lettuce 200/120/80 LC.
+- Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
 
 ### Eksplorasi Spring: identitas dan cuaca (D-028)
 
