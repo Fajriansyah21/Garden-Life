@@ -1335,3 +1335,26 @@ Entri terbaru di paling atas.
   - Season affinity, klasifikasi water/heat/cold, serta kompatibilitas cuaca.
   - Metode perolehan tier di atas Rare dan apakah seluruh tanaman masuk toko atau sumber lain.
   - Detail visual/aset final serta scope implementasi per fase.
+
+
+### D-065 · Balancing awal tanaman Common dan harga bibit individual
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; belum menjadi spec implementasi
+- Konteks: Tanaman dalam tier yang sama boleh memiliki harga bibit dan harga jual berbeda, serta pola produksi berbeda. Balancing harus mempertimbangkan total siklus hidup tanaman, bukan hanya harga per buah.
+- Keputusan:
+  - Harga bibit dapat ditetapkan secara individual per tanaman. Baseline harga tier D-052 tetap menjadi acuan ekonomi rarity, tetapi bukan harga wajib yang seragam untuk setiap tanaman. Harga individual yang tercantum di balancing tanaman menjadi nilai yang digunakan untuk tanaman tersebut.
+  - Balancing Common awal:
+    - **Carrot:** Single Harvest; bibit 100 LC; pertumbuhan awal 1 menit; hasil 1 carrot; harga jual 150 LC.
+    - **Daisy:** Single Harvest; bibit 150 LC; pertumbuhan awal 3 menit; hasil 1 bunga; harga jual 200 LC.
+    - **Strawberry:** Repeat Harvest; bibit 300 LC; pertumbuhan awal 4 menit; hasil 6 buah per panen; harga jual 45 LC per buah; 10 panen total; regrow 3 menit di antara panen.
+    - **Lettuce:** Single Harvest; bibit 120 LC; pertumbuhan awal 2 menit; hasil 1 kepala lettuce; harga jual 200 LC.
+  - Untuk Strawberry, 10 panen total mencakup panen pertama dan 9 panen ulang. Dengan pertumbuhan awal 4 menit dan 9 regrow × 3 menit, waktu sampai panen ke-10 adalah 31 menit.
+  - Hasil Strawberry 8 buah per panen tetap menjadi opsi balancing yang belum dipilih; baseline yang disetujui saat ini adalah 6 buah per panen.
+- Dampak ekonomi awal (belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca):
+  - Carrot: pendapatan 150 LC; modal bibit 100 LC; keuntungan 50 LC.
+  - Daisy: pendapatan 200 LC; modal bibit 150 LC; keuntungan 50 LC.
+  - Strawberry: 60 buah total; pendapatan 2.700 LC; modal bibit 300 LC; keuntungan 2.400 LC.
+  - Lettuce: pendapatan 200 LC; modal bibit 120 LC; keuntungan 80 LC.
+- Dampak desain: Carrot menjadi panen awal cepat; Daisy dan Lettuce menjadi pilihan Single Harvest dengan profil waktu/hasil berbeda; Strawberry menjadi investasi tanaman berulang untuk pemain yang ingin mempertahankan tanaman dalam jangka lebih panjang.
+- Batasan: D-065 tidak menetapkan scope Vertical Slice, tidak menyetujui spec implementasi, dan tidak mengubah status spec apa pun menjadi READY. Parameter tanaman Common lainnya dan seluruh tier lain masih perlu balancing.
