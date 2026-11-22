@@ -1226,3 +1226,10 @@ Entri terbaru di paling atas.
   - Nilai Bahan Bakar: Daun (1), Tanaman Mati (5-20), Kayu (50).
   - Bonus "Hot Embers": Tanaman mati memberikan durasi panas 1,5× lipat karena kepadatan energi lebih tinggi.
 
+### D-060 · Koreksi durasi bahan bakar Heater
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep
+- Keputusan: Kapasitas Heater tetap **500 unit** dan konsumsi tetap **0,5 unit per tick**. Dengan 1 tick = 30 detik, durasi penuh Heater adalah **1.000 tick = 500 menit = 8 jam 20 menit waktu real-time aktif**. Catatan D-059 yang menyebut sekitar 25 jam dikoreksi oleh keputusan ini.
+- Dampak: Balancing bahan bakar, kayu, daun, tanaman mati, dan cakupan Heater harus memakai durasi 8 jam 20 menit sebagai baseline.
+

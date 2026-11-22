@@ -16,6 +16,6 @@
 
 ## 4. Acceptance Criteria
 - Transisi 3 hari berjalan.
-- Tanaman non-Spring Dormant (freeze) setelah 7 hari in-game.
+- Tanaman tidak cocok dengan musim aktif dapat masuk status Rest sesuai aturan musim; label UI tidak memakai Dormant.
 - Rantai Tornado berfungsi sesuai aturan rantai.
 - Uprooted/Windblown fungsional dengan Trowel.

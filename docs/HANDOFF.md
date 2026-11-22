@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-060 mengoreksi baseline Heater menjadi kapasitas 500 unit, konsumsi 0,5 unit/tick, durasi 8 jam 20 menit real-time aktif. PRD Winter dan Master Release Plan diselaraskan.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.13), docs/design/PRD_WINTER.md, docs/design/MASTER_RELEASE_PLAN.md, README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+- Terbuka: tabel shared weather final, konversi Snow Block ke air, produksi daun per Leaffall, harga/multiplier buah, dan Economy Ledger.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-059 (Heater: 0,5 unit/tick, kapasitas 500, bahan bakar kayu/organik, bonus 1,5× Hot Embers; Frozen: pertumbuhan 0×). Audit Winter selesai.
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.12), README.md, docs/HANDOFF.md.
 - Spec READY: tidak ada.
