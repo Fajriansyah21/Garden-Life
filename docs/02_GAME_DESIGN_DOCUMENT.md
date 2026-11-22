@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.21 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.22 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -245,6 +245,16 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 - D-064 menetapkan roster dan tier; balancing Common awal dicatat melalui D-065.
 - Harga bibit individual boleh berbeda antar tanaman dalam tier yang sama. Baseline tier D-052 tetap menjadi acuan rarity, sedangkan nilai individual yang disetujui di D-065 berlaku untuk tanaman Common yang tercantum.
 - Parameter tanaman selain balancing Common D-065, termasuk harga dan yield tier lain, season affinity, kebutuhan air/panas/dingin, metode perolehan, serta detail visual final masih BELUM DIPUTUSKAN.
+
+#### Efek gameplay klasifikasi Matahari (D-069)
+
+| Kategori | Efek Terang (Sunny) | Efek Teduh (Cloudy/Misty) |
+|---|---|---|
+| **Sun love** | Tumbuh 1,15×, chance buah besar | Tumbuh 0,85× |
+| **Normal** | Tumbuh 1,0× | Tumbuh 1,0× |
+| **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
+
+**Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
 
 #### Klasifikasi lingkungan tanaman Common (D-068)
 

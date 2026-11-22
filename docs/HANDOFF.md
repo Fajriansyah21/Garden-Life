@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-069 menetapkan efek kategori Matahari (Sun love, Normal, Sun sensitive) dan status Sunbleached.
+- File diubah: docs/DECISIONS.md (D-069), docs/02_GAME_DESIGN_DOCUMENT.md (v3.22), docs/HANDOFF.md.
+- Terbuka: Balancing final multiplier dan probabilitas ukuran buah besar.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-068 mencatat klasifikasi lingkungan Common: Carrot, Daisy, Strawberry, Lettuce pada dimensi Matahari, Panas, Dingin, Air, Udara, plus WaterLevel maksimum. WaterLevel di luar toleransi memicu Overwatered sesuai D-013.
 - Efek gameplay kategori belum ditetapkan; menunggu sesi berikutnya.
 - File diubah: docs/DECISIONS.md (D-068), docs/02_GAME_DESIGN_DOCUMENT.md (v3.21), docs/design/CONCEPT_BACKLOG.md, docs/HANDOFF.md.

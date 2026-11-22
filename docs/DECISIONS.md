@@ -1427,3 +1427,18 @@ Entri terbaru di paling atas.
 - **Overwatered:** Jika WaterLevel tanaman berada di luar toleransi maksimum kategori Air/tanaman, tanaman masuk status Overwatered. Pemulihan terjadi jika WaterLevel turun kembali ke atau di bawah toleransi sebelum timer kematian berakhir, mengikuti D-013.
 - Efek pertumbuhan, ukuran buah, yield, dan interaksi cuaca untuk setiap klasifikasi **BELUM DIPUTUSKAN** dan tidak ditetapkan oleh D-068.
 - D-068 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-069 · Efek gameplay klasifikasi Matahari
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Kategori Matahari:
+  - **Sun love:** Saat Sunny, pertumbuhan menjadi **1,15×** dan memiliki peluang kecil untuk menghasilkan buah dengan ukuran lebih besar. Saat Cloudy/Misty, pertumbuhan melambat menjadi **0,85×**.
+  - **Normal:** Tumbuh stabil pada **1,0×** tanpa bonus atau penalti khusus dari intensitas cahaya.
+  - **Sun sensitive:**
+    - Efek dasar saat Sunny: pertumbuhan **0,85×**, ukuran buah baru **0,85×**, dan jumlah buah per panen **0,85×** (dibulatkan ke bawah, minimum 1).
+    - Status **Sunbleached:** Terjadi setelah tanaman terpapar Sunny selama **10 menit berturut-turut**. Pertumbuhan turun menjadi **0,65×**, ukuran buah baru **0,70×**, dan jumlah buah per panen **0,70×** (minimum 1).
+    - Pemulihan: Status Sunbleached pulih setelah 10 menit dalam kondisi tidak terik (Cloudy, Misty, Drizzle, Rainy) atau berada di Greenhouse.
+    - Efek ukuran dan jumlah buah dikunci saat buah tersebut lahir (*spawn*); status tidak mengubah buah yang sudah ada secara retroaktif.
+- Durasi pemicu, durasi pemulihan, dan multiplier di atas adalah baseline balancing konsep.
+- D-069 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
