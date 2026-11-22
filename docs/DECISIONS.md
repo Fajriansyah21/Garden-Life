@@ -1233,3 +1233,32 @@ Entri terbaru di paling atas.
 - Keputusan: Kapasitas Heater tetap **500 unit** dan konsumsi tetap **0,5 unit per tick**. Dengan 1 tick = 30 detik, durasi penuh Heater adalah **1.000 tick = 500 menit = 8 jam 20 menit waktu real-time aktif**. Catatan D-059 yang menyebut sekitar 25 jam dikoreksi oleh keputusan ini.
 - Dampak: Balancing bahan bakar, kayu, daun, tanaman mati, dan cakupan Heater harus memakai durasi 8 jam 20 menit sebagai baseline.
 
+### D-061 · Shared Weather v1, prioritas status, dan sistem Meltwater
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Final untuk implementasi
+- Keputusan:
+  - **Shared Weather v1:**
+    - Sunny: Netral, 1,0×, tanpa Mutation.
+    - Cloudy: +0,25 WaterLevel sekali, Sun-loving 0,85×.
+    - Windy: -0,005 WaterLevel tiap 2 tick, 1,5× pertumbuhan, tanpa Mutation.
+    - Drizzle: +0,05/tick, 0,85×, Wet (2,5%).
+    - Rainy: +0,075/tick, 0,80×, Wet (2,5%), evolusi Flooded (2,5%).
+    - Misty: +0,25 sekali, 0,85×, Misty (6,697%), evolusi Foggy (0,809%).
+    - Multiplier Wet global: **2,5%** per buah/tick di semua cuaca hujan.
+  - **Prioritas Status Tanaman:**
+    `Dead > Uprooted > Rest > Frozen > Frosted > Overwatered > Blocked > Windblown > Normal`
+    - Uprooted **tidak menghapus** status sementara lain (Blocked/Frosted/Frozen/Windblown).
+    - Frozen **butuh Heater** untuk hilang (pembersihan salju tidak otomatis menghapus Frozen).
+    - Rest membekukan WaterLevel; kebal semua cuaca/Mutation; tidak otomatis bangun di Greenhouse.
+    - Greenhouse: tetap bisa Overwatered; kebal efek cuaca lain, status dingin, badai, dan Mutation cuaca.
+  - **Salju & Meltwater:**
+    - Snow Block tersimpan di inventory. Meleleh hanya di luar Winter; dekorasi salju hilang di luar Winter.
+    - 1 Snow Block -> 5 menit di Melting Vat -> 1 Meltwater Bottle (+1,000 WaterLevel). Tidak dapat digunakan saat Overwatered.
+  - **Daun & Bahan Organik:**
+    - Produksi Leaffall: 1-3 tumpukan per plot/episode (10-20 daun/tumpukan). Kapasitas inventory: 500 Fallen Leaves.
+    - Eksklusivitas: 1 bahan organik = pilih Heater ATAU Bin. UI konfirmasi wajib.
+  - **Offline & Persistence:**
+    - Heater tetap berjalan offline jika ON. Salju/daun tidak bertambah saat plot kosong.
+    - Rejoin memulihkan status dari server. Tidak ada roll catch-up Mutation.
+

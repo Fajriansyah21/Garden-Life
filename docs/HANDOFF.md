@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-061 (Shared Weather v1, prioritas status, Meltwater, eksklusivitas bahan organik, offline rules). Membuat `docs/design/SHARED_WEATHER_SPEC.md`.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.14), docs/design/SHARED_WEATHER_SPEC.md, README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-060 mengoreksi baseline Heater menjadi kapasitas 500 unit, konsumsi 0,5 unit/tick, durasi 8 jam 20 menit real-time aktif. PRD Winter dan Master Release Plan diselaraskan.
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.13), docs/design/PRD_WINTER.md, docs/design/MASTER_RELEASE_PLAN.md, README.md, docs/HANDOFF.md.
 - Spec READY: tidak ada.
