@@ -1307,3 +1307,31 @@ Entri terbaru di paling atas.
   - GDD dan PRD musim menggunakan aturan yang sama.
   - Tidak ada perubahan kapasitas atau fungsi perlindungan cuaca Greenhouse.
   - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-064 · Roster 20 tanaman reguler
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk roster konsep; detail ekonomi dan implementasi belum ditetapkan
+- Konteks: Garden Life memerlukan roster tanaman reguler yang memberi variasi bentuk, warna, dan tier koleksi tanpa mengubah fokus utama game sebagai cozy garden simulator.
+- Keputusan:
+  - Roster reguler berisi 20 tanaman dengan pembagian tier berikut:
+    - **Common (4):** Carrot, Daisy, Strawberry, Lettuce.
+    - **Uncommon (4):** Tulip, Blueberry, Bell Pepper, Mint.
+    - **Rare (4):** Sunflower, Watermelon, Lavender, Peony.
+    - **Epic (3):** Orchid, Dragonfruit, Firefly Mushroom.
+    - **Legendary (2):** Wisteria, Sakura.
+    - **Mystic (3):** Starflower, Aurora Rose, Stardust Willow.
+  - **Golden Apple** dan **Moonflower** tidak termasuk roster reguler; keduanya dipertahankan sebagai tanaman event.
+  - D-064 menetapkan roster dan tier saja. Harga benih/jual, waktu tumbuh, yield, ukuran, season affinity, kebutuhan air/panas/dingin, cara memperoleh, serta detail visual final tetap dibahas terpisah.
+  - Baseline harga tier yang telah tercatat di D-052 tidak diubah oleh keputusan ini.
+  - Roster ini tidak dengan sendirinya menetapkan scope Vertical Slice atau status implementasi.
+- Dampak:
+  - Roster memberi 20 tanaman reguler dengan progres rarity Common hingga Mystic.
+  - Tanaman Mystic memiliki variasi siluet bunga (Starflower dan Aurora Rose) serta pohon dekoratif (Stardust Willow).
+  - Balancing ekonomi belum dapat disimpulkan sebelum harga dan parameter pertumbuhan/hasil ditentukan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Harga benih, harga jual, waktu tumbuh, yield, dan parameter tanaman lainnya.
+  - Season affinity, klasifikasi water/heat/cold, serta kompatibilitas cuaca.
+  - Metode perolehan tier di atas Rare dan apakah seluruh tanaman masuk toko atau sumber lain.
+  - Detail visual/aset final serta scope implementasi per fase.
