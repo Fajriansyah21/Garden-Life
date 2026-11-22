@@ -1,5 +1,17 @@
 ## 2026-11-22 · Hermes -> Pemilik
 - Selesai:
+  - Menyusun PRD Summer (`docs/design/PRD_SUMMER.md`) yang menggabungkan seluruh mekanik cuaca, Tornado, Heatwave, Overheat, dan ekonomi tier rarity.
+- File diubah:
+  - docs/design/PRD_SUMMER.md (Created)
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Asumsi/risiko:
+  - PRD Summer finalisasi kebutuhan desain Summer; siap sebagai acuan implementasi.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
+- Selesai:
   - D-052 menetapkan standarisasi 6 tier rarity (Common-Mystic) + Transcendent, harga benih baseline (100 - 250k), dan PRD Spring awal.
   - D-053 menetapkan durasi Summer 30 hari, Soft Transition 3 hari, dan bobot cuaca normal (Sunny 40, Cloudy 20, Windy 15, Heatwave 10, Summer Shower 10, Muggy 5).
   - Summer Shower dan Muggy kini resmi menjadi cuaca normal (bukan hanya bagian rantai).
