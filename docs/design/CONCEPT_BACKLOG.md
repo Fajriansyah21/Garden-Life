@@ -1,7 +1,7 @@
 # CONCEPT BACKLOG · Garden Life
 
 **Status dokumen:** Catatan desain konsep, bukan instruksi implementasi.
-**Terakhir diperbarui:** 2026-11-21
+**Terakhir diperbarui:** 2026-11-22
 
 Dokumen ini mengumpulkan gagasan Garden Life yang pernah dibahas agar tidak hilang saat GDD disusun ulang. Hanya hal yang dikonfirmasi pemilik yang diperlakukan sebagai keputusan. Hal yang belum lengkap tetap berstatus eksplorasi.
 
@@ -77,6 +77,22 @@ Ini adalah gagasan terdahulu yang belum memiliki spesifikasi final. Jangan angga
 | Cuaca | Efek cuaca pada farming | Jenis cuaca, peluang, dampak numerik |
 | Tanaman | Sistem tanam dan panen | Daftar crop, bibit, waktu tumbuh, yield, harga jual |
 | Gudang | Konsep gudang bersama | Kapasitas, hak akses, pemisahan item pribadi/plot |
+
+
+### Roster tanaman reguler (D-064)
+Roster 20 tanaman reguler telah disetujui pemilik untuk konsep. Roster ini bukan spec implementasi dan tidak otomatis menetapkan scope Vertical Slice.
+
+| Tier | Tanaman | Jumlah |
+|---|---|---:|
+| Common | Carrot, Daisy, Strawberry, Lettuce | 4 |
+| Uncommon | Tulip, Blueberry, Bell Pepper, Mint | 4 |
+| Rare | Sunflower, Watermelon, Lavender, Peony | 4 |
+| Epic | Orchid, Dragonfruit, Firefly Mushroom | 3 |
+| Legendary | Wisteria, Sakura | 2 |
+| Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
+| **Total** | **20 tanaman** | **20** |
+
+Golden Apple dan Moonflower tetap tanaman event dan tidak termasuk roster reguler. Harga, pertumbuhan, yield, season affinity, kebutuhan air/panas/dingin, cara memperoleh, dan detail visual final masih terbuka. Baseline harga tier D-052 tidak diubah.
 
 ### Eksplorasi Spring: identitas dan cuaca (D-028)
 
