@@ -1321,7 +1321,7 @@ Entri terbaru di paling atas.
     - **Epic (3):** Orchid, Dragonfruit, Firefly Mushroom.
     - **Legendary (2):** Wisteria, Sakura.
     - **Mystic (3):** Starflower, Aurora Rose, Stardust Willow.
-  - **Golden Apple** dan **Moonflower** tidak termasuk roster reguler; keduanya dipertahankan sebagai tanaman event.
+  - Roster D-064 hanya mencakup 20 tanaman reguler yang tercantum di atas; tanaman event berada di luar daftar keputusan ini.
   - D-064 menetapkan roster dan tier saja. Harga benih/jual, waktu tumbuh, yield, ukuran, season affinity, kebutuhan air/panas/dingin, cara memperoleh, serta detail visual final tetap dibahas terpisah.
   - Baseline harga tier yang telah tercatat di D-052 tidak diubah oleh keputusan ini.
   - Roster ini tidak dengan sendirinya menetapkan scope Vertical Slice atau status implementasi.
