@@ -7,7 +7,7 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 - Durasi: 30 hari in-game.
 - Soft Transition hari 28–30: preview visual musim berikutnya 20%, tanpa efek gameplay musim depan.
 - Frost mulai hari 25 sampai pergantian Winter. Hari 25–27: peluang Frost 10% per pemilihan cuaca. Durasi Frost 10 menit.
-- Status berhenti tumbuh bernama **Rest**, bukan Dormant. Rest membekukan pertumbuhan. Bukan mati. Greenhouse mencegah tanaman masuk Rest karena ketidakcocokan musim, tetapi tidak menghapus Rest yang sudah aktif. Rest yang sudah aktif berakhir melalui Season Pill atau saat musim kembali cocok (D-063).
+- Status berhenti tumbuh bernama **Rest**, bukan Dormant. Rest membekukan pertumbuhan. Bukan mati. Usulan D-063 (menunggu persetujuan): Greenhouse mencegah tanaman masuk Rest karena ketidakcocokan musim, tetapi tidak menghapus Rest yang sudah aktif. Rest yang sudah aktif berakhir melalui Season Pill atau saat musim kembali cocok.
 
 ## 3. Roster cuaca normal
 | Cuaca | Bobot | Durasi | Efek |
@@ -27,7 +27,7 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 - Frost bukan cuaca normal. Memberi status **Frosted**. Menurunkan suhu. Tidak membunuh langsung.
 - Cold-hardy: pertumbuhan normal.
 - Temperature-sensitive: tumbuh 0,75× selama Frost.
-- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir, masuk Rest jika tidak terlindungi Greenhouse atau Season Pill. Greenhouse mencegah Rest baru, tetapi tidak memulihkan tanaman yang sudah Rest.
+- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir, masuk Rest jika tidak terlindungi Greenhouse atau Season Pill. Menurut usulan D-063, Greenhouse mencegah Rest baru, tetapi tidak memulihkan tanaman yang sudah Rest.
 - Mutation Frost: **Chill**, Rare, 1% per buah eligible per tick. Kumulatif sekitar 18,2% per episode 20 tick. ASUMSI.
 
 ## 5. Leaf Accumulation
