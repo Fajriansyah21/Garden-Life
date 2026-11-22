@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.16 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.17 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -226,6 +226,24 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 - Aturan tabrakan menggunakan **Hybrid Collision**: tile tidak boleh overlap dengan tile lain tetapi tidak memblokir objek di atasnya; bangunan/objek Solid tidak boleh overlap dengan Solid atau Detail; tanaman/dekorasi Detail boleh overlap dengan Detail lain tetapi tidak dengan Solid.
 - Setiap asset yang dapat ditempatkan wajib memiliki profil tabrakan dan bounding volume.
 - Batas area penempatan, batas jumlah objek, pemindahan, penyimpanan, serta perilaku objek saat ekspansi plot masih memerlukan detail lanjutan.
+
+
+### Roster tanaman reguler (D-064)
+Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetapkan nama dan tier, bukan harga atau parameter gameplay.
+
+| Tier | Tanaman | Jumlah |
+|---|---|---:|
+| Common | Carrot, Daisy, Strawberry, Lettuce | 4 |
+| Uncommon | Tulip, Blueberry, Bell Pepper, Mint | 4 |
+| Rare | Sunflower, Watermelon, Lavender, Peony | 4 |
+| Epic | Orchid, Dragonfruit, Firefly Mushroom | 3 |
+| Legendary | Wisteria, Sakura | 2 |
+| Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
+| **Total** | **20 tanaman** | **20** |
+
+- Golden Apple dan Moonflower dipisahkan dari roster reguler sebagai tanaman event.
+- Harga benih/jual, waktu tumbuh, yield, season affinity, kebutuhan air/panas/dingin, metode perolehan, dan detail visual final masih BELUM DIPUTUSKAN.
+- Baseline harga tier D-052 tetap berlaku sebagai acuan tier; D-064 tidak menetapkan atau mengubah harga tanaman individual.
 
 ## 7. UI / UX
 
