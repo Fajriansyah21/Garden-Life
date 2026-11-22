@@ -130,7 +130,7 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Pembagian warna elemen | Rumput hijau; langit biru dan awan putih; bunga kuning/putih/krem; kebun buah hijau dengan buah cerah; kayu cokelat muda/beige/krem; jalan beige/tanah hangat; emas hanya aksen | Dikonfirmasi (D-044) |
 | Detail warna dan pencahayaan | Kode warna, proporsi, intensitas/sudut cahaya, dan saturasi | Terbuka |
 | Vegetasi dan aset | Spesies bunga, pohon buah, rumput, pagar, jalan, dan properti pedesaan spesifik | Terbuka |
-| Cuaca | Roster, distribusi, durasi, dan transisi cuaca Summer | Terbuka |
+| Cuaca | Roster Sunny/Cloudy/Windy/Heatwave/Summer Shower/Muggy/Tornado (D-051) | Dikonfirmasi sebagai konsep |
 | Efek gameplay | WaterLevel, pertumbuhan, buah, Mutation, dan kondisi tanaman | Terbuka |
 | Tanaman musiman dan kalender | Jenis tanaman dan hubungan Summer dengan sistem kalender | Terbuka |
 | Pemicu Tornado | Heatwave → Summer Shower → Muggy → Tornado; rantai harus berurutan | Dikonfirmasi sebagai konsep (D-045) |
@@ -143,14 +143,14 @@ Bagian ini mencatat konsep Spring yang telah dikonfirmasi pemilik. Seasons & Wea
 | Elemen | Rancangan yang dikonfirmasi | Status |
 |---|---|---|
 | Penguapan | WaterLevel seluruh tanaman berkurang bertahap selama Heatwave; minimum 0,000; berhenti saat cuaca berakhir | Dikonfirmasi; nilai per tick terbuka |
-| Heat-loving | Mendapat bonus pertumbuhan | Dikonfirmasi; besar bonus terbuka |
+| Heat-loving | Laju tumbuh 1,25× | Dikonfirmasi (D-051) |
 | Heat-neutral | Tidak mendapat bonus atau penalti | Dikonfirmasi |
-| Heat-sensitive | Pertumbuhan dan produksi buah lebih lambat; ukuran buah lebih kecil | Dikonfirmasi; angka modifier terbuka |
-| Extremely Heat-sensitive | Kategori terpisah yang sangat rentan terhadap panas | Dikonfirmasi; angka modifier terbuka |
+| Heat-sensitive | Laju tumbuh 0,75×; Overheat setelah 3 menit; risiko mati 20% | Dikonfirmasi (D-051) |
+| Extremely Heat-sensitive | Laju tumbuh 0,50×; Overheat setelah 3 menit; risiko mati 40% | Dikonfirmasi (D-051) |
 | Overheat | Heat-sensitive dan Extremely Heat-sensitive mendapat status setelah 3 menit paparan panas berturut-turut | Dikonfirmasi |
 | Risiko kematian | Diperiksa saat Overheat dimulai; Heat-sensitive di bawah 50%; Extremely Heat-sensitive dapat mati | Dikonfirmasi secara konsep; peluang tepat terbuka |
 | Pemulihan Overheat | Membutuhkan 30 menit dalam kondisi pemulihan (lingkungan/cuaca tidak panas atau hujan); tidak hilang seketika saat Heatwave berakhir | Dikonfirmasi; perilaku timer saat panas kembali terbuka |
-| Ice Cooler | Item yang direncanakan dapat menghapus Overheat | Fungsi konsep dikonfirmasi; detail item terbuka |
+| Cooling Balm | Rebranding Ice Cooler; menghapus status Overheat seketika | Dikonfirmasi (D-051) |
 | Sunburnt | Mutation buah, target kumulatif 45% setelah 20 tick; 2,945% per tick | Dikonfirmasi dengan asumsi 20 tick |
 | Blazing | Mutation buah, target kumulatif 10% setelah 20 tick; 0,5254% per tick | Dikonfirmasi dengan asumsi 20 tick |
 | Stacking mutasi | Sunburnt dan Blazing dapat dimiliki bersamaan pada buah yang sama | Dikonfirmasi |

@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.5 · **Terakhir diubah:** 2026-11-21
+**Versi:** 3.6 · **Terakhir diubah:** 2026-11-21
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -96,6 +96,14 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Dampak Summer terhadap WaterLevel, pertumbuhan, buah, Mutation, kondisi tanaman, dan ekonomi masih BELUM DIPUTUSKAN.
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
+
+### Musim & cuaca Summer (D-041–D-046, D-051)
+- Roster Summer: Sunny (40 tick/20 min), Cloudy, Windy, Heatwave, Summer Shower, Muggy, dan Tornado.
+- Tornado adalah event khusus endpoint rantai Heatwave → Summer Shower → Muggy → Tornado (D-045). Setelah Tornado selesai, cuaca beralih ke Sunny/Cloudy 50/50. Heatwave biasa dapat muncul di luar rantai dengan frekuensi rendah.
+- Summer Shower (+0,05 WaterLevel/tick, tumbuh 1,0×) memberi Mutation Verdant (Rare, 2%) dan Wet (2,5%), serta memulai pemulihan Overheat 30 menit.
+- Muggy (WaterLevel 0,00, tumbuh 0,85×) memberi Mutation Lush (Uncommon, 1,5%) dan menjeda pemulihan Overheat.
+- Tornado mendatangi plot aktif dengan radius 14 studs, menurunkan WaterLevel -1,000 instan satu kali, dan memberi roll 1× saat terkena: Whirlwind (Rare, 35%) dan Tempest (Epic, 8%). Tanaman muda/menengah berisiko Uprooted (ditanam ulang dengan Trowel); tanaman menengah/dewasa berisiko Windblown (pulih otomatis). Tornado tidak membunuh tanaman langsung.
+- Heatwave menguapkan WaterLevel -0,01/tick; modifier laju tumbuh 1,25× / 1,0× / 0,75× / 0,50×; Overheat muncul setelah 3 menit paparan dengan risiko kematian 20% (sensitive) dan 40% (extremely sensitive). Mutation Sunburnt (Uncommon, ~45%) dan Blazing (Rare, ~10%). Item pemulihan instan bernama Cooling Balm.
 
 ### Transisi musim, perlindungan tanaman, dan pupuk (D-047, D-049)
 - Satu musim berlangsung 30 hari in-game: 720 tick/hari, satu tick 30 detik, atau 6 jam real-time per hari dan 180 jam per musim.

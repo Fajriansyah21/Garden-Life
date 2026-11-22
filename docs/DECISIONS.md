@@ -1072,3 +1072,38 @@ Entri terbaru di paling atas.
   - Ekonomi perlu menguji pity Variant agar tidak menghasilkan pasokan Variant atau pendapatan berlebih.
   - Harga dan isi semua item perlindungan, Scorch Balm, Bloom Tea, serta Season Pill masih perlu ditetapkan melalui audit ekonomi.
   - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-051 · Roster cuaca Summer, rantai Tornado, dan mekanik Overheat
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Musim Summer memerlukan siklus cuaca lengkap yang mendukung identitas Golden Summer, Countryside Summer, dan Fresh Summer, sekaligus menyelesaikan detail rantai Tornado D-045 dan Heatwave D-046.
+- Keputusan:
+  - Roster cuaca Summer terdiri dari: **Sunny, Cloudy, Windy, Heatwave, Summer Shower, Muggy, dan Tornado**.
+  - Sunny berlangsung 40 tick / 20 menit (D-048). Cuaca non-Sunny berlangsung 20 tick / 10 menit (D-031).
+  - Tornado adalah cuaca event khusus server-wide dan hanya dapat muncul sebagai endpoint rantai `Heatwave → Summer Shower → Muggy → Tornado` (D-045); Tornado tidak dipilih sebagai cuaca normal dari tabel acak.
+  - Heatwave dapat muncul sebagai cuaca panas biasa dengan frekuensi rendah di luar rantai Tornado. Heatwave biasa dan Heatwave rantai memiliki efek dasar yang sama, tetapi state pemicu rantai dibedakan di UI/sistem.
+  - Setelah episode Tornado selesai, cuaca berikutnya dipilih antara Sunny atau Cloudy dengan peluang 50/50.
+  - **Summer Shower (Rantai 2):** WaterLevel **+0,05 per tick**; laju pertumbuhan **1,0×**; Mutation **Verdant (Rare)** dengan peluang **2% per buah/tick**; Mutation **Wet (Common)** dengan peluang **2,5% per buah/tick**; episode ini memulai timer pemulihan 30 menit Overheat.
+  - **Muggy (Rantai 3):** WaterLevel **0,00 per tick**; laju pertumbuhan **0,85×**; Mutation **Lush (Uncommon)** dengan peluang **1,5% per buah/tick**; timer pemulihan Overheat **dijeda (pause)** selama episode Muggy; Notifikasi visual warning Tornado aktif.
+  - **Tornado (Rantai 4 / Event):**
+    - Tornado mendatangi setiap plot yang ditempati (minimal 1 pemain) satu per satu. Plot kosong dan Greenhouse tidak terkena Tornado.
+    - Titik dampak memilih area kebun valid dengan radius **14 studs**.
+    - Tanaman dalam radius mengalami penurunan instan **-1,000 WaterLevel** satu kali (minimum 0,000).
+    - Buah eligible dalam radius melakukan roll 1× saat terkena: **Whirlwind (Rare)** dengan peluang **35%** dan **Tempest (Epic)** dengan peluang **8%**.
+    - Tanaman bibit/muda dalam radius berisiko **Uprooted (30%)**; tanaman menengah berisiko **Uprooted (10%)** atau **Windblown (35%)**; tanaman dewasa berisiko **Windblown (30%)** tanpa risiko Uprooted. Tornado tidak membunuh tanaman secara langsung.
+    - Tanaman **Uprooted** tersimpan progres, buah, Variant, dan Mutation-nya; ditanam ulang di Farm Tile valid menggunakan **Trowel**, lalu menerima status Windblown sementara.
+    - Status **Windblown** menghentikan pertumbuhan dan produksi buah sementara, lalu pulih otomatis setelah timer selesai.
+  - **Mekanik Heatwave (D-046 diselesaikan):**
+    - Penguapan WaterLevel outdoor **-0,01 per tick** (minimum 0,000).
+    - Modifier laju pertumbuhan: Heat-loving **1,25×**, Heat-neutral **1,0×**, Heat-sensitive **0,75×**, Extremely Heat-sensitive **0,50×**.
+    - Status **Overheat** diberikan setelah 3 menit (6 tick) paparan berturut-turut pada tanaman Heat-sensitive dan Extremely Heat-sensitive.
+    - Roll kematian saat Overheat mulai (1× per episode): Heat-sensitive **20%**, Extremely Heat-sensitive **40%**.
+    - Mutation Heatwave: **Sunburnt (Uncommon)** `2,945% per buah/tick` (~45% kumulatif); **Blazing (Rare)** `0,5254% per buah/tick` (~10% kumulatif).
+    - Rebranding item: Ice Cooler menjadi **Cooling Balm**. Satu Cooling Balm menghapus status Overheat seketika. Pemulihan alami membutuhkan 30 menit online dalam kondisi sejuk atau hujan.
+- Dampak:
+  - Rantai Tornado dan efek per plot terdefinisi penuh untuk kebutuhan PRD dan spec.
+  - Penggunaan Trowel diperluas untuk menanam ulang tanaman status Uprooted.
+  - Harga item Cooling Balm, multiplier harga Verdant/Lush/Whirlwind/Tempest/Sunburnt/Blazing, dan bobot numerik tabel cuaca Summer normal masih BELUM DIPUTUSKAN.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+

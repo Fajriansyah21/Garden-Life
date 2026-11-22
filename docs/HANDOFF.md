@@ -1,5 +1,25 @@
 ## 2026-11-21 · Hermes -> Pemilik
 - Selesai:
+  - D-051 menyelesaikan roster cuaca Summer, detail rantai Tornado per plot (radius 14 studs, pengeringan -1,000, Whirlwind Rare 35%, Tempest Epic 8%, Windblown, Uprooted + Trowel), efek Summer Shower (Verdant Rare 2%), Muggy (Lush Uncommon 1,5%), serta balancing Heatwave (penguapan -0,01/tick, modifier 1,25×/1,0×/0,75×/0,50×, kematian Overheat 20%/40%, Sunburnt Uncommon, Blazing Rare, Cooling Balm).
+- File diubah:
+  - docs/DECISIONS.md (D-051)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.6)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka:
+  - Bobot numerik tabel cuaca Summer normal.
+  - Multiplier harga Verdant, Lush, Whirlwind, Tempest, Sunburnt, dan Blazing.
+  - Harga, sumber, stack Cooling Balm dan item perlindungan Summer.
+- Asumsi/risiko:
+  - Uprooted menyimpan progres dan ditanam ulang dengan Trowel; perlu UI/flow inventori sementara.
+  - Tidak ada perubahan kode dan tidak ada spec dinaikkan menjadi READY.
+
+---
+
+## 2026-11-21 · Hermes -> Pemilik
+- Selesai:
   - D-049 mencatat timer pupuk freeze saat plot kosong, dua tier pupuk First Release, aturan penggunaan pupuk, dan koreksi batas 15 Mutation unik per buah.
   - D-050 mencatat Variant musiman per plot dengan pity 0,05 poin persentase, rebranding item, batas Storm Catcher/Storm Shield, Protection Kit, harga Season Pill 80%, dan opsi tanaman mati akibat Thunderstorm.
   - Harga Season Pill diarahkan 80% dari harga jual tanaman dewasa; nama alat Watering Can, Sprinkler, Shovel, dan Trowel tetap; Soil Aerator menjadi Earth Digger.
