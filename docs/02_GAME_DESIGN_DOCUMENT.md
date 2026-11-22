@@ -241,7 +241,7 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
 | **Total** | **20 tanaman** | **20** |
 
-- Golden Apple dan Moonflower dipisahkan dari roster reguler sebagai tanaman event.
+- Tanaman event berada di luar roster reguler dan tidak termasuk dalam daftar 20 tanaman pada D-064.
 - Harga benih/jual, waktu tumbuh, yield, season affinity, kebutuhan air/panas/dingin, metode perolehan, dan detail visual final masih BELUM DIPUTUSKAN.
 - Baseline harga tier D-052 tetap berlaku sebagai acuan tier; D-064 tidak menetapkan atau mengubah harga tanaman individual.
 
