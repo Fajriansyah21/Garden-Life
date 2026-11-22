@@ -1262,3 +1262,32 @@ Entri terbaru di paling atas.
     - Heater tetap berjalan offline jika ON. Salju/daun tidak bertambah saat plot kosong.
     - Rejoin memulihkan status dari server. Tidak ada roll catch-up Mutation.
 
+### D-062 · Struktur dan aturan roll Variant final
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; detail multiplier ekonomi tetap terbuka
+- Struktur tier dan nama:
+  - **Uncommon:** Silver (Natural)
+  - **Rare:** Gold (Natural)
+  - **Epic:** Rainbow (Natural)
+  - **Legendary / Seasonal:** Bloom (Spring), Heat (Summer), Amber (Autumn), Cristal (Winter).
+- Variant Seasonal memiliki multiplier harga **5×** dan efek khusus area. Multiplier Silver/Gold/Rainbow tetap mengikuti D-022 sampai audit ekonomi berikutnya.
+- Aturan roll:
+  - Sistem melakukan **3 roll independen per plot per hari in-game**.
+  - Roll hanya berjalan jika plot memiliki minimal satu buah eligible dan plot sedang ditempati/aktif. Jika tidak ada buah eligible, roll hangus; tidak ada roll catch-up saat offline.
+  - Setiap roll sukses memilih satu buah eligible secara acak. Buah yang sudah memiliki Variant tidak eligible. Satu buah tidak dapat menerima lebih dari satu Variant.
+  - Maksimum tiga buah baru menerima Variant dari sistem roll per plot per hari.
+  - Pity naik **+0,05 poin persentase per kegagalan harian** pada plot yang memiliki buah eligible. Pity reset ketika musim berganti.
+  - Greenhouse tetap eligible untuk Variant, meskipun kebal Mutation cuaca.
+  - Tanaman Rest dan Uprooted tidak melakukan roll. Buah Variant yang sudah dimiliki tetap tersimpan ketika tanaman menjadi Uprooted; roll kembali aktif setelah tanaman ditanam ulang dan aktif.
+  - Variant melekat pada **buah**, bukan tanaman. Variant tetap tersimpan ketika buah dipajang atau dipanen. Tanaman induk tidak menjamin Variant pada buah berikutnya.
+  - Efek Seasonal aktif hanya selama buah Variant masih berada pada tanaman. Setelah buah dipanen, efek area berhenti.
+- Efek Variant Seasonal:
+  - **Bloom:** radius 6 studs, mengalikan ukuran/berat buah tanaman sekitar **1,5×**; Mutation area Bloomshine (Rare), chance **0,1% per tick**.
+  - **Heat:** radius 6 studs, mengurangi WaterLevel tanaman sekitar **0,005 per tick**; Mutation area Heatstrike (Rare), chance **0,1% per tick**.
+  - **Amber:** radius 6 studs, memberi chance Mutation area Honeyveil (Rare), **0,2% per tick**.
+  - **Cristal:** radius 30 studs; sekali aktif, mengonsumsi dan menghancurkan buah Cristal untuk mencegah kematian tanaman akibat Frost, Frozen, Overheat, Overwatered, atau status musim. Tidak berlaku untuk tanaman yang sudah mati atau Rest. Tanaman menjadi status **Crystalrest** selama 1 hari in-game, menghasilkan sekitar **20%** buah normal, dan setiap buah yang dihasilkan memiliki chance **50%** mendapat Mutation Crystal Dew (Epic). Setelah 1 hari, tanaman kembali normal.
+- Persistensi: Data buah menyimpan VariantId menggunakan Short ID/representasi efisien. Buah Variant dapat dipajang sebagai koleksi.
+- Angka chance, ukuran, durasi, dan efek harga yang ditandai di atas adalah baseline desain; multiplier ekonomi selain Seasonal 5× tetap BELUM DIPUTUSKAN.
+- Tidak ada spec yang dinaikkan menjadi READY.
+

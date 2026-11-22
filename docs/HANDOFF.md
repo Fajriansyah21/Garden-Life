@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-062 menetapkan struktur tier/nama Variant, 3 roll independen per plot/hari, pity, eligibilitas, persistensi pada buah, dan efek Seasonal Bloom/Heat/Amber/Cristal.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.15), docs/design/MASTER_RELEASE_PLAN.md, README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+- Terbuka: distribusi chance antar nama Variant, multiplier Natural, dan audit ekonomi buah.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-061 (Shared Weather v1, prioritas status, Meltwater, eksklusivitas bahan organik, offline rules). Membuat `docs/design/SHARED_WEATHER_SPEC.md`.
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.14), docs/design/SHARED_WEATHER_SPEC.md, README.md, docs/HANDOFF.md.
 - Spec READY: tidak ada.

@@ -61,7 +61,15 @@ Tidak ada dokumen yang dinaikkan ke `READY`.
 | Heater → perlindungan Frozen/Frosted | Dua Heater per plot bisa memudahkan Winter terlalu besar | Terbuka; perlu coverage overlap dan konsumsi final |
 | Season Pill → bypass musim | Harga belum bisa diuji tanpa Base Price buah | Menunggu ekonomi buah |
 
-## 5. Bug/inkonsistensi yang sudah ditemukan
+## 5. Variant final (D-062)
+
+- Tier: Silver Uncommon, Gold Rare, Rainbow Epic, Seasonal Legendary: Bloom/Heat/Amber/Cristal.
+- Tiga roll independen per plot per hari; maksimum tiga buah baru per hari; roll hangus tanpa buah eligible.
+- Pity +0,05 poin persentase per kegagalan harian, hanya plot dengan buah eligible, reset tiap musim.
+- Variant melekat pada buah. Greenhouse eligible; Rest/Uprooted tidak roll; Uprooted menyimpan Variant.
+- Seasonal multiplier 5× dan efek area hanya aktif selama buah masih berada di tanaman.
+
+## 6. Bug/inkonsistensi yang sudah ditemukan
 
 - PRD Winter diselaraskan: Frozen = pertumbuhan 0× sesuai D-059.
 - PRD Spring diselaraskan: Dormant diganti Rest.
@@ -69,7 +77,7 @@ Tidak ada dokumen yang dinaikkan ke `READY`.
 - Shared weather effects belum memiliki satu tabel pusat final; PRD tiap musim perlu dirujukkan ke tabel shared agar angka tidak bercabang.
 - Frost dan Blizzard sama-sama dapat memberi status dingin; prioritas status, timer, dan interaksi Heater belum lengkap.
 
-## 6. Pekerjaan setelah macro check
+## 7. Pekerjaan setelah macro check
 
 - Uji balancing Heater dengan baseline 8 jam 20 menit.
 - Tetapkan satu tabel shared weather.
