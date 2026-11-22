@@ -81,7 +81,7 @@ Greenhouse (kapasitas 18 tanaman), 4 musim, siklus cuaca, dan dua tier pupuk dit
 - GDD: v3.17.
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v12).
-- Log keputusan: D-001 sampai D-064. D-063 masih berupa usulan klarifikasi yang menunggu persetujuan; D-064 menyetujui roster konsep 20 tanaman reguler.
+- Log keputusan: D-001 sampai D-065. D-063 masih berupa usulan klarifikasi yang menunggu persetujuan; D-064 menyetujui roster konsep 20 tanaman reguler; D-065 menyetujui balancing Common awal.
 - Tidak ada spec yang berstatus `READY`; hanya pemilik yang dapat menyetujui status tersebut.
 
 ## Dokumen utama
