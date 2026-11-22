@@ -253,3 +253,14 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 - Harga, sumber, stack inventori, dan detail formula pertumbuhan masih terbuka.
 - Batas 15 berlaku pada jumlah Mutation unik per buah, bukan multiplier pertumbuhan.
 | Transcendent | Tanaman khusus musiman, cara perolehan unik (contoh: Whispering Lily) | Backlog |
+
+#### Klasifikasi lingkungan Common (D-068)
+
+| Tanaman | Matahari | Panas | Dingin | Air | Udara | WaterLevel max |
+|---|---|---|---|---|---|---:|
+| Carrot | Normal | Heat sensitive | Cold love | Water normal | Air normal | 1.000 |
+| Daisy | Sun love | Heat normal | Cold normal | Water normal | Air normal | 2.000 |
+| Strawberry | Normal | Heat normal | Cold love | Water love | Air normal | 4.000 |
+| Lettuce | Sun sensitive | Heat sensitive | Cold love | Water love | Air love | 3.000 |
+
+Efek gameplay tiap klasifikasi belum diputuskan. WaterLevel di luar toleransi tanaman memicu Overwatered sesuai D-013.

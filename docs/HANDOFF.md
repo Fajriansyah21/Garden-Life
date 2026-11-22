@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-068 mencatat klasifikasi lingkungan Common: Carrot, Daisy, Strawberry, Lettuce pada dimensi Matahari, Panas, Dingin, Air, Udara, plus WaterLevel maksimum. WaterLevel di luar toleransi memicu Overwatered sesuai D-013.
+- Efek gameplay kategori belum ditetapkan; menunggu sesi berikutnya.
+- File diubah: docs/DECISIONS.md (D-068), docs/02_GAME_DESIGN_DOCUMENT.md (v3.21), docs/design/CONCEPT_BACKLOG.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: Audit Variant D-067 menyelaraskan roll saat spawn, distribusi tier, aturan no-stack aura, dan snapshot efek Seasonal.
 - Sync: Repo lokal diselaraskan dengan origin/main (D-064/065/066).
 - File diubah: docs/DECISIONS.md (D-067), docs/02_GAME_DESIGN_DOCUMENT.md (v3.20), docs/HANDOFF.md.

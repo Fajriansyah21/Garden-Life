@@ -1407,3 +1407,23 @@ Entri terbaru di paling atas.
   - Autumn (Amber) -> **Honeyveil** (Rare, 0,2%/tick)
   - Winter (Cristal) -> **Crystal Dew** (Epic, 50% yield saat Crystalrest)
 - Dampak: Menghilangkan eksploitasi penumpukan aura dan menyederhanakan logika server (roll hanya saat spawn).
+
+### D-068 · Klasifikasi lingkungan tanaman Common
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; efek gameplay tiap kategori dibahas terpisah
+- Roster: Carrot, Daisy, Strawberry, Lettuce.
+- Setiap tanaman memiliki lima klasifikasi lingkungan:
+  - **Matahari:** Sun love / Normal / Sun sensitive.
+  - **Panas:** Heat Love / Normal / Heat sensitive.
+  - **Dingin:** Cold Love / Normal / Cold sensitive.
+  - **Air:** Water love / Normal / Water sensitive.
+  - **Udara:** Air love / Normal. Air love berarti tanaman menyukai ruang kosong di sekitarnya agar lebih mudah bernapas.
+- Klasifikasi Common:
+  - **Carrot:** Matahari Normal; Panas Heat sensitive; Dingin Cold love; Air Water normal; Udara Air normal; WaterLevel maksimum 1.000.
+  - **Daisy:** Matahari Sun love; Panas Heat normal; Dingin Cold normal; Air Water normal; Udara Air normal; WaterLevel maksimum 2.000.
+  - **Strawberry:** Matahari Normal; Panas Heat normal; Dingin Cold love; Air Water love; Udara Air normal; WaterLevel maksimum 4.000.
+  - **Lettuce:** Matahari Sun sensitive; Panas Heat sensitive; Dingin Cold love; Air Water love; Udara Air love; WaterLevel maksimum 3.000.
+- **Overwatered:** Jika WaterLevel tanaman berada di luar toleransi maksimum kategori Air/tanaman, tanaman masuk status Overwatered. Pemulihan terjadi jika WaterLevel turun kembali ke atau di bawah toleransi sebelum timer kematian berakhir, mengikuti D-013.
+- Efek pertumbuhan, ukuran buah, yield, dan interaksi cuaca untuk setiap klasifikasi **BELUM DIPUTUSKAN** dan tidak ditetapkan oleh D-068.
+- D-068 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

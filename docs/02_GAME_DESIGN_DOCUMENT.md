@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.20 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.21 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -245,6 +245,19 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 - D-064 menetapkan roster dan tier; balancing Common awal dicatat melalui D-065.
 - Harga bibit individual boleh berbeda antar tanaman dalam tier yang sama. Baseline tier D-052 tetap menjadi acuan rarity, sedangkan nilai individual yang disetujui di D-065 berlaku untuk tanaman Common yang tercantum.
 - Parameter tanaman selain balancing Common D-065, termasuk harga dan yield tier lain, season affinity, kebutuhan air/panas/dingin, metode perolehan, serta detail visual final masih BELUM DIPUTUSKAN.
+
+#### Klasifikasi lingkungan tanaman Common (D-068)
+
+Setiap tanaman memiliki klasifikasi Matahari, Panas, Dingin, Air, dan Udara. Efek gameplay tiap klasifikasi masih dibahas terpisah.
+
+| Tanaman | Matahari | Panas | Dingin | Air | Udara | WaterLevel max |
+|---|---|---|---|---|---|---:|
+| Carrot | Normal | Heat sensitive | Cold love | Water normal | Air normal | 1.000 |
+| Daisy | Sun love | Heat normal | Cold normal | Water normal | Air normal | 2.000 |
+| Strawberry | Normal | Heat normal | Cold love | Water love | Air normal | 4.000 |
+| Lettuce | Sun sensitive | Heat sensitive | Cold love | Water love | Air love | 3.000 |
+
+Jika WaterLevel melampaui toleransi tanaman, statusnya menjadi Overwatered. Pemulihan mengikuti D-013.
 
 #### Balancing awal tanaman Common (D-065)
 Balancing ini disetujui untuk konsep, bukan spec implementasi.
