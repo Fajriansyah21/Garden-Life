@@ -1,4 +1,10 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-055 (Leafy Compost Bin, nilai poin tanaman mati, sistem antrean 3 batch, waktu persistent 30 menit).
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.9), README.md, docs/HANDOFF.md.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai:
   - D-054 menetapkan baseline Autumn: 30 hari, roster 7 cuaca, bobot normal, Frost mulai hari 25, tiga toleransi dingin, Leaf Accumulation, Garden Rake, Leaf Basket sekali pakai, Blocked, Chill, dan Fall.
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.8), README.md, docs/HANDOFF.md.

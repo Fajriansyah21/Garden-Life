@@ -1174,3 +1174,18 @@ Entri terbaru di paling atas.
   - Sistem membutuhkan model area lingkaran Garden Rake/Leaf Basket, inventory daun, dan alat pembuat pupuk.
   - Tidak ada spec yang dinaikkan menjadi READY.
 
+### D-055 · Leafy Compost Bin & Plant Death Economy
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Tanaman mati dapat diolah menjadi pupuk via Leafy Compost Bin. 100 poin bahan = 1 pupuk. Daun = 5 poin, 20 daun = 1 pupuk.
+- Keputusan:
+  - Fasilitas: Leafy Compost Bin (3 batch berurutan per Bin).
+  - Waktu proses: 30 menit per batch (persistent/offline).
+  - Ekonomi: 100 poin bahan = 1 pupuk.
+  - Daun (Fallen Leaves): 5 poin per daun.
+  - Tanaman Mati (Poins): Common (10), Uncommon (25), Rare (50), Epic (100), Legendary (200), Mystic (500).
+  - Saldo: Poin sisa >100 disimpan sebagai saldo di Bin.
+  - Aturan: Daun tidak dibersihkan >2 hari -> status Blocked (-50% pertumbuhan).
+  - Tingkat pupuk: Biasa, Medium, Super (ditentukan oleh tier bahan tertinggi).
+
