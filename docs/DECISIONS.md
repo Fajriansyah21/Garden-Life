@@ -1380,3 +1380,30 @@ Entri terbaru di paling atas.
 - Hal yang masih BELUM DIPUTUSKAN:
   - Konfirmasi harga bibit selain Mint, waktu tumbuh awal, yield Tulip dan Mint, regrow Blueberry/Bell Pepper, serta harga jual semua tanaman Uncommon.
   - Balancing profit-per-minute setelah semua parameter Uncommon dikonfirmasi dan dibandingkan dengan Common.
+
+### D-067 · Audit Konsistensi Variant (Update dari D-062)
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif; Menggantikan aturan roll harian pada D-062
+- Konteks: Aturan "3 roll per hari" pada D-062 tidak konsisten dengan mekanik "Variant muncul saat buah spawn". Audit ini menyelaraskan waktu roll, peluang, dan interaksi aura.
+- Keputusan Final Roll:
+  - **Waktu Roll:** Variant ditentukan **hanya satu kali** tepat saat buah pertama kali muncul (*spawn*). Buah yang sudah ada tidak melakukan roll ulang.
+  - **Peluang Dasar:** 95,0% Normal / 5,0% Variant (plus Pity).
+  - **Distribusi Tier (jika sukses Variant):**
+    - Silver (Uncommon): 50%
+    - Gold (Rare): 30%
+    - Rainbow (Epic): 15%
+    - Seasonal (Legendary): 5%
+  - **Pity:** Pity naik **+0,05 poin persentase** per kegagalan roll pada plot yang memiliki buah eligible (*spawn* baru). Pity reset saat musim berganti.
+- Aturan Aura & Efek Area:
+  - **No Stacking:** Efek aura dari tipe Variant yang sama (misal 2 buah Heat) **tidak menumpuk**. Hanya satu sumber terdekat/terkuat yang diambil. Efek tipe berbeda (misal Bloom + Heat) boleh aktif bersamaan.
+  - **Bloom Snapshot:** Multiplier berat buah (1,5x) dikunci saat buah tersebut *spawn* di dalam radius aura Bloom. Perubahan posisi buah Bloom setelah itu tidak mengubah berat buah yang sudah jadi.
+  - **Heat Cap:** Total pengurangan WaterLevel pasif dari seluruh aura Heat dibatasi maksimal **-0,01 per tick** per tanaman.
+  - **Cristal Smart Trigger:** Radius 30 studs. Mengonsumsi **satu buah Cristal terdekat** tepat sebelum tanaman dalam radius mati akibat efek lingkungan (Frost, Frozen, Overheat, Overwatered, atau Musim). Memberi status **Crystalrest** (1 hari in-game) dan peluang 50% Mutation **Crystal Dew** (Epic) pada buah yang dihasilkan selama status aktif.
+  - **Aura Ornamen Hidup:** Efek area hanya aktif selama buah Variant masih menempel pada tanaman. Buah di tas/rak tidak memancarkan aura.
+- Nama Mutation Area (Seasonal):
+  - Spring (Bloom) -> **Bloomshine** (Rare, 0,1%/tick)
+  - Summer (Heat) -> **Heatstrike** (Rare, 0,1%/tick)
+  - Autumn (Amber) -> **Honeyveil** (Rare, 0,2%/tick)
+  - Winter (Cristal) -> **Crystal Dew** (Epic, 50% yield saat Crystalrest)
+- Dampak: Menghilangkan eksploitasi penumpukan aura dan menyederhanakan logika server (roll hanya saat spawn).

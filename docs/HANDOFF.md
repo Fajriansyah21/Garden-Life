@@ -1,3 +1,10 @@
+## 2026-11-22 · Hermes -> Pemilik
+- Selesai: Audit Variant D-067 menyelaraskan roll saat spawn, distribusi tier, aturan no-stack aura, dan snapshot efek Seasonal.
+- Sync: Repo lokal diselaraskan dengan origin/main (D-064/065/066).
+- File diubah: docs/DECISIONS.md (D-067), docs/02_GAME_DESIGN_DOCUMENT.md (v3.20), docs/HANDOFF.md.
+
+---
+
 ## 2026-11-22 · ChatGPT -> Claude
 - Selesai:
   - Mencatat D-066 untuk balancing konsep Uncommon.
