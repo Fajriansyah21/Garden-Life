@@ -250,7 +250,7 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 Balancing ini disetujui untuk konsep, bukan spec implementasi.
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil per panen | Harga jual |
-||---|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|
 | Carrot | Single Harvest | 100 LC | 1 menit | 1 carrot | 150 LC |
 | Daisy | Single Harvest | 150 LC | 3 menit | 1 bunga | 200 LC |
 | Strawberry | Repeat Harvest | 300 LC | 4 menit | 6 buah | 45 LC/buah |
