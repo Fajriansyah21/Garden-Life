@@ -92,7 +92,7 @@ Roster 20 tanaman reguler telah disetujui pemilik untuk konsep. Roster ini bukan
 | Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
 | **Total** | **20 tanaman** | **20** |
 
-Golden Apple dan Moonflower tetap tanaman event dan tidak termasuk roster reguler. Harga, pertumbuhan, yield, season affinity, kebutuhan air/panas/dingin, cara memperoleh, dan detail visual final masih terbuka. Baseline harga tier D-052 tidak diubah.
+Tanaman event berada di luar roster reguler D-064. Harga, pertumbuhan, yield, season affinity, kebutuhan air/panas/dingin, cara memperoleh, dan detail visual final untuk tanaman reguler masih terbuka. Baseline harga tier D-052 tidak diubah.
 
 ### Eksplorasi Spring: identitas dan cuaca (D-028)
 
