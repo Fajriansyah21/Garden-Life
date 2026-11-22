@@ -27,7 +27,7 @@ Autumn berlangsung 30 hari in-game. Fokus: Cozy Harvest, pembersihan daun, pupuk
 - Frost bukan cuaca normal. Memberi status **Frosted**. Menurunkan suhu. Tidak membunuh langsung.
 - Cold-hardy: pertumbuhan normal.
 - Temperature-sensitive: tumbuh 0,75× selama Frost.
-- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir, masuk Rest jika tidak terlindungi Greenhouse atau Season Pill. Greenhouse mencegah Rest baru, tetapi tidak memulihkan tanaman yang sudah Rest
+- Cold-sensitive: berhenti tumbuh selama Frost. Setelah Frost berakhir, masuk Rest jika tidak terlindungi Greenhouse atau Season Pill. Greenhouse mencegah Rest baru, tetapi tidak memulihkan tanaman yang sudah Rest.
 - Mutation Frost: **Chill**, Rare, 1% per buah eligible per tick. Kumulatif sekitar 18,2% per episode 20 tick. ASUMSI.
 
 ## 5. Leaf Accumulation
