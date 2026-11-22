@@ -1295,14 +1295,14 @@ Entri terbaru di paling atas.
 
 ### D-063 · Klarifikasi Rest dan perlindungan Greenhouse
 - Tanggal: 2026-11-22
-- Diputuskan oleh: Pemilik proyek
-- Status: Final untuk konsistensi dokumentasi
+- Diusulkan oleh: ChatGPT, menunggu persetujuan pemilik
+- Status: DRAFT / usulan klarifikasi
 - Konteks: D-056 menyebut Greenhouse sebagai salah satu cara mengakhiri Rest, sedangkan D-061 menetapkan bahwa tanaman Rest tidak otomatis bangun di Greenhouse. Aturan perlu membedakan perlindungan sebelum status diberikan dan pemulihan setelah status aktif.
-- Keputusan:
+- Usulan klarifikasi:
   - Greenhouse mencegah tanaman masuk Rest akibat ketidakcocokan musim selama tanaman berada dalam perlindungan Greenhouse.
   - Greenhouse **tidak menghapus atau mengakhiri Rest yang sudah aktif**.
   - Tanaman yang sudah Rest pulih melalui Season Pill atau ketika musim kembali cocok.
-  - Klarifikasi ini menggantikan bagian D-056 yang menyatakan Greenhouse dapat mengakhiri Rest aktif. Bagian lain D-056 tetap berlaku.
+  - Jika disetujui, klarifikasi ini menggantikan bagian D-056 yang menyatakan Greenhouse dapat mengakhiri Rest aktif. Bagian lain D-056 tetap berlaku.
 - Dampak:
   - GDD dan PRD musim menggunakan aturan yang sama.
   - Tidak ada perubahan kapasitas atau fungsi perlindungan cuaca Greenhouse.
