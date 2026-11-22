@@ -1107,3 +1107,23 @@ Entri terbaru di paling atas.
   - Harga item Cooling Balm, multiplier harga Verdant/Lush/Whirlwind/Tempest/Sunburnt/Blazing, dan bobot numerik tabel cuaca Summer normal masih BELUM DIPUTUSKAN.
   - Tidak ada spec yang dinaikkan menjadi READY.
 
+### D-052 · Standarisasi tier tanaman dan baseline ekonomi benih
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Diperlukan struktur rarity yang jelas untuk tanaman dan baseline ekonomi untuk harga benih guna menyeimbangkan sistem toko dan retensi pemain.
+- Keputusan:
+  - Rarity tanaman (benih dan buah) terdiri dari 6 tier: Common, Uncommon, Rare, Epic, Legendary, dan Mystic.
+  - Terdapat tier khusus yaitu Transcendent untuk tanaman musim yang diperoleh lewat cara unik.
+  - Baseline harga beli benih di toko:
+    - Common: 100 Life Coin
+    - Uncommon: 500 Life Coin
+    - Rare: 2.500 Life Coin
+    - Epic: 10.000 Life Coin
+    - Legendary: 50.000 Life Coin
+    - Mystic: 250.000 Life Coin
+  - Toko benih Spring dibatasi hanya menjual tier Common, Uncommon, dan Rare untuk menjaga ekonomi awal.
+- Dampak:
+  - Sistem ekonomi harus memperhitungkan kelangkaan tier saat menentukan harga jual buah dewasa.
+  - Transcendent tidak dijual di toko dan memiliki cara perolehan spesifik yang akan didetailkan pada spec terpisah.
+

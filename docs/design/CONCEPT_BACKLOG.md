@@ -200,3 +200,4 @@ Sebelum sebuah gagasan dipindahkan menjadi FEAT spec:
 - Dapat digunakan bersama Season Pill, cuaca, dan Greenhouse; tidak dapat digunakan pada Dormant, Layu, atau Mati.
 - Harga, sumber, stack inventori, dan detail formula pertumbuhan masih terbuka.
 - Batas 15 berlaku pada jumlah Mutation unik per buah, bukan multiplier pertumbuhan.
+| Transcendent | Tanaman khusus musiman, cara perolehan unik (contoh: Whispering Lily) | Backlog |
