@@ -1,3 +1,5 @@
+## 2026-11-22 · Hermes -> Pemilik: D-057 & D-058 Finalized.
+
 ## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-056. Status Rest menggantikan nama Dormant. Tier Ceiling kompos dan peran Garden Rake / Leaf Basket dikunci.
 - File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.10), README.md, docs/HANDOFF.md.

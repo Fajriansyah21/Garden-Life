@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.10 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.11 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 

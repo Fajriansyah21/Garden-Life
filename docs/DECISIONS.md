@@ -1206,3 +1206,12 @@ Entri terbaru di paling atas.
   - Daun tidak bisa menghasilkan Super Fertilizer.
   - Tidak ada spec yang dinaikkan menjadi READY.
 
+### D-057 · Bugfixes: Mekanik Rest, Uprooted, Wet, dan Kompos
+- Tanggal: 2026-11-22
+- Status: Final
+- Keputusan: Status "Rest" mengunci tanaman total dari cuaca/mutasi. Uprooted universal untuk semua badai. Mutation Wet universal. Bin memproses semua tanaman mati.
+
+### D-058 · Mekanik Musim Winter
+- Tanggal: 2026-11-22
+- Keputusan: Durasi 30 hari, Soft Transition 3 hari. Roster: Sunny, Overcast, Snowfall, Heavy Snow, Frost, Freezing Rain, Blizzard. Mekanik salju: Heavy Snow/Blizzard (>2 hari = Frozen -50%). Snow Shovel -> Snow Block. Blizzard (event, 14 studs, Mutation Glacial Epic, Blizzard Legendary). Heater (10 studs, kebal Frozen/Frosted, kapasitas 500, bahan bakar kayu/organik).
+
