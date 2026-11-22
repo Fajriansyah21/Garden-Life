@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.6 · **Terakhir diubah:** 2026-11-21
+**Versi:** 3.7 · **Terakhir diubah:** 2026-11-21
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -97,7 +97,13 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Seasons & Weather tetap berstatus eksplorasi dan tidak otomatis menjadi scope First Release atau Vertical Slice.
 
 
-### Musim & cuaca Summer (D-041–D-046, D-051)
+### Musim & cuaca Summer (D-041–D-046, D-051, D-053)
+- Durasi Summer: 30 hari in-game dengan Soft Transition 3 hari (visual preview 20%).
+- Roster cuaca normal: Sunny (bobot 40), Cloudy (20), Windy (15), Heatwave (10), Summer Shower (10), Muggy (5).
+- Summer Shower dan Muggy dapat muncul secara normal tanpa memicu Tornado. Rantai Tornado (Heatwave → Summer Shower → Muggy → Tornado) tetap menjadi sistem pemicu terpisah.
+- Durasi: Sunny 20 menit; lainnya 10 menit. Tidak ada pengulangan cuaca yang sama berturut-turut.
+
+### Transisi musim, perlindungan tanaman, dan pupuk (D-047, D-049)
 - Roster Summer: Sunny (40 tick/20 min), Cloudy, Windy, Heatwave, Summer Shower, Muggy, dan Tornado.
 - Tornado adalah event khusus endpoint rantai Heatwave → Summer Shower → Muggy → Tornado (D-045). Setelah Tornado selesai, cuaca beralih ke Sunny/Cloudy 50/50. Heatwave biasa dapat muncul di luar rantai dengan frekuensi rendah.
 - Summer Shower (+0,05 WaterLevel/tick, tumbuh 1,0×) memberi Mutation Verdant (Rare, 2%) dan Wet (2,5%), serta memulai pemulihan Overheat 30 menit.

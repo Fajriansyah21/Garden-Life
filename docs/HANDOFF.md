@@ -1,3 +1,21 @@
+## 2026-11-22 · Hermes -> Pemilik
+- Selesai:
+  - D-052 menetapkan standarisasi 6 tier rarity (Common-Mystic) + Transcendent, harga benih baseline (100 - 250k), dan PRD Spring awal.
+  - D-053 menetapkan durasi Summer 30 hari, Soft Transition 3 hari, dan bobot cuaca normal (Sunny 40, Cloudy 20, Windy 15, Heatwave 10, Summer Shower 10, Muggy 5).
+  - Summer Shower dan Muggy kini resmi menjadi cuaca normal (bukan hanya bagian rantai).
+- File diubah:
+  - docs/DECISIONS.md (D-052, D-053)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.7)
+  - docs/design/PRD_SPRING.md (Created)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Asumsi/risiko:
+  - Muggy normal vs Muggy rantai dibedakan lewat state notifikasi untuk mencegah kebingungan pemain.
+
+---
+
 ## 2026-11-21 · Hermes -> Pemilik
 - Selesai:
   - D-051 menyelesaikan roster cuaca Summer, detail rantai Tornado per plot (radius 14 studs, pengeringan -1,000, Whirlwind Rare 35%, Tempest Epic 8%, Windblown, Uprooted + Trowel), efek Summer Shower (Verdant Rare 2%), Muggy (Lush Uncommon 1,5%), serta balancing Heatwave (penguapan -0,01/tick, modifier 1,25×/1,0×/0,75×/0,50×, kematian Overheat 20%/40%, Sunburnt Uncommon, Blazing Rare, Cooling Balm).

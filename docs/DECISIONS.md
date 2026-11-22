@@ -1127,3 +1127,27 @@ Entri terbaru di paling atas.
   - Sistem ekonomi harus memperhitungkan kelangkaan tier saat menentukan harga jual buah dewasa.
   - Transcendent tidak dijual di toko dan memiliki cara perolehan spesifik yang akan didetailkan pada spec terpisah.
 
+### D-053 · Kalender Summer dan distribusi cuaca normal
+- Tanggal: 2026-11-21
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Diperlukan aturan durasi musim dan pembobotan cuaca normal Summer agar pengalaman bermain seimbang antara hari-hari biasa dan kejadian ekstrem seperti Tornado.
+- Keputusan:
+  - Durasi Summer ditetapkan **30 hari in-game**, konsisten dengan Spring.
+  - Mekanik **Soft Transition (3 hari)** berlaku di akhir Summer (Hari 28-30). Preview cuaca musim berikutnya bersifat visual (peluang 20%) tanpa efek gameplay.
+  - Summer Shower dan Muggy tersedia sebagai cuaca normal yang dapat muncul secara acak, di luar rantai Tornado. Kemunculan normal tidak memajukan progres rantai Tornado.
+  - Tabel bobot pemilihan cuaca normal Summer:
+    - Sunny: 40
+    - Cloudy: 20
+    - Windy: 15
+    - Heatwave: 10
+    - Summer Shower: 10
+    - Muggy: 5
+  - Durasi cuaca: Sunny (40 tick / 20 menit); cuaca non-Sunny lainnya (20 tick / 10 menit).
+  - Hanya Muggy yang dipicu melalui rantai Tornado yang menampilkan notifikasi peringatan Tornado. Muggy normal hanya memberikan efek cuaca dan peluang Mutation Lush.
+  - Transisi cuaca normal tidak diperbolehkan mengulang cuaca yang sama secara berturut-turut.
+- Dampak:
+  - Rantai Tornado tetap menjadi event eksklusif yang memotong siklus cuaca normal.
+  - Pemanfaatan Mutation Verdant (Summer Shower) dan Lush (Muggy) menjadi lebih sering bagi pemain karena dapat muncul tanpa harus menunggu Tornado.
+  - Kesiapan sistem cuaca Summer kini lengkap untuk keperluan PRD.
+
