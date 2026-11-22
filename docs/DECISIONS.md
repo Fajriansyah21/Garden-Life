@@ -1151,3 +1151,26 @@ Entri terbaru di paling atas.
   - Pemanfaatan Mutation Verdant (Summer Shower) dan Lush (Muggy) menjadi lebih sering bagi pemain karena dapat muncul tanpa harus menunggu Tornado.
   - Kesiapan sistem cuaca Summer kini lengkap untuk keperluan PRD.
 
+### D-054 · Kalender, cuaca, dan toleransi dingin Autumn
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk rancangan konsep; masuk target First Release
+- Konteks: Autumn membutuhkan identitas Cozy Harvest, gameplay Harvest & Cleanup, serta persiapan bertahap menuju Winter tanpa membuat roster cuaca monoton.
+- Keputusan:
+  - Durasi Autumn adalah **30 hari in-game**.
+  - Roster cuaca normal Autumn terdiri dari: Sunny, Cloudy, Windy, Drizzle, Rainy, Misty, dan Leaffall.
+  - Bobot cuaca normal: Sunny **35**, Cloudy **20**, Windy **15**, Drizzle **10**, Rainy **8**, Misty **7**, Leaffall **5**.
+  - Sunny, Windy, Rainy, Drizzle, dan Misty memakai mekanik shared yang sama dengan musim lain.
+  - Leaffall adalah cuaca khas Autumn yang menempatkan tumpukan daun pada berbagai titik di plot aktif.
+  - Frost bukan cuaca normal. Frost mulai dapat muncul pada **hari ke-25** hingga pergantian ke Winter; pada hari 25-27 peluangnya **10% per pemilihan cuaca**. Frost menjadi bagian nuansa transisi akhir Autumn.
+  - Frost memberikan status **Frosted** dan menurunkan suhu tanaman. Tidak ada kematian langsung akibat Frost.
+  - Tiga toleransi dingin: **Cold-hardy**, **Temperature-sensitive**, dan **Cold-sensitive**. Cold-hardy tidak mendapat penalti; Temperature-sensitive tumbuh **0,75×** selama Frost; Cold-sensitive berhenti tumbuh selama Frost dan masuk Dormant jika Frost berakhir tanpa Greenhouse atau Season Pill.
+  - Leaf Accumulation menjadi gameplay Harvest & Cleanup. **Garden Rake** mengumpulkan daun ke satu titik di bawah; daun di titik tersebut dapat diambil satu per satu dengan tangan atau seluruhnya sekaligus memakai **Leaf Basket**. Leaf Basket sekali pakai.
+  - Daun yang diambil masuk inventory dan dapat dimasukkan ke alat pembuat pupuk untuk menghasilkan pupuk organik.
+  - Daun yang tidak dibersihkan selama **2 hari in-game** memberi status **Blocked** pada tanaman di bawahnya dan mengurangi pertumbuhan **50%**.
+  - Mutation Autumn: Sunny dan Windy tidak memberi Mutation khusus; Mutation Frost bernama **Chill**; Mutation Leaffall bernama **Fall**. Detail tier dan chance Chill/Fall masih BELUM DIPUTUSKAN.
+- Dampak:
+  - Autumn memiliki identitas berbeda dari Spring dan Summer melalui pembersihan daun, bahan pupuk, Leaffall, dan Frost akhir musim.
+  - Sistem membutuhkan model area lingkaran Garden Rake/Leaf Basket, inventory daun, dan alat pembuat pupuk.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+

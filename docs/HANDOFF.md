@@ -1,5 +1,14 @@
 ## 2026-11-22 · Hermes -> Pemilik
 - Selesai:
+  - D-054 menetapkan baseline Autumn: 30 hari, roster 7 cuaca, bobot normal, Frost mulai hari 25, tiga toleransi dingin, Leaf Accumulation, Garden Rake, Leaf Basket sekali pakai, Blocked, Chill, dan Fall.
+- File diubah: docs/DECISIONS.md, docs/02_GAME_DESIGN_DOCUMENT.md (v3.8), README.md, docs/HANDOFF.md.
+- Spec READY: tidak ada.
+- Terbuka: tier/chance Chill dan Fall, detail Frosted, nama/aturan alat pembuat pupuk, dan PRD Autumn.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
+- Selesai:
   - Menyusun PRD Summer (`docs/design/PRD_SUMMER.md`) yang menggabungkan seluruh mekanik cuaca, Tornado, Heatwave, Overheat, dan ekonomi tier rarity.
 - File diubah:
   - docs/design/PRD_SUMMER.md (Created)

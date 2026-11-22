@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.7 · **Terakhir diubah:** 2026-11-21
+**Versi:** 3.8 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -102,6 +102,14 @@ Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap
 - Roster cuaca normal: Sunny (bobot 40), Cloudy (20), Windy (15), Heatwave (10), Summer Shower (10), Muggy (5).
 - Summer Shower dan Muggy dapat muncul secara normal tanpa memicu Tornado. Rantai Tornado (Heatwave → Summer Shower → Muggy → Tornado) tetap menjadi sistem pemicu terpisah.
 - Durasi: Sunny 20 menit; lainnya 10 menit. Tidak ada pengulangan cuaca yang sama berturut-turut.
+
+### Musim & cuaca Autumn (D-054)
+- Durasi Autumn: 30 hari in-game. Roster normal: Sunny (35), Cloudy (20), Windy (15), Drizzle (10), Rainy (8), Misty (7), Leaffall (5).
+- Sunny, Windy, Rainy, Drizzle, dan Misty memakai mekanik shared lintas musim. Leaffall menempatkan tumpukan daun di plot aktif.
+- Frost bukan cuaca normal; dapat muncul mulai hari 25 sampai pergantian Winter. Frost memberi status Frosted, menurunkan suhu, dan tidak membunuh langsung.
+- Toleransi dingin: Cold-hardy (normal), Temperature-sensitive (0,75× saat Frost), Cold-sensitive (berhenti tumbuh saat Frost lalu Dormant bila tidak dilindungi).
+- Garden Rake mengumpulkan daun ke satu titik. Daun dapat diambil satu per satu atau dengan Leaf Basket sekali pakai, masuk inventory, lalu diolah menjadi pupuk. Daun yang tidak dibersihkan selama 2 hari memberi Blocked dan penalti pertumbuhan 50%.
+- Sunny dan Windy tidak memberi Mutation khusus. Mutation Frost bernama Chill dan Mutation Leaffall bernama Fall; tier dan chance masih terbuka.
 
 ### Transisi musim, perlindungan tanaman, dan pupuk (D-047, D-049)
 - Roster Summer: Sunny (40 tick/20 min), Cloudy, Windy, Heatwave, Summer Shower, Muggy, dan Tornado.
