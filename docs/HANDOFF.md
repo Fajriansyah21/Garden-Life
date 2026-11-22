@@ -1,3 +1,26 @@
+## 2026-11-22 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik menyetujui balancing konsep awal tanaman Common melalui D-065.
+  - Daisy ditetapkan Single Harvest dengan harga jual 200 LC.
+  - Strawberry ditetapkan menghasilkan 6 buah per panen dan memiliki 10 panen total (termasuk panen pertama), dengan regrow 3 menit.
+  - Harga bibit individual dapat berbeda antar tanaman dalam tier yang sama; D-052 tetap menjadi acuan rarity, bukan harga seragam wajib.
+  - Simulasi pendapatan dan keuntungan awal dicatat untuk Carrot, Daisy, Strawberry, dan Lettuce.
+- File diubah:
+  - docs/DECISIONS.md (D-065)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.18)
+  - docs/design/CONCEPT_BACKLOG.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. Balancing D-065 adalah keputusan konsep, bukan spec implementasi.
+- Pertanyaan terbuka:
+  - 8 buah Strawberry per panen tetap opsi balancing; baseline saat ini 6.
+  - Balancing tanaman Common lainnya dan tier Uncommon ke atas.
+- Asumsi / risiko:
+  - Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
+  - Tidak ada kode gameplay yang diubah.
+
+---
+
 ## 2026-11-22 · ChatGPT -> Pemilik
 - Selesai: Pemilik menyetujui roster konsep 20 tanaman reguler melalui D-064: Common 4, Uncommon 4, Rare 4, Epic 3, Legendary 2, Mystic 3.
 - File diubah: docs/DECISIONS.md (D-064), docs/02_GAME_DESIGN_DOCUMENT.md (v3.17), docs/design/CONCEPT_BACKLOG.md, README.md, docs/HANDOFF.md.
