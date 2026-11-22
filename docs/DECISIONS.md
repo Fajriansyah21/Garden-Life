@@ -1358,3 +1358,25 @@ Entri terbaru di paling atas.
   - Lettuce: pendapatan 200 LC; modal bibit 120 LC; keuntungan 80 LC.
 - Dampak desain: Carrot menjadi panen awal cepat; Daisy dan Lettuce menjadi pilihan Single Harvest dengan profil waktu/hasil berbeda; Strawberry menjadi investasi tanaman berulang untuk pemain yang ingin mempertahankan tanaman dalam jangka lebih panjang.
 - Batasan: D-065 tidak menetapkan scope Vertical Slice, tidak menyetujui spec implementasi, dan tidak mengubah status spec apa pun menjadi READY. Parameter tanaman Common lainnya dan seluruh tier lain masih perlu balancing.
+
+### D-066 · Balancing awal tanaman Uncommon
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Parameter konsep yang ditandai DIPUTUSKAN disetujui; angka ASUMSI masih provisional dan bukan aturan final
+- Konteks: Setelah balancing Common D-065, roster Uncommon perlu mulai dibalance. Multi Harvest harus memiliki batas jumlah panen yang jelas agar pemain dapat memahami siklus hidup tanaman dan ekonomi tidak bergantung pada produksi tanpa batas.
+- Keputusan:
+  - **Tulip:** Single Harvest.
+  - **Blueberry:** Multi Harvest; 8 buah per panen; 10 panen total.
+  - **Bell Pepper:** Multi Harvest; 6 buah per panen; 8 panen total.
+  - **Mint:** Single Harvest; harga bibit 300 LC.
+  - Harga bibit selain Mint, waktu tumbuh, hasil Tulip/Mint, waktu regrow, serta harga jual pada tabel balancing Uncommon di GDD dan Concept Backlog tetap **ASUMSI sementara** dari usulan balancing, sampai dikonfirmasi pemilik.
+  - Multi Harvest pada balancing ini bersifat finite: jumlah panen total mencakup panen pertama dan panen ulang.
+- Dampak ekonomi awal berdasarkan ASUMSI sementara:
+  - Blueberry: 80 buah sepanjang 10 panen; dengan harga jual sementara 120 LC/buah, pendapatan 9.600 LC, modal bibit 700 LC, keuntungan kotor 8.900 LC.
+  - Bell Pepper: 48 buah sepanjang 8 panen; dengan harga jual sementara 250 LC/buah, pendapatan 12.000 LC, modal bibit 1.200 LC, keuntungan kotor 10.800 LC.
+  - Tulip dan Mint masing-masing menghasilkan simulasi keuntungan kotor 300 LC berdasarkan harga jual dan yield sementara.
+  - Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca; angka tersebut tidak menjadi target ekonomi final.
+- Batasan: D-066 tidak menetapkan scope Vertical Slice, tidak menyetujui spec implementasi, dan tidak mengubah status spec menjadi READY. D-052 tidak diubah.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Konfirmasi harga bibit selain Mint, waktu tumbuh awal, yield Tulip dan Mint, regrow Blueberry/Bell Pepper, serta harga jual semua tanaman Uncommon.
+  - Balancing profit-per-minute setelah semua parameter Uncommon dikonfirmasi dan dibandingkan dengan Common.
