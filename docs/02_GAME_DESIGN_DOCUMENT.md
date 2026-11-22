@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.17 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.18 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -242,8 +242,24 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Total** | **20 tanaman** | **20** |
 
 - Tanaman event berada di luar roster reguler dan tidak termasuk dalam daftar 20 tanaman pada D-064.
-- Harga benih/jual, waktu tumbuh, yield, season affinity, kebutuhan air/panas/dingin, metode perolehan, dan detail visual final masih BELUM DIPUTUSKAN.
-- Baseline harga tier D-052 tetap berlaku sebagai acuan tier; D-064 tidak menetapkan atau mengubah harga tanaman individual.
+- D-064 menetapkan roster dan tier; balancing Common awal dicatat melalui D-065.
+- Harga bibit individual boleh berbeda antar tanaman dalam tier yang sama. Baseline tier D-052 tetap menjadi acuan rarity, sedangkan nilai individual yang disetujui di D-065 berlaku untuk tanaman Common yang tercantum.
+- Parameter tanaman selain balancing Common D-065, termasuk harga dan yield tier lain, season affinity, kebutuhan air/panas/dingin, metode perolehan, serta detail visual final masih BELUM DIPUTUSKAN.
+
+#### Balancing awal tanaman Common (D-065)
+Balancing ini disetujui untuk konsep, bukan spec implementasi.
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil per panen | Harga jual |
+||---|---:|---:|---:|---:|
+| Carrot | Single Harvest | 100 LC | 1 menit | 1 carrot | 150 LC |
+| Daisy | Single Harvest | 150 LC | 3 menit | 1 bunga | 200 LC |
+| Strawberry | Repeat Harvest | 300 LC | 4 menit | 6 buah | 45 LC/buah |
+| Lettuce | Single Harvest | 120 LC | 2 menit | 1 kepala | 200 LC |
+
+- Strawberry memiliki 10 panen total, termasuk panen pertama dan 9 panen ulang. Regrow 3 menit; waktu hingga panen ke-10 adalah 31 menit.
+- Opsi 8 buah Strawberry per panen belum dipilih; nilai baseline saat ini 6 buah.
+- Simulasi total pendapatan / modal bibit / keuntungan: Carrot 150 / 100 / 50 LC; Daisy 200 / 150 / 50 LC; Strawberry 2.700 / 300 / 2.400 LC; Lettuce 200 / 120 / 80 LC.
+- Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
 
 ## 7. UI / UX
 
