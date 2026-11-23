@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-073 menetapkan efek kategori Udara (Air love, Normal). Efek hanya pada jumlah dan ukuran buah; radius 2 studs; tanaman + bangunan memengaruhi, dekorasi tidak. Greenhouse mematikan efek Air love.
+- File diubah: docs/DECISIONS.md (D-073), docs/02_GAME_DESIGN_DOCUMENT.md (v3.26), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-072 menetapkan efek kategori Air (Water love, Normal, Water sensitive) dan mekanik pembusukan akar/Overwatered.
 - File diubah: docs/DECISIONS.md (D-072), docs/02_GAME_DESIGN_DOCUMENT.md (v3.25), docs/HANDOFF.md.
 - Spec READY: tidak ada.

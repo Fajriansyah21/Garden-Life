@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.25 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.26 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -255,6 +255,17 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
 
 **Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
+
+#### Efek gameplay klasifikasi Udara (D-073)
+
+| Kategori | Ruang Kosong (2 studs) | Area Sempit (ada objek) |
+|---|---|---|
+| **Air love** | Jumlah buah 1,15×, ukuran 1,10× | Jumlah buah 0,80×, ukuran 0,85× |
+| **Normal** | Tidak terpengaruh | Tidak terpengaruh |
+
+Objek yang memengaruhi: tanaman lain dan bangunan. Dekorasi tidak dihitung.
+Berlaku fase semi-dewasa sampai dewasa. Ukuran dikunci saat buah lahir; jumlah dihitung saat panen.
+Di Greenhouse efek Air love dimatikan total.
 
 #### Efek gameplay klasifikasi Air (D-072)
 

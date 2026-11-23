@@ -1483,3 +1483,17 @@ Entri terbaru di paling atas.
   - Tanaman akan mati jika WaterLevel tidak segera turun (evaporasi atau Soil Aerator) sebelum durasi kematian habis.
   - Tanaman Water sensitive memiliki durasi kematian yang lebih singkat.
 - D-072 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-073 · Efek gameplay klasifikasi Udara
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Kategori Udara:
+  - **Air love:** Butuh ruang kosong di sekitarnya. Radius efek **2 studs**. Objek yang memengaruhi: tanaman lain dan bangunan. Dekorasi tidak dihitung.
+    - Saat ruang kosong di sekitar: jumlah buah **1,15×**, ukuran buah baru **1,10×**.
+    - Saat area sempit (ada minimal 1 objek dalam radius): jumlah buah **0,80×**, ukuran buah baru **0,85×**.
+    - Efek berlaku dari fase **semi-dewasa sampai dewasa**. Ukuran dikunci saat buah lahir (*spawn*); jumlah dihitung saat panen.
+    - Tidak ada status baru. Efek pulih langsung saat objek di sekitar dipindahkan atau dijual.
+  - **Normal:** Tidak terpengaruh kepadatan objek di sekitar.
+- **Greenhouse:** Efek Air love dimatikan total di dalam Greenhouse untuk menghindari bug kepadatan.
+- D-073 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
