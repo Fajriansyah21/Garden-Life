@@ -1562,3 +1562,12 @@ Entri terbaru di paling atas.
 - Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
 - D-078 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
 - Tabel ini mencakup harga, waktu tumbuh, hasil, dan regulasi ekonomi tanpa mengubah ekosistem yang sudah ada.
+
+### D-079 · Koreksi balancing tanaman Epic
+- Tanggal: 2026-11-22
+- Konteks: Koreksi append-only atas D-078 setelah verifikasi tabel.
+- Koreksi disetujui:
+  - **Orchid:** Multi Harvest; total **6 panen**; 1 bunga per panen; regrow 15 menit; harga jual 8.000 LC/bunga.
+  - **Dragonfruit:** **Multi Harvest**; total **10 panen**; **6 buah per panen**; regrow **12 menit (ASUMSI, menunggu konfirmasi)**; harga jual 10.000 LC/buah dari draft awal.
+  - **Firefly Mushroom:** Multi Harvest; total 8 panen; 2 buah per panen; regrow 12 menit; harga jual 2.000 LC/buah.
+- D-079 tidak mengubah klasifikasi lingkungan Epic atau status spec.

@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Koreksi: D-079 memperbaiki D-078. Orchid menjadi 6 panen; Dragonfruit menjadi Multi Harvest, 10 panen, 6 buah/panen. Regrow Dragonfruit 12 menit masih ASUMSI.
+- File diubah: docs/DECISIONS.md (D-079), docs/02_GAME_DESIGN_DOCUMENT.md (v3.30), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-077 menetapkan klasifikasi lingkungan dan balancing ekonomi Rare (Sunflower, Watermelon, Lavender, Peony).
 - Selesai: D-076 menetapkan balancing ekonomi Uncommon (Tulip, Blueberry, Bell Pepper, Mint).
 - Selesai: D-077 menetapkan klasifikasi lingkungan Rare (Sunflower, Watermelon, Lavender, Peony) dan D-078 menetapkan harga, tumbuh, dan hasil Epics.

@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.29 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.30 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -340,6 +340,14 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Blueberry | Multi | 800 LC | 10 min | 8 buah | 10 | 6 min | 130 LC |
 | Bell Pepper | Multi | 1.500 LC | 12 min | 6 buah | 8 | 8 min | 280 LC |
 | Mint | Single | 400 LC | 6 min | 3 daun | 1 | - | 300 LC |
+
+#### Balancing tanaman Epic (D-079)
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Orchid | Multi | 4.500 LC | 25 min | 1 bunga | 6 | 15 min | 8.000 LC |
+| Dragonfruit | Multi | 6.000 LC | 30 min | 6 buah | 10 | 12 min (ASUMSI) | 10.000 LC |
+| Firefly Mushroom | Multi | 3.200 LC | 20 min | 2 buah | 8 | 12 min | 2.000 LC |
 
 #### Balancing tanaman Rare (D-077)
 
