@@ -1,3 +1,39 @@
+### D-086 · Sumber perolehan Mutation Wet berdasarkan cuaca basah
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; peluang dan balancing Mutation belum final
+- Konteks: Mutation Wet harus mewakili buah yang menjadi basah akibat cuaca, bukan Mutation yang hanya terikat pada nama cuaca hujan tertentu atau pada aktivitas pemain.
+- Keputusan:
+  - Wet dapat diperoleh dari **semua cuaca yang diklasifikasikan sebagai cuaca basah**.
+  - Wet hanya berasal dari cuaca. Aktivitas pemain, alat penyiraman, WaterLevel tinggi, dan sumber non-cuaca tidak memberikan Mutation Wet.
+  - Cuaca basah Spring yang telah dikonfirmasi: **Drizzle, Rainy, Misty, dan Thunderstorm**.
+  - Cuaca basah pada musim lain juga menjadi sumber Wet jika cuaca tersebut secara desain diklasifikasikan sebagai cuaca basah.
+  - Setiap buah hanya dapat memiliki satu Mutation Wet. Aturan evolusi yang menggantikan Wet, seperti Wet → Flooded, tetap mengikuti keputusan Mutation terkait.
+  - D-061 diperluas pada klasifikasi sumber Wet. Angka peluang Wet yang tercatat sebelumnya belum menjadi balancing final dan akan ditetapkan setelah roster serta aturan Mutation dibahas lengkap.
+- Alternatif yang ditolak: Membatasi Wet hanya pada Drizzle/Rainy atau memberi Wet dari penyiraman pemain.
+- Dampak:
+  - Misty dan Thunderstorm ditambahkan sebagai sumber Wet di Spring.
+  - Peluang Wet tidak ditetapkan ulang dalam keputusan ini; peluang per cuaca dan simulasi akan dibahas pada tahap balancing Mutation.
+  - GDD dan PRD Spring harus mengikuti klasifikasi sumber ini.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
+### D-087 · Menghapus perolehan Mutation Flooded dari WaterLevel tinggi
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; detail Mutation lainnya tetap terbuka
+- Menggantikan: Jalur perolehan Flooded melalui WaterLevel tinggi pada D-035. D-035 tetap menjadi riwayat untuk jalur tersebut, bukan aturan aktif.
+- Konteks: Flooded tidak lagi diperoleh hanya karena WaterLevel tanaman berada pada level tinggi; sumber Flooded harus berasal dari aturan Mutation cuaca yang telah ditetapkan.
+- Keputusan:
+  - **Hapus seluruh roll Mutation Flooded yang dipicu oleh WaterLevel tinggi**, termasuk roll pada rentang WaterLevel 4,00-4,99 dan 5,00.
+  - Jalur evolusi **Wet → Flooded selama Rainy tetap berlaku** sesuai aturan yang sudah ada; keputusan ini tidak menghapus atau mengubah jalur evolusi tersebut.
+  - Flooded tetap merupakan Mutation yang sama dan hanya dapat diperoleh satu kali per buah.
+  - WaterLevel tinggi tetap dapat memicu kondisi tanaman terkait overwatering sesuai sistem kondisi tanaman, tetapi tidak memberikan Mutation Flooded.
+- Alternatif yang ditolak: Mempertahankan jalur Flooded dari WaterLevel tinggi sebagai jalur tambahan.
+- Dampak:
+  - D-035 tidak lagi menjadi sumber aktif untuk roll Flooded dari WaterLevel tinggi.
+  - GDD dan PRD Spring harus menghapus jalur Flooded dari WaterLevel tinggi dan mempertahankan Wet → Flooded saat Rainy.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-085 · Kalender global, durasi hari, dan siklus spawn batch buah
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
