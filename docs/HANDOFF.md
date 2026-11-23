@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: Audit & penyesuaian harga Rare (D-080). Progresi ekonomi Rare (150-240 LC/min) kini di bawah Epic (250-350 LC/min).
+- File diubah: docs/DECISIONS.md (D-080), docs/02_GAME_DESIGN_DOCUMENT.md (v3.31), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Koreksi: D-079 memperbaiki D-078. Orchid menjadi 6 panen; Dragonfruit menjadi Multi Harvest, 10 panen, 6 buah/panen. Regrow Dragonfruit 12 menit masih ASUMSI.
 - File diubah: docs/DECISIONS.md (D-079), docs/02_GAME_DESIGN_DOCUMENT.md (v3.30), docs/HANDOFF.md.
 - Spec READY: tidak ada.

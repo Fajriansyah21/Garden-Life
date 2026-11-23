@@ -1571,3 +1571,17 @@ Entri terbaru di paling atas.
   - **Dragonfruit:** **Multi Harvest**; total **10 panen**; **6 buah per panen**; regrow **12 menit (ASUMSI, menunggu konfirmasi)**; harga jual 10.000 LC/buah dari draft awal.
   - **Firefly Mushroom:** Multi Harvest; total 8 panen; 2 buah per panen; regrow 12 menit; harga jual 2.000 LC/buah.
 - D-079 tidak mengubah klasifikasi lingkungan Epic atau status spec.
+
+### D-080 · Audit & penyesuaian harga jual tanaman Rare
+- Tanggal: 2026-11-22
+- Konteks: Menyelaraskan harga jual Rare agar progresi ekonomi sesuai tier (Rare < Epic).
+- Keputusan Penyesuaian Harga Rare:
+  - **Sunflower:** 3.500 LC/bunga.
+  - **Watermelon:** 800 LC/buah.
+  - **Lavender:** 400 LC/daun.
+  - **Peony:** 1.800 LC/bunga.
+- Keputusan Harga Epic (Final): 
+  - **Orchid:** 4.500 LC/bunga (10 panen).
+  - **Dragonfruit:** 900 LC/buah.
+  - **Firefly Mushroom:** 2.000 LC/buah.
+- Dampak: Progresi laba/menit terjaga: Rare (150-240 LC/min) < Epic (250-350 LC/min).

@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.30 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.31 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -353,10 +353,10 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Sunflower | Single | 2.500 LC | 15 min | 1 bunga | 1 | - | 4.000 LC |
-| Watermelon | Multi | 3.000 LC | 18 min | 3 buah | 10 | 10 min | 1.500 LC |
-| Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 600 LC |
-| Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 3.000 LC |
+| Sunflower | Single | 2.500 LC | 15 min | 1 bunga | 1 | - | 3.500 LC |
+| Watermelon | Multi | 3.000 LC | 18 min | 3 buah | 10 | 10 min | 800 LC |
+| Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 400 LC |
+| Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 1.800 LC |
 
 #### Klasifikasi lingkungan tanaman Rare (D-077)
 
