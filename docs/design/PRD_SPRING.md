@@ -18,8 +18,8 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 | Drizzle | 14 | 10 menit | +0,05 WaterLevel/tick; pertumbuhan 0,85×; Wet |
 | Windy | 12 | 10 menit | -0,005 WaterLevel tiap 2 tick; pertumbuhan 1,5× |
 | Rainy | 10 | 10 menit | +0,075 WaterLevel/tick; pertumbuhan 0,80×; Wet dan evolusi Flooded |
-| Misty | 8 | 10 menit | +0,25 WaterLevel sekali; pertumbuhan 0,85×; Misty/Foggy |
-| Thunderstorm | 6 | 10 menit | Petir, Shocked/Charged, risiko Scorched atau tanaman mati |
+| Misty | 8 | 10 menit | +0,25 WaterLevel sekali; pertumbuhan 0,85×; Wet, Misty/Foggy |
+| Thunderstorm | 6 | 10 menit | Wet, petir, Shocked/Charged, risiko Scorched atau tanaman mati |
 
 - Bobot adalah tabel balancing D-048 dan berjumlah 100.
 - Cuaca yang baru selesai tidak boleh langsung berulang.
@@ -30,8 +30,10 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 
 ## 4. Shared Weather & Mutation
 - Cloudy, Drizzle, Rainy, Windy, dan Misty mengikuti angka final pada dokumen Shared Weather Specification (D-061).
-- Wet memiliki peluang global 2,5% per buah eligible per tick pada cuaca hujan. Rainy tidak menggunakan peluang Wet 5% lama dari D-034.
-- Rainy: buah yang sudah memiliki Wet dapat melakukan roll Flooded 2,5% per tick; Flooded menggantikan Wet.
+- Wet dapat diperoleh dari semua cuaca basah, dan hanya dari cuaca (D-086). Sumber basah Spring: Drizzle, Rainy, Misty, dan Thunderstorm. Aktivitas pemain, alat penyiraman, dan WaterLevel tinggi tidak menghasilkan Wet.
+- Peluang Wet final belum ditetapkan; angka 2,5% pada keputusan lama merupakan baseline terdahulu yang akan ditinjau dalam balancing Mutation (D-086).
+- Rainy: buah yang sudah memiliki Wet dapat melakukan evolusi Flooded; peluang final mengikuti balancing Mutation. Flooded menggantikan Wet.
+- Flooded dari WaterLevel tinggi dihapus. Flooded hanya diperoleh melalui evolusi Wet → Flooded selama Rainy (D-087).
 - WaterLevel disimpan dengan presisi 0,001, rentang 0,000-5,000.
 - Mutation cuaca hanya roll pada plot yang ditempati. Greenhouse tidak menerima Mutation cuaca.
 - Maksimal 15 Mutation unik per buah.
@@ -55,8 +57,8 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 ## 7. Kriteria penerimaan
 1. Spring berlangsung 30 hari in-game dan transisi hari 28-30 hanya mengubah visual.
 2. Cuaca mengikuti bobot, durasi, dan batas transisi pada tabel.
-3. Shared Weather menggunakan angka D-061, termasuk Wet 2,5% per buah/tick.
-4. Thunderstorm mematuhi roll sambaran, radius, batas, Mutation, dan hasil kondisi tanaman.
+3. Shared Weather mengikuti klasifikasi sumber Wet D-086; peluang Wet final menunggu balancing Mutation.
+4. Thunderstorm mematuhi roll sambaran, radius, batas, Mutation Wet/Shocked/Charged, dan hasil kondisi tanaman.
 5. Storm Catcher, Storm Shield, dan Scorch Balm mengikuti aturan perlindungan yang ditetapkan.
 6. Plot kosong tidak menerima efek tanaman atau roll Mutation catch-up.
 7. Tidak ada spec yang dinaikkan menjadi READY.
