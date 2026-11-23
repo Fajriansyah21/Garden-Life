@@ -1,4 +1,24 @@
 ## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik menyetujui D-085: 1 hari in-game = 6 jam nyata; kalender musim global berbasis UTC dan sama di semua server; cuaca tetap shared per server.
+  - Satu musim 30 hari in-game (7 hari 12 jam nyata); satu tahun 120 hari in-game (30 hari nyata).
+  - Batch buah spawn pada 50% progres siklus tanaman/regrow, matang pada 100%; Mutation alami eligible sejak spawn hingga panen/penghapusan.
+  - Jumlah instance batch dikunci saat spawn; modifier jumlah dievaluasi pada spawn, sedangkan penalti yang didefinisikan saat panen tetap diterapkan saat panen.
+  - D-073/D-074 diperjelas mengenai timing penghitungan jumlah batch. GDD diperbarui ke v3.38 dan README diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-085)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.38)
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Timestamp epoch kalender global untuk launch.
+  - Berikutnya: simulasi peluang Mutation per tanaman, lalu multiplier Mutation dan audit ekonomi bibit/hasil panen.
+- Asumsi yang perlu dicek:
+  - Cuaca tetap berbeda antar-server, tetapi satu cuaca dibagikan oleh semua plot dalam server yang sama (D-061).
+  - Belum ada implementasi gameplay; keputusan ini hanya desain/balancing konsep.
+
+## 2026-11-23 · ChatGPT -> Claude
 - Selesai: Koreksi label sumber tabel Epic menjadi D-079/D-080 dan Legendary menjadi D-082 agar GDD merujuk keputusan final yang benar.
 - GDD kini v3.36.
 - Spec READY untuk dikerjakan: tidak ada.
