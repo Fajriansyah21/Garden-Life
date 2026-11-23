@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.26 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.27 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -255,6 +255,12 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
 
 **Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
+
+#### Audit integrasi Common dan koreksi D-071 (D-074)
+
+- **Rest** hanya akibat musim tidak cocok. Cold sensitive terkena dingin selama 5 menit masuk **Frozen**, bukan Rest. Frozen menghentikan tumbuh/produksi, membutuhkan Heater, dan memiliki timer kematian.
+- Water love: Overwatered di atas 120% WaterLevel max. Strawberry: 4.800; Lettuce: 3.600. Carrot/Daisy mengikuti threshold normal (1.000/2.000).
+- Urutan: Growth = Base × Weather × Environmental; Size = Base × Sun × Heat × Cold × Air × Bloom (cap 2,0×); Yield = Base × Heat × Air × Overwatered. Ukuran dikunci saat spawn. Yield dibulatkan ke bawah, minimum 1.
 
 #### Efek gameplay klasifikasi Udara (D-073)
 

@@ -1497,3 +1497,22 @@ Entri terbaru di paling atas.
   - **Normal:** Tidak terpengaruh kepadatan objek di sekitar.
 - **Greenhouse:** Efek Air love dimatikan total di dalam Greenhouse untuk menghindari bug kepadatan.
 - D-073 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-074 · Audit integrasi Common dan koreksi D-071
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Aktif untuk balancing konsep
+- **Koreksi D-071:** Status **Rest** hanya dipicu oleh ketidakcocokan musim. Tanaman **Cold sensitive** yang terkena Frost, Blizzard, atau suhu Winter selama 5 menit berturut-turut masuk status **Frozen**, bukan Rest.
+  - Frozen menghentikan pertumbuhan dan produksi. Frozen tidak hilang saat salju dibersihkan; hanya Heater yang dapat memulihkannya.
+  - Frozen mempunyai timer kematian. Greenhouse mencegah Frozen akibat cuaca dingin.
+- WaterLevel dan Overwatered:
+  - Water love menjadi Overwatered hanya di atas **120% WaterLevel Max**; Water normal dan Water sensitive di atas 100% Max.
+  - Threshold Common: Carrot 1.000; Daisy 2.000; Strawberry 4.800 (120% dari 4.000); Lettuce 3.600 (120% dari 3.000).
+- Urutan multiplier:
+  - Pertumbuhan: `Base Growth × Weather Modifier × Environmental Modifier`.
+  - Ukuran buah: `Base Size × Sun × Heat × Cold × Air × Bloom`. Ukuran dikunci saat buah lahir (*spawn*).
+  - Jumlah panen: `Base Yield × Heat × Air × Overwatered`. Jumlah dihitung saat panen.
+  - Bonus jenis berbeda dapat menumpuk. Ukuran akhir dibatasi maksimum **2,0× Base Size**.
+  - Hasil panen dibulatkan **ke bawah**, dengan hasil minimum 1.
+- Aura Heat Variant tidak memicu Overheat; hanya Heatwave yang memicu status Overheat. Sunny tetap sistem Matahari, bukan Panas.
+- D-074 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

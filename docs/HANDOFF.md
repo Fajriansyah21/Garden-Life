@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-074 mengoreksi Cold sensitive menjadi Frozen (Rest hanya musim tidak cocok), menetapkan threshold Water love 120% Max, urutan multiplier, cap ukuran 2,0×, dan pembulatan yield ke bawah minimum 1.
+- File diubah: docs/DECISIONS.md (D-074), docs/02_GAME_DESIGN_DOCUMENT.md (v3.27), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-073 menetapkan efek kategori Udara (Air love, Normal). Efek hanya pada jumlah dan ukuran buah; radius 2 studs; tanaman + bangunan memengaruhi, dekorasi tidak. Greenhouse mematikan efek Air love.
 - File diubah: docs/DECISIONS.md (D-073), docs/02_GAME_DESIGN_DOCUMENT.md (v3.26), docs/HANDOFF.md.
 - Spec READY: tidak ada.
