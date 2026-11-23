@@ -271,7 +271,7 @@ Roster tanaman reguler saat ini terdiri dari 21 tanaman setelah Starfruit ditamb
 
 - **Rest** hanya akibat musim tidak cocok. Cold sensitive terkena dingin selama 5 menit masuk **Frozen**, bukan Rest. Frozen menghentikan tumbuh/produksi, membutuhkan Heater, dan memiliki timer kematian.
 - Water love: Overwatered di atas 120% WaterLevel max. Strawberry: 4.800; Lettuce: 3.600. Carrot/Daisy mengikuti threshold normal (1.000/2.000).
-- Urutan: Growth = Base × Weather × Environmental; Size = Base × Sun × Heat × Cold × Air × Bloom (cap 2,0×); Yield = Base × Heat × Air × Overwatered. Ukuran dikunci saat spawn. Yield dibulatkan ke bawah, minimum 1.
+- Urutan: Growth = Base × Weather × Environmental; Size = Base × Sun × Heat × Cold × Air × Bloom (cap 2,0×); Yield = Base × Heat × Air × Overwatered. Ukuran dan jumlah instance batch dikunci saat spawn; modifier jumlah dievaluasi pada spawn (D-085), sedangkan penalti yang secara eksplisit berlaku saat panen diterapkan saat panen. Yield dibulatkan ke bawah, minimum 1.
 
 #### Efek gameplay klasifikasi Udara (D-073)
 
