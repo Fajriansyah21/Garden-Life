@@ -1,3 +1,13 @@
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai: Sinkronisasi GDD v3.35 dengan keputusan ekonomi tanaman terbaru D-076, D-079/D-080, D-082, dan D-083.
+- Selesai: Memperbarui roster reguler menjadi 21 tanaman setelah Starfruit ditambahkan melalui D-081; menghapus tabel balancing provisional D-066 dari bagian aktif GDD dan menandainya sebagai riwayat yang digantikan D-076.
+- Selesai: Menyelaraskan README dengan GDD v3.35 dan log keputusan sampai D-083.
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik: Audit berikutnya perlu menetapkan harga bibit baru dengan mempertimbangkan hasil panen bermutation otomatis dan multiplier harga mutation yang final.
+- Asumsi yang perlu dicek: Regrow Dragonfruit 12 menit masih ASUMSI menurut D-079; harga bibit saat ini belum diaudit ulang terhadap ekonomi mutation.
+
+---
+
 ## 2026-11-22 · Hermes -> Pemilik
 - Selesai: Finalisasi harga jual & balancing Mystic (D-083).
 - Roster: Starflower, Aurora Rose, Stardust Willow.
