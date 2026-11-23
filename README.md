@@ -78,7 +78,7 @@ Greenhouse (kapasitas 18 tanaman), 4 musim, siklus cuaca, dan dua tier pupuk dit
 
 - Fase: **1 Konsep & GDD**.
 - Gameplay: belum ada implementasi.
-- GDD: v3.35 (2026-11-23).
+- GDD: v3.36 (2026-11-23).
 - Build Mode: `FEAT-001`, status `DRAFT`.
 - Tools & Perawatan Tanaman: `FEAT-002`, status `DRAFT` (v12).
 - Log keputusan: D-001 sampai D-083. Balancing ekonomi tanaman terbaru: Common D-065, Uncommon D-076, Rare D-077/D-080, Epic D-079/D-080, Legendary D-082, Mystic D-083. Roster reguler kini 21 tanaman setelah Starfruit ditambahkan melalui D-081. D-066 adalah riwayat provisional Uncommon dan telah digantikan D-076.
