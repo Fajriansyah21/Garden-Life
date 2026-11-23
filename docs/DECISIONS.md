@@ -1612,3 +1612,13 @@ Entri terbaru di paling atas.
 - Proyeksi laba/menit: Wisteria ~467 LC/min, Sakura ~475 LC/min, Starfruit ~486 LC/min.
 - Target progresi ekonomi: Legendary ~450-600 LC/min, di atas Epic ~253-348 LC/min.
 - D-082 tidak menaikkan spec menjadi READY.
+
+### D-083 · Finalisasi harga jual dan balancing tanaman Mystic
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep.
+- Roster Mystic:
+  - **Starflower:** Multi Harvest; Bibit 250.000 LC; Tumbuh 90 min; Hasil 1 bunga; Total 12 panen; Regrow 25 min; Jual 40.000 LC/bunga.
+  - **Aurora Rose:** Multi Harvest; Bibit 300.000 LC; Tumbuh 100 min; Hasil 1 bunga; Total 12 panen; Regrow 30 min; Jual 52.000 LC/bunga.
+  - **Stardust Willow:** Multi Harvest; Bibit 350.000 LC; Tumbuh 120 min; Hasil 120 daun; Total 6 panen; Regrow 20 min; Jual 750 LC/daun.
+- Dampak ekonomi: Target progresi laba/menit tercapai (630 - 850 LC/min).

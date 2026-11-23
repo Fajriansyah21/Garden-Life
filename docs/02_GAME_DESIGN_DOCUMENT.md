@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.33 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.34 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -357,6 +357,14 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Watermelon | Multi | 3.000 LC | 18 min | 3 buah | 10 | 10 min | 800 LC |
 | Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 400 LC |
 | Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 1.800 LC |
+
+#### Balancing tanaman Mystic (D-083)
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Starflower | Multi | 250.000 LC | 90 min | 1 bunga | 12 | 25 min | 40.000 LC |
+| Aurora Rose | Multi | 300.000 LC | 100 min | 1 bunga | 12 | 30 min | 52.000 LC |
+| Stardust Willow | Multi | 350.000 LC | 120 min | 120 daun | 6 | 20 min | 750 LC |
 
 #### Balancing tanaman Legendary (D-081)
 
