@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.34 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.35 · **Terakhir diubah:** 2026-11-23
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -229,7 +229,7 @@ Prioritas di atas adalah rekomendasi awal untuk konsep, bukan persetujuan scope 
 
 
 ### Roster tanaman reguler (D-064)
-Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetapkan nama dan tier, bukan harga atau parameter gameplay.
+Roster tanaman reguler saat ini terdiri dari 21 tanaman setelah Starfruit ditambahkan ke Legendary melalui D-081. D-064 adalah keputusan roster awal 20 tanaman; tabel ini mencerminkan roster terkini dan bukan mengubah catatan historis D-064.
 
 | Tier | Tanaman | Jumlah |
 |---|---|---:|
@@ -237,14 +237,14 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | Uncommon | Tulip, Blueberry, Bell Pepper, Mint | 4 |
 | Rare | Sunflower, Watermelon, Lavender, Peony | 4 |
 | Epic | Orchid, Dragonfruit, Firefly Mushroom | 3 |
-| Legendary | Wisteria, Sakura | 2 |
+| Legendary | Wisteria, Sakura, Starfruit | 3 |
 | Mystic | Starflower, Aurora Rose, Stardust Willow | 3 |
-| **Total** | **20 tanaman** | **20** |
+| **Total** | **21 tanaman** | **21** |
 
-- Tanaman event berada di luar roster reguler dan tidak termasuk dalam daftar 20 tanaman pada D-064.
-- D-064 menetapkan roster dan tier; balancing Common awal dicatat melalui D-065.
-- Harga bibit individual boleh berbeda antar tanaman dalam tier yang sama. Baseline tier D-052 tetap menjadi acuan rarity, sedangkan nilai individual yang disetujui di D-065 berlaku untuk tanaman Common yang tercantum.
-- Parameter tanaman selain balancing Common D-065, termasuk harga dan yield tier lain, season affinity, kebutuhan air/panas/dingin, metode perolehan, serta detail visual final masih BELUM DIPUTUSKAN.
+- Tanaman event berada di luar roster reguler.
+- D-064 menetapkan roster awal 20 tanaman; D-081 menambahkan Starfruit sehingga roster reguler kini berjumlah 21.
+- Harga bibit individual boleh berbeda antar tanaman dalam tier yang sama. Balancing ekonomi aktif dicatat pada D-065, D-076, D-077/D-080, D-079/D-080, D-082, dan D-083 sesuai tier.
+- Parameter perolehan, season affinity, kebutuhan air/panas/dingin, serta detail visual final masih BELUM DIPUTUSKAN.
 
 #### Efek gameplay klasifikasi Matahari (D-069)
 
@@ -345,18 +345,18 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Orchid | Multi | 4.500 LC | 25 min | 1 bunga | 6 | 15 min | 8.000 LC |
-| Dragonfruit | Multi | 6.000 LC | 30 min | 6 buah | 10 | 12 min (ASUMSI) | 10.000 LC |
-| Firefly Mushroom | Multi | 3.200 LC | 20 min | 2 buah | 8 | 12 min | 2.000 LC |
+| Orchid | Multi | 4.500 LC | 25 menit | 1 bunga | 10 | 15 menit | 4.500 LC/bunga |
+| Dragonfruit | Multi | 6.000 LC | 30 menit | 6 buah | 10 | 12 menit (ASUMSI) | 900 LC/buah |
+| Firefly Mushroom | Multi | 3.200 LC | 20 menit | 2 buah | 8 | 12 menit | 2.000 LC/buah |
 
 #### Balancing tanaman Rare (D-080)
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Sunflower | Single | 2.500 LC | 15 min | 1 bunga | 1 | - | 3.500 LC |
-| Watermelon | Multi | 3.000 LC | 18 min | 3 buah | 10 | 10 min | 800 LC |
-| Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 400 LC |
-| Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 1.800 LC |
+| Sunflower | Single | 2.500 LC | 15 menit | 1 bunga | 1 | - | 3.500 LC/bunga |
+| Watermelon | Multi | 3.000 LC | 18 menit | 3 buah | 10 | 10 menit | 800 LC/buah |
+| Lavender | Multi | 2.000 LC | 12 menit | 5 daun | 6 | 8 menit | 400 LC/daun |
+| Peony | Multi | 3.500 LC | 20 menit | 2 bunga | 8 | 12 menit | 1.800 LC/bunga |
 
 #### Balancing tanaman Mystic (D-083)
 
@@ -370,30 +370,13 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Wisteria | Multi | 10.000 LC | 45 min | 10 bunga | 8 | 15 min | 1.000 LC |
-| Sakura | Multi | 5.000 LC | 60 min | 50 bunga | 8 | 20 min | 250 LC |
-| Starfruit | Multi | 8.000 LC | 40 min | 8 buah | 10 | 12 min | 1.000 LC |
+| Wisteria | Multi | 10.000 LC | 45 menit | 10 bunga | 8 | 15 menit | 1.000 LC/bunga |
+| Sakura | Multi | 5.000 LC | 60 menit | 50 bunga | 8 | 20 menit | 250 LC/bunga |
+| Starfruit | Multi | 8.000 LC | 40 menit | 8 buah | 10 | 12 menit | 1.000 LC/buah |
 
-#### Balancing awal tanaman Uncommon (D-066)
-Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.
+#### Catatan historis balancing Uncommon D-066
 
-| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil per panen | Total panen | Regrow | Harga jual |
-|---|---|---:|---:|---:|---:|---:|---:|
-| Tulip | Single Harvest **(DIPUTUSKAN)** | 500 LC (ASUMSI) | 5 menit (ASUMSI) | 1 bunga (ASUMSI) | 1 (ASUMSI) | - | 800 LC/bunga (ASUMSI) |
-| Blueberry | Multi Harvest **(DIPUTUSKAN)** | 700 LC (ASUMSI) | 6 menit (ASUMSI) | 8 buah **(DIPUTUSKAN)** | 10 **(DIPUTUSKAN)** | 4 menit (ASUMSI) | 120 LC/buah (ASUMSI) |
-| Bell Pepper | Multi Harvest **(DIPUTUSKAN)** | 1.200 LC (ASUMSI) | 8 menit (ASUMSI) | 6 buah **(DIPUTUSKAN)** | 8 **(DIPUTUSKAN)** | 6 menit (ASUMSI) | 250 LC/buah (ASUMSI) |
-| Mint | Single Harvest **(DIPUTUSKAN)** | 300 LC **(DIPUTUSKAN)** | 4 menit (ASUMSI) | 3 daun (ASUMSI) | 1 (ASUMSI) | - | 200 LC/daun (ASUMSI) |
-
-Simulasi sementara berdasarkan angka ASUMSI di tabel (belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca):
-
-| Tanaman | Total hasil | Pendapatan | Modal bibit | Keuntungan kotor | Waktu hingga panen terakhir |
-|---|---:|---:|---:|---:|---:|
-| Tulip | 1 bunga | 800 LC | 500 LC | 300 LC | 5 menit |
-| Blueberry | 80 buah | 9.600 LC | 700 LC | 8.900 LC | 42 menit |
-| Bell Pepper | 48 buah | 12.000 LC | 1.200 LC | 10.800 LC | 50 menit |
-| Mint | 3 daun | 600 LC | 300 LC | 300 LC | 4 menit |
-
-Waktu panen terakhir dihitung sebagai waktu tumbuh awal + (total panen - 1) × regrow. Angka pendapatan dan keuntungan hanya simulasi dari harga jual sementara, bukan nilai final.
+Tabel dan simulasi D-066 telah digantikan oleh balancing terbaru D-076. D-066 tetap tercatat sebagai riwayat keputusan di `DECISIONS.md`, tetapi tidak digunakan sebagai parameter ekonomi aktif. Gunakan tabel **Balancing tanaman Uncommon (D-076)** di atas.
 
 ## 7. UI / UX
 
