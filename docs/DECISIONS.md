@@ -1516,3 +1516,15 @@ Entri terbaru di paling atas.
   - Hasil panen dibulatkan **ke bawah**, dengan hasil minimum 1.
 - Aura Heat Variant tidak memicu Overheat; hanya Heatwave yang memicu status Overheat. Sunny tetap sistem Matahari, bukan Panas.
 - D-074 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-076 · Balancing ekonomi tanaman Uncommon
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Balancing Ekonomi:
+  - **Tulip:** Single Harvest; Bibit 500 LC; Tumbuh 8 min; Hasil 1 bunga; Jual 800 LC.
+  - **Blueberry:** Multi Harvest; Bibit 800 LC; Tumbuh 10 min; Hasil 8 buah; Total 10 panen; Regrow 6 min; Jual 130 LC/buah.
+  - **Bell Pepper:** Multi Harvest; Bibit 1.500 LC; Tumbuh 12 min; Hasil 6 buah; Total 8 panen; Regrow 8 min; Jual 280 LC/buah.
+  - **Mint:** Single Harvest; Bibit 400 LC; Tumbuh 6 min; Hasil 3 daun; Jual 300 LC/daun.
+- Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
+- D-076 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

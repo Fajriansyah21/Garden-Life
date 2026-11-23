@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-076 menetapkan balancing ekonomi untuk tanaman Uncommon (Tulip, Blueberry, Bell Pepper, Mint).
+- File diubah: docs/DECISIONS.md (D-076), docs/02_GAME_DESIGN_DOCUMENT.md (v3.28), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: Mengubah aturan Air love (area sempit tidak lagi mengurangi ukuran buah). Mencatat klasifikasi lingkungan Uncommon (D-075).
 - File diubah: docs/DECISIONS.md (D-073, D-075), docs/02_GAME_DESIGN_DOCUMENT.md (v3.28), docs/HANDOFF.md.
 - Spec READY: tidak ada.

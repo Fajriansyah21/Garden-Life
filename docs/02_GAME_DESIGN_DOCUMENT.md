@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.27 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.28 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -331,6 +331,15 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 - Opsi 8 buah Strawberry per panen belum dipilih; nilai baseline saat ini 6 buah.
 - Simulasi total pendapatan / modal bibit / keuntungan: Carrot 150 / 100 / 50 LC; Daisy 200 / 150 / 50 LC; Strawberry 2.700 / 300 / 2.400 LC; Lettuce 200 / 120 / 80 LC.
 - Simulasi belum memasukkan biaya perawatan, Mutation, Variant, atau bonus cuaca.
+
+#### Balancing tanaman Uncommon (D-076)
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Tulip | Single | 500 LC | 8 min | 1 bunga | 1 | - | 800 LC |
+| Blueberry | Multi | 800 LC | 10 min | 8 buah | 10 | 6 min | 130 LC |
+| Bell Pepper | Multi | 1.500 LC | 12 min | 6 buah | 8 | 8 min | 280 LC |
+| Mint | Single | 400 LC | 6 min | 3 daun | 1 | - | 300 LC |
 
 #### Balancing awal tanaman Uncommon (D-066)
 Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.
