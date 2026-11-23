@@ -1546,3 +1546,19 @@ Entri terbaru di paling atas.
   - **Peony:** Multi Harvest; Bibit 3.500 LC; Tumbuh 20 min; Hasil 2 bunga; Total 8 panen; Regrow 12 min; Jual 3.000 LC/bunga.
 - Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
 - D-077 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-078 · Klasifikasi dan balancing ekonomi tanaman Epic
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Roster Epic:
+  - **Orchid**: Multi | 4.500 LC | 25 min | 1 bunga | 10 panen | 15 min | 8.000 LC
+  - **Dragonfruit**: Multi | 6.000 LC | 30 min | 6 buah | 10 panen | 12 min | 1,000 LC |
+  - **Firefly Mushroom**: Multi | 3.200 LC | 20 min | 2 buah | 8 | 12 min | 2.000 LC
+- Balancing Ekonomi:
+  - **Orchid**: Multi Harvest, Bibit 4.500 LC, Tumbuh 25 min, Hasil 1 bunga per panen, Total 10 panen, Jual 8.000 LC.
+  - **Dragonfruit**: Single | 6.000 LC | 30 min | 1 buah | 10 panen | 12 min | 1,000 LC |
+  - **Firefly Mushroom**: Multi | 3.200 LC | 20 min | 2 buah | 8 | 12 min | 2.000 LC
+- Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
+- D-078 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+- Tabel ini mencakup harga, waktu tumbuh, hasil, dan regulasi ekonomi tanpa mengubah ekosistem yang sudah ada.
