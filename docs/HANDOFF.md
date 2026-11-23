@@ -1,5 +1,14 @@
 ## 2026-11-23 · ChatGPT -> Claude
-- Selesai: Sinkronisasi GDD v3.35 dengan keputusan ekonomi tanaman terbaru D-076, D-079/D-080, D-082, dan D-083.
+- Selesai: Koreksi label sumber tabel Epic menjadi D-079/D-080 dan Legendary menjadi D-082 agar GDD merujuk keputusan final yang benar.
+- GDD kini v3.36.
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik: Audit harga bibit dan ekonomi tanaman berikutnya.
+- Asumsi yang perlu dicek: Harga jual buah dengan Mutation masih perlu model expected value setelah peluang dan multiplier mutation ditetapkan.
+
+---
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai: Sinkronisasi GDD v3.36 dengan keputusan ekonomi tanaman terbaru D-076, D-079/D-080, D-082, dan D-083.
 - Selesai: Memperbarui roster reguler menjadi 21 tanaman setelah Starfruit ditambahkan melalui D-081; menghapus tabel balancing provisional D-066 dari bagian aktif GDD dan menandainya sebagai riwayat yang digantikan D-076.
 - Selesai: Menyelaraskan README dengan GDD v3.35 dan log keputusan sampai D-083.
 - Spec READY untuk dikerjakan: tidak ada.
