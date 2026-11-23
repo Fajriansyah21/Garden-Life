@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-070 menetapkan efek kategori Panas (Heat love, Normal, Heat sensitive, Extremely heat sensitive) beserta aturan timer Overheat (5 menit / 3 menit) dan pemisahan dari Variant Heat.
+- File diubah: docs/DECISIONS.md (D-070), docs/02_GAME_DESIGN_DOCUMENT.md (v3.23), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-069 menetapkan efek kategori Matahari (Sun love, Normal, Sun sensitive) dan status Sunbleached.
 - File diubah: docs/DECISIONS.md (D-069), docs/02_GAME_DESIGN_DOCUMENT.md (v3.22), docs/HANDOFF.md.
 - Terbuka: Balancing final multiplier dan probabilitas ukuran buah besar.

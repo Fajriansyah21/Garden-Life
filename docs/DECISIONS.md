@@ -1442,3 +1442,17 @@ Entri terbaru di paling atas.
     - Efek ukuran dan jumlah buah dikunci saat buah tersebut lahir (*spawn*); status tidak mengubah buah yang sudah ada secara retroaktif.
 - Durasi pemicu, durasi pemulihan, dan multiplier di atas adalah baseline balancing konsep.
 - D-069 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-070 · Efek gameplay klasifikasi Panas
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Kategori Panas:
+  - **Heat love:** Saat kondisi panas (Heatwave atau aura Heat), pertumbuhan menjadi **1,25×**, ukuran buah baru **1,10×**, dan jumlah buah saat panen **1,10×**.
+  - **Normal:** Pertumbuhan stabil pada **1,0×** tanpa bonus atau penalti khusus dari suhu panas.
+  - **Heat sensitive:** Pertumbuhan **0,75×**, ukuran buah baru **0,90×**, dan mulai timer Overheat setelah **5 menit** paparan panas berturut-turut.
+  - **Extremely heat sensitive:** Pertumbuhan **0,50×**, ukuran buah baru **0,75×**, dan mulai timer Overheat setelah **3 menit** paparan panas berturut-turut.
+- Status **Overheat** khusus dipicu oleh cuaca **Heatwave** (bukan aura Heat biasa). Risiko kematian Heat sensitive 20%, Extremely heat sensitive 40%. Pemulihan via lingkungan sejuk/hujan (30 menit) atau Cooling Balm.
+- Variant Heat memicu Mutation Heatstrike (Rare, 0,1%/tick) dan efek pengurangan air, bukan status Overheat.
+- Multiplier ukuran dikunci saat buah lahir (*spawn*); yield dihitung saat panen.
+- D-070 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

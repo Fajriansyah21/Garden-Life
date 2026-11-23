@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.22 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.23 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -255,6 +255,17 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
 
 **Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
+
+#### Efek gameplay klasifikasi Panas (D-070)
+
+| Kategori | Efek Kondisi Panas (Heatwave/Aura Heat) | Risiko Overheat |
+|---|---|---|
+| **Heat love** | Tumbuh 1,25×, ukuran/yield 1,10× | Kebal |
+| **Normal** | Tumbuh 1,0×, ukuran/yield 1,0× | Normal |
+| **Heat sensitive** | Tumbuh 0,75×, ukuran 0,90× | Ya (setelah 5 menit), risiko mati 20% |
+| **Extremely heat sensitive** | Tumbuh 0,50×, ukuran 0,75× | Ya (setelah 3 menit), risiko mati 40% |
+
+Status Overheat khusus dari Heatwave. Variant Heat memberi Heatstrike, bukan Overheat.
 
 #### Klasifikasi lingkungan tanaman Common (D-068)
 
