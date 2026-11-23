@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: Mengubah aturan Air love (area sempit tidak lagi mengurangi ukuran buah). Mencatat klasifikasi lingkungan Uncommon (D-075).
+- File diubah: docs/DECISIONS.md (D-073, D-075), docs/02_GAME_DESIGN_DOCUMENT.md (v3.28), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-074 mengoreksi Cold sensitive menjadi Frozen (Rest hanya musim tidak cocok), menetapkan threshold Water love 120% Max, urutan multiplier, cap ukuran 2,0×, dan pembulatan yield ke bawah minimum 1.
 - File diubah: docs/DECISIONS.md (D-074), docs/02_GAME_DESIGN_DOCUMENT.md (v3.27), docs/HANDOFF.md.
 - Spec READY: tidak ada.

@@ -266,7 +266,7 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 
 | Kategori | Ruang Kosong (2 studs) | Area Sempit (ada objek) |
 |---|---|---|
-| **Air love** | Jumlah buah 1,15×, ukuran 1,10× | Jumlah buah 0,80×, ukuran 0,85× |
+| **Air love** | Jumlah buah 1,15×, ukuran 1,10× | Jumlah buah 0,80×, ukuran tidak berubah |
 | **Normal** | Tidak terpengaruh | Tidak terpengaruh |
 
 Objek yang memengaruhi: tanaman lain dan bangunan. Dekorasi tidak dihitung.
@@ -414,3 +414,16 @@ UI yang dibutuhkan secara konseptual:
 11. Berapa kapasitas/konsumsi/refill Watering Can dan bagaimana 10 unit kit dihitung?
 12. Berapa besar percepatan Pupuk, berapa kali dapat digunakan, dan apakah efeknya menumpuk?
 13. Kapan Starter Kit diberikan dan apakah ada kebijakan pemberian ulang setelah reset akun?
+
+### D-075 · Klasifikasi lingkungan tanaman Uncommon
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Roster: Tulip, Blueberry, Bell Pepper, Mint.
+- Klasifikasi:
+  - **Tulip:** Matahari Sun love; Panas Heat normal; Dingin Cold love; Air Water normal; Udara Air normal; WaterLevel maksimum 2.000.
+  - **Blueberry:** Matahari Normal; Panas Heat sensitive; Dingin Cold love; Air Water love; Udara Air love; WaterLevel maksimum 4.000.
+  - **Bell Pepper:** Matahari Sun love; Panas Heat love; Dingin Cold sensitive; Air Water normal; Udara Air normal; WaterLevel maksimum 3.000.
+  - **Mint:** Matahari Normal; Panas Heat sensitive; Dingin Cold love; Air Water normal; Udara Air love; WaterLevel maksimum 2.000.
+- Efek gameplay mengikuti kategori yang telah ditetapkan di D-069 sampai D-073.
+- D-075 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
