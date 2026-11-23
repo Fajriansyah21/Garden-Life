@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-072 menetapkan efek kategori Air (Water love, Normal, Water sensitive) dan mekanik pembusukan akar/Overwatered.
+- File diubah: docs/DECISIONS.md (D-072), docs/02_GAME_DESIGN_DOCUMENT.md (v3.25), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-071 menetapkan efek klasifikasi Dingin (Cold love, Normal, Cold sensitive). Cold sensitive masuk status Rest setelah 5 menit paparan dingin.
 - File diubah: docs/DECISIONS.md (D-071), docs/02_GAME_DESIGN_DOCUMENT.md (v3.24), docs/HANDOFF.md.
 - Spec READY: tidak ada.

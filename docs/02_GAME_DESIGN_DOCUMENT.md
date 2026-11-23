@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.24 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.25 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -255,6 +255,16 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
 
 **Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
+
+#### Efek gameplay klasifikasi Air (D-072)
+
+| Kategori | Saat WaterLevel Ideal | Saat Overwatered |
+|---|---|---|
+| **Water love** | Tumbuh 1,25× | +20% threshold, Tumbuh 0,50× |
+| **Normal** | Tumbuh 1,0× | Tumbuh 0,50× |
+| **Water sensitive** | Tumbuh 1,0× | Tumbuh 0,50×, ukuran 0,80× |
+
+Status Overwatered: Jika tidak segera dikeringkan, tanaman mati (durasi kematian lebih singkat untuk Water sensitive).
 
 #### Efek gameplay klasifikasi Dingin (D-071)
 

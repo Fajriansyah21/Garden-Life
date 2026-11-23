@@ -1469,3 +1469,17 @@ Entri terbaru di paling atas.
 - **Suhu Dingin:** Klasifikasi mencakup cuaca Frost, Blizzard, dan suhu dasar musim Winter.
 - Multiplier ukuran dikunci saat buah lahir (*spawn*); yield dihitung saat panen.
 - D-071 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-072 · Efek gameplay klasifikasi Air
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Kategori Air:
+  - **Water love:** Sangat toleran air. Tumbuh **1,25×** saat WaterLevel tinggi. Status **Overwatered** hanya muncul jika WaterLevel melebihi **+20%** dari WaterLevel Max.
+  - **Normal:** Tumbuh stabil pada **1,0×**. Status **Overwatered** muncul saat WaterLevel melebihi WaterLevel Max.
+  - **Water sensitive:** Rentan pembusukan akar. Status **Overwatered** muncul segera setelah WaterLevel melebihi WaterLevel Max. Durasi kematian saat Overwatered lebih singkat dibanding kategori lain. Saat Overwatered, pertumbuhan menjadi **0,50×** dan ukuran buah baru **0,80×**.
+- **Overwatered:**
+  - Pertumbuhan **0,50×**.
+  - Tanaman akan mati jika WaterLevel tidak segera turun (evaporasi atau Soil Aerator) sebelum durasi kematian habis.
+  - Tanaman Water sensitive memiliki durasi kematian yang lebih singkat.
+- D-072 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
