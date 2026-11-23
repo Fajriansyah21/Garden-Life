@@ -1753,3 +1753,12 @@ Entri terbaru di paling atas.
   - **Aurora Rose:** Multi Harvest; Bibit 300.000 LC; Tumbuh 100 min; Hasil 1 bunga; Total 12 panen; Regrow 30 min; Jual 52.000 LC/bunga.
   - **Stardust Willow:** Multi Harvest; Bibit 350.000 LC; Tumbuh 120 min; Hasil 120 daun; Total 6 panen; Regrow 20 min; Jual 750 LC/daun.
 - Dampak ekonomi: Target progresi laba/menit tercapai (630 - 850 LC/min).
+
+
+### D-091 · Identitas Mutation Foggy
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk desain konsep
+- **Foggy** menggambarkan buah yang **tertutup kabut tebal**. Identitas visual Mutation adalah kabut tebal yang menyelimuti buah.
+- Foggy merupakan evolusi dari Misty sesuai aturan evolusi yang sudah tercatat; detail peluang, multiplier, dan balancing tetap ditunda sampai audit seluruh Mutation Spring selesai.
+- D-091 tidak menetapkan peluang Mutation, multiplier harga, atau status spec READY.
