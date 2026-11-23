@@ -1,5 +1,23 @@
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menetapkan identitas **Foggy**: buah yang tertutup kabut tebal (D-091).
+  - GDD diperbarui ke v3.42; PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-091)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.42)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Audit perilaku dan aturan evolusi Foggy berikutnya, tanpa menetapkan peluang atau multiplier sebelum seluruh roster Mutation Spring selesai.
+  - Setelah seluruh roster selesai, tetapkan peluang, multiplier, lalu simulasi.
+- Asumsi / risiko:
+  - Peluang Misty 6,697% per tick dan evolusi Foggy 0,809% per tick adalah baseline lama, bukan angka final.
+  - Tidak ada perubahan kode gameplay.
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan **Flooded** sebagai nama final evolusi Wet (D-090).
   - Flooded menggambarkan buah tergenang atau terlalu basah; aturan evolusi dan penggantian Wet tetap mengikuti D-088/D-089.
   - GDD diperbarui ke v3.41; PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
