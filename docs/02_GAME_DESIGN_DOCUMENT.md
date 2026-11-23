@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.23 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.24 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -255,6 +255,16 @@ Roster konsep yang disetujui terdiri dari 20 tanaman berikut. Daftar ini menetap
 | **Sun sensitive** | Tumbuh 0,85×, hasil/ukuran 0,85×; Status Sunbleached setelah 10m | Tumbuh 1,10× (saat Cloudy/Misty) |
 
 **Sunbleached:** Pertumbuhan 0,65×, hasil/ukuran 0,70×. Pulih setelah 10m teduh/hujan atau Greenhouse.
+
+#### Efek gameplay klasifikasi Dingin (D-071)
+
+| Kategori | Efek Kondisi Dingin (Frost/Blizzard/Winter) | Risiko Rest/Beku |
+|---|---|---|
+| **Cold love** | Tumbuh 1,25×, ukuran/yield 1,10× | Kebal |
+| **Normal** | Tumbuh 1,0×, ukuran/yield 1,0× | Normal |
+| **Cold sensitive** | Tumbuh 0,50×, ukuran 0,75× | Ya (setelah 5 menit), risiko Rest/Mati |
+
+Status Rest dipicu paparan dingin. Pulih via Season Pill, Greenhouse, atau musim cocok.
 
 #### Efek gameplay klasifikasi Panas (D-070)
 

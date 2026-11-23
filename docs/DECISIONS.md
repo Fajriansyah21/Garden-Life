@@ -1456,3 +1456,16 @@ Entri terbaru di paling atas.
 - Variant Heat memicu Mutation Heatstrike (Rare, 0,1%/tick) dan efek pengurangan air, bukan status Overheat.
 - Multiplier ukuran dikunci saat buah lahir (*spawn*); yield dihitung saat panen.
 - D-070 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-071 · Efek gameplay klasifikasi Dingin
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Kategori Dingin:
+  - **Cold love:** Saat kondisi dingin (Frost, Blizzard, atau suhu Winter), pertumbuhan menjadi **1,25×**, ukuran buah baru **1,10×**, dan jumlah buah saat panen **1,10×**.
+  - **Normal:** Pertumbuhan stabil pada **1,0×** tanpa bonus atau penalti khusus dari suhu dingin.
+  - **Cold sensitive:** Pertumbuhan **0,50×**, ukuran buah baru **0,75×**. Setelah terpapar kondisi dingin selama **5 menit** berturut-turut, tanaman masuk status **Rest** (fase beku). Jika kondisi dingin terus berlanjut tanpa perlindungan (Greenhouse/Heater), tanaman dapat mengalami status lebih parah yang berisiko menyebabkan kematian (Frozen/Frost-death mechanic).
+- **Rest:** Kondisi freeze total; pertumbuhan berhenti, kebal mutasi/cuaca. Pulih melalui Season Pill, pindah ke Greenhouse, atau pergantian musim.
+- **Suhu Dingin:** Klasifikasi mencakup cuaca Frost, Blizzard, dan suhu dasar musim Winter.
+- Multiplier ukuran dikunci saat buah lahir (*spawn*); yield dihitung saat panen.
+- D-071 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

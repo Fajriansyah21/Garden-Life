@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-071 menetapkan efek klasifikasi Dingin (Cold love, Normal, Cold sensitive). Cold sensitive masuk status Rest setelah 5 menit paparan dingin.
+- File diubah: docs/DECISIONS.md (D-071), docs/02_GAME_DESIGN_DOCUMENT.md (v3.24), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-070 menetapkan efek kategori Panas (Heat love, Normal, Heat sensitive, Extremely heat sensitive) beserta aturan timer Overheat (5 menit / 3 menit) dan pemisahan dari Variant Heat.
 - File diubah: docs/DECISIONS.md (D-070), docs/02_GAME_DESIGN_DOCUMENT.md (v3.23), docs/HANDOFF.md.
 - Spec READY: tidak ada.
