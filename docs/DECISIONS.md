@@ -1,3 +1,18 @@
+### D-088 · Wet digantikan oleh Mutation evolusi Flooded
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; nama akhir Mutation belum dipilih
+- Konteks: Flooded merupakan Mutation evolusi dari Wet, bukan Mutation yang ditambahkan secara bersamaan.
+- Keputusan:
+  - Ketika evolusi berhasil, Mutation Wet **digantikan** oleh Mutation evolusi tersebut.
+  - Wet tidak lagi tercatat pada buah setelah evolusi; atribut dan multiplier Wet tidak lagi berlaku.
+  - Mutation hasil evolusi menjadi Mutation yang tercatat pada buah. Peluang dan multiplier ekonomi dibahas pada tahap balancing Mutation.
+  - Nama Flooded masih berupa nama kerja dan akan dipilih ulang agar lebih sesuai dengan nuansa cozy Garden Life.
+- Dampak:
+  - Aturan penggantian Wet tetap berlaku pada evolusi Wet → Flooded.
+  - GDD/PRD akan menggunakan nama final setelah pemilik memilihnya.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-086 · Sumber perolehan Mutation Wet berdasarkan cuaca basah
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
