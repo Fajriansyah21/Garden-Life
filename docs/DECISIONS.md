@@ -1,3 +1,17 @@
+### D-090 · Nama final evolusi Wet adalah Flooded
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui
+- Menggantikan: Pernyataan bahwa nama Flooded masih nama kerja pada D-088 dan D-089. Aturan lain pada D-088 dan D-089 tetap berlaku.
+- Keputusan:
+  - Nama final Mutation evolusi Wet adalah **Flooded**.
+  - Flooded menggambarkan buah yang tergenang atau terlalu basah.
+  - Flooded tetap merupakan evolusi Wet selama Rainy dan menggantikan Wet ketika evolusi berhasil.
+- Dampak:
+  - Nama Flooded digunakan sebagai nama final pada dokumen desain.
+  - Peluang evolusi dan multiplier harga tetap menunggu balancing Mutation setelah roster Spring selesai.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-089 · Identitas konsep evolusi Wet
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
