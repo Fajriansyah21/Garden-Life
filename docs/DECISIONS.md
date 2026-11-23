@@ -1,3 +1,20 @@
+### D-092 · Nama Mutation cuaca Misty adalah Hazy
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk identitas konsep; peluang dan multiplier belum final
+- Konteks: Nama Mutation Misty sama dengan nama cuaca Misty, sehingga identitas cuaca dan Mutation perlu dibedakan.
+- Keputusan:
+  - Nama Mutation yang diperoleh dari cuaca Misty adalah **Hazy**.
+  - Hazy menggambarkan buah yang diselimuti haze/kabut tipis.
+  - **Foggy** tetap merupakan evolusi Hazy dan menggambarkan buah yang tertutup kabut tebal sesuai D-091.
+  - Saat evolusi berhasil, Foggy menggantikan Hazy; Hazy tidak lagi tercatat pada buah, mengikuti aturan evolusi yang telah berlaku.
+  - Sumber Hazy tetap cuaca Misty. Sumber Wet dari Misty tetap berlaku sesuai D-086.
+  - Peluang Mutation, peluang evolusi, multiplier harga, dan detail tampilan/efek gameplay belum ditetapkan dan akan dibahas setelah roster Mutation Spring selesai.
+- Dampak:
+  - GDD, PRD Spring, dan README menggunakan nama Hazy untuk Mutation, serta Misty untuk cuaca.
+  - Tidak ada perubahan peluang atau balancing pada keputusan ini.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-090 · Nama final evolusi Wet adalah Flooded
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
