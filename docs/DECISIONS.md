@@ -1596,3 +1596,19 @@ Entri terbaru di paling atas.
   - **Starfruit:** Multi Harvest; Bibit 8.000 LC; Tumbuh 40 min; Hasil 8 buah; Total 10 panen; Regrow 12 min; Jual 3.000 LC/buah.
 - Distribusi Tier (jika sukses Variant): Seasonal (Legendary) 5% → Bloom/Heat/Amber/Cristal chance. Aura tidak stack.
 - Dampak ekonomi: Wisteria laba/menit ~1.533 LC, Sakura ~375 LC, Starfruit ~1.589 LC.
+
+### D-082 · Audit harga Legendary dan koreksi hasil panen
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; detail implementasi belum ditetapkan.
+- Koreksi D-081:
+  - **Wisteria:** 10 bunga per panen, 8 panen total.
+  - **Sakura:** 50 bunga per panen, 8 panen total; bukan daun.
+  - **Starfruit:** 8 buah per panen, 10 panen total.
+- Harga jual final hasil audit Legendary:
+  - **Wisteria:** 1.000 LC/bunga.
+  - **Sakura:** 250 LC/bunga.
+  - **Starfruit:** 1.000 LC/buah.
+- Proyeksi laba/menit: Wisteria ~467 LC/min, Sakura ~475 LC/min, Starfruit ~486 LC/min.
+- Target progresi ekonomi: Legendary ~450-600 LC/min, di atas Epic ~253-348 LC/min.
+- D-082 tidak menaikkan spec menjadi READY.

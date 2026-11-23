@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.32 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.33 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -362,9 +362,9 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
-| Wisteria | Multi | 10.000 LC | 45 min | 2 bunga | 8 | 15 min | 15.000 LC |
-| Sakura | Multi | 5.000 LC | 60 min | 50 daun | 8 | 20 min | 200 LC |
-| Starfruit | Multi | 8.000 LC | 40 min | 8 buah | 10 | 12 min | 3.000 LC |
+| Wisteria | Multi | 10.000 LC | 45 min | 10 bunga | 8 | 15 min | 1.000 LC |
+| Sakura | Multi | 5.000 LC | 60 min | 50 bunga | 8 | 20 min | 250 LC |
+| Starfruit | Multi | 8.000 LC | 40 min | 8 buah | 10 | 12 min | 1.000 LC |
 
 #### Balancing awal tanaman Uncommon (D-066)
 Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.

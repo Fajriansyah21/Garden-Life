@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-082 mengoreksi hasil panen Legendary dan menetapkan harga jual setelah audit.
+- Legendary: Wisteria 10 bunga/panen @1.000 LC; Sakura 50 bunga/panen @250 LC; Starfruit 8 buah/panen @1.000 LC.
+- File diubah: docs/DECISIONS.md (D-082), docs/02_GAME_DESIGN_DOCUMENT.md (v3.33), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: Audit & penyesuaian harga Rare (D-080).
 - Selesai: Penambahan Legendary roster (D-081): Wisteria, Sakura, Starfruit.
 - File diubah: docs/DECISIONS.md (D-081), docs/02_GAME_DESIGN_DOCUMENT.md (v3.32), docs/HANDOFF.md.
