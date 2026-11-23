@@ -18,7 +18,7 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 | Drizzle | 14 | 10 menit | +0,05 WaterLevel/tick; pertumbuhan 0,85×; Wet |
 | Windy | 12 | 10 menit | -0,005 WaterLevel tiap 2 tick; pertumbuhan 1,5× |
 | Rainy | 10 | 10 menit | +0,075 WaterLevel/tick; pertumbuhan 0,80×; Wet dan evolusi Flooded |
-| Misty | 8 | 10 menit | +0,25 WaterLevel sekali; pertumbuhan 0,85×; Wet, Misty/Foggy |
+| Misty | 8 | 10 menit | +0,25 WaterLevel sekali; pertumbuhan 0,85×; Wet, Hazy/Foggy |
 | Thunderstorm | 6 | 10 menit | Wet, petir, Shocked/Charged, risiko Scorched atau tanaman mati |
 
 - Bobot adalah tabel balancing D-048 dan berjumlah 100.
@@ -32,7 +32,7 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 - Cloudy, Drizzle, Rainy, Windy, dan Misty mengikuti angka final pada dokumen Shared Weather Specification (D-061).
 - Wet dapat diperoleh dari semua cuaca basah, dan hanya dari cuaca (D-086). Sumber basah Spring: Drizzle, Rainy, Misty, dan Thunderstorm. Aktivitas pemain, alat penyiraman, dan WaterLevel tinggi tidak menghasilkan Wet.
 - Peluang Wet final belum ditetapkan; angka 2,5% pada keputusan lama merupakan baseline terdahulu yang akan ditinjau dalam balancing Mutation (D-086).
-- Misty dapat berevolusi menjadi Foggy. Foggy menggambarkan buah yang tertutup kabut tebal (D-091); peluang dan multiplier masih menunggu audit seluruh Mutation Spring.
+- Cuaca Misty dapat menghasilkan Mutation Hazy, yang menggambarkan buah diselimuti haze/kabut tipis (D-092). Hazy dapat berevolusi menjadi Foggy; Foggy menggambarkan buah yang tertutup kabut tebal (D-091). Evolusi menggantikan Hazy, bukan menumpuk dengannya. Peluang Mutation, peluang evolusi, dan multiplier masih menunggu audit seluruh Mutation Spring.
 - Rainy: buah yang sudah memiliki Wet dapat berevolusi menjadi Flooded, yang secara konsep menggambarkan buah tergenang atau terlalu basah (D-089). Peluang evolusi final mengikuti balancing Mutation. Flooded menggantikan Wet; Wet tidak lagi tercatat dan multiplier Wet tidak lagi berlaku setelah evolusi berhasil (D-088).
 - Flooded dari WaterLevel tinggi dihapus. Flooded hanya diperoleh melalui evolusi Wet → Flooded selama Rainy (D-087).
 - WaterLevel disimpan dengan presisi 0,001, rentang 0,000-5,000.
