@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.31 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.32 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -341,7 +341,7 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Bell Pepper | Multi | 1.500 LC | 12 min | 6 buah | 8 | 8 min | 280 LC |
 | Mint | Single | 400 LC | 6 min | 3 daun | 1 | - | 300 LC |
 
-#### Balancing tanaman Epic (D-079)
+#### Balancing tanaman Epic (D-078)
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -349,7 +349,7 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Dragonfruit | Multi | 6.000 LC | 30 min | 6 buah | 10 | 12 min (ASUMSI) | 10.000 LC |
 | Firefly Mushroom | Multi | 3.200 LC | 20 min | 2 buah | 8 | 12 min | 2.000 LC |
 
-#### Balancing tanaman Rare (D-077)
+#### Balancing tanaman Rare (D-080)
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -358,14 +358,13 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 400 LC |
 | Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 1.800 LC |
 
-#### Klasifikasi lingkungan tanaman Rare (D-077)
+#### Balancing tanaman Legendary (D-081)
 
-| Tanaman | Matahari | Panas | Dingin | Air | Udara | WaterLevel max |
-|---|---|---|---|---|---|---:|
-| Sunflower | Sun love | Heat love | Cold normal | Water normal | Air love | 3.000 |
-| Watermelon | Normal | Heat love | Cold sensitive | Water love | Air normal | 5.000 |
-| Lavender | Sun love | Heat normal | Cold love | Water normal | Air love | 2.000 |
-| Peony | Normal | Heat sensitive | Cold love | Water love | Air love | 4.000 |
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Wisteria | Multi | 10.000 LC | 45 min | 2 bunga | 8 | 15 min | 15.000 LC |
+| Sakura | Multi | 5.000 LC | 60 min | 50 daun | 8 | 20 min | 200 LC |
+| Starfruit | Multi | 8.000 LC | 40 min | 8 buah | 10 | 12 min | 3.000 LC |
 
 #### Balancing awal tanaman Uncommon (D-066)
 Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.

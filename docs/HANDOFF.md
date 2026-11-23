@@ -1,4 +1,12 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: Audit & penyesuaian harga Rare (D-080).
+- Selesai: Penambahan Legendary roster (D-081): Wisteria, Sakura, Starfruit.
+- File diubah: docs/DECISIONS.md (D-081), docs/02_GAME_DESIGN_DOCUMENT.md (v3.32), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: Audit & penyesuaian harga Rare (D-080). Progresi ekonomi Rare (150-240 LC/min) kini di bawah Epic (250-350 LC/min).
 - File diubah: docs/DECISIONS.md (D-080), docs/02_GAME_DESIGN_DOCUMENT.md (v3.31), docs/HANDOFF.md.
 - Spec READY: tidak ada.

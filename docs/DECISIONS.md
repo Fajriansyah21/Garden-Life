@@ -1585,3 +1585,14 @@ Entri terbaru di paling atas.
   - **Dragonfruit:** 900 LC/buah.
   - **Firefly Mushroom:** 2.000 LC/buah.
 - Dampak: Progresi laba/menit terjaga: Rare (150-240 LC/min) < Epic (250-350 LC/min).
+
+### D-081 · Legendary Roster: Wisteria, Sakura, Starfruit
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; detail implementasi belum ditetapkan.
+- Konteks: Menambahkan Starfruit ke Legendary. Wisteria & Sakura sudah ada. Legendary rancangan: 
+  - **Wisteria:** Multi Harvest; Bibit 10.000 LC; Tumbuh 45 min; Hasil 2 bunga; Total 8 panen; Regrow 15 min; Jual 15.000 LC/bunga.
+  - **Sakura:** Multi Harvest; Bibit 5.000 LC; Tumbuh 60 min; Hasil 50 daun; Total 8 panen; Regrow 20 min; Jual 200 LC/daun.
+  - **Starfruit:** Multi Harvest; Bibit 8.000 LC; Tumbuh 40 min; Hasil 8 buah; Total 10 panen; Regrow 12 min; Jual 3.000 LC/buah.
+- Distribusi Tier (jika sukses Variant): Seasonal (Legendary) 5% → Bloom/Heat/Amber/Cristal chance. Aura tidak stack.
+- Dampak ekonomi: Wisteria laba/menit ~1.533 LC, Sakura ~375 LC, Starfruit ~1.589 LC.
