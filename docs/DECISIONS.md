@@ -1,3 +1,28 @@
+### D-084 · Eligibilitas Mutation berdasarkan siklus hidup buah
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; detail implementasi belum ditetapkan
+- Konteks: Audit peluang Mutation harus dihitung berdasarkan masa hidup setiap buah, bukan menganggap seluruh durasi tanaman sebagai masa paparan satu buah. Aturan ini juga harus konsisten untuk tanaman Multi Harvest.
+- Keputusan:
+  - Mutation alami yang diterapkan melalui roll per tick atau interval dihitung **per instance buah**.
+  - Buah mulai eligible untuk roll Mutation ketika buah tersebut **spawn pada tanaman**. Buah tidak menerima roll sebelum spawn.
+  - Buah tetap eligible selama berada pada tanaman, termasuk saat masih dalam fase pertumbuhan buah dan belum siap dipanen.
+  - Setelah buah dipanen atau dihapus dari tanaman, buah berhenti menerima roll Mutation alami. Mutation yang sudah dimiliki tetap tersimpan pada buah hasil panen.
+  - Setiap batch baru menghasilkan instance buah baru. Buah pada batch baru memiliki eligibilitas dan riwayat Mutation masing-masing; tidak mewarisi Mutation dari batch sebelumnya.
+  - Aturan ini tidak mengubah sumber Mutation yang diberikan secara langsung (misalnya efek Thunderstorm 100% pada buah yang terkena) atau aturan sumber Mutation yang memiliki syarat khusus.
+  - Batas dan kekebalan yang sudah ditetapkan tetap berlaku, termasuk satu jenis Mutation per buah, evolusi yang menggantikan Mutation asal, plot kosong yang membekukan efek tanaman, dan kekebalan Mutation cuaca di Greenhouse.
+- Alternatif yang ditolak: Menghitung peluang Mutation sejak benih ditanam atau menerapkan satu peluang kumulatif ke seluruh umur tanaman tanpa memisahkan instance buah.
+- Dampak:
+  - Perhitungan peluang Mutation dan expected Mutation yield harus menggunakan durasi eligible setiap buah dan jumlah batch.
+  - Tanaman Multi Harvest dapat menghasilkan buah dengan riwayat Mutation berbeda pada batch yang berbeda.
+  - Tidak mengubah harga bibit, harga jual, multiplier Mutation, atau ekonomi final; parameter tersebut tetap perlu diaudit.
+  - Baseline matematis (buah eligible sepanjang durasi asumsi) dan simulasi realistis (berdasarkan batch dan siklus buah) digunakan sebagai dua lapisan analisis, bukan aturan gameplay tambahan.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Titik spawn batch pada fase pertumbuhan tanaman dan durasi pertumbuhan buah sampai siap dipanen untuk setiap tanaman.
+  - Durasi batch pertama dan batch regrow yang sebenarnya eligible, termasuk hubungan waktu regrow dengan spawn buah.
+  - Multiplier harga Mutation tetap dibahas terpisah dari aturan eligibilitas ini.
+
 ### D-046 · Mekanik Heatwave, Overheat, dan mutasi buah Summer
 - Tanggal: 2026-11-17
 - Diputuskan oleh: Pemilik proyek
