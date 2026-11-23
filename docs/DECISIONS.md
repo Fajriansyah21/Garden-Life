@@ -1,3 +1,29 @@
+### D-085 · Kalender global, durasi hari, dan siklus spawn batch buah
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; konfigurasi titik awal kalender ditetapkan sebelum launch
+- Konteks: Kalender musim harus konsisten antar-server dan durasi siklus tanaman perlu memiliki titik spawn buah yang jelas untuk menghitung Mutation per instance.
+- Keputusan:
+  - **1 hari in-game berlangsung 6 jam nyata.** Batas hari jatuh pada pukul 00:00, 06:00, 12:00, dan 18:00 UTC.
+  - Kalender dan musim menggunakan waktu global berbasis UTC, bukan waktu uptime server. Semua server menampilkan hari dan musim in-game yang sama; kalender tetap maju ketika server kosong.
+  - Urutan musim adalah Spring → Summer → Autumn → Winter, masing-masing 30 hari in-game. Satu musim berlangsung 180 jam nyata (7 hari 12 jam); satu tahun 120 hari in-game berlangsung 720 jam nyata (30 hari).
+  - Cuaca tetap **shared per server**, sesuai D-061. Kalender musim global tidak berarti episode cuaca harus sama antar-server.
+  - Titik epoch/awal kalender global menjadi konfigurasi tetap yang ditetapkan sebelum launch. Saat epoch ditetapkan, hari 1 dimulai pada Spring; Soft Transition yang sudah ditetapkan untuk tiap musim tetap berlaku.
+  - Setiap siklus pertumbuhan tanaman, termasuk siklus regrow, memiliki progres 0-100%. Batch buah spawn ketika progres siklus mencapai **50%**; buah matang dan siap dipanen pada **100%**.
+  - Setiap batch memiliki instance buah yang terpisah. Buah mulai eligible untuk Mutation alami saat spawn pada 50% progres dan berhenti eligible ketika dipanen atau dihapus, mengikuti D-084.
+  - Jumlah buah dalam satu batch dihitung dan dikunci saat batch spawn menggunakan Base Yield dan modifier jumlah yang berlaku pada titik spawn. Modifier yang berubah setelah spawn tidak mengubah jumlah instance batch tersebut.
+  - Modifier kondisi tanaman yang secara eksplisit didefinisikan sebagai penalti saat panen (misalnya status Scorched) tetap diterapkan pada saat panen sebagai aturan terpisah.
+  - Perhitungan jumlah batch mengikuti aturan pembulatan D-074. Aturan khusus hasil panen/status yang sudah ditetapkan tetap berlaku.
+- Alternatif yang ditolak: Hari 24 jam, kalender yang berjalan berdasarkan uptime tiap server, buah eligible sejak benih ditanam, dan jumlah buah batch yang berubah terus sampai waktu panen.
+- Dampak:
+  - Satu Spring berlangsung 7 hari 12 jam nyata; satu siklus empat musim berlangsung 30 hari nyata.
+  - Durasi eligible buah dari spawn sampai matang adalah 50% progres siklus, bukan 50% waktu nyata tetap; weather/environment growth modifiers memengaruhi waktu nyata yang diperlukan untuk mencapai titik tersebut.
+  - D-073 dan D-074 diperjelas: jumlah batch ditentukan saat spawn, bukan dihitung ulang saat panen. Modifier panen eksplisit seperti Scorched tetap terpisah.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+- Hal yang masih BELUM DIPUTUSKAN:
+  - Nilai timestamp epoch kalender global yang akan dipakai saat launch.
+  - Balancing Mutation, multiplier harga Mutation, dan audit ekonomi bibit/hasil panen.
+
 ### D-084 · Eligibilitas Mutation berdasarkan siklus hidup buah
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
@@ -19,8 +45,7 @@
   - Baseline matematis (buah eligible sepanjang durasi asumsi) dan simulasi realistis (berdasarkan batch dan siklus buah) digunakan sebagai dua lapisan analisis, bukan aturan gameplay tambahan.
   - Tidak ada spec yang dinaikkan menjadi READY.
 - Hal yang masih BELUM DIPUTUSKAN:
-  - Titik spawn batch pada fase pertumbuhan tanaman dan durasi pertumbuhan buah sampai siap dipanen untuk setiap tanaman.
-  - Durasi batch pertama dan batch regrow yang sebenarnya eligible, termasuk hubungan waktu regrow dengan spawn buah.
+  - Titik spawn batch dan durasi pertumbuhan buah telah ditetapkan melalui D-085: spawn pada 50% progres siklus, matang pada 100%.
   - Multiplier harga Mutation tetap dibahas terpisah dari aturan eligibilitas ini.
 
 ### D-046 · Mekanik Heatwave, Overheat, dan mutasi buah Summer
