@@ -1,5 +1,17 @@
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menegaskan bahwa Mutation evolusi Wet → Flooded menggantikan Wet; Wet tidak lagi tercatat setelah evolusi berhasil (D-088).
+  - Nama final Mutation evolusi belum dipilih. Kandidat nama sedang dibahas.
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Pilih nama final Mutation evolusi Wet.
+  - Lanjutkan audit Mutation Spring setelah nama dan aturan Flooded dikonfirmasi.
+- Asumsi yang perlu dicek:
+  - Nama Flooded pada dokumen saat ini adalah nama kerja sampai keputusan penamaan final.
+  - Tidak ada perubahan kode gameplay.
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui D-086: Wet berasal dari semua cuaca yang diklasifikasikan basah; sumber basah Spring adalah Drizzle, Rainy, Misty, dan Thunderstorm. Wet tidak berasal dari aktivitas/alat pemain atau WaterLevel tinggi. Peluang final masih menunggu balancing Mutation.
   - Pemilik menyetujui D-087: menghapus roll Flooded dari WaterLevel tinggi. Jalur evolusi Wet → Flooded selama Rainy tetap berlaku.
   - DECISIONS, GDD v3.39, PRD Spring, dan README diselaraskan.
