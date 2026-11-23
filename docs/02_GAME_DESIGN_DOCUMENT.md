@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.36 · **Terakhir diubah:** 2026-11-23
+**Versi:** 3.37 · **Terakhir diubah:** 2026-11-23
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -147,6 +147,7 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
 - Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
 - **Variant dan Mutation buah (D-022):** keduanya merupakan sistem terpisah, sama-sama mengubah tampilan dan meningkatkan harga jual, serta dapat dimiliki bersamaan pada satu buah. Satu buah hanya dapat memiliki satu Variant; Variant permanen, tidak dapat diganti/ditimpa, dan tampilan Variant selalu berada di atas tampilan Mutation. Variant Seasonal meningkatkan Rarity dan sangat langka serta memerlukan kondisi khusus. Nama Variant Winter diubah menjadi Cristal. Multiplier Variant: Seasonal/Cristal 5x, Silver 1,5x, Gold 3x, Rainbow 4x.
+- **Eligibilitas Mutation per buah (D-084):** Buah mulai menerima roll Mutation alami saat spawn pada tanaman dan tetap eligible selama berada di tanaman, termasuk ketika belum matang. Setelah dipanen atau dihapus, buah berhenti menerima roll. Setiap batch panen baru membuat instance buah baru dengan riwayat Mutation terpisah. Aturan ini tidak mengubah efek Mutation langsung atau syarat khusus sumber tertentu; batas, evolusi, plot kosong, dan kekebalan Greenhouse yang sudah ditetapkan tetap berlaku. Titik spawn batch dan durasi pertumbuhan buah sampai panen per tanaman masih BELUM DIPUTUSKAN.
 - Mutation dapat dimiliki dalam beberapa jenis pada satu buah. Jenis Mutation yang sama hanya dapat tercatat satu kali per buah. Mutation baru dapat menimpa tampilan Mutation sebelumnya, tetapi Mutation sebelumnya tetap tersimpan sebagai atribut dan multiplier ekonominya tetap aktif. Mutation dapat diperoleh dari cuaca, musim, metode khusus, atau Plant Sprayer. Multiplier masing-masing Mutation belum ditentukan dan akan dibahas satu per satu.
 - **Rumus harga buah (D-022):** Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation. Multiplier Mutation dijumlahkan terlebih dahulu. Contoh ilustratif: 100 C × 5 × (2 + 5) = 3.500 C. Jika tidak memiliki Variant atau Mutation, faktor terkait menggunakan nilai netral 1x. Angka 2x dan 5x hanya contoh, bukan nilai Mutation yang disetujui.
 - Mutation Flooded dari paparan WaterLevel dihitung independen per buah: peluang 2,5% per 2 menit pada WaterLevel 4,00-4,99 dan 2,5% per 1 menit pada WaterLevel 5,00. Satu buah hanya dapat memperoleh Flooded satu kali sepanjang siklus hidupnya, termasuk jika diperoleh melalui evolusi Wet selama Rainy (D-021, D-034, D-035).
