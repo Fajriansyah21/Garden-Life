@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.37 · **Terakhir diubah:** 2026-11-23
+**Versi:** 3.38 · **Terakhir diubah:** 2026-11-23
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -47,6 +47,16 @@ Loop konseptual utama:
 
 Loop di atas adalah rancangan konseptual; detail transaksi dan pertumbuhan tetap memerlukan spec.
 
+
+### Kalender global & siklus tanaman (D-085)
+- **1 hari in-game = 6 jam nyata**, dengan batas hari pada 00:00, 06:00, 12:00, dan 18:00 UTC.
+- Kalender dan musim dihitung dari waktu global UTC, bukan uptime server. Semua server memiliki hari dan musim yang sama; kalender tetap maju ketika server kosong.
+- Urutan musim: Spring → Summer → Autumn → Winter. Setiap musim berlangsung 30 hari in-game = 180 jam nyata = 7 hari 12 jam. Satu tahun (120 hari in-game) berlangsung 30 hari nyata.
+- Cuaca tetap **shared per server** (D-061); kalender musim global tidak menyamakan cuaca antar-server.
+- Epoch kalender global ditetapkan sebagai konfigurasi tetap sebelum launch. Hari 1 dimulai pada Spring; Soft Transition tiap musim tetap mengikuti keputusan musim yang sudah ada.
+- Setiap siklus tanaman, termasuk regrow, memiliki progres 0-100%. Batch buah spawn pada 50% progres dan matang pada 100%. Mutation alami mulai eligible saat spawn dan berhenti saat panen/penghapusan (D-084).
+- Jumlah instance buah dalam batch dihitung dan dikunci saat spawn berdasarkan Base Yield dan modifier jumlah yang berlaku saat itu. Modifier yang berubah setelah spawn tidak mengubah jumlah batch. Penalti yang secara eksplisit diterapkan saat panen, seperti Scorched, tetap berlaku sebagai aturan terpisah.
+- Pembulatan jumlah mengikuti D-074. Epoch kalender, multiplier Mutation, dan audit ekonomi masih belum final.
 
 ### Musim & cuaca: Spring (D-028, D-030, D-031, D-034, D-035, D-047, D-048)
 - Identitas visual Spring adalah **Fresh Nature** dengan pola cuaca **Balanced**. Roster konsepnya: Sunny, Cloudy, Drizzle, Rainy, Windy, Misty, dan Thunderstorm.
@@ -147,7 +157,7 @@ Tools yang telah dirancang dicatat dalam [FEAT-002 Tools & Perawatan Tanaman](de
 - Harvest Basket menghabiskan satu penggunaan untuk mengambil seluruh buah siap panen pada satu tanaman. Panen manual satu per satu tetap tersedia.
 - Plant Sprayer adalah alat permanen; cairan aplikasinya consumable dan digunakan pada satu tanaman untuk efek khusus seperti mutasi, ukuran, atau variasi.
 - **Variant dan Mutation buah (D-022):** keduanya merupakan sistem terpisah, sama-sama mengubah tampilan dan meningkatkan harga jual, serta dapat dimiliki bersamaan pada satu buah. Satu buah hanya dapat memiliki satu Variant; Variant permanen, tidak dapat diganti/ditimpa, dan tampilan Variant selalu berada di atas tampilan Mutation. Variant Seasonal meningkatkan Rarity dan sangat langka serta memerlukan kondisi khusus. Nama Variant Winter diubah menjadi Cristal. Multiplier Variant: Seasonal/Cristal 5x, Silver 1,5x, Gold 3x, Rainbow 4x.
-- **Eligibilitas Mutation per buah (D-084):** Buah mulai menerima roll Mutation alami saat spawn pada tanaman dan tetap eligible selama berada di tanaman, termasuk ketika belum matang. Setelah dipanen atau dihapus, buah berhenti menerima roll. Setiap batch panen baru membuat instance buah baru dengan riwayat Mutation terpisah. Aturan ini tidak mengubah efek Mutation langsung atau syarat khusus sumber tertentu; batas, evolusi, plot kosong, dan kekebalan Greenhouse yang sudah ditetapkan tetap berlaku. Titik spawn batch dan durasi pertumbuhan buah sampai panen per tanaman masih BELUM DIPUTUSKAN.
+- **Eligibilitas Mutation per buah (D-084):** Buah mulai menerima roll Mutation alami saat spawn pada tanaman dan tetap eligible selama berada di tanaman, termasuk ketika belum matang. Setelah dipanen atau dihapus, buah berhenti menerima roll. Setiap batch panen baru membuat instance buah baru dengan riwayat Mutation terpisah. Aturan ini tidak mengubah efek Mutation langsung atau syarat khusus sumber tertentu; batas, evolusi, plot kosong, dan kekebalan Greenhouse yang sudah ditetapkan tetap berlaku. Titik spawn batch dan durasi eligible buah mengikuti D-085: spawn pada 50% progres siklus, matang pada 100%.
 - Mutation dapat dimiliki dalam beberapa jenis pada satu buah. Jenis Mutation yang sama hanya dapat tercatat satu kali per buah. Mutation baru dapat menimpa tampilan Mutation sebelumnya, tetapi Mutation sebelumnya tetap tersimpan sebagai atribut dan multiplier ekonominya tetap aktif. Mutation dapat diperoleh dari cuaca, musim, metode khusus, atau Plant Sprayer. Multiplier masing-masing Mutation belum ditentukan dan akan dibahas satu per satu.
 - **Rumus harga buah (D-022):** Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation. Multiplier Mutation dijumlahkan terlebih dahulu. Contoh ilustratif: 100 C × 5 × (2 + 5) = 3.500 C. Jika tidak memiliki Variant atau Mutation, faktor terkait menggunakan nilai netral 1x. Angka 2x dan 5x hanya contoh, bukan nilai Mutation yang disetujui.
 - Mutation Flooded dari paparan WaterLevel dihitung independen per buah: peluang 2,5% per 2 menit pada WaterLevel 4,00-4,99 dan 2,5% per 1 menit pada WaterLevel 5,00. Satu buah hanya dapat memperoleh Flooded satu kali sepanjang siklus hidupnya, termasuk jika diperoleh melalui evolusi Wet selama Rainy (D-021, D-034, D-035).
@@ -271,7 +281,7 @@ Roster tanaman reguler saat ini terdiri dari 21 tanaman setelah Starfruit ditamb
 | **Normal** | Tidak terpengaruh | Tidak terpengaruh |
 
 Objek yang memengaruhi: tanaman lain dan bangunan. Dekorasi tidak dihitung.
-Berlaku fase semi-dewasa sampai dewasa. Ukuran dikunci saat buah lahir; jumlah dihitung saat panen.
+Berlaku fase semi-dewasa sampai dewasa. Ukuran dan jumlah instance batch dikunci saat spawn; modifier jumlah dievaluasi pada titik spawn (D-085).
 Di Greenhouse efek Air love dimatikan total.
 
 #### Efek gameplay klasifikasi Air (D-072)
