@@ -1,5 +1,23 @@
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik menyetujui D-086: Wet berasal dari semua cuaca yang diklasifikasikan basah; sumber basah Spring adalah Drizzle, Rainy, Misty, dan Thunderstorm. Wet tidak berasal dari aktivitas/alat pemain atau WaterLevel tinggi. Peluang final masih menunggu balancing Mutation.
+  - Pemilik menyetujui D-087: menghapus roll Flooded dari WaterLevel tinggi. Jalur evolusi Wet → Flooded selama Rainy tetap berlaku.
+  - DECISIONS, GDD v3.39, PRD Spring, dan README diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-086, D-087)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.39)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Berikutnya: lanjutkan audit Mutation Spring satu per satu, mulai Flooded; setelah seluruh Mutation selesai, tetapkan peluang dan lakukan simulasi.
+- Asumsi yang perlu dicek:
+  - Peluang Wet lama 2,5% belum dianggap balancing final; akan ditinjau bersama peluang Mutation lainnya.
+  - Tidak ada perubahan kode gameplay.
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menyetujui D-085: 1 hari in-game = 6 jam nyata; kalender musim global berbasis UTC dan sama di semua server; cuaca tetap shared per server.
   - Satu musim 30 hari in-game (7 hari 12 jam nyata); satu tahun 120 hari in-game (30 hari nyata).
   - Batch buah spawn pada 50% progres siklus tanaman/regrow, matang pada 100%; Mutation alami eligible sejak spawn hingga panen/penghapusan.
