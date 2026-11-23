@@ -1528,3 +1528,21 @@ Entri terbaru di paling atas.
   - **Mint:** Single Harvest; Bibit 400 LC; Tumbuh 6 min; Hasil 3 daun; Jual 300 LC/daun.
 - Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
 - D-076 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-077 · Klasifikasi lingkungan dan balancing ekonomi tanaman Rare
+- Tanggal: 2026-11-22
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep
+- Roster Rare: Sunflower, Watermelon, Lavender, Peony.
+- Klasifikasi Lingkungan:
+  - **Sunflower:** Matahari Sun love; Panas Heat love; Dingin Cold normal; Air Water normal; Udara Air love; WaterLevel maksimum 3.000.
+  - **Watermelon:** Matahari Normal; Panas Heat love; Dingin Cold sensitive; Air Water love; Udara Air normal; WaterLevel maksimum 5.000.
+  - **Lavender:** Matahari Sun love; Panas Heat normal; Dingin Cold love; Air Water normal; Udara Air love; WaterLevel maksimum 2.000.
+  - **Peony:** Matahari Normal; Panas Heat sensitive; Dingin Cold love; Air Water love; Udara Air love; WaterLevel maksimum 4.000.
+- Balancing Ekonomi:
+  - **Sunflower:** Single Harvest; Bibit 2.500 LC; Tumbuh 15 min; Hasil 1 bunga; Total 1 panen; Jual 4.000 LC.
+  - **Watermelon:** Multi Harvest; Bibit 3.000 LC; Tumbuh 18 min; Hasil 3 buah; Total 10 panen; Regrow 10 min; Jual 1.500 LC/buah.
+  - **Lavender:** Multi Harvest; Bibit 2.000 LC; Tumbuh 12 min; Hasil 5 daun; Total 6 panen; Regrow 8 min; Jual 600 LC/daun.
+  - **Peony:** Multi Harvest; Bibit 3.500 LC; Tumbuh 20 min; Hasil 2 bunga; Total 8 panen; Regrow 12 min; Jual 3.000 LC/bunga.
+- Multi Harvest bersifat finite (jumlah panen total mencakup panen pertama dan ulang).
+- D-077 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

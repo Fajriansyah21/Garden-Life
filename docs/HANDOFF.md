@@ -1,4 +1,11 @@
 ## 2026-11-22 · Hermes -> Pemilik
+- Selesai: D-077 menetapkan klasifikasi lingkungan dan balancing ekonomi untuk tanaman Rare (Sunflower, Watermelon, Lavender, Peony).
+- File diubah: docs/DECISIONS.md (D-077), docs/02_GAME_DESIGN_DOCUMENT.md (v3.29), docs/HANDOFF.md.
+- Spec READY: tidak ada.
+
+---
+
+## 2026-11-22 · Hermes -> Pemilik
 - Selesai: D-076 menetapkan balancing ekonomi untuk tanaman Uncommon (Tulip, Blueberry, Bell Pepper, Mint).
 - File diubah: docs/DECISIONS.md (D-076), docs/02_GAME_DESIGN_DOCUMENT.md (v3.28), docs/HANDOFF.md.
 - Spec READY: tidak ada.

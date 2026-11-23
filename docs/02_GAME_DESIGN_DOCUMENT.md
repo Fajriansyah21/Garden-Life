@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.28 · **Terakhir diubah:** 2026-11-22
+**Versi:** 3.29 · **Terakhir diubah:** 2026-11-22
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -340,6 +340,24 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Blueberry | Multi | 800 LC | 10 min | 8 buah | 10 | 6 min | 130 LC |
 | Bell Pepper | Multi | 1.500 LC | 12 min | 6 buah | 8 | 8 min | 280 LC |
 | Mint | Single | 400 LC | 6 min | 3 daun | 1 | - | 300 LC |
+
+#### Balancing tanaman Rare (D-077)
+
+| Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Sunflower | Single | 2.500 LC | 15 min | 1 bunga | 1 | - | 4.000 LC |
+| Watermelon | Multi | 3.000 LC | 18 min | 3 buah | 10 | 10 min | 1.500 LC |
+| Lavender | Multi | 2.000 LC | 12 min | 5 daun | 6 | 8 min | 600 LC |
+| Peony | Multi | 3.500 LC | 20 min | 2 bunga | 8 | 12 min | 3.000 LC |
+
+#### Klasifikasi lingkungan tanaman Rare (D-077)
+
+| Tanaman | Matahari | Panas | Dingin | Air | Udara | WaterLevel max |
+|---|---|---|---|---|---|---:|
+| Sunflower | Sun love | Heat love | Cold normal | Water normal | Air love | 3.000 |
+| Watermelon | Normal | Heat love | Cold sensitive | Water love | Air normal | 5.000 |
+| Lavender | Sun love | Heat normal | Cold love | Water normal | Air love | 2.000 |
+| Peony | Normal | Heat sensitive | Cold love | Water love | Air love | 4.000 |
 
 #### Balancing awal tanaman Uncommon (D-066)
 Balancing ini dicatat untuk eksplorasi konsep. Parameter yang sudah diputuskan pemilik ditandai **DIPUTUSKAN**; angka yang berasal dari usulan balancing sebelumnya dan belum dikonfirmasi secara spesifik tetap **ASUMSI sementara**. Bukan spec implementasi.
