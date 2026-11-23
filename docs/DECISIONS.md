@@ -12,6 +12,7 @@
   - Setiap siklus pertumbuhan tanaman, termasuk siklus regrow, memiliki progres 0-100%. Batch buah spawn ketika progres siklus mencapai **50%**; buah matang dan siap dipanen pada **100%**.
   - Setiap batch memiliki instance buah yang terpisah. Buah mulai eligible untuk Mutation alami saat spawn pada 50% progres dan berhenti eligible ketika dipanen atau dihapus, mengikuti D-084.
   - Jumlah buah dalam satu batch dihitung dan dikunci saat batch spawn menggunakan Base Yield dan modifier jumlah yang berlaku pada titik spawn. Modifier yang berubah setelah spawn tidak mengubah jumlah instance batch tersebut.
+  - Ketentuan ini memperjelas dan menggantikan timing perhitungan jumlah batch pada D-073 dan D-074; modifier jumlah batch tidak dihitung ulang saat panen. Penalti yang secara eksplisit didefinisikan sebagai aturan saat panen tetap diterapkan pada saat panen.
   - Modifier kondisi tanaman yang secara eksplisit didefinisikan sebagai penalti saat panen (misalnya status Scorched) tetap diterapkan pada saat panen sebagai aturan terpisah.
   - Perhitungan jumlah batch mengikuti aturan pembulatan D-074. Aturan khusus hasil panen/status yang sudah ditetapkan tetap berlaku.
 - Alternatif yang ditolak: Hari 24 jam, kalender yang berjalan berdasarkan uptime tiap server, buah eligible sejak benih ditanam, dan jumlah buah batch yang berubah terus sampai waktu panen.
