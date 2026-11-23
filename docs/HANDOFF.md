@@ -1,5 +1,24 @@
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik memilih **Hazy** sebagai nama Mutation dari cuaca Misty (D-092).
+  - Hazy menggambarkan buah diselimuti haze/kabut tipis; evolusinya tetap Foggy, buah tertutup kabut tebal (D-091).
+  - Saat evolusi berhasil, Foggy menggantikan Hazy. Peluang dan multiplier belum ditetapkan.
+  - GDD diperbarui ke v3.43; PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-092)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.43)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Lanjutkan audit perilaku Mutation Spring berikutnya. Peluang Hazy dan evolusi Foggy, multiplier, serta balancing tetap ditunda sampai seluruh roster selesai.
+- Asumsi / risiko:
+  - Peluang lama Misty 6,697% per tick dan evolusi Foggy 0,809% per tick tidak dipertahankan sebagai angka aktif; keduanya merupakan baseline lama yang belum final.
+  - Tidak ada perubahan kode gameplay.
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menetapkan identitas **Foggy**: buah yang tertutup kabut tebal (D-091).
   - GDD diperbarui ke v3.42; PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
 - File diubah:
