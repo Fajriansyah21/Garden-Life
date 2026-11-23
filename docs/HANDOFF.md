@@ -1,5 +1,25 @@
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
+  - Pemilik mengonfirmasi identitas konsep evolusi Wet: hasil evolusi menggambarkan buah yang tergenang atau terlalu basah (D-089).
+  - D-089 membedakan identitas evolusi dari sumber Wet; Wet tetap berasal dari cuaca basah dan evolusi tetap menggantikan Wet sesuai D-088.
+  - GDD diperbarui ke v3.40; PRD Spring, README, dan DECISIONS diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-089)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.40)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada.
+- Pertanyaan terbuka untuk pemilik:
+  - Nama final Mutation evolusi Wet.
+  - Setelah seluruh Mutation Spring selesai direview, tentukan peluang evolusi dan multiplier harga.
+- Asumsi / risiko:
+  - Flooded masih nama kerja.
+  - Peluang evolusi 2,5% per tick hanya baseline lama, bukan angka final.
+  - Tidak ada perubahan kode gameplay.
+
+## 2026-11-23 · ChatGPT -> Claude
+- Selesai:
   - Pemilik menegaskan bahwa Mutation evolusi Wet → Flooded menggantikan Wet; Wet tidak lagi tercatat setelah evolusi berhasil (D-088).
   - Nama final Mutation evolusi belum dipilih. Kandidat nama sedang dibahas.
 - Spec READY untuk dikerjakan: tidak ada.
