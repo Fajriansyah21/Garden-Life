@@ -1,7 +1,7 @@
 # 02 · Game Design Document (GDD)
 
 **Pemilik:** ChatGPT (Perancang) · **Penyetuju:** Pemilik proyek
-**Versi:** 3.35 · **Terakhir diubah:** 2026-11-23
+**Versi:** 3.36 · **Terakhir diubah:** 2026-11-23
 
 > Dokumen ini mencatat arah desain yang telah dikonfirmasi. Detail yang belum diputuskan ditandai **BELUM DIPUTUSKAN** atau **ASUMSI** dan tidak boleh dianggap sebagai aturan implementasi.
 
@@ -341,7 +341,7 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Bell Pepper | Multi | 1.500 LC | 12 min | 6 buah | 8 | 8 min | 280 LC |
 | Mint | Single | 400 LC | 6 min | 3 daun | 1 | - | 300 LC |
 
-#### Balancing tanaman Epic (D-078)
+#### Balancing tanaman Epic (D-079/D-080)
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
@@ -366,7 +366,7 @@ Balancing ini disetujui untuk konsep, bukan spec implementasi.
 | Aurora Rose | Multi | 300.000 LC | 100 min | 1 bunga | 12 | 30 min | 52.000 LC |
 | Stardust Willow | Multi | 350.000 LC | 120 min | 120 daun | 6 | 20 min | 750 LC |
 
-#### Balancing tanaman Legendary (D-081)
+#### Balancing tanaman Legendary (D-082)
 
 | Tanaman | Pola panen | Bibit | Tumbuh awal | Hasil/Panen | Total panen | Regrow | Jual/Buah |
 |---|---|---:|---:|---:|---:|---:|---:|
