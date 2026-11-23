@@ -1,3 +1,18 @@
+### D-089 · Identitas konsep evolusi Wet
+- Tanggal: 2026-11-23
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk balancing konsep; nama final dan angka balancing belum dipilih
+- Konteks: Evolusi Wet harus memiliki identitas yang berbeda dari Mutation Wet asal dan sesuai nuansa cozy Garden Life.
+- Keputusan:
+  - Hasil evolusi Wet menggambarkan buah yang **tergenang atau terlalu basah**.
+  - Konsep ini menjelaskan kondisi buah setelah Wet berevolusi, bukan sumber perolehan Wet. Wet tetap diperoleh dari cuaca basah sesuai D-086.
+  - Evolusi tetap menggantikan Wet sesuai D-088; Wet dan multiplier-nya tidak lagi berlaku setelah evolusi berhasil.
+  - Flooded tetap nama kerja sampai pemilik memilih nama final.
+- Dampak:
+  - GDD dan PRD Spring mencatat identitas konseptual evolusi ini.
+  - Peluang evolusi dan multiplier harga tetap menunggu balancing Mutation setelah roster Spring selesai.
+  - Tidak ada spec yang dinaikkan menjadi READY.
+
 ### D-088 · Wet digantikan oleh Mutation evolusi Flooded
 - Tanggal: 2026-11-23
 - Diputuskan oleh: Pemilik proyek
