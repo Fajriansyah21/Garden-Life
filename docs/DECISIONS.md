@@ -1779,3 +1779,18 @@ Entri terbaru di paling atas.
 - **Foggy** menggambarkan buah yang **tertutup kabut tebal**. Identitas visual Mutation adalah kabut tebal yang menyelimuti buah.
 - Foggy merupakan evolusi dari Misty sesuai aturan evolusi yang sudah tercatat; detail peluang, multiplier, dan balancing tetap ditunda sampai audit seluruh Mutation Spring selesai.
 - D-091 tidak menetapkan peluang Mutation, multiplier harga, atau status spec READY.
+
+
+### D-093 · Identitas Mutation Shocked dan Charged
+- Tanggal: 2026-11-26
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk identitas konsep; peluang dan multiplier belum final
+- Konteks: Shocked dan Charged sama-sama berasal dari sambaran petir Thunderstorm, sehingga identitas keduanya perlu dibedakan.
+- Keputusan:
+  - **Shocked** menggambarkan buah yang terkena dampak listrik secara langsung dari sambaran petir.
+  - **Charged** menggambarkan buah yang menyimpan energi listrik.
+  - Shocked dan Charged merupakan identitas Mutation yang berbeda dan dapat dimiliki bersamaan pada buah yang sama, mengikuti aturan yang telah tercatat.
+  - D-093 hanya menetapkan identitas konsep. Tidak mengubah sumber, peluang roll, aturan sambaran, multiplier harga, tampilan spesifik, atau efek gameplay.
+  - Peluang dan multiplier tetap ditunda sampai audit seluruh Mutation Spring selesai.
+- Dampak: GDD, PRD Spring, dan README diperbarui agar menggunakan pemisahan identitas Shocked dan Charged.
+- D-093 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
