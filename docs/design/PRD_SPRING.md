@@ -42,7 +42,7 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 ## 5. Thunderstorm dan perlindungan petir
 - Setiap plot melakukan roll sambaran 1% per tick; maksimal 5 sambaran per plot per episode.
 - Titik sambaran acak dalam plot, radius dampak 8 studs.
-- Buah pada tanaman terdampak mendapat Shocked 100%; setiap buah melakukan roll Charged 15%.
+- Buah pada tanaman terdampak mendapat Shocked 100%; setiap buah melakukan roll Charged 15%. Shocked menggambarkan dampak listrik langsung dari sambaran petir, sedangkan Charged menggambarkan buah yang menyimpan energi listrik (D-093). Keduanya dapat dimiliki bersamaan pada buah yang sama. Peluang dan multiplier harga belum final.
 - Hasil kondisi tanaman per sambaran bersifat mutually exclusive: 60% tidak rusak, 25% Scorched, 15% mati.
 - WaterLevel bertambah +0,075/tick dan pertumbuhan tanaman menggunakan multiplier 0,80× selama Thunderstorm.
 - **Storm Catcher** (nama final Lightning Rod) radius 24 studs, peluang redirect 50%, maksimal 3 redirect berhasil per item.
