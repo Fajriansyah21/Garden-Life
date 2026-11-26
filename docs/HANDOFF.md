@@ -1,3 +1,21 @@
+## 2026-11-26 · ChatGPT -> Claude
+- Selesai:
+  - Pemilik menyetujui identitas Shocked sebagai dampak listrik langsung dari sambaran petir dan Charged sebagai buah yang menyimpan energi listrik (D-093).
+  - Shocked dan Charged tetap Mutation berbeda dan dapat dimiliki bersamaan; peluang serta multiplier belum final.
+  - GDD diperbarui ke v3.44; PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-093)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.44)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka untuk pemilik:
+  - Lanjutkan audit identitas Mutation Spring berikutnya. Peluang dan multiplier Shocked/Charged tetap ditunda sampai seluruh roster selesai.
+- Asumsi / risiko:
+  - D-093 tidak mengubah peluang sambaran, roll Shocked/Charged, multiplier harga, atau efek gameplay.
+  - Tidak ada perubahan kode gameplay.
+
 ## 2026-11-23 · ChatGPT -> Claude
 - Selesai:
   - Pemilik memilih **Hazy** sebagai nama Mutation dari cuaca Misty (D-092).
