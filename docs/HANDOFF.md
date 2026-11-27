@@ -1,3 +1,25 @@
+## 2026-11-27 · Kiro -> Pemilik / Claude
+- Selesai:
+  - Pemilik menyetujui D-094: Aturan urutan evaluasi roll Wet dan Flooded pada tick yang sama, peluang baseline per tick Mutation Spring, serta multiplier harga jual Mutation Spring dan Variant.
+  - Urutan evaluasi: roll Wet untuk buah tanpa Wet/Flooded; roll Flooded hanya untuk buah yang sudah memiliki Wet sebelum tick berjalan; Wet yang baru didapat tidak berevolusi pada tick yang sama.
+  - Peluang baseline per tick: Wet 2,5%, Flooded 1,0%, Hazy 3,0%, Foggy 1,0%, Shocked 100% (sambaran), Charged 15% (sambaran).
+  - Multiplier harga: Wet 1,25×, Flooded 1,5×, Hazy 1,5×, Foggy 2,0×, Shocked 1,5×, Charged 2,0×. Variant: Silver 1,5×, Gold 3,0×, Rainbow 4,0×, Seasonal/Cristal 5,0×. Rumus harga D-022 ditegaskan.
+  - GDD diperbarui ke v3.45; DECISIONS.md, PRD_SPRING.md, README.md, dan HANDOFF.md diselaraskan.
+- File diubah:
+  - docs/DECISIONS.md (D-094)
+  - docs/02_GAME_DESIGN_DOCUMENT.md (v3.45)
+  - docs/design/PRD_SPRING.md
+  - README.md
+  - docs/HANDOFF.md
+- Spec READY untuk dikerjakan: tidak ada. FEAT-001 dan FEAT-002 tetap DRAFT.
+- Pertanyaan terbuka untuk pemilik:
+  - Lanjutkan simulasi ekonomi harga jual buah dengan Mutation dan Variant menggunakan baseline D-094.
+  - Audit roster dan multiplier Mutation untuk musim Summer, Autumn, dan Winter berikutnya.
+- Asumsi / risiko:
+  - Peluang dan multiplier D-094 adalah baseline pemodelan simulasi ekonomi, bukan angka final implementasi tanpa pengujian model source/sink.
+  - Kombinasi Variant Seasonal/Cristal (5×) dengan Shocked + Charged (3,5×) menghasilkan total 17,5× harga dasar yang perlu diuji risikonya terhadap laju inflasi.
+  - Tidak ada perubahan kode gameplay.
+
 ## 2026-11-26 · ChatGPT -> Claude
 - Selesai:
   - Pemilik menyetujui identitas Shocked sebagai dampak listrik langsung dari sambaran petir dan Charged sebagai buah yang menyimpan energi listrik (D-093).

@@ -1794,3 +1794,40 @@ Entri terbaru di paling atas.
   - Peluang dan multiplier tetap ditunda sampai audit seluruh Mutation Spring selesai.
 - Dampak: GDD, PRD Spring, dan README diperbarui agar menggunakan pemisahan identitas Shocked dan Charged.
 - D-093 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.
+
+### D-094 · Aturan urutan evaluasi, peluang baseline, dan multiplier Mutation Spring
+- Tanggal: 2026-11-27
+- Diputuskan oleh: Pemilik proyek
+- Status: Disetujui untuk baseline simulasi balancing Mutation Spring
+- Konteks: Menuntaskan audit Mutation Spring mengenai urutan roll Wet dan evolusi Flooded pada tick yang sama, menetapkan peluang baseline per tick, serta multiplier harga jual buah Mutation Spring dan Variant.
+- Keputusan:
+  - **Urutan evaluasi Wet dan Flooded pada tick yang sama:**
+    - Evaluasi kondisi buah dilakukan pada awal tick cuaca basah (Rainy).
+    - Buah yang belum memiliki Wet atau Flooded melakukan roll perolehan Mutation Wet.
+    - Buah yang SUDAH memiliki Mutation Wet sebelum tick berjalan melakukan roll evolusi menjadi Flooded (hanya selama Rainy).
+    - Buah yang baru memperoleh Wet pada tick berjalan TIDAK melakukan roll evolusi Flooded pada tick yang sama (harus menunggu tick Rainy berikutnya jika masih eligible).
+    - Jika evolusi berhasil, Flooded menggantikan Wet (Wet dihapus dan tidak lagi tercatat, sesuai D-088).
+  - **Peluang baseline Mutation per tick (selama buah eligible dan plot aktif):**
+    - **Wet:** 2,5% per tick pada semua cuaca basah Spring (Drizzle, Rainy, Misty, Thunderstorm).
+    - **Flooded (evolusi dari Wet):** 1,0% per tick selama Rainy.
+    - **Hazy:** 3,0% per tick selama Misty (buah belum memiliki Hazy atau Foggy).
+    - **Foggy (evolusi dari Hazy):** 1,0% per tick selama Misty bagi buah yang sudah memiliki Hazy. Evolusi berhasil menggantikan Hazy (Hazy dihapus, sesuai D-091/D-092).
+    - **Shocked:** 100% pada semua buah tanaman yang terkena sambaran petir Thunderstorm (radius 8 studs).
+    - **Charged:** 15% roll independen per buah pada tanaman yang terkena sambaran petir Thunderstorm.
+  - **Multiplier harga jual buah:**
+    - **Mutation Spring:**
+      - Wet: 1,25×
+      - Flooded: 1,5× (menggantikan Wet)
+      - Hazy: 1,5×
+      - Foggy: 2,0× (menggantikan Hazy)
+      - Shocked: 1,5×
+      - Charged: 2,0× (dapat bersamaan dengan Shocked, menghasilkan total multiplier Mutation 3,5×)
+    - **Variant (penegasan D-022):**
+      - Silver: 1,5×
+      - Gold: 3,0×
+      - Rainbow: 4,0×
+      - Seasonal / Cristal: 5,0×
+    - **Rumus perhitungan harga akhir (D-022):** `Harga Dasar × Multiplier Variant × Jumlah Multiplier Mutation`. Multiplier Mutation dijumlahkan terlebih dahulu. Jika buah tidak memiliki Variant atau Mutation, faktor terkait bernilai 1,0× (netral).
+  - Angka peluang dan multiplier ini disetujui sebagai baseline resmi untuk pemodelan simulasi ekonomi dan audit source/sink.
+- Dampak: GDD diperbarui ke v3.45, PRD Spring, README, DECISIONS, dan HANDOFF diselaraskan.
+- D-094 tidak menaikkan spec menjadi READY dan tidak menetapkan scope Vertical Slice.

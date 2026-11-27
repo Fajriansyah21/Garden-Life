@@ -30,10 +30,9 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 
 ## 4. Shared Weather & Mutation
 - Cloudy, Drizzle, Rainy, Windy, dan Misty mengikuti angka final pada dokumen Shared Weather Specification (D-061).
-- Wet dapat diperoleh dari semua cuaca basah, dan hanya dari cuaca (D-086). Sumber basah Spring: Drizzle, Rainy, Misty, dan Thunderstorm. Aktivitas pemain, alat penyiraman, dan WaterLevel tinggi tidak menghasilkan Wet.
-- Peluang Wet final belum ditetapkan; angka 2,5% pada keputusan lama merupakan baseline terdahulu yang akan ditinjau dalam balancing Mutation (D-086).
-- Cuaca Misty dapat menghasilkan Mutation Hazy, yang menggambarkan buah diselimuti haze/kabut tipis (D-092). Hazy dapat berevolusi menjadi Foggy; Foggy menggambarkan buah yang tertutup kabut tebal (D-091). Evolusi menggantikan Hazy, bukan menumpuk dengannya. Peluang Mutation, peluang evolusi, dan multiplier masih menunggu audit seluruh Mutation Spring.
-- Rainy: buah yang sudah memiliki Wet dapat berevolusi menjadi Flooded, yang secara konsep menggambarkan buah tergenang atau terlalu basah (D-089). Peluang evolusi final mengikuti balancing Mutation. Flooded menggantikan Wet; Wet tidak lagi tercatat dan multiplier Wet tidak lagi berlaku setelah evolusi berhasil (D-088).
+- Wet dapat diperoleh dari semua cuaca basah, dan hanya dari cuaca (D-086). Sumber basah Spring: Drizzle, Rainy, Misty, dan Thunderstorm. Aktivitas pemain, alat penyiraman, dan WaterLevel tinggi tidak menghasilkan Wet. Peluang baseline Wet disetujui 2,5% per tick pada buah eligible (D-094).
+- Cuaca Misty dapat menghasilkan Mutation Hazy dengan peluang baseline 3,0% per tick (D-094), yang menggambarkan buah diselimuti haze/kabut tipis (D-092). Hazy dapat berevolusi menjadi Foggy dengan peluang baseline 1,0% per tick (D-094); Foggy menggambarkan buah yang tertutup kabut tebal (D-091). Evolusi menggantikan Hazy, bukan menumpuk dengannya. Multiplier harga: Hazy 1,5×, Foggy 2,0× (D-094).
+- Rainy: evaluasi roll Wet dan evolusi Flooded pada tick yang sama dipisahkan: roll Wet untuk buah tanpa Wet/Flooded; roll Flooded hanya untuk buah yang sudah berstatus Wet sebelum tick berjalan; Wet yang baru didapat tidak berevolusi pada tick yang sama (D-094). Peluang baseline evolusi Flooded adalah 1,0% per tick selama Rainy (D-094). Flooded menggantikan Wet; Wet tidak lagi tercatat dan multiplier Wet tidak lagi berlaku setelah evolusi berhasil (D-088). Multiplier harga: Wet 1,25×, Flooded 1,5× (D-094).
 - Flooded dari WaterLevel tinggi dihapus. Flooded hanya diperoleh melalui evolusi Wet → Flooded selama Rainy (D-087).
 - WaterLevel disimpan dengan presisi 0,001, rentang 0,000-5,000.
 - Mutation cuaca hanya roll pada plot yang ditempati. Greenhouse tidak menerima Mutation cuaca.
@@ -42,7 +41,7 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 ## 5. Thunderstorm dan perlindungan petir
 - Setiap plot melakukan roll sambaran 1% per tick; maksimal 5 sambaran per plot per episode.
 - Titik sambaran acak dalam plot, radius dampak 8 studs.
-- Buah pada tanaman terdampak mendapat Shocked 100%; setiap buah melakukan roll Charged 15%. Shocked menggambarkan dampak listrik langsung dari sambaran petir, sedangkan Charged menggambarkan buah yang menyimpan energi listrik (D-093). Keduanya dapat dimiliki bersamaan pada buah yang sama. Peluang dan multiplier harga belum final.
+- Buah pada tanaman terdampak mendapat Shocked 100%; setiap buah melakukan roll Charged 15% (D-094). Shocked menggambarkan dampak listrik langsung dari sambaran petir (multiplier 1,5×), sedangkan Charged menggambarkan buah yang menyimpan energi listrik (multiplier 2,0×) (D-093, D-094). Keduanya dapat dimiliki bersamaan pada buah yang sama (total pengali Mutation 3,5×).
 - Hasil kondisi tanaman per sambaran bersifat mutually exclusive: 60% tidak rusak, 25% Scorched, 15% mati.
 - WaterLevel bertambah +0,075/tick dan pertumbuhan tanaman menggunakan multiplier 0,80× selama Thunderstorm.
 - **Storm Catcher** (nama final Lightning Rod) radius 24 studs, peluang redirect 50%, maksimal 3 redirect berhasil per item.
@@ -52,7 +51,8 @@ Spring memperkenalkan cuaca, WaterLevel, Mutation cuaca, dan perlindungan petir 
 ## 6. Ekonomi dan item
 - Harga benih mengikuti D-052: Common 100, Uncommon 500, Rare 2.500, Epic 10.000, Legendary 50.000, Mystic 250.000 Life Coin.
 - Toko Spring First Release terbatas Common, Uncommon, dan Rare.
-- Harga Storm Catcher, Storm Shield, Scorch Balm, dan multiplier Mutation belum final.
+- Multiplier harga Mutation Spring disetujui sebagai baseline simulasi (D-094): Wet 1,25×, Flooded 1,5×, Hazy 1,5×, Foggy 2,0×, Shocked 1,5×, Charged 2,0×. Rumus harga buah mengikuti D-022: `Harga Dasar × Variant × Jumlah Multiplier Mutation`.
+- Harga Storm Catcher, Storm Shield, dan Scorch Balm belum final.
 - Season Pill mengikuti aturan lintas musim: 80% harga jual buah dewasa.
 
 ## 7. Kriteria penerimaan
